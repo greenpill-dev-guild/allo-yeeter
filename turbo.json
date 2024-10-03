@@ -11,7 +11,6 @@
       "outputs": [
         ".next/**",
         "!.next/cache/**",
-        "storybook-static/**",
         "dist/**"
       ]
     },
