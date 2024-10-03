@@ -1,0 +1,49 @@
+{
+  "name": "storybook",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "bunx storybook dev -p 6006",
+    "start": "bunx storybook dev -p 6006",
+    "build": "bunx storybook build",
+    "test": "npm run test-storybook"
+  },
+  "dependencies": {
+    "@rainbow-me/rainbowkit": "^2.1.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.10",
+    "wagmi": "^2.12.2"
+  },
+  "devDependencies": {
+    "@allo-team/kit": "workspace:*",
+    "@chromatic-com/storybook": "^1.6.1",
+    "@storybook/addon-essentials": "^8.2.9",
+    "@storybook/addon-interactions": "^8.2.9",
+    "@storybook/addon-links": "^8.2.9",
+    "@storybook/addon-onboarding": "^8.2.9",
+    "@storybook/addon-themes": "^8.2.9",
+    "@storybook/blocks": "^8.2.9",
+    "@storybook/nextjs": "^8.2.9",
+    "@storybook/react": "^8.2.9",
+    "@storybook/test": "^8.2.9",
+    "@storybook/test-runner": "^0.19.1",
+    "@swc/helpers": "^0.5.12",
+    "@types/node": "^20.14.15",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.4",
+    "eslint-plugin-storybook": "^0.8.0",
+    "msw-storybook-addon": "^2.0.3",
+    "storybook-msw-addon": "^2.1.5",
+    "typescript": "^5.5.4"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}

@@ -1,0 +1,732 @@
+{
+  "data": {
+    "projects": [
+      {
+        "id": "0x0005e8a1cdfd8d9ef22b72cc3a8310e8d73034a4c05f7e0a80aec0cd2c7621e1",
+        "name": "Zilliqa",
+        "projectType": "CANONICAL",
+        "chainId": 11155111,
+        "createdByAddress": "0x5a4830885f12438e00d8f4d98e9fe083e707698c",
+        "anchorAddress": "0x2bfd88bb8424075a5319c81bb0baadaa863d2e49",
+        "metadata": {
+          "tags": ["grant-program-registry"],
+          "type": "",
+          "title": "Zilliqa",
+          "status": "Active",
+          "logoImg": "",
+          "website": "https://www.zilliqa.com/funding",
+          "networks": ["Zilliqa"],
+          "bannerImg": "",
+          "createdAt": 1715189179448,
+          "ecosystems": ["Zilliqa"],
+          "grantTypes": [],
+          "description": "",
+          "logoImgData": "",
+          "bannerImgData": "",
+          "organizations": [],
+          "projectTwitter": ""
+        }
+      },
+      {
+        "id": "0x00065ad5b4ac5b42ac82c60ac9e939505f7996e95b6181919a5353fc50e6b664",
+        "name": "Ether Alpha",
+        "projectType": "CANONICAL",
+        "chainId": 424,
+        "createdByAddress": "0x0194325bf525be0d4fbb0856894ced74da3b8356",
+        "anchorAddress": null,
+        "metadata": {
+          "type": "project",
+          "title": "Ether Alpha",
+          "logoImg": "bafkreibtv77vq52oynon2bommgsnimmq7ex6wgumfichfisgj3hezhoppq",
+          "website": "https://etheralpha.org",
+          "bannerImg": "bafkreibq4csiakc32qikp5tjf4sutnvcy6mligx346g7eogi2n5uvwipue",
+          "createdAt": 1691610982852,
+          "userGithub": "hanniabu",
+          "credentials": {
+            "github": {
+              "type": ["VerifiableCredential"],
+              "proof": {
+                "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..f7gZOuYhBoJ4TFZabEHnRmbEdKmtHdQ439em6DvV5UtkGoTrP7Bcw5zl3P7WbVtMpjltrCGy3OYmsBUiDm5iBw",
+                "type": "Ed25519Signature2018",
+                "created": "2023-08-09T19:56:00.808Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC#z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC"
+              },
+              "issuer": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC",
+              "@context": ["https://www.w3.org/2018/credentials/v1"],
+              "issuanceDate": "2023-08-09T19:56:00.808Z",
+              "expirationDate": "2023-11-07T19:56:00.808Z",
+              "credentialSubject": {
+                "id": "did:pkh:eip155:1:0x0194325BF525Be0D4fBB0856894cEd74Da3B8356",
+                "hash": "v0.0.0:tFviiKDNJqfksrTNjuM4nT8mDNFxcCb+Tvwn0pF+PAY=",
+                "@context": [
+                  {
+                    "hash": "https://schema.org/Text",
+                    "provider": "https://schema.org/Text"
+                  }
+                ],
+                "provider": "ClearTextGithubOrg#etheralpha#10511045"
+              }
+            },
+            "twitter": {
+              "type": ["VerifiableCredential"],
+              "proof": {
+                "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9.._AVM8Rd-MMMEzJVUByI9d5OltbHc8T8qblhAOIufYjnuSlfl_NnEbhaoeUF2KEy7XjXpx4ImrPptcrF9v7KGCw",
+                "type": "Ed25519Signature2018",
+                "created": "2023-11-01T02:22:46.093Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC#z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC"
+              },
+              "issuer": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC",
+              "@context": ["https://www.w3.org/2018/credentials/v1"],
+              "issuanceDate": "2023-11-01T02:22:46.093Z",
+              "expirationDate": "2024-01-30T02:22:46.093Z",
+              "credentialSubject": {
+                "id": "did:pkh:eip155:1:0x0194325BF525Be0D4fBB0856894cEd74Da3B8356",
+                "hash": "v0.0.0:gfodB+ogTZMm5lAAexyFOl5Vwq9AfG1ox50gbo2wi5g=",
+                "@context": [
+                  {
+                    "hash": "https://schema.org/Text",
+                    "provider": "https://schema.org/Text"
+                  }
+                ],
+                "provider": "ClearTextTwitter#hanni_abu"
+              }
+            }
+          },
+          "description": "Working under the pseudonym Ether Alpha, hanniabu.eth develops open source tools and resources with a focus on promoting positive change through education and monitoring.\n\nFunding will primarily go towards the development of [StateOfEth.com](https://stateofeth.com). \n\n[StateOfEth.com](https://stateofeth.com) aims to bridge the gap between data and education, serving as a rallying point for the social layer to promote positive change within the Ethereum ecosystem. The vision for this can be described as ClientDiversity.org, but expanded to wide variety of (30+) metrics aggregated into a single UI.\n\nYou cannot promote positive change in the ecosystem without educating the community on why change is important or the ability to monitor change. Ether Alpha aims to address these issues.\n\nSome other notable projects include:\n- [ClientDiversity.org](https://clientdiversity.org/)\n- [ValidatorQueue.com](https://validatorqueue.com/)\n- [EthSunshine.com](https://ethsunshine.com/)\n- [DailyDoots.com](https://dailydoots.com/)\n- [RocketPool.support](https://rocketpool.support/)\n- [EthStaker website](EthStaker.cc)\n\nFunding will be used to:\n- Maintain existing projects\n- Develop new projects\n- Fund grants/bounties to develop supporting resources",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectGithub": "etheralpha",
+          "projectTwitter": "hanni_abu"
+        }
+      },
+      {
+        "id": "0x00104ed10c283e163279bd046f46c1d48cd93edc8b2f54440401cda199722457",
+        "name": "SEISim",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x8c180840fcbb90ce8464b4ecd12ab0f840c6647c",
+        "anchorAddress": "0x04dea9461a042388cfbd5ff3ddecd29a29513bd4",
+        "metadata": {
+          "type": "project",
+          "title": "SEISim",
+          "website": "https://seisim.xyz",
+          "createdAt": 1709717523747,
+          "credentials": {},
+          "description": "A new way to gamefi"
+        }
+      },
+      {
+        "id": "0x0017370bdfd13411f68f8f7bdac26edec1fadfa12cdc68ad17e3b83f3a11df48",
+        "name": "wosek's contributions",
+        "projectType": "CANONICAL",
+        "chainId": 10,
+        "createdByAddress": "0x7296191a226496f6afcf3490d2ec8e6cf8646c69",
+        "anchorAddress": null,
+        "metadata": {
+          "type": "project",
+          "title": "wosek's contributions",
+          "logoImg": "bafkreicxop3e52pk35skrl6tzyc2e4kad4l2znohuspb4qvmdqknk3upzi",
+          "website": "https://crowdin.com/profile/wosek_",
+          "bannerImg": "bafkreid6q3yzme5dxm5a4hm54hswcdp4cozfoeg244budby5ta6iwmnkgm",
+          "createdAt": 1699903917873,
+          "userGithub": "woseK",
+          "credentials": {},
+          "description": "I like to translate things into Polish in my free time :D",
+          "logoImgData": {},
+          "bannerImgData": {}
+        }
+      },
+      {
+        "id": "0x00174304df2cf69c66f29ffdabf3a005e42f8de531b3c2fe922182d8240512da",
+        "name": "Qvrse",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x8c180840fcbb90ce8464b4ecd12ab0f840c6647c",
+        "anchorAddress": "0xf0c3bba00ad73d4590938c460f2b78bbe8d638e3",
+        "metadata": {
+          "type": "project",
+          "title": "Qvrse",
+          "logoImg": "bafkreidrenhy6rpyay6hqe6hefbfi4boxvcmso4tmaqoghkpf7tdffdrzm",
+          "website": "https://qvrse.io",
+          "bannerImg": "bafkreie3pgojmwruasq6sq67u2hursapgvoujosfgnajzkfkwrsbm6vd5m",
+          "createdAt": 1682099172226,
+          "userGithub": "Qvrse",
+          "credentials": {
+            "github": {
+              "type": ["VerifiableCredential"],
+              "proof": {
+                "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..olJWKQ3juA98Jxo_cjhS60Rgc0JxaQYlZswW6CG-vIHGX8MemmX7M46CY52KcFv8mNhyQa5XKVLZpn_q3izoBQ",
+                "type": "Ed25519Signature2018",
+                "created": "2023-04-21T17:59:22.982Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC#z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC"
+              },
+              "issuer": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC",
+              "@context": ["https://www.w3.org/2018/credentials/v1"],
+              "issuanceDate": "2023-04-21T17:59:22.982Z",
+              "expirationDate": "2023-07-20T17:59:22.982Z",
+              "credentialSubject": {
+                "id": "did:pkh:eip155:1:0x1D631c6A8D631a90979a47eEA0EfC0Fb80C566ff",
+                "hash": "v0.0.0:+dcDXo9B3FoySPD9jg8g376ziHYp1ZUezqT9AW1sGWM=",
+                "@context": [
+                  {
+                    "hash": "https://schema.org/Text",
+                    "provider": "https://schema.org/Text"
+                  }
+                ],
+                "provider": "ClearTextGithubOrg#Qvrse-io#131482759"
+              }
+            },
+            "twitter": {
+              "type": ["VerifiableCredential"],
+              "proof": {
+                "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..vSJCYTr2sb3VqJ1eRpSRkzPheLEGJSvpmZ3Nf24uxEPhxqXHt8eIl1RiNV6BQKSxgO9yoiKKwHCt5eGWWOPMCg",
+                "type": "Ed25519Signature2018",
+                "created": "2023-04-21T17:42:08.508Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC#z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC"
+              },
+              "issuer": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC",
+              "@context": ["https://www.w3.org/2018/credentials/v1"],
+              "issuanceDate": "2023-04-21T17:42:08.508Z",
+              "expirationDate": "2023-07-20T17:42:08.508Z",
+              "credentialSubject": {
+                "id": "did:pkh:eip155:1:0x1D631c6A8D631a90979a47eEA0EfC0Fb80C566ff",
+                "hash": "v0.0.0:Ztxafm9P3cLElSliaVqbkKevbbsQu5wRbFx0ymWUhng=",
+                "@context": [
+                  {
+                    "hash": "https://schema.org/Text",
+                    "provider": "https://schema.org/Text"
+                  }
+                ],
+                "provider": "ClearTextTwitter#QvrseDAO"
+              }
+            }
+          },
+          "description": "Qvrse is a branding and loyalty platform that seamlessly integrates elements of social media. Our unique “NFT cards”  serve as keys, unlocking access to the brand's digital content, products, services, and real-life event tickets.\nEmploying \"NFT gating,\" we guide brands’ customers, subscribers, and followers through the sales funnel, identifying their most loyal and valuable clients. Qvrse empowers brands to establish, interact with, and nurture relationships within their digital communities. For customers, Qvrse resembles a subscription to the brand's profile, unlocked through a gifted or purchased NFT card that also serves as a digital asset they can sell or trade.\nAt the core of our platform lies the Qvrse DAO community, actively participating in the decision-making process by voting on the inclusion of new brands within the Qvrse ecosystem.",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectGithub": "Qvrse-io",
+          "projectTwitter": "QvrseDAO"
+        }
+      },
+      {
+        "id": "0x0017c46c6d261c36d2f47a277f20f3689dd48d41b1a5b85bcffa19120f2a083f",
+        "name": "A Free Youtube content library for developers looking to create web3 games",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x8c180840fcbb90ce8464b4ecd12ab0f840c6647c",
+        "anchorAddress": "0x9e69bcdec19827327359c5863a4009ff8cc90ee9",
+        "metadata": {
+          "type": "project",
+          "title": "A Free Youtube content library for developers looking to create web3 games",
+          "logoImg": "bafkreigjxumlt3czdwhcxdn3gi5ccckzgsrm2bm7ucqe3gymbleqpc7lji",
+          "website": "https://morganpage.tech",
+          "bannerImg": "bafkreib7xaekvr3sjoy6krcigp5fl2gwgn5ouarxr5lbrqlhprvwukipcm",
+          "createdAt": 1691696824495,
+          "userGithub": "morganpage",
+          "credentials": {
+            "twitter": {
+              "type": ["VerifiableCredential"],
+              "proof": {
+                "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..NtlVYX5PEaT6Eey4blsCkgNzGMPhZCPXFdZT2swmU6ue06w4b7QKgknVI-9kpwK2v5mMUoudKu5Os3vLUIVSAw",
+                "type": "Ed25519Signature2018",
+                "created": "2023-08-10T19:46:46.422Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC#z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC"
+              },
+              "issuer": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC",
+              "@context": ["https://www.w3.org/2018/credentials/v1"],
+              "issuanceDate": "2023-08-10T19:46:46.422Z",
+              "expirationDate": "2023-11-08T19:46:46.422Z",
+              "credentialSubject": {
+                "id": "did:pkh:eip155:1:0xcE6fF2Ad12F4A27d490FEd5A42b0fDDEf164D6F5",
+                "hash": "v0.0.0:KqwHjExv/05m+CxLbeSae6fnJmaq5S/ofikdKtxh5AQ=",
+                "@context": [
+                  {
+                    "hash": "https://schema.org/Text",
+                    "provider": "https://schema.org/Text"
+                  }
+                ],
+                "provider": "ClearTextTwitter#PlatoEvolved"
+              }
+            }
+          },
+          "description": "**morganpage.tech** is an established outlet for the onboarding of developers into gaming, web 2 and web 3. With over 100,000 students on Udemy and a growing YouTube channel, we are uniquely positioned to onboard the next generation of web3 game developers.\n\nWe propose to create a significant resource of free video content on YouTube which will become the go-to place for budding web3 game developers.\n\n### Below is a breakdown of the content we will provide\nup to 30hrs of video content covering but not limited to:\n- Choice of Game Engine Unity / UE5 / Godot\n- Choice of blockchain technology:\nEthereum\nPolygon\nOptimism\nNEAR\nFlow\nAvalanche\n- How to add on-chain assets (NFTs) to a game\n- How to create NFTs\n- Smart Contracts for gaming\n- Supporting wallet login for your game\n- Adding a crypto price tracker\n- Adding multiplayer\n- Adding an in-game NFT marketplace\n\n\nFor each video content piece, the duration will vary depending on the type of content. Typically, a video will be between 30 minutes and 2 hours in length.\n\nVideos will be supported by open-source code examples hosted on Github.\n\nPreviously, a course by Morgan Page has received more than 25,000+ students, and the most viewed Youtube content piece has delivered 41,000 views. We project a similar or great number of views for many of these videos.\n\nAn hour of video content will be created for every $200 raised up to a maximum of 30 hours.\n\nLinks to existing content:\nhttps://www.youtube.com/watch?v=vssV5ALChUM\nhttps://www.udemy.com/user/morganpage2/\n",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectTwitter": "platoevolved"
+        }
+      },
+      {
+        "id": "0x0017e6bbb671758ac765173b01edb01a70ed8019cd7dacb5d0762f3f7d535d48",
+        "name": "Concero",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x8c180840fcbb90ce8464b4ecd12ab0f840c6647c",
+        "anchorAddress": "0x5c9d3e492de8ff462c878af8e3cb1b8cf6f91fd0",
+        "metadata": {
+          "type": "project",
+          "title": "Concero",
+          "logoImg": "bafkreicl5kdsv6ptdss62yiarxbu4zosahpok2loyhbgswgks5zk2skrtu",
+          "website": "https://concero.io",
+          "createdAt": 1706045659726,
+          "credentials": {
+            "twitter": {
+              "type": ["VerifiableCredential"],
+              "proof": {
+                "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..8G1dUfg_NN0JKAYG5GaMzbK2Y8q7APNCCp-oCNHDAt2r2z1eR0mCrM0NlWhydChbdXF_GfDt4EEqnFCPqgBEAw",
+                "type": "Ed25519Signature2018",
+                "created": "2024-01-23T21:34:10.585Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC#z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC"
+              },
+              "issuer": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC",
+              "@context": ["https://www.w3.org/2018/credentials/v1"],
+              "issuanceDate": "2024-01-23T21:34:10.584Z",
+              "expirationDate": "2024-04-22T21:34:10.584Z",
+              "credentialSubject": {
+                "id": "did:pkh:eip155:1:0x8A31A0dF686D409D25c90d5905165DD5Bd05Ea20",
+                "hash": "v0.0.0:rK8YCCicobiBET0Jle8ZSXTr6Rzwe/DPdHyTfWj9VyY=",
+                "@context": [
+                  {
+                    "hash": "https://schema.org/Text",
+                    "provider": "https://schema.org/Text"
+                  }
+                ],
+                "provider": "ClearTextTwitter#concero_io"
+              }
+            }
+          },
+          "description": "Concero is building a cross-chain DEX/Staking aggregator utilising Chainlink CCIP in order to provide the fastest and the most secure cross-chain experience for users. Recently being accepted into Chainlink Build, Concero is actively building out their new cross-chain infrastructure that will rely on optimistic CCIP bridging that will connect EVM chains and provide a frictionless experience with transactions being executed in under 1 minute. ",
+          "logoImgData": {},
+          "projectTwitter": "concero_io"
+        }
+      },
+      {
+        "id": "0x001d4705e6a00bbd90599f87ba7894f2db90a4de17194807838e579096952dd6",
+        "name": "Ludium",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x8c180840fcbb90ce8464b4ecd12ab0f840c6647c",
+        "anchorAddress": "0x1cc2481c541ce622732771df2d0b734f021f3d49",
+        "metadata": {
+          "type": "project",
+          "title": "Ludium",
+          "logoImg": "bafkreiag3mwxo7pvf5gkpimn2bvr3tj5llscx53erecki4harpx33brwfe",
+          "website": "https://ludium.world/",
+          "bannerImg": "bafkreihaznuf6h5dkl66sowrkxebfbcbv7xpwn33l5s6op7k3ph4b6sf6q",
+          "createdAt": 1695464636396,
+          "credentials": {},
+          "description": "#### About Ludium\n- Web3 Builder's On-Boarding Station focusing on\n  + Hands-on education\n  + Web3 Career Transition\n  + Incentivized Learning\n\n- Ludium Accomplishments\n  + Web3 Education Since 2021 with 600 + attendees\n  + 1000 + Community Contents Created [(See Example)](https://collegium-bos.ludium.world/forums/QDXGM5S56/threads/T3HMKCTM1)\n  + 800 + Builder Community Discord Channel [(Visit)](https://discord.com/invite/c8Snswayuw)\n  + [ETH Seoul 2022 / 2023 Co-host](https://2023.ethseoul.org/)\n\n***\n  \n#### Proposal to Arbitrum\n- Arbitrum Academy Korea \n  + Educational Contents and Program\n  + Contests and Hackathons\n  + Incentivized Learning\n\n- Educational Contents and Programs\n  + Community driven educational materials on building Dapps on Arbitrum\n  + 10 + Articles and 10 + hands-on developer missions\n  + Key focus on thorough and readily executable contents\n\n- Contests and Hackathon\n  + Educational contents builder events and contests\n  + Depending on the budget, project building hackathon is possible\n\n- Incentivized Learning\n  + Incentive pools allocated to participation, contents submission, and winners\n  + At least 30% of the total Grant will be payed out as a bounty\n\n***\n\n- All contents and programs will be conducted in Korean\n- Scope of the project may vary based on the amount of the budget\n",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectGithub": "Ludium-Official",
+          "projectTwitter": "ludium_official"
+        }
+      },
+      {
+        "id": "0x001df7a90b6118188ed11a4562398ace389c8e9b93762a809a0a8f36c15db889",
+        "name": "zKm",
+        "projectType": "CANONICAL",
+        "chainId": 324,
+        "createdByAddress": "0x952b9c2b4459f57dde5cabf7b3399457d014c859",
+        "anchorAddress": null,
+        "metadata": {
+          "type": "project",
+          "title": "zKm",
+          "website": "https://tt.ca",
+          "createdAt": 1708866679008,
+          "credentials": {},
+          "description": "this is a test"
+        }
+      },
+      {
+        "id": "0x00261f2cd7fb940a764db40d631aed3fa1e623201b19c4a6f33f12cbcf810b02",
+        "name": "Satisfied Vagabonds Presents: Governance with Neutrosophy",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x8c180840fcbb90ce8464b4ecd12ab0f840c6647c",
+        "anchorAddress": "0xf0470b0dd1419d8a24f07a4afc2ca095a43cfe41",
+        "metadata": {
+          "type": "project",
+          "title": "Satisfied Vagabonds Presents: Governance with Neutrosophy",
+          "logoImg": "bafkreigokrgcage6v5mjwft6mxaebpei23xeobd65x46sre3o5ashhojfa",
+          "website": "https://linktr.ee/satisfiedvagabonds",
+          "bannerImg": "bafkreicuwj37vzgyw63tm3oak7wumcvishfpm6wgai2guabev656cttrby",
+          "createdAt": 1691781994903,
+          "userGithub": "",
+          "credentials": {
+            "github": {
+              "type": ["VerifiableCredential"],
+              "proof": {
+                "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..Hx6P4FMF-hxzRe-xYbD6Iro_gBRAnaUi9KIDuYd3m5LyPaSJsWSbKZlfFel8X_upYse1nM3fWbsA52b52IqRCw",
+                "type": "Ed25519Signature2018",
+                "created": "2023-08-11T19:34:40.222Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC#z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC"
+              },
+              "issuer": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC",
+              "@context": ["https://www.w3.org/2018/credentials/v1"],
+              "issuanceDate": "2023-08-11T19:34:40.222Z",
+              "expirationDate": "2023-11-09T19:34:40.222Z",
+              "credentialSubject": {
+                "id": "did:pkh:eip155:1:0x526C9C964440EBc308Ac95f3Df68feB5673A4714",
+                "hash": "v0.0.0:sGGWbJ0FcG9q+XXYRCiLqB9SXZJx5aLgiovc7tOoLtA=",
+                "@context": [
+                  {
+                    "hash": "https://schema.org/Text",
+                    "provider": "https://schema.org/Text"
+                  }
+                ],
+                "provider": "ClearTextGithubOrg#SatisfiedVagabonds#25396167"
+              }
+            },
+            "twitter": {
+              "type": ["VerifiableCredential"],
+              "proof": {
+                "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..0MCAQ2pu_bWOgEo_uIEbpb9ieTIU89Vx3mHaDNzmjUV4bhWh3reI2TQhO5fWur-2Uc_bsR44N0QYWNX2Pi8SCw",
+                "type": "Ed25519Signature2018",
+                "created": "2023-11-14T02:38:03.887Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC#z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC"
+              },
+              "issuer": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC",
+              "@context": ["https://www.w3.org/2018/credentials/v1"],
+              "issuanceDate": "2023-11-14T02:38:03.886Z",
+              "expirationDate": "2024-02-12T02:38:03.886Z",
+              "credentialSubject": {
+                "id": "did:pkh:eip155:1:0x526C9C964440EBc308Ac95f3Df68feB5673A4714",
+                "hash": "v0.0.0:IngYLTNPX5ChVqk3dS4ilrhh5oCzuW0AHGy7HwOWFOE=",
+                "@context": [
+                  {
+                    "hash": "https://schema.org/Text",
+                    "provider": "https://schema.org/Text"
+                  }
+                ],
+                "provider": "ClearTextTwitter#ranulfovm"
+              }
+            }
+          },
+          "description": "**We are seeking funding to further develop and implement advanced governance tools rooted in the innovative mathematical concept of Neutrosophy within the Web3 community**. \n\nOur primary goal is to address the issue of unwarranted polarization in decision-making processes and promote a more empathetic, transparent, and constructive governance model. Through research, development, testing, and community engagement, we aim to integrate Neutrosophy into decentralized autonomous organizations (DAOs) and collaborative initiatives, fostering better decision-making and enhancing the overall governance experience.\n\n## Introduction:\nWe are excited to introduce our project aimed at revolutionizing governance practices in the Web3 community. Traditional DAO governance often employs polarizing voting mechanisms, resulting in oversimplified binary choices that fail to capture the complexity of real-world decisions. Neutrosophy, a groundbreaking mathematical framework, offers a solution by accommodating nuanced opinions and uncertainties, facilitating more comprehensive decision-making.\n\n## Problem Statement:\nCurrent governance methods inherited by DAOs, influenced by binary mathematical logics, contribute to divisive decision-making processes. This binary approach oversimplifies choices and fails to represent the diverse range of opinions and uncertainties that real-world issues entail.\n\nIn real life, people face situations where the available information is insufficient and cause indecision, making it hard to vote “For”, or “Against”. In other situations, people can simultaneously partially agree, disagree and be undecided regarding a proposal. These situations are not contemplated with polarizing voting mechanisms. Consequently, a more advanced mathematical logic is needed to address these limitations and promote a more inclusive and empathetic governance model.\n# Introducing Neutrosophy\n \nNeutrosophy explicitly and intentionally allows us to deal with the mentioned situations among others with solid theoretical foundations and methods. With the support of Prof. [Florentin Smarandache](https://scholar.google.com/citations?user=tmrQsSwAAAAJ) (Neutrosophy’s creator), we will be exploring different neutrosophic methods to apply in DAOs governance.\n\n## What We Have Achieved So Far:\nIn our journey towards implementing Neutrosophy-based governance, we have accomplished significant milestones:\n\n### CODE\nWe published [**NeutrosophyLib**](https://github.com/SatisfiedVagabonds/NeutrosophyLib), a Solidity library containing basic neutrosophic operations.\n\n![screenshot neutrosophylib](https://pbs.twimg.com/media/F3N1oSUXwAIOiKY?format=png \"screenshot neutrosophylib\")\n\n> You can explore here [NeutrosohpyLib Basic Operations](https://github.com/SatisfiedVagabonds/NeutrosophyLib/blob/master/NeutrosophyLib_basic_operations_v1.pdf)\n\n### ARTICLES\nAfter months of research, we published **two articles** on Medium:\n\n> **June 2023:** [“How can the math of ‘I don’t know if…’ help improve the Democratic Deliberative Process?”](https://medium.com/@ranulfo17/how-can-the-math-of-i-dont-know-if-help-improve-the-democratic-deliberative-process-d59d0bef0945)\n>\n>From the article: _“However, it is important to acknowledge that the Democratic Deliberative Process is not without its challenges. One aspect that often goes unnoticed is the mathematical limitations inherent in traditional deliberative processes. Our decision-making processes in politics, business, and even on a personal level are heavily influenced by Boolean mathematics, which revolves around binary choices of “Yes” and “No” or opposing poles. While this simplification can be helpful, it also leads to a loss of valuable information and the inability to express opinions as a nuanced spectrum. Boolean mathematics forces us to choose a single option, even when our stance on complex issues may not align entirely with either extreme of “Yes” or “No.”_\n\n> **July 2023:** [“Neutrosophy as a tool to navigate a hybrid convex-concave world”](https://medium.com/@ranulfo17/neutrosophy-as-a-tool-to-navigate-a-hybrid-convex-concave-world-50a3f1c9b3ff)\n>\n>From the article: _“The purpose of this text is to introduce Neutrosophy as a tool to help us navigate a hybrid multidimensional convex-concave world. By navigating we mean making better decisions and/or expressing our opinions in the complex, messy contexts that sometimes we face. It also briefly introduces NeutrosophyLib, a Solidity library containing basic neutrosophic operations for those interested in exploring these ideas.”_\n\n\n### EVENTS\nWe presented our ideas during the Cripto Cantina ReFi event in San José, Costa Rica, and received positive feedback.\n\nRanulfo presented **“Neutrosophy for the Empathetic Governance in DAOs and Collaborative Businesses”** to a group of +20 blockchain entrepreneurs, developers, researchers, and enthusiasts.\n\n## Project Solution:\nOur project seeks to leverage Neutrosophy as a tool to enhance governance within DAOs and collaborative initiatives. Neutrosophy's ability to address complex decision scenarios, partial agreements, and uncertainties aligns perfectly with the multifaceted nature of decentralized communities. With the guidance of Prof. [Florentin Smarandache](https://scholar.google.com/citations?user=tmrQsSwAAAAJ), the creator of Neutrosophy, we will explore and implement various neutrosophic methods to improve decision-making processes.\n\n## Project Objectives:\nOur key objectives for this project include:\n\n1. **Selection of Optimal Neutrosophic Method:** Identify and adapt a suitable neutrosophic method to support decentralized governance, starting with a voting proposal.\n2. **Testing and Feedback:** Test the chosen method in collaboration with Web3 initiatives such as [Cofiblocks.com](https://www.cofiblocks.com/), [Refi Costa Rica](https://linktr.ee/reficostarica), and [Diamante Bridge Collective](https://www.diamantebridge.org), gathering valuable feedback.\n3. **Community Engagement:** Present Neutrosophy's potential for governance improvement through virtual and/or in-person sessions across Costa Rica, Argentina, and Brazil, receiving input from the Ethereum and EVM community.\n4. **Development of NeutrosophyLib:** Enhance the Solidity NeutrosophyLib with additional functionalities and improvements based on practical application.\n5. **Knowledge Dissemination:** Publish three blog posts and at least one scientific paper detailing our experiences and findings. Participate in relevant podcasts to share insights.\n\n\n## Team:\n[Satisfied Vagabonds](https://linktr.ee/satisfiedvagabonds) has supported the development of governance and financial resilience tools for communities and Collaborative Businesses like Cambiatus, Sistema Natus and CofiBlocks since 2018. Our team for this project consists of dedicated individuals with a proven track record in mathematics, governance and financial resilience tools development:\n\n- Ranulfo Paiva Sobrinho [LinkedIn](https://www.linkedin.com/in/ranulfosobrinho/) [Twitter](https://twitter.com/ranulfovm)\n- Karla Córdoba Brenes [LinkedIn](https://www.linkedin.com/in/muguika/) [Twitter](https://twitter.com/muguika)\n- Florentin Smarandache (Advisor) [Scholar](https://scholar.google.com/citations?user=tmrQsSwAAAAJ)\n\n## Budget:\nWe are seeking a grant of 30,000 USD to cover the following activities over the next three months:\n\n1. Research and Development: 30%\n2. Testing and Feedback Collection: 15%\n3. Community Engagement and Presentations: 20%\n4. NeutrosophyLib Enhancement: 10%\n5. Knowledge Dissemination (Blogs, Papers, Podcasts): 20%\n6. Event Participation: 5%\n\n## Thank you for reading until here!\nWe invite you to support our vision of creating a more empathetic and inclusive governance model within the Web3 community. By contributing to our Gitcoin campaign, you will help us achieve our objectives, implement Neutrosophy in DAOs, and foster a collaborative decision-making environment. Join us in building a future where polarization is reduced, collaboration thrives, and decision-making becomes a true representation of diverse perspectives.\n\n> What Patrick Collins (Ethereum top dev) commented on our work: *“Very cool!!! This is EXACTLY the type of experiments we need to run”.*\n\n\n![screenshot patrickalphac comment](https://pbs.twimg.com/media/F3N1znjXgAAZhU3?format=png \"screenshot patrickalphac comment\")\n\n\n**Thank you for considering our proposal. Your support will drive the advancement of empathetic governance practices powered by Neutrosophy.**\n",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectGithub": "SatisfiedVagabonds",
+          "projectTwitter": "ranulfovm"
+        }
+      },
+      {
+        "id": "0x002c8d82e8c0f7207b80f0867d3d862e41cee95cc4d4ceb9eccaefe1beed3cc7",
+        "name": "Ethereum Guatemala",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x8c180840fcbb90ce8464b4ecd12ab0f840c6647c",
+        "anchorAddress": "0x4dbcc35f699c640c59b59b950d92ebfde601f913",
+        "metadata": {
+          "type": "project",
+          "title": "Ethereum Guatemala",
+          "logoImg": "bafkreia6uikd73vcwksqp3ximnzlwjiaeyzoahlnko6ujd7iqqojx37uki",
+          "website": "https://ethereum.gt",
+          "bannerImg": "bafkreigkop54rlz2sysozselwlq7a2pet2frfbik2dy3hx6kthwtcgfzki",
+          "createdAt": 1682088182484,
+          "credentials": {
+            "twitter": {
+              "type": ["VerifiableCredential"],
+              "proof": {
+                "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..iZlLE1sSAee0YwlAewOUH56kn9E_wEXCULHRX4im-cah5LrsxHMsbIYezyaRa5OSEv43qpElwdFaqbctfKBzBQ",
+                "type": "Ed25519Signature2018",
+                "created": "2023-04-21T14:41:44.473Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC#z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC"
+              },
+              "issuer": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC",
+              "@context": ["https://www.w3.org/2018/credentials/v1"],
+              "issuanceDate": "2023-04-21T14:41:44.473Z",
+              "expirationDate": "2023-07-20T14:41:44.473Z",
+              "credentialSubject": {
+                "id": "did:pkh:eip155:1:0x50b6a381993834C623b2Bded6825824C936E48bB",
+                "hash": "v0.0.0:CktnJcK8uqtOGjDvmvJpFic9FZEPm00D0L8Z7mQszEo=",
+                "@context": [
+                  {
+                    "hash": "https://schema.org/Text",
+                    "provider": "https://schema.org/Text"
+                  }
+                ],
+                "provider": "ClearTextTwitter#ethereumgt"
+              }
+            }
+          },
+          "description": "Ethereum Guatemala is a community formed by different members of the web3 ecosystem in the country that intends to collaborate and push its growth through different initiatives. Within Ethereum Guatemala there are projects such as: research with the Ethereum Foundation to bring access to credit in a decentralized way, digital art projects or NFTs that have been recognized globally, DeFi projects, research and use of blockchain in biology, among others. We believe that show-casing ENS will be an incredible example to demonstrate the power of the decentralized movements and the opportunities that exist for the ecosystem throughout Guatemala and countries like ours.\n\n![1](https://ethereumgt.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3d10e485-59be-4911-8cba-71744d30afae%2FScreenshot_2023-03-15_at_19.51.41.png?id=047bf622-8823-4bb5-b267-7f44a529d9a3&table=block&spaceId=f9df7a88-b1c5-4a47-b73a-99723748db28&width=2000&userId=&cache=v2)\n\nTo date, we've hosted Guatemala's first (and now second) Ethereum conference: Eth Guate and Eth Ati. We had over 100 attendees join us for the event, ranging from builders, policy makers, entrepreneurs and investors in the ecosystem. The Universidad del Valle’s Centre for Innovation and Technology was an exceptional space to host our gathering, for which we are deeply grateful for their support in making this event possible!\n\nYou can see a recap of our event here: https://www.youtube.com/watch?v=FvhFBby4UtQ\n\nWe hosted 6 developer focused workshops ranging from an introduction to solidity through to the introduction to the recently-launched Filecoin Virtual Machine. We had over 10 different talks where we touched on the foundations of Ethereum, the interface of smart contracts with the legal systems, and the importance of public goods in the region - among a number of other diverse topics. \n\n![2](https://ethereumgt.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fef381358-16b7-4b55-86eb-f0a98af6076f%2FScreenshot_2023-03-15_at_19.55.22.png?id=8f775c5d-f297-4237-8336-a76671e32e6a&table=block&spaceId=f9df7a88-b1c5-4a47-b73a-99723748db28&width=2000&userId=&cache=v2)\n\nOur international attendees joined us from El Salvador, Honduras, Mexico, Argentina, Croatia, and Ecuador! 14% of the attendees who joined us for the event were women, and our core team is also all-male, for which a key focus for us moving forward is to both conduct more outreach to women-led technology and blockchain groups, as well as incorporate more female leadership in our core team!\n\n![3](https://ethereumgt.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F9e05523b-26a0-446a-95f6-199455d5bdc2%2FScreenshot_2023-03-15_at_19.55.50.png?id=efa9d080-eb91-4be1-9226-8522806a15cc&table=block&spaceId=f9df7a88-b1c5-4a47-b73a-99723748db28&width=2000&userId=&cache=v2)\n\nIn total, we allocated 10 scholarships for attendees of the event, with whom we provided stipends between Q1,000-Q200 ($128-$25) to cover the cost of transportation and lodging for the event. These scholarships were awarded for both people coming from the rural areas of Guatemala as well as for some international guests.\n\nAny questions about Ethereum Guatemala, you can join the telegram (https://t.me/ethereumgt) and also find the relevant links in our linktree (https://linktr.ee/ethereumgt) :-)",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectTwitter": "ethereumgt"
+        }
+      },
+      {
+        "id": "0x002dbbae5638ffd367fd41b27f27b767fce84042984429bf212512dc28d8ecca",
+        "name": "SEI Video Creator",
+        "projectType": "CANONICAL",
+        "chainId": 1329,
+        "createdByAddress": "0x74d1322282a1bbd76985b71137ccc3192411fbfc",
+        "anchorAddress": "0x27680f71c3359ccca80b947aed1b0b8d4cd68992",
+        "metadata": {
+          "title": "SEI Video Creator",
+          "logoImg": "bafkreibljkwkv2p5rh2owhdaw5vlmvxlfmg6iv2xfgmlazk26fhigg354u",
+          "website": "https://x.com/cryptokagi",
+          "bannerImg": "bafkreifcplp6tu5tpmjajbkqb5enxlwjw5e6xmolyh542q5chhb25sl5lq",
+          "createdAt": 1723105807993,
+          "credentials": {},
+          "description": "As a video creator, my goal is to produce engaging and informative content about the SEI Blockchain to increase its adoption. By highlighting its unique features, benefits, and real-world applications, I aim to educate viewers and inspire them to explore and utilize SEI Blockchain technology in their own projects and businesses.",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectTwitter": "cryptokagi"
+        }
+      },
+      {
+        "id": "0x0034961c15553dbcaa9fa7bb21aa28f0672e7c06a13cb83273fe9c3e334427a4",
+        "name": "New Era",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x8c180840fcbb90ce8464b4ecd12ab0f840c6647c",
+        "anchorAddress": "0xd28588f5781641d29c69752b5a4f71dcdff3d01f",
+        "metadata": {
+          "type": "project",
+          "title": "New Era",
+          "website": "https://www.neweras.com",
+          "createdAt": 1709483342543,
+          "userGithub": "0x33n",
+          "credentials": {
+            "twitter": {
+              "type": ["VerifiableCredential"],
+              "proof": {
+                "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..zWgrUJTxnyYGYTLcFJ6Q89_AE5IoNce1GPz26AAuSlLTk10JTZYHOigTT1o-ojjeh-JyyqX7cshTJk3zjcSbBw",
+                "type": "Ed25519Signature2018",
+                "created": "2024-03-03T16:28:57.454Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC#z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC"
+              },
+              "issuer": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC",
+              "@context": ["https://www.w3.org/2018/credentials/v1"],
+              "issuanceDate": "2024-03-03T16:28:57.454Z",
+              "expirationDate": "2024-06-01T16:28:57.454Z",
+              "credentialSubject": {
+                "id": "did:pkh:eip155:1:0xFb72FBE1A2D0b2e9650Fc29e7E0B82C5B108fC7E",
+                "hash": "v0.0.0:0A1oTx0flidhMwYueTHtg/97hr/yPPMubuRnmVNad1g=",
+                "@context": [
+                  {
+                    "hash": "https://schema.org/Text",
+                    "provider": "https://schema.org/Text"
+                  }
+                ],
+                "provider": "ClearTextTwitter#gndg06"
+              }
+            }
+          },
+          "description": "This projcet will make zksync era ecosytem great",
+          "projectTwitter": "gndg06"
+        }
+      },
+      {
+        "id": "0x0037bba1cde6d48ec332b4fe666b5f7742048690eb6d89059e53f1896df6305c",
+        "name": "SODIUM: Illuminating Oakland’s Creative Power with Web3",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x8c180840fcbb90ce8464b4ecd12ab0f840c6647c",
+        "anchorAddress": "0x1754459560dc995af096a40f86da5720c6713be4",
+        "metadata": {
+          "type": "project",
+          "title": "SODIUM: Illuminating Oakland’s Creative Power with Web3",
+          "logoImg": "bafkreidoolkoijbwrz2ol3hak7blm3z2fgfj7xj5kegooqakhrr3l7qzhi",
+          "website": "https://endeavorsoakland.xyz/sodium",
+          "bannerImg": "bafkreihmtpt34vgvt35ndf7wajpypu2peubst3mnefgst5xmyozb2z7ipy",
+          "createdAt": 1699356194378,
+          "userGithub": "",
+          "credentials": {},
+          "description": "Mission-Oriented: Improving the Web3 Ecosystem\nIn our endeavor to enhance the Web3 ecosystem, we are dedicated to both onboarding and supporting mass adoption. We achieve this by collaborating with local and international artists to produce immersive arts experiences. Our focus is on educating and empowering disenfranchised communities with the resources necessary to participate and benefit from Web3.\n\nMinimum Age\nEndeavors Oakland, conceived in 2020 during the pandemic, has a track record of providing financial relief to under-resourced communities by supporting them with access to space and full production support. In 2021, we achieved a milestone by producing the first immersive NFT Art exhibition at the historic Tribune Tower in downtown Oakland. This exhibition featured murals by eight artists, digitally rendered by DIY J, and minted as an NFT collection on Makersplace.\n\nCommunity Growth Initiatives\nOur commitment to onboarding and mass adoption extends to forging partnerships with diverse community members, including artists, cultural producers, vendors, and small businesses. By bridging connections between real estate developers and communities, we aim to create mutually beneficial ecosystems that sustain both under-resourced communities and developers seeking to activate business in available Bay Area spaces.\n\nEducational Material & Resources\nEach project integrates an educational component, recognizing the power of art experiences in fostering education. We ensure accessibility in resources and connect networks to newcomers in the Web3 space. Our dedication extends to a youth education residency in partnership with local organizations and NFT marketplaces.\n\nInvestigative Journalism\nCollaborating with data collecting agencies, we will launch data-driven dynamic NFTs in collaboration with local artists, with a focus on using data related to racial justice to help inform our projects over time.\n\nContent Creation\nOur communication efforts include newsletters and blogs directing communities to Web3 resources, as well as encouraging projects that we can support with Web3 integrations.\n\nCommunity-Building DAOs\nWe are establishing a DAO governed by Endeavors token holders, contributing to ongoing operations and allowing stakeholders to vote on future project artist collaborations.\n\nUser Onboarding\nPrioritizing diverse community onboarding, we leverage our Web3 networks, including OAK Currency, an organization “building a community currency for a thriving Oakland.” We center and collaborate with local artists to educate and support individuals throughout the onboarding and growth process.\n\nInclusion, Diversity, and Advocacy Programs\nOur organization is dedicated to centering individuals historically marginalized and excluded from opportunities in technological and economic advancement. Comprising a team of BIPOC cultural producers, educators, and artists, we intimately understand and have been directly impacted by oppressive systems. Situated in one of the nation's most diverse regions, with a legacy of social movement building, we operate within and carry the energy of the birthplace of the Black Panther Party. Recognizing that investing in Black, Indigenous and People of Color communities is a crucial step toward dismantling colonial oppression, we prioritize amplifying their voices. Through these efforts, we aim to foster healing within our communities, creating an environment that is authentically inclusive and empowers everyone with the resources essential to thrive. \n\nABOUT US\nWith a history spanning over a decade, our team has experience in producing award-winning cultural and educational programming with institutions including SFMOMA and SFJAZZ. Additionally, we take pride in our role as creators of award-winning art spaces, including 7th West, Good Mother Gallery, and Agency Oakland. Our collective work is deeply rooted in the ethos of amplifying and empowering disenfranchised communities. Through immersive events and productions, we have successfully onboarded local creatives, leveraging our expertise to bridge the gap between diverse groups and the evolving Web3 landscape.\n\nPROJECT DESCRIPTION\nWe are powered by dynamic Transient Labs NFTs, holding assets related to IRL events and educational workshops. NFTs contribute to operational sustainability and provide stakeholders with voting rights on future Endeavors collaborations.\n\nSODIUM Exhibition with Artist Ruff Draft\nBorn from the synergy of artist Brandon Ruffin aka Ruff Draft and Endeavors founder Assan Jethmal, this immersive journey challenges us to question the status quo and celebrate the diversity within our communities. The exhibition, located at The Loom in Oakland CA, includes a 1/1 Doppelgänger Transient Labs minted NFT with select images, stories, and POAPs to access IRL events.\n\nThe Oakland Roots Soccer Teams Web3 Integration\nCollaborating with The Oakland Roots, we are launching an NFT project amplifying their mission. Transient Labs minted NFTs may include POAPs to games, merchandise, and other unique benefits. \n\nGood Mother Ultrasounds\nSupporting mothers by matching artists with expecting and new mothers, this project provides financial relief through exhibitions and educational experiences in partnership with Good Mother Studio in Oakland.\n\nBlack Terminus | AR Design\nLaunching an NFT book and exhibition with artist Damien McDuffie.\n\nOakland Murals Token\nUsing the Transient Labs Doppelgänger contract, we will mint murals throughout Oakland with AR activations. Additionally, we are launching a nationwide mural tracking project, inscribing stories related to each mural’s message.\n\nOur projects aim to empower communities, bridge gaps, and bring Web3 to the forefront of inclusive and diverse experiences. Together, we amplify Oakland's creative power with Web3.\n",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectTwitter": "Endeavors_Oak"
+        }
+      },
+      {
+        "id": "0x004144374aa59297afb1e2c24dbed2a4d372d0fc7267d5c7ba5037181045e41c",
+        "name": "AyaVersity",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x8c180840fcbb90ce8464b4ecd12ab0f840c6647c",
+        "anchorAddress": "0x893dc5a3c7c49c200df6fc4642994ae083ebf98d",
+        "metadata": {
+          "type": "project",
+          "title": "AyaVersity",
+          "logoImg": "bafkreifymo43ia7rsul6mfbkzoywd33j3dnnprt6gh4s2zmyfaikfmcqyi",
+          "website": "https://ayaversity.com/",
+          "bannerImg": "bafkreihliwtfosyqc54qh64ae5at5sgm7zxg26lzf73mkbapogm74p2riu",
+          "createdAt": 1691678194875,
+          "credentials": {},
+          "description": "AyaVersity is dedicated to nurturing and honing the skills of African talents, empowering them with the skills and tools needed to excel in the Web 3 ecosystem. Through comprehensive training and skill development, AyaVersity aims to equip these talents to be highly\ncredible and successful in the ever-evolving technology landscape.\nWe are building the largest Web3 talent infrastructure network in Africa. Core focus on training Ethereum and L2s with Solidity, Design, and Product Management.\nOur pilot has seen talent showcased at global hackathons. We are now working for Aya Talent House in person to scale up this mission. There are almost no talent houses focusing on training and hackathons to develop more builders.\n",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectGithub": "Ayalabs",
+          "projectTwitter": "ayahq_"
+        }
+      },
+      {
+        "id": "0x0047358180d27fa6efda4a77a2866a1cfaa0789080ed85857e4616e4c46e7281",
+        "name": "UNISHOP",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x8c180840fcbb90ce8464b4ecd12ab0f840c6647c",
+        "anchorAddress": "0x7710265c4cbd1195664c94f53cd639f937cd8268",
+        "metadata": {
+          "type": "project",
+          "title": "UNISHOP",
+          "logoImg": "bafkreif2s5gekxigq3kswvt653piblnadlzhm7oadoeld4hc3fizvgmfse",
+          "website": "https://unishop.my.canvasite.cn/evm",
+          "bannerImg": "bafkreicvjtbnedawndlsjr2y262hmkp7fcth7pziqcywpomcajiqehc4je",
+          "createdAt": 1701679284412,
+          "userGithub": "Unishopevm",
+          "credentials": {},
+          "description": "With the emergence of BTC, in the world of digital currency, I am an old leech who has always been curious and innovative. I believe that the true value of digital currencies should be combined with commodities in the real world, thereby bringing more convenience and opportunities to ordinary people. So, I decided to invest my money and time into building a new Web3 chain business project.\nAspires to create a digital currency and commodity trading blockchain mall named unishop. unishop's mission is to connect different commodities and digital currencies around the world through blockchain technology to provide users with a secure, convenient and transparent transaction experience. The establishment of this mall aims to allow all digital currencies to be used for the exchange of all commodities, further expand the application scenarios of digital currencies, and bring new possibilities to the development of the global economy.\nTo realize this dream, Ethan first assembled a team of technical elites and business experts. Together, they are committed to developing a secure and reliable underlying architecture of blockchain technology that ensures the trust and transparency of transactions. At the same time, they have established partnerships with suppliers around the world, expanded the range of products and coverage, and made unishop a truly global platform.\nIn unishop, users can use a variety of digital currencies to buy their favorite goods, whether it is daily necessities, luxury goods, art or anything else. With the smart contract technology of blockchain, the transaction process will become fast, secure, efficient, and can be tracked and confirmed in real time. Not only that, unishop also provides merchants with more opportunities to expand their business and increase revenue by joining Unishop to promote their products to potential consumers worldwide.\nThe significance of unishop mall is not only to achieve a close combination between digital currency and goods, but more importantly, it promotes the further application and popularization of digital currency. The guarantee of value, through unishop mall, people will have more opportunities to contact and use digital currency, integrated into the global trading network. This will open new doors for the development of digital currencies and drive innovation and development of the entire economic system.\nMr. Ethan's entrepreneurial story is a journey full of passion and courage. With a deep understanding of digital currencies and the real world, we are committed to creating an open, inclusive and secure digital currency trading platform to serve the world. The establishment of unishop mall marks the opening of a new era, combining digital currency with commodities to bring more convenience and possibility to people.\nThank you for your trust in me. unishop has achieved great success and brought a better future to users all over the world! Need your support! Thank you!",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectGithub": "UNISHOPTeam",
+          "projectTwitter": "UNISHOPEVM"
+        }
+      },
+      {
+        "id": "0x00488b5e58266a0194e11a665c0f130679ba4fc9c1de6adecf21963802f93d55",
+        "name": "Smithonia",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x9ec0f6b470744c9ee1a3181067d66a12480bf560",
+        "anchorAddress": "0x902b5f20c842874be56d75e5976f031905b67e21",
+        "metadata": {
+          "title": "Smithonia",
+          "logoImg": "bafkreic3pcn3lywfaj6tmltkv5kz66equ7kbwqnzhjf5jwbsxwyglcgiou",
+          "website": "https://www.smithonia.lol",
+          "bannerImg": "bafkreigndeh5jpoijwfi5ixeutdzc6aldkbch3adpgpmfx27xlyzc6w7gu",
+          "createdAt": 1713281800338,
+          "userGithub": "TheCraftyPie",
+          "credentials": {
+            "github": {
+              "type": ["VerifiableCredential"],
+              "proof": {
+                "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..d3cQTy-hW2uItF3NAiHD3sUpPRd2l5hnNn_3hnbAEWgOcpwIvuZQOMM_BYtJ7aWlqxrQQYBrKnRBJsHOIhd1AQ",
+                "type": "Ed25519Signature2018",
+                "created": "2024-04-16T16:09:44.355Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC#z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC"
+              },
+              "issuer": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC",
+              "@context": ["https://www.w3.org/2018/credentials/v1"],
+              "issuanceDate": "2024-04-16T16:09:44.355Z",
+              "expirationDate": "2024-07-15T16:09:44.355Z",
+              "credentialSubject": {
+                "id": "did:pkh:eip155:1:0x9Ec0f6B470744c9EE1a3181067D66a12480Bf560",
+                "hash": "v0.0.0:+aTZXx21L/m7tJIBZ2i5d6cpl2y2EQAJ6bM9DsVrYzc=",
+                "@context": [
+                  {
+                    "hash": "https://schema.org/Text",
+                    "provider": "https://schema.org/Text"
+                  }
+                ],
+                "provider": "ClearTextGithubOrg#AnimusLabsDev#114186805"
+              }
+            },
+            "twitter": {
+              "type": ["VerifiableCredential"],
+              "proof": {
+                "jws": "eyJhbGciOiJFZERTQSIsImNyaXQiOlsiYjY0Il0sImI2NCI6ZmFsc2V9..C0fqWP1b8sfyX3QRWH5Fr97GfYcozqa7P1xaTbw4MpPgqnie_XNpSozI_c7xBHm_ItdpXoUt5AqtWVqQAAo6Cw",
+                "type": "Ed25519Signature2018",
+                "created": "2024-04-16T15:36:06.147Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC#z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC"
+              },
+              "issuer": "did:key:z6MkghvGHLobLEdj1bgRLhS4LPGJAvbMA1tn2zcRyqmYU5LC",
+              "@context": ["https://www.w3.org/2018/credentials/v1"],
+              "issuanceDate": "2024-04-16T15:36:06.147Z",
+              "expirationDate": "2024-07-15T15:36:06.147Z",
+              "credentialSubject": {
+                "id": "did:pkh:eip155:1:0x9Ec0f6B470744c9EE1a3181067D66a12480Bf560",
+                "hash": "v0.0.0:9y6c+a+Q+EUC4H/YHfK40Lkz9dyco0VKf3ZKaeF0nJg=",
+                "@context": [
+                  {
+                    "hash": "https://schema.org/Text",
+                    "provider": "https://schema.org/Text"
+                  }
+                ],
+                "provider": "ClearTextTwitter#SmithyDAO"
+              }
+            }
+          },
+          "description": "We are building a captivating and immersive dark-fantasy MOBA set in the world of Smithonia. In Smithonia, players gather resources and upgrade their weapon NFTs into powerful new varieties. Players then use these weapons in our networked battle arena in fierce PvP and PvE combat for rewards.\n\nWe are a grassroots project that is pushing the boundaries of making Web2-to-Web3 onboarding as seamless as possible. We aim to combine the user experience of Web2 with the Play-To-Earn model and user ownership of Web3, thereby bringing both of these elements together in a fast-paced MOBA and promoting a healthy competitive gaming ecosystem.",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectGithub": "AnimusLabsDev",
+          "projectTwitter": "smithyDAO"
+        }
+      },
+      {
+        "id": "0x004cf83b2fee0300be433ddd6ebfa52a657653468374a5c6f7438caff3a62544",
+        "name": "Testing Allo v2",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x8c180840fcbb90ce8464b4ecd12ab0f840c6647c",
+        "anchorAddress": "0x154c670958dee840777ebbc9eb815a8e67094e0d",
+        "metadata": {
+          "type": "project",
+          "title": "Testing Allo v2",
+          "logoImg": "bafkreigg7jnxa2bvjcnev7xeqce2d2otfcncqcxwi3ynxr5tubsd6yglee",
+          "website": "https://gitcoin.co",
+          "bannerImg": "bafkreigecne6xwutozftznwhdlaoclx5rd3gdzt6fislujrnkalhz4zbhe",
+          "createdAt": 1706284760651,
+          "userGithub": "michellema1208",
+          "credentials": {},
+          "description": "testing testing",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectGithub": "gitcoinco",
+          "projectTwitter": "musingsbymima"
+        }
+      },
+      {
+        "id": "0x004cf83b2fee0300be433ddd6ebfa52a657653468374a5c6f7438caff3a62544",
+        "name": "Testing Allo v2",
+        "projectType": "LINKED",
+        "chainId": 43114,
+        "createdByAddress": "0x37e5e6eb36467f98392ebbb35f110fbb8238e6d3",
+        "anchorAddress": "0x6643e89337e35731262460cc87674f684fb955df",
+        "metadata": {
+          "type": "project",
+          "canonical": {
+            "chainId": 42161,
+            "registryAddress": "0x4aacca72145e1df2aec137e1f3c5e3d75db8b5f3"
+          }
+        }
+      },
+      {
+        "id": "0x004e721e5ea333fe24f17abec2a426e3ed9f572b6fdd9493ad01c98dd0a400fa",
+        "name": "Mi Costa de Oro ",
+        "projectType": "CANONICAL",
+        "chainId": 42161,
+        "createdByAddress": "0x7ca809c9f505fb3f5a42383c4b07ffc27b8a19c8",
+        "anchorAddress": "0xd01d7ccf504e0bd1760dc84e63c29e200a816d7d",
+        "metadata": {
+          "type": "project",
+          "title": "Mi Costa de Oro ",
+          "logoImg": "bafkreihjh2ylgeeuwrvee5yzyvsqxdagwuykofj3nsh3anpp2m3iekiahe",
+          "website": "https://gap.karmahq.xyz/project/mi-costa-de-oro-autonomous-and-regenerative-community-rooted-in-action-venezuela",
+          "bannerImg": "bafkreibxpofsqtprhpwtopckwi2w4uturxbuqun6bfogtgooyntzvsok3y",
+          "createdAt": 1722900697607,
+          "credentials": {},
+          "description": "We are an independently organized community that uses regeneration to foster community projects and the restructuring of social tissue in Costa de Oro, Aragua, Venezuela. Initially onboarded and supported by Web3beach, we have slowly scaled our initiatives driving environmental and educational impact for our participants and younger generations.\nThrough this project we have collected more than 300 tons of trash and organic wastes from the coastal zone of our municipality and jointing streets, this has helped drive tourist activities, rebuild social tissue and generate a communitary ecosystem in which local businesses start accepting crypto payments and participants have had the opportunity to learn about regenerative values while receiving small rewards for their participation in the waste recollection activities, fostering the growth of local economies.\nWe have also created and hosted an educational project that currently serves 20 kids and teenagers ranging from 5 to 13 years old, with art and environmental consciousness activities as well as tutoring in traditional subjects like math and sciences. The school provides the beneficiaries with 2 warm meals per day, providing a safe net to prevent malnutrition.\n",
+          "logoImgData": {},
+          "bannerImgData": {},
+          "projectTwitter": "MiCostadeOro"
+        }
+      }
+    ]
+  }
+}

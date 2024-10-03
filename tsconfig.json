@@ -1,0 +1,3 @@
+{
+  "extends": "@allo-team/typescript-config/base.json"
+}

@@ -1,0 +1,1 @@
+- [ ] Publish @allo-team/kit and verify it works with `npm i @allo-team/kit -S`
