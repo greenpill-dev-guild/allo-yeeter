@@ -76,7 +76,7 @@
     "wagmi": "^2.12.2"
   },
   "dependencies": {
-    "@allo-team/allo-v2-sdk": "^1.0.78",
+    "@allo-team/allo-v2-sdk": "git+https://github.com/greenpill-dev-guild/allo-v2-sdk",
     "@gitcoin/gitcoin-chain-data": "^1.0.26",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-avatar": "^1.1.0",
@@ -94,6 +94,7 @@
     "@tanstack/react-table": "^8.20.1",
     "@urql/core": "^5.0.6",
     "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",

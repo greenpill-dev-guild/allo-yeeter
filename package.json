@@ -9,8 +9,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prelink": "bun run build:kit",
     "link": "cd packages/kit && bun link",
-    "predev:demo": "bun run build:kit",
-    "dev:demo": "cd apps/demo && bun run dev"
+    "predev:yeeter": "bun run build:kit",
+    "dev:yeeter": "cd apps/yeeter && bun run dev"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.21"

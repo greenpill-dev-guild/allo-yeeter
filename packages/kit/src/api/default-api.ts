@@ -46,7 +46,7 @@ const emptyAPI: API = {
       Promise.reject(new Error("Not Implemented: createProfile")),
   },
   // AlloKit doesn't have a server so this needs to be implemented by the client.
-  // Alternatively we can provide an endpoint (See apps/demo/src/app/api/ipfs/route.ts)
+  // Alternatively we can provide an endpoint (See apps/yeeter/src/app/api/ipfs/route.ts)
   upload: async () => Promise.reject(new Error("Not Implemented: upload")),
 
   // The Ballot API handles could start by implementing a localStorage API

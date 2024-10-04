@@ -33,7 +33,7 @@ This is a monorepo project managed with Turborepo and Bun as the package manager
 - `bun run build`: Build all apps and packages
 - `bun run lint`: Run linting for all apps and packages
 - `bun run format`: Format all files using Prettier
-- `bun run dev:demo`: Start the development server for the demo app
+- `bun run dev:yeeter`: Start the development server for the yeeter app
 
 ## Workspace Structure
 
@@ -44,7 +44,7 @@ This monorepo contains the following workspaces:
 ## Development Workflow
 
 1. Run `bun run build:kit` to build the shared kit package.
-2. Use `bun run dev` to start development servers for all apps, or `bun run dev:demo` for the demo app specifically.
+2. Use `bun run dev` to start development servers for all apps, or `bun run dev:yeeter` for the yeeter app specifically.
 
 ## Additional Information
 

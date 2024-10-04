@@ -7,7 +7,7 @@ export function Header() {
       <Link href="/">
         <span className="font-semibold mr-2">Allo Starter Kit</span>
 
-        <span className="text-xs">demo</span>
+        <span className="text-xs">yeeter</span>
       </Link>
 
       <nav className="flex gap-8">

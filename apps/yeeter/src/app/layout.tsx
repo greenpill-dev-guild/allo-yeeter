@@ -9,7 +9,7 @@ import { Header } from "./header";
 import { AlloKitProviders } from "./providers";
 
 export const metadata: Metadata = {
-  title: "Allo Starter Kit Demo App",
+  title: "Allo Starter Kit Yeeter App",
   description: "",
 };
 
