@@ -1,0 +1,3 @@
+[submodule "packages/allo-v2-sdk"]
+	path = packages/allo-v2-sdk
+	url = https://github.com/greenpill-dev-guild/allo-v2-sdk.git
