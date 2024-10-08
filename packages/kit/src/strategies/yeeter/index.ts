@@ -6,7 +6,6 @@ import {
   createSchema as createYeeterRegisterSchema,
   RegisterRecipientForm as YeeterRegisterRecipientForm,
 } from "./register-recipient";
-import { call as reviewRecipientsCall } from "./review-recipients";
 import { call as allocateCall } from "./allocate";
 import type { StrategyExtension } from "..";
 
@@ -28,9 +27,6 @@ export const yeeter: StrategyExtension = {
     registerRecipient: {
       createSchema: createYeeterRegisterSchema,
       component: YeeterRegisterRecipientForm,
-    },
-    reviewRecipients: {
-      call: reviewRecipientsCall,
     },
     allocate: {
       call: allocateCall,

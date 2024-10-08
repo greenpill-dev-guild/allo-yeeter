@@ -23,13 +23,27 @@ export const call = (
     applications,
   );
 
+  const allocation = allocations.reduce(
+    (obj, a) => {
+      obj.amounts.push(a.amount);
+      obj.recipientIds.push(a.recipientId);
+      obj.token = a.token;
+      return obj;
+    },
+    {
+      recipientIds: [] as `0x${string}`[],
+      amounts: [] as bigint[],
+      token: "0x" as `0x${string}`,
+    },
+  );
+
   const tx = YeeterStrategy.prototype.getAllocateData.call(
     {
       poolId: BigInt(round.id),
       checkPoolId: Function,
       allo: { address: () => alloAddress({ id: round.chainId } as Chain) },
     },
-    allocations,
+    allocation,
   );
 
   return api.allo.sendTransaction(tx, signer);

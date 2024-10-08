@@ -30,12 +30,12 @@ export const createSchema: StrategyCreateSchemaFn = () =>
     })
     // Transform the dates into initStrategyData
     .transform((val) => {
-      const { from, to } = val.__internal__;
+      // const { from, to } = val.__internal__;
       return YeeterStrategy.prototype.getInitializeData({
-        useRegistryAnchor: false,
-        metadataRequired: false,
-        registrationStartTime: dateToUint64(from),
-        registrationEndTime: dateToUint64(to),
+        poolId: BigInt(0),
+        data: "0x0",
+        // registrationStartTime: dateToUint64(from),
+        // registrationEndTime: dateToUint64(to),
       });
     });
 
