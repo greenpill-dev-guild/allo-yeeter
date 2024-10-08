@@ -39,6 +39,7 @@ export type StrategyExtensions = Record<StrategyType, StrategyExtension>;
 
 const strategyMap = {
   "allov2.DirectGrantsLiteStrategy": "directGrants",
+  "allov2.YeeterStrategy": "yeeter"
 } as const;
 
 function getStrategyTypeFromName(strategyName: string, chainId: number) {

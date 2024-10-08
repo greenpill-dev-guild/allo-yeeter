@@ -28,6 +28,7 @@ const strategyMap = {
   "allov2.DonationVotingMerkleDistributionDirectTransferStrategy":
     "Direct grant",
   "allov2.DirectGrantsLiteStrategy": "Direct Grant Lite",
+  "allov2.Yeeter": "Yeeter",
   "allov2.QVSimpleStrategy": "Quadratic Voting",
   "allov2.DirectGrantsSimpleStrategy": "Direct Grant",
   "allov2.RFPCommitteeStrategy": "RFP",

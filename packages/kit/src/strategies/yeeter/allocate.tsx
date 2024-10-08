@@ -1,5 +1,5 @@
 import { getAddress as alloAddress } from "@allo-team/allo-v2-sdk/dist/Allo/allo.config";
-import { DirectGrantsLiteStrategy } from "@allo-team/allo-v2-sdk";
+import { YeeterStrategy } from "@allo-team/allo-v2-sdk";
 import type { Address, Chain, WalletClient } from "viem";
 import { getAddress } from "viem";
 import type { API, Application, Round } from "../../api/types";
@@ -23,7 +23,7 @@ export const call = (
     applications,
   );
 
-  const tx = DirectGrantsLiteStrategy.prototype.getAllocateData.call(
+  const tx = YeeterStrategy.prototype.getAllocateData.call(
     {
       poolId: BigInt(round.id),
       checkPoolId: Function,

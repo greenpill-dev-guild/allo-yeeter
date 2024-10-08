@@ -74,6 +74,7 @@ type RoundQueryWhere = {
   strategy?: Compare<Address>;
   strategyName?: Compare<
     | "allov2.DirectGrantsLiteStrategy"
+    | "allov2.Yeeter"
     | "allov2.DonationVotingMerkleDistributionDirectTransferStrategy"
     | "allov2.SQFSuperFluidStrategy"
   >;

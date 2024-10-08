@@ -1,6 +1,6 @@
 import type { Address, WalletClient } from "viem";
 
-import { DirectGrantsLiteStrategy } from "@allo-team/allo-v2-sdk/";
+import { YeeterStrategy } from "@allo-team/allo-v2-sdk/";
 import type { API } from "../../api/types";
 
 export const call = (
@@ -19,7 +19,7 @@ export const call = (
   );
   const refRecipientsCounter = BigInt(statuses.length);
 
-  const tx = DirectGrantsLiteStrategy.prototype.reviewRecipients.call(
+  const tx = YeeterStrategy.prototype.reviewRecipients.call(
     { strategy },
     statuses,
     refRecipientsCounter,

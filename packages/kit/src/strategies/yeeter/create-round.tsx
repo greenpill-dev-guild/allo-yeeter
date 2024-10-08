@@ -2,7 +2,7 @@
 
 import { useFormContext } from "react-hook-form";
 import { z } from "zod";
-import { DirectGrantsLiteStrategy } from "@allo-team/allo-v2-sdk/";
+import { YeeterStrategy } from "@allo-team/allo-v2-sdk/";
 import {
   FormDescription,
   FormField,
@@ -17,7 +17,7 @@ import { StrategyCreateSchemaFn } from "..";
 
 /*
 When creating a Round we pass a byte string called initStrategyData.
-This contains strategy-specific data and for DirectGrantsLite it's registration start and end dates.
+This contains strategy-specific data and for YeeterStrategy it's registration start and end dates.
 */
 export const createSchema: StrategyCreateSchemaFn = () =>
   z
@@ -31,7 +31,7 @@ export const createSchema: StrategyCreateSchemaFn = () =>
     // Transform the dates into initStrategyData
     .transform((val) => {
       const { from, to } = val.__internal__;
-      return DirectGrantsLiteStrategy.prototype.getInitializeData({
+      return YeeterStrategy.prototype.getInitializeData({
         useRegistryAnchor: false,
         metadataRequired: false,
         registrationStartTime: dateToUint64(from),
