@@ -18,7 +18,7 @@ export const yeeter: StrategyExtension = {
   contracts: getChains()?.reduce(
     // (acc, x) => ({ ...acc, [x.id]: x.contracts.directGrants }),
     // TODO: make this dynamic, as above
-    (acc, x) => ({ ...acc, [x.id]: '0x4352bf4dbd7f9094217d14f46a2bd29cdf8df834' }),
+    (acc, x) => ({ ...acc, [x.id]: '0x62a814cf94ae73cd3f057c2156d24bb60a5c4884' }),
     {},
   ),
   components: {
