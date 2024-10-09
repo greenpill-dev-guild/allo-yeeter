@@ -17,12 +17,18 @@ This is a monorepo project managed with Turborepo and Bun as the package manager
    cd allo-yeeter
    ```
 
-2. Install dependencies:
+1. Set up submodules (allo-v2-sdk)
+    ```
+    git submodule init && git submodule update
+    ```
+    (later, use `git submodule update --remote` to download updates to SDK)
+
+1. Install dependencies:
    ```
    bun install
    ```
 
-3. Build the kit package:
+1. Build the kit package:
    ```
    bun run build:kit
    ```
