@@ -4,6 +4,7 @@ import { indexer } from "./providers/indexer";
 import { allo } from "./providers/allo2";
 import { directGrants } from "../strategies/direct-grants";
 import { quadraticFunding } from "../strategies/quadratic-funding";
+import { yeeter } from "../strategies/yeeter";
 
 import type { API } from "./types";
 import type { StrategyExtensions } from "../strategies";
@@ -66,6 +67,7 @@ export const providers = {
 export const strategies = {
   directGrants,
   quadraticFunding,
+  yeeter
 };
 
 export function mergeApi({
@@ -85,6 +87,7 @@ export function mergeApi({
     strategies: {
       directGrants,
       quadraticFunding,
+      yeeter,
       ...strategies,
     },
   };

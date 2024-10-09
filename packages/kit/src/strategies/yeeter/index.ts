@@ -16,7 +16,9 @@ export const yeeter: StrategyExtension = {
   type: "yeeter",
   // Deployed strategy contract address for all supported networks
   contracts: getChains()?.reduce(
-    (acc, x) => ({ ...acc, [x.id]: x.contracts.directGrants }),
+    // (acc, x) => ({ ...acc, [x.id]: x.contracts.directGrants }),
+    // TODO: make this dynamic, as above
+    (acc, x) => ({ ...acc, [x.id]: '0x4352bf4dbd7f9094217d14f46a2bd29cdf8df834' }),
     {},
   ),
   components: {
