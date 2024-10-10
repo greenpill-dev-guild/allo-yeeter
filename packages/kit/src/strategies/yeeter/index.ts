@@ -1,11 +1,7 @@
 import {
   createSchema as createYeeterRoundSchema,
-  CreateRoundForm as YeeterCreateRoundForm,
-} from "./create-round";
-import {
-  createSchema as createYeeterRegisterSchema,
-  RegisterRecipientForm as YeeterRegisterRecipientForm,
-} from "./register-recipient";
+  CreateAllocationForm as YeeterCreateAllocationForm,
+} from "./create-allocation";
 import { call as allocateCall } from "./allocate";
 import type { StrategyExtension } from "..";
 
@@ -22,16 +18,10 @@ export const yeeter: StrategyExtension = {
     {},
   ),
   components: {
-    createRound: {
-      createSchema: createYeeterRoundSchema,
-      component: YeeterCreateRoundForm,
-    },
-    registerRecipient: {
-      createSchema: createYeeterRegisterSchema,
-      component: YeeterRegisterRecipientForm,
-    },
     allocate: {
       call: allocateCall,
+      createSchema: createYeeterRoundSchema,
+      component: YeeterCreateAllocationForm,
     },
   },
 };

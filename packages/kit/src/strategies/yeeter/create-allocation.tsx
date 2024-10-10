@@ -11,11 +11,15 @@ import {
   FormMessage,
 } from "../../ui/form";
 
-import { dateToUint64 } from "../../api/providers/allo2";
-import { RangeCalendar } from "../../ui/calendar-range";
 import { StrategyCreateSchemaFn } from "..";
 import { Button } from "../../ui/button";
 import { Input } from "../../ui/input";
+import {
+  encodeAbiParameters,
+  parseAbiParameter,
+  parseAbiParameters,
+} from "viem";
+import { EthAddressSchema } from "../../schemas";
 
 /*
 When creating a Round we pass a byte string called initStrategyData.
@@ -28,23 +32,21 @@ export const createSchema: StrategyCreateSchemaFn = () =>
     initStrategyData expects to be a bytes string starting with 0x.
     Temporarily store from and to in an internal state. This will be encoded into the bytes string.
     */
-      __internal__: z.object({ from: z.date(), to: z.date() }),
-      recipientIds: z.array(z.string()),
-      amounts: z.array(z.number()),
+      recipientIds: z.array(EthAddressSchema),
+      amounts: z.array(z.bigint()),
+      token: EthAddressSchema,
     })
     // Transform the dates into initStrategyData
     .transform((val) => {
       // convert recipientIds and amounts into data bytes
-      const data = 
-      return YeeterStrategy.prototype.getInitializeData({
-        poolId: BigInt(0),
-        data: "0x0",
-        // registrationStartTime: dateToUint64(from),
-        // registrationEndTime: dateToUint64(to),
-      });
+      const data = encodeAbiParameters(
+        parseAbiParameters("address[], uint256[], address"),
+        [val.recipientIds, val.amounts, val.token],
+      );
+      return YeeterStrategy.prototype.getInitializeData({ poolId, data });
     });
 
-export function CreateRoundForm() {
+export function CreateAllocationForm() {
   const { control } = useFormContext();
   return (
     <>
@@ -55,7 +57,7 @@ export function CreateRoundForm() {
 
 function RecipientAndAmountField() {
   const { control } = useFormContext();
-  const { fields, append } = useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     control,
     name: "recipientIdsAndAmounts",
   });
@@ -79,6 +81,14 @@ function RecipientAndAmountField() {
               <Input {...field} placeholder="Amount" type="number" />
             )}
           />
+          <Button
+            type="button"
+            onClick={() => remove(index)}
+            variant="destructive"
+            size="icon"
+          >
+            X
+          </Button>
         </div>
       ))}
       <div className="mt-2 flex justify-end">
