@@ -1,0 +1,42 @@
+# macOS
+.DS_Store
+
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Visual Studio Code settings
+.vscode/
+
+# Code coverage reports
+coverage/
+coverage.json
+lcov.info
+lcov.info.pruned
+
+# Typechain generated files
+typechain/
+typechain-types/
+
+# Hardhat files
+artifacts/
+cache/
+cache_hardhat/
+cache_hardhat-zk/
+abis/
+snapshots/
+
+# Foundry files
+out/
+broadcast/
+cache_forge/
+cache_forge/*.json
+cache/solidity-files-cache.json
+
+# Visual Studio Code settings
+.vscode/settings.json
+
+# ZKSync files
+artifacts-zk/
