@@ -1,0 +1,522 @@
+{
+	"compiler": {
+		"version": "0.8.27+commit.40a35a09"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_allo",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_registry",
+						"type": "address"
+					},
+					{
+						"internalType": "address payable",
+						"name": "_initialStrategyTemplate",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "FailedDeployment",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "needed",
+						"type": "uint256"
+					}
+				],
+				"name": "InsufficientBalance",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "OwnableInvalidOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "OwnableUnauthorizedAccount",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "strategyDeployer",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "strategyAddress",
+						"type": "address"
+					}
+				],
+				"name": "StrategyDeployed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newTemplateAddress",
+						"type": "address"
+					}
+				],
+				"name": "StrategyTemplateUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "deployStrategy",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllStrategies",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_strategyDeployer",
+						"type": "address"
+					}
+				],
+				"name": "getDeployedStrategies",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getStrategyCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "s_allStrategies",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "s_allo",
+				"outputs": [
+					{
+						"internalType": "contract IAllo",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "s_deployedStrategies",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "s_registry",
+				"outputs": [
+					{
+						"internalType": "contract IRegistry",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "strategyTemplate",
+				"outputs": [
+					{
+						"internalType": "contract YeeterStrategy",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_newTemplateAddress",
+						"type": "address"
+					}
+				],
+				"name": "updateStrategyTemplate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"errors": {
+				"FailedDeployment()": [
+					{
+						"details": "The deployment failed."
+					}
+				],
+				"InsufficientBalance(uint256,uint256)": [
+					{
+						"details": "The ETH balance of the account is not enough to perform the operation."
+					}
+				],
+				"OwnableInvalidOwner(address)": [
+					{
+						"details": "The owner is not a valid owner account. (eg. `address(0)`)"
+					}
+				],
+				"OwnableUnauthorizedAccount(address)": [
+					{
+						"details": "The caller account is not authorized to perform an operation."
+					}
+				]
+			},
+			"kind": "dev",
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/YeeterFactory.sol": "YeeterFactory"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": [
+			":allo/=lib/allo-v2/",
+			":ds-test/=lib/forge-std/lib/ds-test/src/",
+			":forge-std/=lib/forge-std/src/",
+			":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+			":solady/=lib/allo-v2/lib/solady/src/",
+			":solmate/=lib/solmate/src/"
+		]
+	},
+	"sources": {
+		"lib/allo-v2/contracts/core/interfaces/IAllo.sol": {
+			"keccak256": "0xb4d42b75def46f3fd1e182f5b18bde5df74822d3666580e66d34802f362b517e",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://a9492cb300be5f7cd8c58f54ff472b66c108827833bf1156028d8513b91e8f29",
+				"dweb:/ipfs/QmccCdVZWsPhJEExajS6gANPyg2pEpD6RZwyjFNrdJM4Ek"
+			]
+		},
+		"lib/allo-v2/contracts/core/interfaces/IRegistry.sol": {
+			"keccak256": "0x3a2edcea094551fc86612932d42bd6b4682d20fb7b46cfdbeee39ba85367749f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c922d497fdfdd2f43a009959429c761d1fb61501ca5d91abf9ae873ac58d437e",
+				"dweb:/ipfs/QmaiUx4uVajytmFJQJdGh2mJK2RKn4xNVrARurJdF3iwzA"
+			]
+		},
+		"lib/allo-v2/contracts/core/interfaces/IStrategy.sol": {
+			"keccak256": "0xebd143a6729d7fe650ffd83a2dc1941e19ce9285526e5cb4d6c32adba3f3cf23",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://994ed7ab48860e92ffd369e6741149760a725c5ddf4fc55e33c31f408bd25487",
+				"dweb:/ipfs/QmV6bzxJQo5T13Kynv7mqGJQSbNyZ4ZJfTEjWUymxmpfpH"
+			]
+		},
+		"lib/allo-v2/contracts/core/libraries/Errors.sol": {
+			"keccak256": "0xcb30aef5d96b6be43471657c2b2cef6bf171fddcd71dc7d6347eedd51bc7e45c",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://1ee6edb9116e028006cd4ac70a83ff2d41b749fd508575bb7627def1f782ad27",
+				"dweb:/ipfs/QmbyX2wEE74X6HRPBCGZBP9RVkMf69Aaj2cBcUaDMtTq7h"
+			]
+		},
+		"lib/allo-v2/contracts/core/libraries/Metadata.sol": {
+			"keccak256": "0x41ece5b83f50d180841f44324a883e12b3fc2005e425e4cd51944fb8d46b147f",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://ecd926cbce88398d6fdb1762f7b75617635ae866f8461b7fb32dd2b0a17273ce",
+				"dweb:/ipfs/QmdvPsL48GbXV2hy4vDcW9XtkN7VUTDebtYihuj7ZxhaD7"
+			]
+		},
+		"lib/allo-v2/contracts/core/libraries/Native.sol": {
+			"keccak256": "0x5a12a5d2fb1ba09c0ca357b8ef22e65b954831563f6e6a63a08a8176608c9264",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://75e51c8b86b13955b647f49e3869a0877d1af7355fad036ecc03af98e3d29972",
+				"dweb:/ipfs/QmZAGmPgsFj5pbY8eDVLNA8mjHUZtWq4V8RVNFLk8MyVr8"
+			]
+		},
+		"lib/allo-v2/contracts/core/libraries/Transfer.sol": {
+			"keccak256": "0x490d9748fc1232a6db5a7dac80f7acd54852d0a1f3490959f3e6a6488f704f7e",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://cc225511b84e9ac56b7b59339ed8ec5ce6d2a0f2b0ee8cbc2d68c48c9b8d3603",
+				"dweb:/ipfs/QmYDsnUWW2NsWjBn3PuLuz9nLjbVcCyeiv6tJZG1uxSbkQ"
+			]
+		},
+		"lib/allo-v2/contracts/strategies/BaseStrategy.sol": {
+			"keccak256": "0x3f1382dc6c35d50545e327e7ed6016f2bd752357d446bd698014073f0b812873",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://99500abcd617fa43f6dde49e2c7802821ceaf54a65a8055cbbf2695ecd107974",
+				"dweb:/ipfs/QmUktZkWuu3GCMEijY1fqt7NMy7BzpTvEtcmpB1fuoa7zt"
+			]
+		},
+		"lib/allo-v2/lib/solady/src/utils/SafeTransferLib.sol": {
+			"keccak256": "0x06d3261d13cf5a08f9bcda05e17be0a6a0380193116298fdf8eabf9bf80d3624",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://96965a8a2b1bd2d6cff4a8f78bcb33b0de8848834f8e4be28c03609ae08e9298",
+				"dweb:/ipfs/QmSoNDxaEozMZgNdVEygfEvnk26Tu4UeFeapvtMsoUFftt"
+			]
+		},
+		"lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
+			"keccak256": "0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8ed324d3920bb545059d66ab97d43e43ee85fd3bd52e03e401f020afb0b120f6",
+				"dweb:/ipfs/QmfEckWLmZkDDcoWrkEvMWhms66xwTLff9DDhegYpvHo1a"
+			]
+		},
+		"lib/openzeppelin-contracts/contracts/proxy/Clones.sol": {
+			"keccak256": "0xf4cfcf7f42ecd4376dca7e26854bda8d4ec357e8da99cd0919c526b746f8c6ef",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2e01ff8df0fb3869504f45711a6f64b1a788cd5bfcf4f71f81220bac1328c1ea",
+				"dweb:/ipfs/QmabiTcnYi3zrbFAQWzeambLdvAZPTqce39gFF97QymWVn"
+			]
+		},
+		"lib/openzeppelin-contracts/contracts/utils/Context.sol": {
+			"keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+			]
+		},
+		"lib/openzeppelin-contracts/contracts/utils/Create2.sol": {
+			"keccak256": "0x6bea78ee3d1249958f61f4cd3cdb2b30418db22357ba7544122bb0c1776d6584",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fb02b8b6e1e6bf46178ae47c645b5c904bbaaa33dd4abc7841032930beb678e3",
+				"dweb:/ipfs/QmPiHM7Rni4XKujdWTuNJJuhJS6Anzn4JuMJver765rT5A"
+			]
+		},
+		"lib/openzeppelin-contracts/contracts/utils/Errors.sol": {
+			"keccak256": "0x3f6500df17ff64f838b357a58be5a2d8e8cc937db0cf10504c7049f13608ab66",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0a0285cedb657d751d809a543e7a3b8a3d541701046808b9d6b0fa2572bac256",
+				"dweb:/ipfs/QmTaxGdRkw56LhPRc9F9SLTufmQ37XMgsihdESHREWpwRd"
+			]
+		},
+		"src/YeeterFactory.sol": {
+			"keccak256": "0x8ae4c56197fcd7a67d18d8c6e5e9efca1b342954e6fcf4bf2c5e43a4b771c76b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f83d7166c6cec7e3b783e68925f431d27e59af076f07ef45f0c83be06cd148ae",
+				"dweb:/ipfs/QmTosW3DKCAduJiTuZrY5i5iv6VrYVoMMpYBvDXqSz2ixm"
+			]
+		},
+		"src/YeeterStrategy.sol": {
+			"keccak256": "0x7c549e691388815578a5ffaef8ac8ea00de0bbf3c48867abaa0df157b7ad5086",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://565044cbdf59f55605493e59cc54837db2e649d9dc1408645c8ebaec5b5ebc28",
+				"dweb:/ipfs/QmQZLz2MhESQGZZuZ3dMN6q84zLTmzCipzvvyFXGTkd4gf"
+			]
+		}
+	},
+	"version": 1
+}

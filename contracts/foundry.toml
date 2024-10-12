@@ -7,3 +7,9 @@ solc_version = "0.8.21"
 # auto_detect_solc = true
 optimizer = true
 optimizer_runs = 1_000
+
+[rpc_endpoints]
+sepolia = "${RPC_URL}"
+
+[etherscan]
+api_key = { key = "${ETHERSCAN_API_KEY}" }
