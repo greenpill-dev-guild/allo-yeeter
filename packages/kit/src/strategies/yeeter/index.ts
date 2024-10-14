@@ -13,8 +13,8 @@ export const yeeter: StrategyExtension = {
   // Deployed strategy contract address for all supported networks
   contracts: getChains()?.reduce(
     // (acc, x) => ({ ...acc, [x.id]: x.contracts.directGrants }),
-    // TODO: make this dynamic, as above
-    (acc, x) => ({ ...acc, [x.id]: '0x62a814cf94ae73cd3f057c2156d24bb60a5c4884' }),
+    // (acc, x) => ({ ...acc, [x.id]: '0x62a814cf94ae73cd3f057c2156d24bb60a5c4884' }), // old yeeter contract
+    (acc, x) => ({ ...acc, [x.id]: '0xA4d5a9eFeF7ee460E08A94fBaC100aABDd8340d7' }), // new yeeter contract (factory) TODO: make this dynamic, as above
     {},
   ),
   components: {
