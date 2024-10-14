@@ -1,0 +1,671 @@
+20231102_205339 - Executing: bun hardhat run scripts/core/deployRegistry.ts --network mumbai | tee ./reports/deployment-logs/core/deployRegistry/mumbai/20231102_205339/deploy-20231102_205339.log
+20231102_205508 - Executing: bun hardhat run scripts/core/deployRegistry.ts --network --no-compile mumbai | tee ./reports/deployment-logs/core/deployRegistry/mumbai/20231102_205508/deploy-20231102_205508.log
+20231102_205509 - Executing: bun hardhat run scripts/core/deployRegistry.ts --network --no-compile goerli | tee ./reports/deployment-logs/core/deployRegistry/goerli/20231102_205508/deploy-20231102_205508.log
+20231102_205510 - Executing: bun hardhat run scripts/core/deployRegistry.ts --network --no-compile sepolia | tee ./reports/deployment-logs/core/deployRegistry/sepolia/20231102_205508/deploy-20231102_205508.log
+20231102_205510 - Executing: bun hardhat run scripts/core/deployRegistry.ts --network --no-compile arbitrum-goerli | tee ./reports/deployment-logs/core/deployRegistry/arbitrum-goerli/20231102_205508/deploy-20231102_205508.log
+20231102_205511 - Executing: bun hardhat run scripts/core/deployRegistry.ts --network --no-compile optimism-goerli | tee ./reports/deployment-logs/core/deployRegistry/optimism-goerli/20231102_205508/deploy-20231102_205508.log
+20231102_205512 - Executing: bun hardhat run scripts/core/deployRegistry.ts --network --no-compile base-testnet | tee ./reports/deployment-logs/core/deployRegistry/base-testnet/20231102_205508/deploy-20231102_205508.log
+20231102_205513 - Executing: bun hardhat run scripts/core/deployRegistry.ts --network --no-compile celo-testnet | tee ./reports/deployment-logs/core/deployRegistry/celo-testnet/20231102_205508/deploy-20231102_205508.log
+20231102_205527 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network mumbai | tee ./reports/deployment-logs/core/deployRegistry/mumbai/20231102_205527/deploy-20231102_205527.log
+20231102_205713 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network goerli | tee ./reports/deployment-logs/core/deployRegistry/goerli/20231102_205527/deploy-20231102_205527.log
+20231102_205913 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sepolia | tee ./reports/deployment-logs/core/deployRegistry/sepolia/20231102_205527/deploy-20231102_205527.log
+20231102_210144 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/core/deployRegistry/arbitrum-goerli/20231102_205527/deploy-20231102_205527.log
+20231102_210320 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/core/deployRegistry/optimism-goerli/20231102_205527/deploy-20231102_205527.log
+20231102_210452 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/core/deployRegistry/base-testnet/20231102_205527/deploy-20231102_205527.log
+20231102_210631 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/core/deployRegistry/celo-testnet/20231102_205527/deploy-20231102_205527.log
+20231102_210846 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network polygon | tee ./reports/deployment-logs/core/deployRegistry/polygon/20231102_205527/deploy-20231102_205527.log
+20231102_211032 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network mainnet | tee ./reports/deployment-logs/core/deployRegistry/mainnet/20231102_205527/deploy-20231102_205527.log
+20231102_211230 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/core/deployRegistry/optimism-mainnet/20231102_205527/deploy-20231102_205527.log
+20231102_211235 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/core/deployRegistry/celo-mainnet/20231102_205527/deploy-20231102_205527.log
+20231102_211413 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/core/deployRegistry/arbitrum-mainnet/20231102_205527/deploy-20231102_205527.log
+20231102_211420 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network base | tee ./reports/deployment-logs/core/deployRegistry/base/20231102_205527/deploy-20231102_205527.log
+20231102_211557 - Deployment finished with 0 error(s)
+20231102_211557 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network mumbai | tee ./reports/deployment-logs/core/deployContractFactory/mumbai/20231102_205527/deploy-20231102_205527.log
+20231102_212450 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/core/deployRegistry/optimism-mainnet/20231102_212450/deploy-20231102_212450.log
+20231102_212545 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/core/deployRegistry/arbitrum-mainnet/20231102_212545/deploy-20231102_212545.log
+20231102_212722 - Deployment finished with 0 error(s)
+20231102_212901 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network mumbai | tee ./reports/deployment-logs/core/deployContractFactory/mumbai/20231102_212901/deploy-20231102_212901.log
+20231102_213016 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network goerli | tee ./reports/deployment-logs/core/deployContractFactory/goerli/20231102_212901/deploy-20231102_212901.log
+20231102_213310 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network sepolia | tee ./reports/deployment-logs/core/deployContractFactory/sepolia/20231102_212901/deploy-20231102_212901.log
+20231102_213525 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/core/deployContractFactory/arbitrum-goerli/20231102_212901/deploy-20231102_212901.log
+20231102_213641 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/core/deployContractFactory/optimism-goerli/20231102_212901/deploy-20231102_212901.log
+20231102_213757 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/core/deployContractFactory/base-testnet/20231102_212901/deploy-20231102_212901.log
+20231102_213922 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/core/deployContractFactory/celo-testnet/20231102_212901/deploy-20231102_212901.log
+20231102_214051 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/core/deployContractFactory/optimism-mainnet/20231102_212901/deploy-20231102_212901.log
+20231102_214206 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/core/deployContractFactory/celo-mainnet/20231102_212901/deploy-20231102_212901.log
+20231102_214329 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/core/deployContractFactory/arbitrum-mainnet/20231102_212901/deploy-20231102_212901.log
+20231102_214442 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network base | tee ./reports/deployment-logs/core/deployContractFactory/base/20231102_212901/deploy-20231102_212901.log
+20231102_214555 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network polygon | tee ./reports/deployment-logs/core/deployContractFactory/polygon/20231102_212901/deploy-20231102_212901.log
+20231102_214716 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network mainnet | tee ./reports/deployment-logs/core/deployContractFactory/mainnet/20231102_212901/deploy-20231102_212901.log
+20231102_214913 - Deployment finished with 0 error(s)
+20231102_214941 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network mumbai | tee ./reports/deployment-logs/core/deployAllo/mumbai/20231102_214941/deploy-20231102_214941.log
+20231102_215116 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network goerli | tee ./reports/deployment-logs/core/deployAllo/goerli/20231102_214941/deploy-20231102_214941.log
+20231102_215314 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network sepolia | tee ./reports/deployment-logs/core/deployAllo/sepolia/20231102_214941/deploy-20231102_214941.log
+20231102_215518 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/core/deployAllo/arbitrum-goerli/20231102_214941/deploy-20231102_214941.log
+20231102_215646 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/core/deployAllo/optimism-goerli/20231102_214941/deploy-20231102_214941.log
+20231102_215817 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/core/deployAllo/base-testnet/20231102_214941/deploy-20231102_214941.log
+20231102_215957 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/core/deployAllo/celo-testnet/20231102_214941/deploy-20231102_214941.log
+20231102_220135 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/core/deployAllo/optimism-mainnet/20231102_214941/deploy-20231102_214941.log
+20231102_220302 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/core/deployAllo/celo-mainnet/20231102_214941/deploy-20231102_214941.log
+20231102_220425 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/core/deployAllo/arbitrum-mainnet/20231102_214941/deploy-20231102_214941.log
+20231102_220555 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network base | tee ./reports/deployment-logs/core/deployAllo/base/20231102_214941/deploy-20231102_214941.log
+20231102_220727 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network polygon | tee ./reports/deployment-logs/core/deployAllo/polygon/20231102_214941/deploy-20231102_214941.log
+20231102_220904 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network mainnet | tee ./reports/deployment-logs/core/deployAllo/mainnet/20231102_214941/deploy-20231102_214941.log
+20231102_221117 - Deployment finished with 0 error(s)
+20231102_221159 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network mumbai | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/mumbai/20231102_221158/deploy-20231102_221158.log
+20231102_221203 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network goerli | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/goerli/20231102_221158/deploy-20231102_221158.log
+20231102_221209 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network sepolia | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/sepolia/20231102_221158/deploy-20231102_221158.log
+20231102_221213 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/arbitrum-goerli/20231102_221158/deploy-20231102_221158.log
+20231102_221218 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/optimism-goerli/20231102_221158/deploy-20231102_221158.log
+20231102_221223 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/base-testnet/20231102_221158/deploy-20231102_221158.log
+20231102_221229 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/celo-testnet/20231102_221158/deploy-20231102_221158.log
+20231102_221234 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/optimism-mainnet/20231102_221158/deploy-20231102_221158.log
+20231102_221240 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/celo-mainnet/20231102_221158/deploy-20231102_221158.log
+20231102_221243 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/arbitrum-mainnet/20231102_221158/deploy-20231102_221158.log
+20231102_221248 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network base | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/base/20231102_221158/deploy-20231102_221158.log
+20231102_221254 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network polygon | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/polygon/20231102_221158/deploy-20231102_221158.log
+20231102_221259 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network mainnet | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/mainnet/20231102_221158/deploy-20231102_221158.log
+20231102_221304 - Deployment finished with 0 error(s)
+20231102_221325 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/mumbai/20231102_221325/deploy-20231102_221325.log
+20231102_221413 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/goerli/20231102_221325/deploy-20231102_221325.log
+20231102_221509 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/sepolia/20231102_221325/deploy-20231102_221325.log
+20231102_221606 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/arbitrum-goerli/20231102_221325/deploy-20231102_221325.log
+20231102_221652 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/optimism-goerli/20231102_221325/deploy-20231102_221325.log
+20231102_221736 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/base-testnet/20231102_221325/deploy-20231102_221325.log
+20231102_221827 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/celo-testnet/20231102_221325/deploy-20231102_221325.log
+20231102_221920 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/optimism-mainnet/20231102_221325/deploy-20231102_221325.log
+20231102_222016 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/celo-mainnet/20231102_221325/deploy-20231102_221325.log
+20231102_222059 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/arbitrum-mainnet/20231102_221325/deploy-20231102_221325.log
+20231102_222148 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/base/20231102_221325/deploy-20231102_221325.log
+20231102_222235 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/polygon/20231102_221325/deploy-20231102_221325.log
+20231102_222325 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/mainnet/20231102_221325/deploy-20231102_221325.log
+20231102_222420 - Deployment finished with 0 error(s)
+20231102_222432 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/mumbai/20231102_222432/deploy-20231102_222432.log
+20231102_222518 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/goerli/20231102_222432/deploy-20231102_222432.log
+20231102_222607 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/sepolia/20231102_222432/deploy-20231102_222432.log
+20231102_222705 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/arbitrum-goerli/20231102_222432/deploy-20231102_222432.log
+20231102_222756 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/optimism-goerli/20231102_222432/deploy-20231102_222432.log
+20231102_222847 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/base-testnet/20231102_222432/deploy-20231102_222432.log
+20231102_222943 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/celo-testnet/20231102_222432/deploy-20231102_222432.log
+20231102_223035 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/optimism-mainnet/20231102_222432/deploy-20231102_222432.log
+20231102_225427 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/mumbai/20231102_225427/deploy-20231102_225427.log
+20231102_225519 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/goerli/20231102_225427/deploy-20231102_225427.log
+20231102_225546 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/sepolia/20231102_225427/deploy-20231102_225427.log
+20231102_225624 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/arbitrum-goerli/20231102_225427/deploy-20231102_225427.log
+20231102_225652 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/optimism-goerli/20231102_225427/deploy-20231102_225427.log
+20231102_225722 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/base-testnet/20231102_225427/deploy-20231102_225427.log
+20231102_225752 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/celo-testnet/20231102_225427/deploy-20231102_225427.log
+20231102_225824 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/optimism-mainnet/20231102_225427/deploy-20231102_225427.log
+20231102_230118 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/mumbai/20231102_230118/deploy-20231102_230118.log
+20231102_230140 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/celo-mainnet/20231102_230140/deploy-20231102_230140.log
+20231102_230228 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/arbitrum-mainnet/20231102_230140/deploy-20231102_230140.log
+20231102_230326 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/base/20231102_230140/deploy-20231102_230140.log
+20231102_230418 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/polygon/20231102_230140/deploy-20231102_230140.log
+20231102_230520 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/mainnet/20231102_230140/deploy-20231102_230140.log
+20231102_230633 - Deployment finished with 0 error(s)
+20231102_230656 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/optimism-mainnet/20231102_230656/deploy-20231102_230656.log
+20231102_230754 - Deployment finished with 0 error(s)
+20231102_230817 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployQVSimple/mumbai/20231102_230817/deploy-20231102_230817.log
+20231102_230912 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployQVSimple/goerli/20231102_230817/deploy-20231102_230817.log
+20231102_231115 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployQVSimple/goerli/20231102_231115/deploy-20231102_231115.log
+20231102_231215 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployQVSimple/sepolia/20231102_231115/deploy-20231102_231115.log
+20231102_231334 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployQVSimple/sepolia/20231102_231334/deploy-20231102_231334.log
+20231102_231443 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/strategies/deployQVSimple/arbitrum-goerli/20231102_231334/deploy-20231102_231334.log
+20231102_231543 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/strategies/deployQVSimple/optimism-goerli/20231102_231334/deploy-20231102_231334.log
+20231102_231643 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/strategies/deployQVSimple/base-testnet/20231102_231334/deploy-20231102_231334.log
+20231102_231747 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployQVSimple/celo-testnet/20231102_231334/deploy-20231102_231334.log
+20231102_231843 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployQVSimple/optimism-mainnet/20231102_231334/deploy-20231102_231334.log
+20231102_231910 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/strategies/deployQVSimple/celo-mainnet/20231102_231334/deploy-20231102_231334.log
+20231102_232007 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployQVSimple/arbitrum-mainnet/20231102_231334/deploy-20231102_231334.log
+20231102_232103 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployQVSimple/base/20231102_231334/deploy-20231102_231334.log
+20231102_232200 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployQVSimple/polygon/20231102_231334/deploy-20231102_231334.log
+20231102_232302 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployQVSimple/mainnet/20231102_231334/deploy-20231102_231334.log
+20231102_232357 - Deployment finished with 0 error(s)
+20231102_232415 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployQVSimple/sepolia/20231102_232415/deploy-20231102_232415.log
+20231102_232427 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployQVSimple/optimism-mainnet/20231102_232427/deploy-20231102_232427.log
+20231102_232523 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployQVSimple/base/20231102_232427/deploy-20231102_232427.log
+20231102_232547 - Deployment finished with 0 error(s)
+20231102_232742 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployRFPCommittee/mumbai/20231102_232742/deploy-20231102_232742.log
+20231102_232829 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployRFPCommittee/goerli/20231102_232742/deploy-20231102_232742.log
+20231102_232926 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployRFPCommittee/sepolia/20231102_232742/deploy-20231102_232742.log
+20231102_233023 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/strategies/deployRFPCommittee/arbitrum-goerli/20231102_232742/deploy-20231102_232742.log
+20231102_233110 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/strategies/deployRFPCommittee/optimism-goerli/20231102_232742/deploy-20231102_232742.log
+20231102_233205 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/strategies/deployRFPCommittee/base-testnet/20231102_232742/deploy-20231102_232742.log
+20231102_233256 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployRFPCommittee/celo-testnet/20231102_232742/deploy-20231102_232742.log
+20231102_233348 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployRFPCommittee/optimism-mainnet/20231102_232742/deploy-20231102_232742.log
+20231102_233446 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/strategies/deployRFPCommittee/celo-mainnet/20231102_232742/deploy-20231102_232742.log
+20231102_233530 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployRFPCommittee/arbitrum-mainnet/20231102_232742/deploy-20231102_232742.log
+20231102_233624 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployRFPCommittee/base/20231102_232742/deploy-20231102_232742.log
+20231102_233713 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployRFPCommittee/polygon/20231102_232742/deploy-20231102_232742.log
+20231102_233806 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployRFPCommittee/mainnet/20231102_232742/deploy-20231102_232742.log
+20231102_233911 - Deployment finished with 0 error(s)
+20231102_233911 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployRFPSimple/mumbai/20231102_232742/deploy-20231102_232742.log
+20231102_233956 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployRFPSimple/goerli/20231102_232742/deploy-20231102_232742.log
+20231102_234059 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployRFPSimple/sepolia/20231102_232742/deploy-20231102_232742.log
+20231102_234201 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/strategies/deployRFPSimple/arbitrum-goerli/20231102_232742/deploy-20231102_232742.log
+20231102_234250 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/strategies/deployRFPSimple/optimism-goerli/20231102_232742/deploy-20231102_232742.log
+20231102_234347 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/strategies/deployRFPSimple/base-testnet/20231102_232742/deploy-20231102_232742.log
+20231102_234442 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployRFPSimple/celo-testnet/20231102_232742/deploy-20231102_232742.log
+20231102_234541 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployRFPSimple/optimism-mainnet/20231102_232742/deploy-20231102_232742.log
+20231102_234642 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/strategies/deployRFPSimple/celo-mainnet/20231102_232742/deploy-20231102_232742.log
+20231102_234731 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployRFPSimple/arbitrum-mainnet/20231102_232742/deploy-20231102_232742.log
+20231102_234821 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployRFPSimple/base/20231102_232742/deploy-20231102_232742.log
+20231102_234919 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployRFPSimple/polygon/20231102_232742/deploy-20231102_232742.log
+20231102_235014 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployRFPSimple/mainnet/20231102_232742/deploy-20231102_232742.log
+20231102_235115 - Deployment finished with 0 error(s)
+20231106_122925 - Executing: bun hardhat run scripts/strategies/deployImpactStream.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployImpactStream/goerli/20231106_122925/deploy-20231106_122925.log
+20231106_122933 - Deployment finished with 0 error(s)
+20231106_123207 - Executing: bun hardhat run scripts/strategies/deployImpactStream.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployImpactStream/goerli/20231106_123207/deploy-20231106_123207.log
+20231106_123329 - Deployment finished with 0 error(s)
+20231106_123416 - Executing: bun hardhat run scripts/strategies/deployImpactStream.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployImpactStream/celo-testnet/20231106_123416/deploy-20231106_123416.log
+20231106_123515 - Deployment finished with 0 error(s)
+20231106_123525 - Executing: bun hardhat run scripts/strategies/deployImpactStream.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/strategies/deployImpactStream/celo-mainnet/20231106_123525/deploy-20231106_123525.log
+20231106_123619 - Deployment finished with 0 error(s)
+20231214_142629 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/core/deployRegistry/arbitrum-sepolia/20231214_142629/deploy-20231214_142629.log
+20231214_142827 - Deployment finished with 0 error(s)
+20231214_142854 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/core/deployContractFactory/arbitrum-sepolia/20231214_142854/deploy-20231214_142854.log
+20231214_143021 - Deployment finished with 0 error(s)
+20231214_143055 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/core/deployAllo/arbitrum-sepolia/20231214_143055/deploy-20231214_143055.log
+20231214_143340 - Deployment finished with 0 error(s)
+20231214_143634 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/arbitrum-sepolia/20231214_143634/deploy-20231214_143634.log
+20231214_143637 - Deployment finished with 0 error(s)
+20231214_143646 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/arbitrum-sepolia/20231214_143646/deploy-20231214_143646.log
+20231214_143734 - Deployment finished with 0 error(s)
+20231214_143820 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/arbitrum-sepolia/20231214_143820/deploy-20231214_143820.log
+20231214_143902 - Deployment finished with 0 error(s)
+20231214_143957 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployRFPCommittee/arbitrum-sepolia/20231214_143957/deploy-20231214_143957.log
+20231214_144046 - Deployment finished with 0 error(s)
+20231214_144100 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployRFPSimple/arbitrum-sepolia/20231214_144100/deploy-20231214_144100.log
+20231214_144149 - Deployment finished with 0 error(s)
+20231214_144933 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployQVSimple/arbitrum-sepolia/20231214_144933/deploy-20231214_144933.log
+20231214_145020 - Deployment finished with 0 error(s)
+20240122_201724 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/core/deployRegistry/optimism-sepolia/20240122_201724/deploy-20240122_201724.log
+20240122_201957 - Deployment finished with 0 error(s)
+20240122_202321 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/core/deployContractFactory/optimism-sepolia/20240122_202321/deploy-20240122_202321.log
+20240122_202501 - Deployment finished with 0 error(s)
+20240122_202520 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/core/deployAllo/optimism-sepolia/20240122_202520/deploy-20240122_202520.log
+20240122_202715 - Deployment finished with 0 error(s)
+20240122_202757 - Executing: bun hardhat run scripts/core/transferProxyAdminOwnership.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/core/transferProxyAdminOwnership/optimism-sepolia/20240122_202757/deploy-20240122_202757.log
+20240122_202759 - Deployment finished with 0 error(s)
+20240122_202807 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/optimism-sepolia/20240122_202807/deploy-20240122_202807.log
+20240122_202925 - Deployment finished with 0 error(s)
+20240122_202944 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/optimism-sepolia/20240122_202944/deploy-20240122_202944.log
+20240122_203103 - Deployment finished with 0 error(s)
+20240122_203113 - Executing: bun hardhat run scripts/strategies/deployQVSimple.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployQVSimple/optimism-sepolia/20240122_203113/deploy-20240122_203113.log
+20240122_203226 - Deployment finished with 0 error(s)
+20240122_203256 - Executing: bun hardhat run scripts/strategies/deployRFPCommittee.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployRFPCommittee/optimism-sepolia/20240122_203256/deploy-20240122_203256.log
+20240122_203414 - Deployment finished with 0 error(s)
+20240122_203414 - Executing: bun hardhat run scripts/strategies/deployRFPSimple.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployRFPSimple/optimism-sepolia/20240122_203256/deploy-20240122_203256.log
+20240122_203536 - Deployment finished with 0 error(s)
+20240209_085203 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/goerli/20240209_085203/deploy-20240209_085203.log
+20240209_085224 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/goerli/20240209_085224/deploy-20240209_085224.log
+20240209_085354 - Deployment finished with 0 error(s)
+20240209_085354 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/goerli/20240209_085224/deploy-20240209_085224.log
+20240209_085520 - Deployment finished with 0 error(s)
+20240209_085719 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/mumbai/20240209_085719/deploy-20240209_085719.log
+20240209_085826 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/sepolia/20240209_085719/deploy-20240209_085719.log
+20240209_085944 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/arbitrum-goerli/20240209_085719/deploy-20240209_085719.log
+20240209_085946 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/optimism-goerli/20240209_085719/deploy-20240209_085719.log
+20240209_090344 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/sepolia/20240209_090344/deploy-20240209_090344.log
+20240209_090408 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/arbitrum-goerli/20240209_090344/deploy-20240209_090344.log
+20240209_090411 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/optimism-goerli/20240209_090344/deploy-20240209_090344.log
+20240209_090433 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/base-testnet/20240209_090344/deploy-20240209_090344.log
+20240209_090556 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/celo-testnet/20240209_090344/deploy-20240209_090344.log
+20240209_090713 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/arbitrum-sepolia/20240209_090344/deploy-20240209_090344.log
+20240209_090819 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/optimism-sepolia/20240209_090344/deploy-20240209_090344.log
+20240209_090933 - Deployment finished with 0 error(s)
+20240209_091358 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/mumbai/20240209_091358/deploy-20240209_091358.log
+20240209_091505 - Deployment finished with 0 error(s)
+20240209_091534 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/sepolia/20240209_091534/deploy-20240209_091534.log
+20240209_091655 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/arbitrum-goerli/20240209_091534/deploy-20240209_091534.log
+20240209_091657 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/optimism-goerli/20240209_091534/deploy-20240209_091534.log
+20240209_091809 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/base-testnet/20240209_091534/deploy-20240209_091534.log
+20240209_091926 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/celo-testnet/20240209_091534/deploy-20240209_091534.log
+20240209_092102 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/arbitrum-sepolia/20240209_091534/deploy-20240209_091534.log
+20240209_092216 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/optimism-sepolia/20240209_091534/deploy-20240209_091534.log
+20240209_092241 - Deployment finished with 0 error(s)
+20240209_094116 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/optimism-sepolia/20240209_094116/deploy-20240209_094116.log
+20240209_094225 - Deployment finished with 0 error(s)
+20240209_135615 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/optimism-mainnet/20240209_135615/deploy-20240209_135615.log
+20240209_135732 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/celo-mainnet/20240209_135615/deploy-20240209_135615.log
+20240209_135849 - Deployment finished with 0 error(s)
+20240209_140106 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/arbitrum-mainnet/20240209_140106/deploy-20240209_140106.log
+20240209_140220 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/base/20240209_140106/deploy-20240209_140106.log
+20240209_140345 - Deployment finished with 0 error(s)
+20240209_140351 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/polygon/20240209_140351/deploy-20240209_140351.log
+20240209_140511 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/mainnet/20240209_140351/deploy-20240209_140351.log
+20240209_140611 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/optimism-mainnet/20240209_140611/deploy-20240209_140611.log
+20240209_140734 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/celo-mainnet/20240209_140611/deploy-20240209_140611.log
+20240209_140849 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/arbitrum-mainnet/20240209_140611/deploy-20240209_140611.log
+20240209_140918 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/base/20240209_140611/deploy-20240209_140611.log
+20240209_140946 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/polygon/20240209_140611/deploy-20240209_140611.log
+20240209_141109 - Deployment finished with 0 error(s)
+20240209_141300 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/base/20240209_141300/deploy-20240209_141300.log
+20240209_141307 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/base/20240209_141307/deploy-20240209_141307.log
+20240209_141342 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/base/20240209_141342/deploy-20240209_141342.log
+20240209_141409 - Deployment finished with 0 error(s)
+20240209_142739 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/arbitrum-mainnet/20240209_142739/deploy-20240209_142739.log
+20240209_142858 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/base/20240209_142739/deploy-20240209_142739.log
+20240209_143017 - Deployment finished with 0 error(s)
+20240209_143030 - Deployment finished with 0 error(s)
+20240209_143106 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/mainnet/20240209_143106/deploy-20240209_143106.log
+20240209_143233 - Deployment finished with 0 error(s)
+20240209_143306 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/mainnet/20240209_143306/deploy-20240209_143306.log
+20240209_143519 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/mainnet/20240209_143519/deploy-20240209_143519.log
+20240209_143546 - Deployment finished with 0 error(s)
+20240209_143548 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionVault.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionVault/mainnet/20240209_143548/deploy-20240209_143548.log
+20240215_125746 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployDirectGrants/mumbai/20240215_125746/deploy-20240215_125746.log
+20240215_125903 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployDirectGrants/mumbai/20240215_125903/deploy-20240215_125903.log
+20240215_125927 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network goerli | tee ./reports/deployment-logs/strategies/deployDirectGrants/goerli/20240215_125903/deploy-20240215_125903.log
+20240215_130108 - Deployment finished with 0 error(s)
+20240215_130431 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrants/sepolia/20240215_130431/deploy-20240215_130431.log
+20240215_130554 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/strategies/deployDirectGrants/arbitrum-goerli/20240215_130431/deploy-20240215_130431.log
+20240215_130556 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network optimism-goerli | tee ./reports/deployment-logs/strategies/deployDirectGrants/optimism-goerli/20240215_130431/deploy-20240215_130431.log
+20240215_130711 - Deployment finished with 0 error(s)
+20240215_130734 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network arbitrum-goerli | tee ./reports/deployment-logs/strategies/deployDirectGrants/arbitrum-goerli/20240215_130734/deploy-20240215_130734.log
+20240215_130737 - Deployment finished with 0 error(s)
+20240215_130752 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/base-testnet/20240215_130752/deploy-20240215_130752.log
+20240215_130819 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/celo-testnet/20240215_130752/deploy-20240215_130752.log
+20240215_130932 - Deployment finished with 0 error(s)
+20240215_131034 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrants/arbitrum-sepolia/20240215_131034/deploy-20240215_131034.log
+20240215_131144 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrants/optimism-sepolia/20240215_131034/deploy-20240215_131034.log
+20240215_131258 - Deployment finished with 0 error(s)
+20240226_141640 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrants/sepolia/20240226_141640/deploy-20240226_141640.log
+20240226_142059 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrants/sepolia/20240226_142059/deploy-20240226_142059.log
+20240226_142254 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrants/sepolia/20240226_142254/deploy-20240226_142254.log
+20240226_142311 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployDirectGrants/mumbai/20240226_142311/deploy-20240226_142311.log
+20240226_142340 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployDirectGrants/mumbai/20240226_142340/deploy-20240226_142340.log
+20240226_142513 - Deployment finished with 0 error(s)
+20240318_145600 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network fuji | tee ./reports/deployment-logs/core/deployRegistry/fuji/20240318_145600/deploy-20240318_145600.log
+20240318_145607 - Deployment finished with 0 error(s)
+20240318_150458 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network fuji | tee ./reports/deployment-logs/core/deployRegistry/fuji/20240318_150458/deploy-20240318_150458.log
+20240318_150508 - Deployment finished with 0 error(s)
+20240318_150532 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network fuji | tee ./reports/deployment-logs/core/deployRegistry/fuji/20240318_150532/deploy-20240318_150532.log
+20240318_150648 - Deployment finished with 0 error(s)
+20240318_150945 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network fuji | tee ./reports/deployment-logs/core/deployRegistry/fuji/20240318_150945/deploy-20240318_150945.log
+20240318_150947 - Deployment finished with 0 error(s)
+20240318_150953 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network fuji | tee ./reports/deployment-logs/core/deployRegistry/fuji/20240318_150953/deploy-20240318_150953.log
+20240318_151331 - Deployment finished with 0 error(s)
+20240318_151332 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sepolia | tee ./reports/deployment-logs/core/deployRegistry/sepolia/20240318_151332/deploy-20240318_151332.log
+20240318_151340 - Deployment finished with 0 error(s)
+20240318_151343 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sepolia | tee ./reports/deployment-logs/core/deployRegistry/sepolia/20240318_151343/deploy-20240318_151343.log
+20240318_151349 - Deployment finished with 0 error(s)
+20240318_151506 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sepolia | tee ./reports/deployment-logs/core/deployRegistry/sepolia/20240318_151506/deploy-20240318_151506.log
+20240318_151513 - Deployment finished with 0 error(s)
+20240318_151525 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sepolia | tee ./reports/deployment-logs/core/deployRegistry/sepolia/20240318_151525/deploy-20240318_151525.log
+20240318_151641 - Deployment finished with 0 error(s)
+20240318_152028 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sepolia | tee ./reports/deployment-logs/core/deployRegistry/sepolia/20240318_152028/deploy-20240318_152028.log
+20240318_152138 - Deployment finished with 0 error(s)
+20240318_152249 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network fuji | tee ./reports/deployment-logs/core/deployRegistry/fuji/20240318_152249/deploy-20240318_152249.log
+20240318_152655 - Deployment finished with 0 error(s)
+20240318_153412 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network fuji | tee ./reports/deployment-logs/core/deployRegistry/fuji/20240318_153412/deploy-20240318_153412.log
+20240318_153826 - Deployment finished with 0 error(s)
+20240318_155235 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network fuji | tee ./reports/deployment-logs/core/deployRegistry/fuji/20240318_155235/deploy-20240318_155235.log
+20240318_155632 - Deployment finished with 0 error(s)
+20240318_155704 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network fuji | tee ./reports/deployment-logs/core/deployContractFactory/fuji/20240318_155704/deploy-20240318_155704.log
+20240318_155815 - Deployment finished with 0 error(s)
+20240318_155824 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network fuji | tee ./reports/deployment-logs/core/deployAllo/fuji/20240318_155824/deploy-20240318_155824.log
+20240318_155938 - Deployment finished with 0 error(s)
+20240318_155955 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network fuji | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/fuji/20240318_155955/deploy-20240318_155955.log
+20240318_160144 - Deployment finished with 0 error(s)
+20240318_160212 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/sepolia/20240318_160212/deploy-20240318_160212.log
+20240318_160240 - Deployment finished with 0 error(s)
+20240318_160416 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/sepolia/20240318_160416/deploy-20240318_160416.log
+20240318_160646 - Deployment finished with 0 error(s)
+20240318_160657 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/mumbai/20240318_160657/deploy-20240318_160657.log
+20240318_160838 - Deployment finished with 0 error(s)
+20240318_160858 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network fuji | tee ./reports/deployment-logs/strategies/deployDirectGrants/fuji/20240318_160858/deploy-20240318_160858.log
+20240318_161128 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network mumbai | tee ./reports/deployment-logs/strategies/deployDirectGrants/mumbai/20240318_160858/deploy-20240318_160858.log
+20240318_161333 - Deployment finished with 0 error(s)
+20240318_161821 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/base-testnet/20240318_161821/deploy-20240318_161821.log
+20240318_161826 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/celo-testnet/20240318_161821/deploy-20240318_161821.log
+20240318_162016 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/arbitrum-sepolia/20240318_161821/deploy-20240318_161821.log
+20240318_162151 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/optimism-sepolia/20240318_161821/deploy-20240318_161821.log
+20240318_162335 - Deployment finished with 0 error(s)
+20240318_162455 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/sepolia/20240318_162455/deploy-20240318_162455.log
+20240318_162640 - Deployment finished with 0 error(s)
+20240318_162700 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrants/arbitrum-sepolia/20240318_162700/deploy-20240318_162700.log
+20240318_162841 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrants/optimism-sepolia/20240318_162700/deploy-20240318_162700.log
+20240318_163029 - Deployment finished with 0 error(s)
+20240318_163036 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/celo-testnet/20240318_163036/deploy-20240318_163036.log
+20240318_163215 - Deployment finished with 0 error(s)
+20240318_122828 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/optimism-mainnet/20240318_122828/deploy-20240318_122828.log
+20240318_122952 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/celo-mainnet/20240318_122828/deploy-20240318_122828.log
+20240318_123105 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/arbitrum-mainnet/20240318_122828/deploy-20240318_122828.log
+20240318_123224 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/base/20240318_122828/deploy-20240318_122828.log
+20240318_123350 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/polygon/20240318_122828/deploy-20240318_122828.log
+20240318_123509 - Deployment finished with 0 error(s)
+20240318_123527 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/mainnet/20240318_123527/deploy-20240318_123527.log
+20240318_123606 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/optimism-mainnet/20240318_123606/deploy-20240318_123606.log
+20240318_123728 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/celo-mainnet/20240318_123606/deploy-20240318_123606.log
+20240318_123842 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/arbitrum-mainnet/20240318_123606/deploy-20240318_123606.log
+20240318_123956 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployDirectGrants/base/20240318_123606/deploy-20240318_123606.log
+20240318_124120 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDirectGrants/polygon/20240318_123606/deploy-20240318_123606.log
+20240318_124241 - Deployment finished with 0 error(s)
+20240318_150734 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network avalanche | tee ./reports/deployment-logs/core/deployRegistry/avalanche/20240318_150734/deploy-20240318_150734.log
+20240318_151043 - Deployment finished with 0 error(s)
+20240318_151058 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network avalanche | tee ./reports/deployment-logs/core/deployContractFactory/avalanche/20240318_151058/deploy-20240318_151058.log
+20240318_151255 - Deployment finished with 0 error(s)
+20240318_151307 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network avalanche | tee ./reports/deployment-logs/core/deployAllo/avalanche/20240318_151307/deploy-20240318_151307.log
+20240318_151514 - Deployment finished with 0 error(s)
+20240318_151526 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network avalanche | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/avalanche/20240318_151526/deploy-20240318_151526.log
+20240318_151639 - Deployment finished with 0 error(s)
+20240318_151751 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network avalanche | tee ./reports/deployment-logs/strategies/deployDirectGrants/avalanche/20240318_151751/deploy-20240318_151751.log
+20240318_151917 - Deployment finished with 0 error(s)
+20240318_153529 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network scroll | tee ./reports/deployment-logs/core/deployRegistry/scroll/20240318_153529/deploy-20240318_153529.log
+20240318_153531 - Deployment finished with 0 error(s)
+20240318_153711 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network scroll | tee ./reports/deployment-logs/core/deployRegistry/scroll/20240318_153711/deploy-20240318_153711.log
+20240318_153821 - Deployment finished with 0 error(s)
+20240318_153836 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network scroll | tee ./reports/deployment-logs/core/deployContractFactory/scroll/20240318_153836/deploy-20240318_153836.log
+20240318_154023 - Deployment finished with 0 error(s)
+20240318_154246 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network scroll | tee ./reports/deployment-logs/core/deployAllo/scroll/20240318_154246/deploy-20240318_154246.log
+20240318_154454 - Deployment finished with 0 error(s)
+20240318_154524 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network scroll | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/scroll/20240318_154524/deploy-20240318_154524.log
+20240318_154552 - Deployment finished with 0 error(s)
+20240318_154639 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network scroll | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/scroll/20240318_154639/deploy-20240318_154639.log
+20240318_154707 - Deployment finished with 0 error(s)
+20240318_154817 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network scroll | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/scroll/20240318_154817/deploy-20240318_154817.log
+20240318_154842 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network scroll | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/scroll/20240318_154842/deploy-20240318_154842.log
+20240318_155002 - Deployment finished with 0 error(s)
+20240318_155014 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network scroll | tee ./reports/deployment-logs/strategies/deployDirectGrants/scroll/20240318_155014/deploy-20240318_155014.log
+20240318_155042 - Deployment finished with 0 error(s)
+20240318_155137 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network scroll | tee ./reports/deployment-logs/strategies/deployDirectGrants/scroll/20240318_155137/deploy-20240318_155137.log
+20240318_155206 - Deployment finished with 0 error(s)
+20240318_155831 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network fantom | tee ./reports/deployment-logs/core/deployRegistry/fantom/20240318_155831/deploy-20240318_155831.log
+20240318_160038 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network fantom-testnet | tee ./reports/deployment-logs/core/deployRegistry/fantom-testnet/20240318_155831/deploy-20240318_155831.log
+20240318_160039 - Deployment finished with 0 error(s)
+20240318_160159 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network ftmTestnet | tee ./reports/deployment-logs/core/deployRegistry/ftmTestnet/20240318_160159/deploy-20240318_160159.log
+20240318_160401 - Deployment finished with 0 error(s)
+20240318_160420 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network ftmTestnet | tee ./reports/deployment-logs/core/deployContractFactory/ftmTestnet/20240318_160420/deploy-20240318_160420.log
+20240318_160558 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network fantom | tee ./reports/deployment-logs/core/deployContractFactory/fantom/20240318_160420/deploy-20240318_160420.log
+20240318_160738 - Deployment finished with 0 error(s)
+20240318_160751 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network ftmTestnet | tee ./reports/deployment-logs/core/deployAllo/ftmTestnet/20240318_160751/deploy-20240318_160751.log
+20240318_160951 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network fantom | tee ./reports/deployment-logs/core/deployAllo/fantom/20240318_160751/deploy-20240318_160751.log
+20240318_161151 - Deployment finished with 0 error(s)
+20240318_161200 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network ftmTestnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/ftmTestnet/20240318_161200/deploy-20240318_161200.log
+20240318_161321 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network fantom | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/fantom/20240318_161200/deploy-20240318_161200.log
+20240318_161440 - Deployment finished with 0 error(s)
+20240318_161457 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network ftmTestnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/ftmTestnet/20240318_161457/deploy-20240318_161457.log
+20240318_161614 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network fantom | tee ./reports/deployment-logs/strategies/deployDirectGrants/fantom/20240318_161457/deploy-20240318_161457.log
+20240318_161746 - Deployment finished with 0 error(s)
+20240318_162415 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network scroll | tee ./reports/deployment-logs/strategies/deployDirectGrants/scroll/20240318_162415/deploy-20240318_162415.log
+20240318_162533 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrants/sepolia/20240318_162533/deploy-20240318_162533.log
+20240318_162556 - Deployment finished with 0 error(s)
+20240318_163855 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network scroll | tee ./reports/deployment-logs/strategies/deployDirectGrants/scroll/20240318_163855/deploy-20240318_163855.log
+20240318_164027 - Deployment finished with 0 error(s)
+20240319_124950 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/mainnet/20240319_124950/deploy-20240319_124950.log
+20240319_125212 - Deployment finished with 0 error(s)
+20240319_125308 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/mainnet/20240319_125308/deploy-20240319_125308.log
+20240319_125513 - Deployment finished with 0 error(s)
+20240409_141904 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/core/deployContractFactory/sei-devnet/20240409_141904/deploy-20240409_141904.log
+20240409_141948 - Deployment finished with 0 error(s)
+20240409_142035 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/core/deployRegistry/sei-devnet/20240409_142035/deploy-20240409_142035.log
+20240409_142037 - Deployment finished with 0 error(s)
+20240409_142132 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/core/deployRegistry/sei-devnet/20240409_142132/deploy-20240409_142132.log
+20240409_142228 - Deployment finished with 0 error(s)
+20240410_084934 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/core/deployRegistry/sei-devnet/20240410_084934/deploy-20240410_084934.log
+20240410_085020 - Deployment finished with 0 error(s)
+20240410_085601 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/core/deployRegistry/sei-devnet/20240410_085601/deploy-20240410_085601.log
+20240410_085626 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/core/deployRegistry/sei-devnet/20240410_085626/deploy-20240410_085626.log
+20240410_085810 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/core/deployAllo/sei-devnet/20240410_085810/deploy-20240410_085810.log
+20240410_085901 - Deployment finished with 0 error(s)
+20240410_090804 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/core/deployAllo/sei-devnet/20240410_090804/deploy-20240410_090804.log
+20240410_090849 - Deployment finished with 0 error(s)
+20240410_091207 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/core/deployContractFactory/sei-devnet/20240410_091207/deploy-20240410_091207.log
+20240410_091345 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/sei-devnet/20240410_091345/deploy-20240410_091345.log
+20240410_091347 - Deployment finished with 0 error(s)
+20240410_091414 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/sei-devnet/20240410_091414/deploy-20240410_091414.log
+20240410_091437 - Deployment finished with 0 error(s)
+20240410_103415 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/sei-devnet/20240410_103415/deploy-20240410_103415.log
+20240410_103439 - Deployment finished with 0 error(s)
+20240410_181512 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/sei-devnet/20240410_181512/deploy-20240410_181512.log
+20240410_181521 - Deployment finished with 0 error(s)
+20240410_181732 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/sei-devnet/20240410_181732/deploy-20240410_181732.log
+20240410_181733 - Deployment finished with 0 error(s)
+20240410_181758 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/sei-devnet/20240410_181758/deploy-20240410_181758.log
+20240410_181807 - Deployment finished with 0 error(s)
+20240410_185857 - Executing: bun hardhat deploy-zksync --network zkSyncTestnet --config era.hardhat.config.ts --script zksync/deployEraRegistry.ts | tee ./reports/deployment-logs/zksync/deployEraRegistry/zkSyncTestnet/20240410_185857/deploy-20240410_185857.log
+20240410_190009 - Deployment finished with 0 error(s)
+20240410_190338 - Executing: bun hardhat deploy-zksync --network zkSyncTestnet --config era.hardhat.config.ts --script zksync/deployEraAllo.ts | tee ./reports/deployment-logs/zksync/deployEraAllo/zkSyncTestnet/20240410_190338/deploy-20240410_190338.log
+20240410_190441 - Deployment finished with 0 error(s)
+20240410_190539 - Executing: bun hardhat deploy-zksync --network zkSyncTestnet --config era.hardhat.config.ts --script zksync/strategies/deployEraDirectGrants.ts | tee ./reports/deployment-logs/zksync/strategies/deployEraDirectGrants/zkSyncTestnet/20240410_190539/deploy-20240410_190539.log
+20240410_190548 - Deployment finished with 0 error(s)
+20240410_190715 - Executing: bun hardhat deploy-zksync --network zkSyncTestnet --config era.hardhat.config.ts --script zksync/strategies/deployEraDirectGrants.ts | tee ./reports/deployment-logs/zksync/strategies/deployEraDirectGrants/zkSyncTestnet/20240410_190715/deploy-20240410_190715.log
+20240410_190726 - Deployment finished with 0 error(s)
+20240410_190852 - Executing: bun hardhat deploy-zksync --network zkSyncTestnet --config era.hardhat.config.ts --script zksync/strategies/deployEraDirectGrants.ts | tee ./reports/deployment-logs/zksync/strategies/deployEraDirectGrants/zkSyncTestnet/20240410_190852/deploy-20240410_190852.log
+20240410_190903 - Deployment finished with 0 error(s)
+20240410_191024 - Executing: bun hardhat deploy-zksync --network zkSyncTestnet --config era.hardhat.config.ts --script zksync/strategies/deployEraDirectGrants.ts | tee ./reports/deployment-logs/zksync/strategies/deployEraDirectGrants/zkSyncTestnet/20240410_191024/deploy-20240410_191024.log
+20240410_191117 - Deployment finished with 0 error(s)
+20240410_191253 - Executing: bun hardhat deploy-zksync --network zkSyncTestnet --config era.hardhat.config.ts --script zksync/strategies/deployEraDonationVotingMerkleDistributionDirect.ts | tee ./reports/deployment-logs/zksync/strategies/deployEraDonationVotingMerkleDistributionDirect/zkSyncTestnet/20240410_191253/deploy-20240410_191253.log
+20240410_191348 - Deployment finished with 0 error(s)
+20240410_191531 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script core/deployRegistry.ts | tee ./reports/deployment-logs/core/deployRegistry/zkSyncMainnet/20240410_191531/deploy-20240410_191531.log
+20240410_191532 - Deployment finished with 0 error(s)
+20240410_191602 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script zksync/deployEraRegistry.ts | tee ./reports/deployment-logs/zksync/deployEraRegistry/zkSyncMainnet/20240410_191602/deploy-20240410_191602.log
+20240410_191716 - Deployment finished with 0 error(s)
+20240410_191731 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script zksync/deployEraAllo.ts | tee ./reports/deployment-logs/zksync/deployEraAllo/zkSyncMainnet/20240410_191731/deploy-20240410_191731.log
+20240410_191836 - Deployment finished with 0 error(s)
+20240410_191846 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script zksync/strategies/deployEraDirectGrants.ts | tee ./reports/deployment-logs/zksync/strategies/deployEraDirectGrants/zkSyncMainnet/20240410_191846/deploy-20240410_191846.log
+20240410_191936 - Deployment finished with 0 error(s)
+20240410_191939 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script zksync/strategies/deployEraDirectGrants.ts | tee ./reports/deployment-logs/zksync/strategies/deployEraDirectGrants/zkSyncMainnet/20240410_191939/deploy-20240410_191939.log
+20240410_192034 - Deployment finished with 0 error(s)
+20240410_192036 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script zksync/strategies/deployEraDirectGrants.ts | tee ./reports/deployment-logs/zksync/strategies/deployEraDirectGrants/zkSyncMainnet/20240410_192036/deploy-20240410_192036.log
+20240410_192129 - Deployment finished with 0 error(s)
+20240410_192204 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script zksync/strategies/deployEraDirectGrants.ts | tee ./reports/deployment-logs/zksync/strategies/deployEraDirectGrants/zkSyncMainnet/20240410_192204/deploy-20240410_192204.log
+20240410_192256 - Deployment finished with 0 error(s)
+20240410_192305 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script zksync/strategies/deployEraDonationVotingMerkleDistributionDirect.ts | tee ./reports/deployment-logs/zksync/strategies/deployEraDonationVotingMerkleDistributionDirect/zkSyncMainnet/20240410_192305/deploy-20240410_192305.log
+20240410_192400 - Deployment finished with 0 error(s)
+20240412_092239 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network lukso-testnet | tee ./reports/deployment-logs/core/deployRegistry/lukso-testnet/20240412_092239/deploy-20240412_092239.log
+20240412_092416 - Deployment finished with 0 error(s)
+20240412_092516 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network lukso-testnet | tee ./reports/deployment-logs/core/deployAllo/lukso-testnet/20240412_092516/deploy-20240412_092516.log
+20240412_092654 - Deployment finished with 0 error(s)
+20240412_093030 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network lukso-testnet | tee ./reports/deployment-logs/core/deployAllo/lukso-testnet/20240412_093030/deploy-20240412_093030.log
+20240412_093155 - Deployment finished with 0 error(s)
+20240412_093209 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network lukso-testnet | tee ./reports/deployment-logs/core/deployContractFactory/lukso-testnet/20240412_093209/deploy-20240412_093209.log
+20240412_093311 - Deployment finished with 0 error(s)
+20240412_093347 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network lukso-testnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/lukso-testnet/20240412_093347/deploy-20240412_093347.log
+20240412_093426 - Deployment finished with 0 error(s)
+20240412_091939 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network lukso-testnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/lukso-testnet/20240412_091939/deploy-20240412_091939.log
+20240412_091948 - Deployment finished with 0 error(s)
+20240412_102206 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network filecoin-calibration | tee ./reports/deployment-logs/core/deployRegistry/filecoin-calibration/20240412_102206/deploy-20240412_102206.log
+20240412_102601 - Deployment finished with 0 error(s)
+20240412_195124 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network filecoin-calibration | tee ./reports/deployment-logs/core/deployAllo/filecoin-calibration/20240412_195124/deploy-20240412_195124.log
+20240412_195126 - Deployment finished with 0 error(s)
+20240412_203640 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network filecoin-calibration | tee ./reports/deployment-logs/core/deployAllo/filecoin-calibration/20240412_203640/deploy-20240412_203640.log
+20240412_203901 - Deployment finished with 0 error(s)
+20240412_233154 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network filecoin-calibration | tee ./reports/deployment-logs/core/deployContractFactory/filecoin-calibration/20240412_233154/deploy-20240412_233154.log
+20240412_233509 - Deployment finished with 0 error(s)
+20240419_162255 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/sepolia/20240419_162255/deploy-20240419_162255.log
+20240419_162313 - Deployment finished with 0 error(s)
+20240417_222259 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network filecoin-mainnet | tee ./reports/deployment-logs/core/deployRegistry/filecoin-mainnet/20240417_222259/deploy-20240417_222259.log
+20240417_222631 - Deployment finished with 0 error(s)
+20240417_222740 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network filecoin-mainnet | tee ./reports/deployment-logs/core/deployAllo/filecoin-mainnet/20240417_222740/deploy-20240417_222740.log
+20240417_222748 - Deployment finished with 0 error(s)
+20240417_225106 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network filecoin-mainnet | tee ./reports/deployment-logs/core/deployAllo/filecoin-mainnet/20240417_225106/deploy-20240417_225106.log
+20240417_225332 - Deployment finished with 0 error(s)
+20240417_225457 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network filecoin-mainnet | tee ./reports/deployment-logs/core/deployAllo/filecoin-mainnet/20240417_225457/deploy-20240417_225457.log
+20240417_225602 - Deployment finished with 0 error(s)
+20240417_225711 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network filecoin-mainnet | tee ./reports/deployment-logs/core/deployContractFactory/filecoin-mainnet/20240417_225711/deploy-20240417_225711.log
+20240417_225843 - Deployment finished with 0 error(s)
+20240419_171518 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network lukso-mainnet | tee ./reports/deployment-logs/core/deployRegistry/lukso-mainnet/20240419_171518/deploy-20240419_171518.log
+20240419_171900 - Deployment finished with 0 error(s)
+20240419_172024 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network lukso-mainnet | tee ./reports/deployment-logs/core/deployAllo/lukso-mainnet/20240419_172024/deploy-20240419_172024.log
+20240419_172340 - Deployment finished with 0 error(s)
+20240419_172348 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network lukso-mainnet | tee ./reports/deployment-logs/core/deployContractFactory/lukso-mainnet/20240419_172348/deploy-20240419_172348.log
+20240419_172609 - Deployment finished with 0 error(s)
+20240419_172709 - Executing: bun hardhat run scripts/strategies/deployDirectGrants.ts --no-compile --network lukso-mainnet | tee ./reports/deployment-logs/strategies/deployDirectGrants/lukso-mainnet/20240419_172709/deploy-20240419_172709.log
+20240419_172949 - Deployment finished with 0 error(s)
+20240419_181832 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network lukso-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/lukso-mainnet/20240419_181832/deploy-20240419_181832.log
+20240419_181903 - Deployment finished with 0 error(s)
+20240513_105011 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/sepolia/20240513_105011/deploy-20240513_105011.log
+20240513_105144 - Deployment finished with 0 error(s)
+20240513_110346 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network fuji | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/fuji/20240513_110346/deploy-20240513_110346.log
+20240513_110551 - Deployment finished with 0 error(s)
+20240513_110727 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/base-testnet/20240513_110727/deploy-20240513_110727.log
+20240513_110729 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network celo-testnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/celo-testnet/20240513_110727/deploy-20240513_110727.log
+20240513_110909 - Deployment finished with 0 error(s)
+20240513_111032 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/arbitrum-sepolia/20240513_111032/deploy-20240513_111032.log
+20240513_111203 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/optimism-sepolia/20240513_111032/deploy-20240513_111032.log
+20240513_111458 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/arbitrum-sepolia/20240513_111458/deploy-20240513_111458.log
+20240513_111522 - Deployment finished with 0 error(s)
+20240513_111848 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/optimism-mainnet/20240513_111848/deploy-20240513_111848.log
+20240513_112024 - Deployment finished with 0 error(s)
+20240513_112103 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/celo-mainnet/20240513_112103/deploy-20240513_112103.log
+20240513_112221 - Deployment finished with 0 error(s)
+20240513_112450 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/arbitrum-mainnet/20240513_112450/deploy-20240513_112450.log
+20240513_112623 - Deployment finished with 0 error(s)
+20240513_112848 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/base/20240513_112848/deploy-20240513_112848.log
+20240513_113018 - Deployment finished with 0 error(s)
+20240513_113156 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/polygon/20240513_113156/deploy-20240513_113156.log
+20240513_113935 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/mainnet/20240513_113935/deploy-20240513_113935.log
+20240513_114113 - Deployment finished with 0 error(s)
+20240513_114121 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network avalanche | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/avalanche/20240513_114121/deploy-20240513_114121.log
+20240513_114142 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network scroll | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/scroll/20240513_114142/deploy-20240513_114142.log
+20240513_114314 - Deployment finished with 0 error(s)
+20240513_114327 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network ftmTestnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/ftmTestnet/20240513_114327/deploy-20240513_114327.log
+20240513_114449 - Deployment finished with 0 error(s)
+20240513_114525 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network fantom | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/fantom/20240513_114525/deploy-20240513_114525.log
+20240513_114713 - Deployment finished with 0 error(s)
+20240513_114748 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network sei-devnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/sei-devnet/20240513_114748/deploy-20240513_114748.log
+20240513_114812 - Deployment finished with 0 error(s)
+20240513_115013 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network lukso-testnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/lukso-testnet/20240513_115013/deploy-20240513_115013.log
+20240513_115048 - Deployment finished with 0 error(s)
+20240513_115320 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network lukso-mainnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/lukso-mainnet/20240513_115320/deploy-20240513_115320.log
+20240513_115514 - Deployment finished with 0 error(s)
+20240513_120058 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network arbitrum-sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/arbitrum-sepolia/20240513_120058/deploy-20240513_120058.log
+20240513_120121 - Deployment finished with 0 error(s)
+20240513_120251 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network optimism-sepolia | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/optimism-sepolia/20240513_120251/deploy-20240513_120251.log
+20240513_120317 - Deployment finished with 0 error(s)
+20240513_120839 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network base-testnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/base-testnet/20240513_120839/deploy-20240513_120839.log
+20240513_120841 - Deployment finished with 0 error(s)
+20240513_123805 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/polygon/20240513_123805/deploy-20240513_123805.log
+20240513_123825 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/polygon/20240513_123825/deploy-20240513_123825.log
+20240513_124742 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network avalanche | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/avalanche/20240513_124742/deploy-20240513_124742.log
+20240513_124923 - Deployment finished with 0 error(s)
+20240513_164936 - Executing: bun hardhat deploy-zksync --network zkSyncTestnet --config era.hardhat.config.ts --script zksync/strategies/deployEraDirectGrantsLite.ts | tee ./reports/deployment-logs/zksync/strategies/deployEraDirectGrantsLite/zkSyncTestnet/20240513_164936/deploy-20240513_164936.log
+20240513_165048 - Deployment finished with 0 error(s)
+20240513_165104 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script zksync/strategies/deployEraDirectGrantsLite.ts | tee ./reports/deployment-logs/zksync/strategies/deployEraDirectGrantsLite/zkSyncMainnet/20240513_165104/deploy-20240513_165104.log
+20240513_165215 - Deployment finished with 0 error(s)
+20240517_115914 - Executing: bun hardhat deploy-zksync --network zkSyncTestnet --config era.hardhat.config.ts --script zksync/factory/deployDVMDTFactory.ts | tee ./reports/deployment-logs/zksync/factory/deployDVMDTFactory/zkSyncTestnet/20240517_115914/deploy-20240517_115914.log
+20240517_120002 - Deployment finished with 0 error(s)
+20240517_120002 - Executing: bun hardhat deploy-zksync --network zkSyncTestnet --config era.hardhat.config.ts --script zksync/factory/deployDGLFactory.ts | tee ./reports/deployment-logs/zksync/factory/deployDGLFactory/zkSyncTestnet/20240517_115914/deploy-20240517_115914.log
+20240517_120047 - Deployment finished with 0 error(s)
+20240517_120102 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script zksync/factory/deployDVMDTFactory.ts | tee ./reports/deployment-logs/zksync/factory/deployDVMDTFactory/zkSyncMainnet/20240517_120102/deploy-20240517_120102.log
+20240517_120152 - Deployment finished with 0 error(s)
+20240517_120152 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script zksync/factory/deployDGLFactory.ts | tee ./reports/deployment-logs/zksync/factory/deployDGLFactory/zkSyncMainnet/20240517_120102/deploy-20240517_120102.log
+20240517_120238 - Deployment finished with 0 error(s)
+20240521_153654 - Executing: bun hardhat deploy-zksync --network zkSyncTestnet --config era.hardhat.config.ts --script zksync/factory/deployDGLFactory.ts | tee ./reports/deployment-logs/zksync/factory/deployDGLFactory/zkSyncTestnet/20240521_153654/deploy-20240521_153654.log
+20240521_153759 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script zksync/factory/deployDGLFactory.ts | tee ./reports/deployment-logs/zksync/factory/deployDGLFactory/zkSyncMainnet/20240521_153654/deploy-20240521_153654.log
+20240521_153854 - Deployment finished with 0 error(s)
+20240521_153854 - Executing: bun hardhat deploy-zksync --network zkSyncTestnet --config era.hardhat.config.ts --script zksync/factory/deployDVMDTFactory.ts | tee ./reports/deployment-logs/zksync/factory/deployDVMDTFactory/zkSyncTestnet/20240521_153654/deploy-20240521_153654.log
+20240521_153951 - Executing: bun hardhat deploy-zksync --network zkSyncMainnet --config era.hardhat.config.ts --script zksync/factory/deployDVMDTFactory.ts | tee ./reports/deployment-logs/zksync/factory/deployDVMDTFactory/zkSyncMainnet/20240521_153654/deploy-20240521_153654.log
+20240521_154058 - Deployment finished with 0 error(s)
+20240528_183234 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/core/deployRegistry/sei-mainnet/20240528_183234/deploy-20240528_183234.log
+20240528_183237 - Deployment finished with 0 error(s)
+20240528_183513 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/core/deployRegistry/sei-mainnet/20240528_183513/deploy-20240528_183513.log
+20240528_183528 - Deployment finished with 0 error(s)
+20240528_183701 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/core/deployRegistry/sei-mainnet/20240528_183701/deploy-20240528_183701.log
+20240528_183703 - Deployment finished with 0 error(s)
+20240528_183752 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/core/deployRegistry/sei-mainnet/20240528_183752/deploy-20240528_183752.log
+20240528_183850 - Deployment finished with 0 error(s)
+20240528_184038 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/core/deployAllo/sei-mainnet/20240528_184038/deploy-20240528_184038.log
+20240528_184133 - Deployment finished with 0 error(s)
+20240528_185509 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/core/deployContractFactory/sei-mainnet/20240528_185509/deploy-20240528_185509.log
+20240528_185609 - Deployment finished with 0 error(s)
+20240528_190400 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/sei-mainnet/20240528_190400/deploy-20240528_190400.log
+20240528_190416 - Deployment finished with 0 error(s)
+20240528_190439 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/sei-mainnet/20240528_190439/deploy-20240528_190439.log
+20240528_190506 - Deployment finished with 0 error(s)
+20240529_144259 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/sei-mainnet/20240529_144259/deploy-20240529_144259.log
+20240529_144319 - Deployment finished with 0 error(s)
+20240529_144402 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/sei-mainnet/20240529_144402/deploy-20240529_144402.log
+20240529_144408 - Deployment finished with 0 error(s)
+20240711_092006 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDirectAllocation/sepolia/20240711_092006/deploy-20240711_092006.log
+20240711_092137 - Deployment finished with 0 error(s)
+20240716_101849 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDirectAllocation/sepolia/20240716_101849/deploy-20240716_101849.log
+20240716_101852 - Deployment finished with 0 error(s)
+20240716_102132 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDirectAllocation/sepolia/20240716_102132/deploy-20240716_102132.log
+20240716_102201 - Deployment finished with 0 error(s)
+20240716_102240 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network sepolia | tee ./reports/deployment-logs/strategies/deployDirectAllocation/sepolia/20240716_102240/deploy-20240716_102240.log
+20240716_102503 - Deployment finished with 0 error(s)
+20240724_114227 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/optimism-mainnet/20240724_114227/deploy-20240724_114227.log
+20240724_114236 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/arbitrum-mainnet/20240724_114227/deploy-20240724_114227.log
+20240724_114241 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/mainnet/20240724_114227/deploy-20240724_114227.log
+20240724_114253 - Deployment finished with 0 error(s)
+20240724_115121 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network optimism-mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/optimism-mainnet/20240724_115121/deploy-20240724_115121.log
+20240724_115411 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network celo-mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/celo-mainnet/20240724_115121/deploy-20240724_115121.log
+20240724_115648 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network arbitrum-mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/arbitrum-mainnet/20240724_115121/deploy-20240724_115121.log
+20240724_115935 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network base | tee ./reports/deployment-logs/strategies/deployDirectAllocation/base/20240724_115121/deploy-20240724_115121.log
+20240724_120855 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDirectAllocation/polygon/20240724_115121/deploy-20240724_115121.log
+20240724_123246 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/mainnet/20240724_115121/deploy-20240724_115121.log
+20240724_123249 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network avalanche | tee ./reports/deployment-logs/strategies/deployDirectAllocation/avalanche/20240724_115121/deploy-20240724_115121.log
+20240724_123250 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network scroll | tee ./reports/deployment-logs/strategies/deployDirectAllocation/scroll/20240724_115121/deploy-20240724_115121.log
+20240724_123250 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/sei-mainnet/20240724_115121/deploy-20240724_115121.log
+20240724_123250 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network lukso-mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/lukso-mainnet/20240724_115121/deploy-20240724_115121.log
+20240724_123250 - Deployment finished with 0 error(s)
+20240724_123325 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDirectAllocation/polygon/20240724_123325/deploy-20240724_123325.log
+20240724_123656 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/mainnet/20240724_123325/deploy-20240724_123325.log
+20240724_123658 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network avalanche | tee ./reports/deployment-logs/strategies/deployDirectAllocation/avalanche/20240724_123325/deploy-20240724_123325.log
+20240724_123659 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network scroll | tee ./reports/deployment-logs/strategies/deployDirectAllocation/scroll/20240724_123325/deploy-20240724_123325.log
+20240724_123659 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/sei-mainnet/20240724_123325/deploy-20240724_123325.log
+20240724_123700 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network lukso-mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/lukso-mainnet/20240724_123325/deploy-20240724_123325.log
+20240724_123700 - Deployment finished with 0 error(s)
+20240724_123702 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDirectAllocation/polygon/20240724_123702/deploy-20240724_123702.log
+20240724_123730 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/mainnet/20240724_123702/deploy-20240724_123702.log
+20240724_123745 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network avalanche | tee ./reports/deployment-logs/strategies/deployDirectAllocation/avalanche/20240724_123702/deploy-20240724_123702.log
+20240724_123821 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network scroll | tee ./reports/deployment-logs/strategies/deployDirectAllocation/scroll/20240724_123702/deploy-20240724_123702.log
+20240724_124039 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network sei-mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/sei-mainnet/20240724_123702/deploy-20240724_123702.log
+20240724_124113 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network lukso-mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/lukso-mainnet/20240724_123702/deploy-20240724_123702.log
+20240724_124402 - Deployment finished with 0 error(s)
+20240724_151544 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network mainnet | tee ./reports/deployment-logs/strategies/deployDirectAllocation/mainnet/20240724_151544/deploy-20240724_151544.log
+20240724_151815 - Deployment finished with 0 error(s)
+20240724_152047 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDirectAllocation/polygon/20240724_152047/deploy-20240724_152047.log
+20240724_152108 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network fantom | tee ./reports/deployment-logs/strategies/deployDirectAllocation/fantom/20240724_152047/deploy-20240724_152047.log
+20240724_152121 - Deployment finished with 0 error(s)
+20240724_152143 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network avalanche | tee ./reports/deployment-logs/strategies/deployDirectAllocation/avalanche/20240724_152143/deploy-20240724_152143.log
+20240724_152152 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network fantom | tee ./reports/deployment-logs/strategies/deployDirectAllocation/fantom/20240724_152143/deploy-20240724_152143.log
+20240724_152219 - Deployment finished with 0 error(s)
+20240724_152259 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network fantom | tee ./reports/deployment-logs/strategies/deployDirectAllocation/fantom/20240724_152259/deploy-20240724_152259.log
+20240724_152317 - Deployment finished with 0 error(s)
+20240724_152340 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network fantom | tee ./reports/deployment-logs/strategies/deployDirectAllocation/fantom/20240724_152340/deploy-20240724_152340.log
+20240724_152352 - Deployment finished with 0 error(s)
+20240724_152522 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDirectAllocation/polygon/20240724_152522/deploy-20240724_152522.log
+20240724_152713 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network avalanche | tee ./reports/deployment-logs/strategies/deployDirectAllocation/avalanche/20240724_152522/deploy-20240724_152522.log
+20240724_152714 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network fantom | tee ./reports/deployment-logs/strategies/deployDirectAllocation/fantom/20240724_152522/deploy-20240724_152522.log
+20240724_152714 - Deployment finished with 0 error(s)
+20240724_152726 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network avalanche | tee ./reports/deployment-logs/strategies/deployDirectAllocation/avalanche/20240724_152726/deploy-20240724_152726.log
+20240724_152751 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network fantom | tee ./reports/deployment-logs/strategies/deployDirectAllocation/fantom/20240724_152726/deploy-20240724_152726.log
+20240724_152806 - Deployment finished with 0 error(s)
+20240724_152920 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDirectAllocation/polygon/20240724_152920/deploy-20240724_152920.log
+20240724_153226 - Deployment finished with 0 error(s)
+20240724_153228 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network polygon | tee ./reports/deployment-logs/strategies/deployDirectAllocation/polygon/20240724_153228/deploy-20240724_153228.log
+20240724_153531 - Deployment finished with 0 error(s)
+20240729_142656 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network metis | tee ./reports/deployment-logs/core/deployRegistry/metis/20240729_142656/deploy-20240729_142656.log
+20240729_142704 - Deployment finished with 0 error(s)
+20240729_143105 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network metis | tee ./reports/deployment-logs/core/deployRegistry/metis/20240729_143105/deploy-20240729_143105.log
+20240729_143108 - Deployment finished with 0 error(s)
+20240729_143120 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network metisAndromeda | tee ./reports/deployment-logs/core/deployRegistry/metisAndromeda/20240729_143120/deploy-20240729_143120.log
+20240729_143129 - Deployment finished with 0 error(s)
+20240729_143157 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network metisAndromeda | tee ./reports/deployment-logs/core/deployRegistry/metisAndromeda/20240729_143157/deploy-20240729_143157.log
+20240729_143457 - Deployment finished with 0 error(s)
+20240729_143511 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network metisAndromeda | tee ./reports/deployment-logs/core/deployContractFactory/metisAndromeda/20240729_143511/deploy-20240729_143511.log
+20240729_143726 - Deployment finished with 0 error(s)
+20240729_143733 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network metisAndromeda | tee ./reports/deployment-logs/core/deployAllo/metisAndromeda/20240729_143733/deploy-20240729_143733.log
+20240729_144011 - Deployment finished with 0 error(s)
+20240729_144147 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network metisAndromeda | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/metisAndromeda/20240729_144147/deploy-20240729_144147.log
+20240729_144411 - Deployment finished with 0 error(s)
+20240729_144411 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network metisAndromeda | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/metisAndromeda/20240729_144147/deploy-20240729_144147.log
+20240729_144601 - Deployment finished with 0 error(s)
+20240729_144601 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network metisAndromeda | tee ./reports/deployment-logs/strategies/deployDirectAllocation/metisAndromeda/20240729_144147/deploy-20240729_144147.log
+20240729_144755 - Deployment finished with 0 error(s)
+20240912_140627 - Executing: bun hardhat run scripts/core/deployRegistry.ts --no-compile --network gnosis | tee ./reports/deployment-logs/core/deployRegistry/gnosis/20240912_140627/deploy-20240912_140627.log
+20240912_140751 - Deployment finished with 0 error(s)
+20240912_140957 - Executing: bun hardhat run scripts/core/deployContractFactory.ts --no-compile --network gnosis | tee ./reports/deployment-logs/core/deployContractFactory/gnosis/20240912_140957/deploy-20240912_140957.log
+20240912_141056 - Deployment finished with 0 error(s)
+20240912_141056 - Executing: bun hardhat run scripts/core/deployAllo.ts --no-compile --network gnosis | tee ./reports/deployment-logs/core/deployAllo/gnosis/20240912_140957/deploy-20240912_140957.log
+20240912_141208 - Deployment finished with 0 error(s)
+20240912_141426 - Executing: bun hardhat run scripts/strategies/deployDonationVotingMerkleDistributionDirect.ts --no-compile --network gnosis | tee ./reports/deployment-logs/strategies/deployDonationVotingMerkleDistributionDirect/gnosis/20240912_141426/deploy-20240912_141426.log
+20240912_141657 - Deployment finished with 0 error(s)
+20240912_141657 - Executing: bun hardhat run scripts/strategies/deployDirectGrantsLite.ts --no-compile --network gnosis | tee ./reports/deployment-logs/strategies/deployDirectGrantsLite/gnosis/20240912_141426/deploy-20240912_141426.log
+20240912_141937 - Deployment finished with 0 error(s)
+20240912_141937 - Executing: bun hardhat run scripts/strategies/deployDirectAllocation.ts --no-compile --network gnosis | tee ./reports/deployment-logs/strategies/deployDirectAllocation/gnosis/20240912_141426/deploy-20240912_141426.log
+20240912_142146 - Deployment finished with 0 error(s)

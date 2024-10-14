@@ -1,0 +1,35 @@
+[profile.default]
+root = '../..'
+src = 'packages/ethereum-contracts/contracts'
+test = 'packages/ethereum-contracts/test/foundry/'
+solc_version = "0.8.19"
+ignored_error_codes = [5159] # selfdestruct in contracts/mocks/SuperfluidDestructorMock.sol
+# deny_warnings = true
+# keep in sync with truffle-config.js
+evm_version = 'paris'
+remappings = [
+    '@superfluid-finance/ethereum-contracts/contracts/=packages/ethereum-contracts/contracts/',
+    '@superfluid-finance/solidity-semantic-money/src/=packages/solidity-semantic-money/src/',
+    '@openzeppelin/=node_modules/@openzeppelin/',
+    'ds-test/=lib/forge-std/lib/ds-test/src/',
+    'forge-std/=lib/forge-std/src/']
+out = 'packages/ethereum-contracts/build/foundry/default'
+
+[invariant]
+runs = 2000
+depth = 10
+fail_on_revert = false
+
+[fmt]
+bracket_spacing = true
+tab_width = 4
+line_length = 120
+int_types = "preserve"
+quote_style = "double"
+wrap_comments = true
+
+[profile.ci]
+offline = true
+
+[profile.ci.fuzz]
+runs = 1000

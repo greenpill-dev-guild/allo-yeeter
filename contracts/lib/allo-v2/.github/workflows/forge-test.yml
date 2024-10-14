@@ -1,0 +1,47 @@
+name: contracts forge - fmt -> build -> test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "**"
+jobs:
+  tests:
+    concurrency: ci-forge-${{ github.head_ref || github.run_id }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: "recursive"
+          fetch-depth: 1
+
+      - name: Setup bun env
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Install foundry
+        uses: foundry-rs/foundry-toolchain@v1.0.9
+        with:
+          version: nightly
+
+      - name: Run Forge Format
+        run: |
+          forge fmt --check
+        id: fmt
+
+      - name: Run Forge build
+        run: |
+          forge compile
+        id: build
+
+      - name: Run Forge test
+        env: 
+          MAINNET_RPC_URL: "https://eth-mainnet.g.alchemy.com/v2/${{ secrets.ALCHEMY_API_KEY }}"
+          OPGOERLI_RPC_URL: "${{ secrets.OPGOERLI_RPC_URL }}"
+        run: |
+          forge test --no-match-contract "(Lockup|SQF)"
+        id: test

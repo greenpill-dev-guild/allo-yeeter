@@ -1,0 +1,1050 @@
+{
+	"compiler": {
+		"version": "0.8.27+commit.40a35a09"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_allo",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "ALLOCATION_ACTIVE",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ALLOCATION_NOT_ACTIVE",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ALLOCATION_NOT_ENDED",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ALREADY_INITIALIZED",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "AMOUNT_MISMATCH",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ANCHOR_ERROR",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ARRAY_MISMATCH",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INPUT_LENGTH_MISMATCH",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID_ADDRESS",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID_FEE",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID_METADATA",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "INVALID_REGISTRATION",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "IS_APPROVED_STRATEGY",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "MISMATCH",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NONCE_NOT_AVAILABLE",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NON_ZERO_VALUE",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NOOP",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NOT_APPROVED_STRATEGY",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NOT_ENOUGH_FUNDS",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NOT_IMPLEMENTED",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NOT_INITIALIZED",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NOT_PENDING_OWNER",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "POOL_ACTIVE",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "POOL_INACTIVE",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "RECIPIENT_ALREADY_ACCEPTED",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipientId",
+						"type": "address"
+					}
+				],
+				"name": "RECIPIENT_ERROR",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "RECIPIENT_NOT_ACCEPTED",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "REGISTRATION_ACTIVE",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "REGISTRATION_NOT_ACTIVE",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "UNAUTHORIZED",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ZERO_ADDRESS",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "recipientId",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "Allocated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "recipientId",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "recipientAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "Distributed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "poolId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "active",
+						"type": "bool"
+					}
+				],
+				"name": "PoolActive",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "recipientId",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "Registered",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "NATIVE",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "address",
+						"name": "_sender",
+						"type": "address"
+					}
+				],
+				"name": "allocate",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_recipientIds",
+						"type": "address[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "address",
+						"name": "_sender",
+						"type": "address"
+					}
+				],
+				"name": "distribute",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllo",
+				"outputs": [
+					{
+						"internalType": "contract IAllo",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_recipientIds",
+						"type": "address[]"
+					},
+					{
+						"internalType": "bytes[]",
+						"name": "_data",
+						"type": "bytes[]"
+					}
+				],
+				"name": "getPayouts",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "recipientAddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct IStrategy.PayoutSummary[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPoolAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPoolId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_recipientId",
+						"type": "address"
+					}
+				],
+				"name": "getRecipientStatus",
+				"outputs": [
+					{
+						"internalType": "enum IStrategy.Status",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getStrategyId",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "increasePoolAmount",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_poolId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isPoolActive",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_allocator",
+						"type": "address"
+					}
+				],
+				"name": "isValidAllocator",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "address",
+						"name": "_sender",
+						"type": "address"
+					}
+				],
+				"name": "registerRecipient",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "recipientId",
+						"type": "address"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"errors": {
+				"ANCHOR_ERROR()": [
+					{
+						"details": "Thrown if the anchor creation fails"
+					}
+				],
+				"NONCE_NOT_AVAILABLE()": [
+					{
+						"details": "Thrown when the nonce passed has been used or not available"
+					}
+				],
+				"NOT_PENDING_OWNER()": [
+					{
+						"details": "Thrown when the 'msg.sender' is not the pending owner on ownership transfer"
+					}
+				]
+			},
+			"events": {
+				"Allocated(address,uint256,address,address)": {
+					"params": {
+						"amount": "The amount allocated",
+						"recipientId": "The ID of the recipient",
+						"token": "The token allocated"
+					}
+				},
+				"Distributed(address,address,uint256,address)": {
+					"params": {
+						"amount": "The amount distributed",
+						"recipientAddress": "The recipient",
+						"recipientId": "The ID of the recipient",
+						"sender": "The sender"
+					}
+				},
+				"Initialized(uint256,bytes)": {
+					"params": {
+						"data": "The data passed to the 'initialize' function",
+						"poolId": "The ID of the pool"
+					}
+				},
+				"PoolActive(bool)": {
+					"params": {
+						"active": "The status of the pool"
+					}
+				},
+				"Registered(address,bytes,address)": {
+					"params": {
+						"data": "The data passed to the 'registerRecipient' function",
+						"recipientId": "The ID of the recipient",
+						"sender": "The sender"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"allocate(bytes,address)": {
+					"details": "The encoded '_data' will be determined by the strategy implementation. Only 'Allo' contract can      call this when it is initialized.",
+					"params": {
+						"_data": "The data to use to allocate to the recipient",
+						"_sender": "The address of the sender"
+					}
+				},
+				"distribute(address[],bytes,address)": {
+					"details": "The encoded '_data' will be determined by the strategy implementation. Only 'Allo' contract can      call this when it is initialized.",
+					"params": {
+						"_data": "The data to use to distribute to the recipients",
+						"_recipientIds": "The IDs of the recipients",
+						"_sender": "The address of the sender"
+					}
+				},
+				"getAllo()": {
+					"returns": {
+						"_0": "The Allo contract"
+					}
+				},
+				"getPayouts(address[],bytes[])": {
+					"details": "The encoded '_data' will be determined by the strategy implementation.",
+					"params": {
+						"_data": "The data to use to get the payout summary for the recipients",
+						"_recipientIds": "The IDs of the recipients"
+					},
+					"returns": {
+						"_0": "The payout summary for the recipients"
+					}
+				},
+				"getPoolAmount()": {
+					"returns": {
+						"_0": "The balance of the pool"
+					}
+				},
+				"getPoolId()": {
+					"returns": {
+						"_0": "The ID of the pool"
+					}
+				},
+				"getRecipientStatus(address)": {
+					"params": {
+						"_recipientId": "The ID of the recipient"
+					},
+					"returns": {
+						"_0": "The status of the recipient"
+					}
+				},
+				"getStrategyId()": {
+					"returns": {
+						"_0": "The ID of the strategy"
+					}
+				},
+				"increasePoolAmount(uint256)": {
+					"details": "Increases the 'poolAmount' by '_amount'. Only 'Allo' contract can call this.",
+					"params": {
+						"_amount": "The amount to increase the pool by"
+					}
+				},
+				"initialize(uint256,bytes)": {
+					"params": {
+						"_data": "The encoded data",
+						"_poolId": "The ID of the pool"
+					}
+				},
+				"isPoolActive()": {
+					"returns": {
+						"_0": "'true' if the pool is active, otherwise 'false'"
+					}
+				},
+				"isValidAllocator(address)": {
+					"details": "How the allocator is determined is up to the strategy implementation.",
+					"params": {
+						"_allocator": "The address to check if it is a valid allocator for the strategy."
+					},
+					"returns": {
+						"_0": "'true' if the address is a valid allocator, 'false' otherwise"
+					}
+				},
+				"registerRecipient(bytes,address)": {
+					"details": "Registers a recipient and returns the ID of the recipient. The encoded '_data' will be determined by the      strategy implementation. Only 'Allo' contract can call this when it is initialized.",
+					"params": {
+						"_data": "The data to use to register the recipient",
+						"_sender": "The address of the sender"
+					},
+					"returns": {
+						"recipientId": "The recipientId"
+					}
+				},
+				"withdraw(address,address,uint256)": {
+					"params": {
+						"_amount": "Amount to withdraw",
+						"_recipient": "Address to send the funds to",
+						"_token": "Token address"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"errors": {
+				"ALLOCATION_ACTIVE()": [
+					{
+						"notice": "Thrown when the allocation is active."
+					}
+				],
+				"ALLOCATION_NOT_ACTIVE()": [
+					{
+						"notice": "Thrown when the allocation is not active."
+					}
+				],
+				"ALLOCATION_NOT_ENDED()": [
+					{
+						"notice": "Thrown when the allocation is not ended."
+					}
+				],
+				"ALREADY_INITIALIZED()": [
+					{
+						"notice": "Thrown when data is already intialized"
+					}
+				],
+				"AMOUNT_MISMATCH()": [
+					{
+						"notice": "Thrown when the amount of tokens sent does not match the amount of tokens expected"
+					}
+				],
+				"ARRAY_MISMATCH()": [
+					{
+						"notice": "Thrown when two arrays length are not equal"
+					}
+				],
+				"INVALID()": [
+					{
+						"notice": "Thrown as a general error when input / data is invalid"
+					}
+				],
+				"INVALID_ADDRESS()": [
+					{
+						"notice": "Thrown when an invalid address is used"
+					}
+				],
+				"INVALID_FEE()": [
+					{
+						"notice": "Thrown when the fee is below 1e18 which is the fee percentage denominator"
+					}
+				],
+				"INVALID_METADATA()": [
+					{
+						"notice": "Thrown when the metadata is invalid."
+					}
+				],
+				"INVALID_REGISTRATION()": [
+					{
+						"notice": "Thrown when the registration is invalid."
+					}
+				],
+				"IS_APPROVED_STRATEGY()": [
+					{
+						"notice": "Thrown when the strategy is approved and should be cloned"
+					}
+				],
+				"MISMATCH()": [
+					{
+						"notice": "Thrown when mismatch in decoding data"
+					}
+				],
+				"NON_ZERO_VALUE()": [
+					{
+						"notice": "Thrown when the value is non-zero"
+					}
+				],
+				"NOT_APPROVED_STRATEGY()": [
+					{
+						"notice": "Thrown when the strategy is not approved"
+					}
+				],
+				"NOT_ENOUGH_FUNDS()": [
+					{
+						"notice": "Thrown when not enough funds are available"
+					}
+				],
+				"NOT_IMPLEMENTED()": [
+					{
+						"notice": "Thrown when the function is not implemented"
+					}
+				],
+				"NOT_INITIALIZED()": [
+					{
+						"notice": "Thrown when data is yet to be initialized"
+					}
+				],
+				"POOL_ACTIVE()": [
+					{
+						"notice": "Thrown when a pool is already active"
+					}
+				],
+				"POOL_INACTIVE()": [
+					{
+						"notice": "Thrown when a pool is inactive"
+					}
+				],
+				"RECIPIENT_ALREADY_ACCEPTED()": [
+					{
+						"notice": "Thrown when recipient is already accepted."
+					}
+				],
+				"RECIPIENT_ERROR(address)": [
+					{
+						"notice": "Thrown when there is an error in recipient."
+					}
+				],
+				"RECIPIENT_NOT_ACCEPTED()": [
+					{
+						"notice": "Thrown when the recipient is not accepted."
+					}
+				],
+				"REGISTRATION_ACTIVE()": [
+					{
+						"notice": "Thrown when registration is active."
+					}
+				],
+				"REGISTRATION_NOT_ACTIVE()": [
+					{
+						"notice": "Thrown when registration is not active."
+					}
+				],
+				"UNAUTHORIZED()": [
+					{
+						"notice": "Thrown when user is not authorized"
+					}
+				],
+				"ZERO_ADDRESS()": [
+					{
+						"notice": "Thrown when address is the zero address"
+					}
+				]
+			},
+			"events": {
+				"Allocated(address,uint256,address,address)": {
+					"notice": "Emitted when a recipient is allocated to."
+				},
+				"Distributed(address,address,uint256,address)": {
+					"notice": "Emitted when tokens are distributed."
+				},
+				"Initialized(uint256,bytes)": {
+					"notice": "Emitted when strategy is initialized."
+				},
+				"PoolActive(bool)": {
+					"notice": "Emitted when pool is set to active status."
+				},
+				"Registered(address,bytes,address)": {
+					"notice": "Emitted when a recipient is registered."
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"NATIVE()": {
+					"notice": "Address of the native token"
+				},
+				"allocate(bytes,address)": {
+					"notice": "Allocates to a recipient."
+				},
+				"distribute(address[],bytes,address)": {
+					"notice": "Distributes funds (tokens) to recipients."
+				},
+				"getAllo()": {
+					"notice": "Getter for the 'Allo' contract."
+				},
+				"getPayouts(address[],bytes[])": {
+					"notice": "Gets the payout summary for recipients."
+				},
+				"getPoolAmount()": {
+					"notice": "Getter for the 'poolAmount'."
+				},
+				"getPoolId()": {
+					"notice": "Getter for the 'poolId'."
+				},
+				"getRecipientStatus(address)": {
+					"notice": "Getter for the status of a recipient."
+				},
+				"getStrategyId()": {
+					"notice": "Getter for the 'strategyId'."
+				},
+				"increasePoolAmount(uint256)": {
+					"notice": "Increases the pool amount."
+				},
+				"initialize(uint256,bytes)": {
+					"notice": "@dev The default BaseStrategy version will not use the data  if a strategy wants to use it, they will overwrite it,      use it, and then call super.initialize()."
+				},
+				"isPoolActive()": {
+					"notice": "Getter for whether or not the pool is active."
+				},
+				"isValidAllocator(address)": {
+					"notice": "Checks if the '_allocator' is a valid allocator."
+				},
+				"registerRecipient(bytes,address)": {
+					"notice": "Registers a recipient."
+				},
+				"withdraw(address,address,uint256)": {
+					"notice": "Withdraw funds stuck on contract"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/YeeterStrategy.sol": "YeeterStrategy"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": [
+			":allo/=lib/allo-v2/",
+			":ds-test/=lib/forge-std/lib/ds-test/src/",
+			":forge-std/=lib/forge-std/src/",
+			":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+			":solady/=lib/allo-v2/lib/solady/src/",
+			":solmate/=lib/solmate/src/"
+		]
+	},
+	"sources": {
+		"lib/allo-v2/contracts/core/interfaces/IAllo.sol": {
+			"keccak256": "0xb4d42b75def46f3fd1e182f5b18bde5df74822d3666580e66d34802f362b517e",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://a9492cb300be5f7cd8c58f54ff472b66c108827833bf1156028d8513b91e8f29",
+				"dweb:/ipfs/QmccCdVZWsPhJEExajS6gANPyg2pEpD6RZwyjFNrdJM4Ek"
+			]
+		},
+		"lib/allo-v2/contracts/core/interfaces/IRegistry.sol": {
+			"keccak256": "0x3a2edcea094551fc86612932d42bd6b4682d20fb7b46cfdbeee39ba85367749f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c922d497fdfdd2f43a009959429c761d1fb61501ca5d91abf9ae873ac58d437e",
+				"dweb:/ipfs/QmaiUx4uVajytmFJQJdGh2mJK2RKn4xNVrARurJdF3iwzA"
+			]
+		},
+		"lib/allo-v2/contracts/core/interfaces/IStrategy.sol": {
+			"keccak256": "0xebd143a6729d7fe650ffd83a2dc1941e19ce9285526e5cb4d6c32adba3f3cf23",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://994ed7ab48860e92ffd369e6741149760a725c5ddf4fc55e33c31f408bd25487",
+				"dweb:/ipfs/QmV6bzxJQo5T13Kynv7mqGJQSbNyZ4ZJfTEjWUymxmpfpH"
+			]
+		},
+		"lib/allo-v2/contracts/core/libraries/Errors.sol": {
+			"keccak256": "0xcb30aef5d96b6be43471657c2b2cef6bf171fddcd71dc7d6347eedd51bc7e45c",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://1ee6edb9116e028006cd4ac70a83ff2d41b749fd508575bb7627def1f782ad27",
+				"dweb:/ipfs/QmbyX2wEE74X6HRPBCGZBP9RVkMf69Aaj2cBcUaDMtTq7h"
+			]
+		},
+		"lib/allo-v2/contracts/core/libraries/Metadata.sol": {
+			"keccak256": "0x41ece5b83f50d180841f44324a883e12b3fc2005e425e4cd51944fb8d46b147f",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://ecd926cbce88398d6fdb1762f7b75617635ae866f8461b7fb32dd2b0a17273ce",
+				"dweb:/ipfs/QmdvPsL48GbXV2hy4vDcW9XtkN7VUTDebtYihuj7ZxhaD7"
+			]
+		},
+		"lib/allo-v2/contracts/core/libraries/Native.sol": {
+			"keccak256": "0x5a12a5d2fb1ba09c0ca357b8ef22e65b954831563f6e6a63a08a8176608c9264",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://75e51c8b86b13955b647f49e3869a0877d1af7355fad036ecc03af98e3d29972",
+				"dweb:/ipfs/QmZAGmPgsFj5pbY8eDVLNA8mjHUZtWq4V8RVNFLk8MyVr8"
+			]
+		},
+		"lib/allo-v2/contracts/core/libraries/Transfer.sol": {
+			"keccak256": "0x490d9748fc1232a6db5a7dac80f7acd54852d0a1f3490959f3e6a6488f704f7e",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://cc225511b84e9ac56b7b59339ed8ec5ce6d2a0f2b0ee8cbc2d68c48c9b8d3603",
+				"dweb:/ipfs/QmYDsnUWW2NsWjBn3PuLuz9nLjbVcCyeiv6tJZG1uxSbkQ"
+			]
+		},
+		"lib/allo-v2/contracts/strategies/BaseStrategy.sol": {
+			"keccak256": "0x3f1382dc6c35d50545e327e7ed6016f2bd752357d446bd698014073f0b812873",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://99500abcd617fa43f6dde49e2c7802821ceaf54a65a8055cbbf2695ecd107974",
+				"dweb:/ipfs/QmUktZkWuu3GCMEijY1fqt7NMy7BzpTvEtcmpB1fuoa7zt"
+			]
+		},
+		"lib/allo-v2/lib/solady/src/utils/SafeTransferLib.sol": {
+			"keccak256": "0x06d3261d13cf5a08f9bcda05e17be0a6a0380193116298fdf8eabf9bf80d3624",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://96965a8a2b1bd2d6cff4a8f78bcb33b0de8848834f8e4be28c03609ae08e9298",
+				"dweb:/ipfs/QmSoNDxaEozMZgNdVEygfEvnk26Tu4UeFeapvtMsoUFftt"
+			]
+		},
+		"src/YeeterStrategy.sol": {
+			"keccak256": "0x7c549e691388815578a5ffaef8ac8ea00de0bbf3c48867abaa0df157b7ad5086",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://565044cbdf59f55605493e59cc54837db2e649d9dc1408645c8ebaec5b5ebc28",
+				"dweb:/ipfs/QmQZLz2MhESQGZZuZ3dMN6q84zLTmzCipzvvyFXGTkd4gf"
+			]
+		}
+	},
+	"version": 1
+}
