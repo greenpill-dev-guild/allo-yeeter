@@ -103,13 +103,21 @@ contract YeeterFactoryTest is Test, AlloSetup, RegistrySetupFull {
         poolManagers[1] = makeAddr("poolManager1");
         poolManagers[2] = makeAddr("poolManager2");
 
-        bytes32 profileId = registry().createProfile(0, "Test", Metadata({protocol: 0, pointer: "Test"}), deployer, poolManagers);
+        bytes32 profileId =
+            registry().createProfile(0, "Test", Metadata({protocol: 0, pointer: "Test"}), deployer, poolManagers);
         console2.logBytes32(profileId);
 
         token.approve(address(allo()), 1000);
 
-        uint256 poolId = allo().createPoolWithCustomStrategy(profileId, newStrategy, abi.encode(""), address(token), 1000, Metadata({protocol: 0, pointer: "Test"}), poolManagers);
-
+        uint256 poolId = allo().createPoolWithCustomStrategy(
+            profileId,
+            newStrategy,
+            abi.encode(""),
+            address(token),
+            1000,
+            Metadata({protocol: 0, pointer: "Test"}),
+            poolManagers
+        );
 
         address[] memory recipientIds = new address[](1);
         recipientIds[0] = makeAddr("recipient");

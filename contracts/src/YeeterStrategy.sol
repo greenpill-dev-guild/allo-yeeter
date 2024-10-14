@@ -1,9 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-// External Libraries
-// import {ReentrancyGuard} from "openzeppelin-contracts/contracts/security/ReentrancyGuard.sol";
-
 // Intefaces
 import {IAllo} from "allo/contracts/core/interfaces/IAllo.sol";
 import {IRegistry} from "allo/contracts/core/interfaces/IRegistry.sol";

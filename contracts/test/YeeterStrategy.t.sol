@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 import "forge-std/Test.sol";
 
 // Custom Strategy
-import {YeeterStrategy} from "src/YeeterStrategy.sol";
+import {YeeterStrategy} from "../src/YeeterStrategy.sol";
 
 // Allo Core Libraries
 import {Metadata} from "allo/contracts/core/libraries/Metadata.sol";
@@ -15,7 +15,7 @@ import {AlloSetup} from "allo/test/foundry/shared/AlloSetup.sol";
 import {RegistrySetupFull} from "allo/test/foundry/shared/RegistrySetup.sol";
 
 import {MockERC20} from "./MockERC20.sol";
-import {SafeTransferLib} from "lib/allo-v2/lib/solady/src/utils/SafeTransferLib.sol";
+import {SafeTransferLib} from "allo/lib/solady/src/utils/SafeTransferLib.sol";
 
 contract YeeterStrategyTest is Test, AlloSetup, RegistrySetupFull, Errors {
     YeeterStrategy internal strategy;
@@ -219,7 +219,6 @@ contract YeeterStrategyTest is Test, AlloSetup, RegistrySetupFull, Errors {
     }
 
     function test_withdraw() public {
-        uint256 initialBalance = token.balanceOf(address(strategy));
         uint256 withdrawAmount = 100;
         address recipient = makeAddr("WithdrawRecipient");
 
@@ -251,8 +250,8 @@ contract YeeterStrategyTest is Test, AlloSetup, RegistrySetupFull, Errors {
         uint256[] memory amounts = new uint256[](10);
         uint256 totalAmount = 0;
 
-        for(uint256 i = 0; i < 10; i++) {
-            recipientIds[i] = makeAddr(string(abi.encodePacked("Recipient", i))); 
+        for (uint256 i = 0; i < 10; i++) {
+            recipientIds[i] = makeAddr(string(abi.encodePacked("Recipient", i)));
             amounts[i] = (uint256(_amounts[i]) * 99) / 100; // Limit each amount to 99% of the total amount
             totalAmount += _amounts[i];
         }
@@ -266,7 +265,7 @@ contract YeeterStrategyTest is Test, AlloSetup, RegistrySetupFull, Errors {
         allo().allocate(poolId, abi.encode(recipientIds, amounts, address(token)));
         vm.stopPrank();
 
-        for(uint256 i = 0; i < 10; i++) {
+        for (uint256 i = 0; i < 10; i++) {
             assertEq(token.balanceOf(recipientIds[i]), amounts[i]);
         }
     }
