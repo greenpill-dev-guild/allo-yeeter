@@ -1,37 +1,34 @@
-"use client";
-import { supportedChains, Avatar } from "@allo-team/kit";
-import Link from "next/link";
+'use client';
+import Link from 'next/link';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
   return (
-    <section>
-      <h1 className="text-7xl pt-12 pb-24 font-semibold text-center">
-        Allo Starter Kit
-      </h1>
-
-      <h3 className="text-2xl text-center mb-8 font-semibold">Browse Rounds</h3>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
-        {supportedChains.map((chain) => (
-          <Link
-            key={chain.id}
-            href={`/${chain.id}`}
-            className="flex gap-2 items-center hover:bg-gray-100 rounded-xl p-2"
-          >
-            <Avatar className="size-8">
-              <span
-                className="size-8"
-                // biome-ignore lint/security/noDangerouslySetInnerHtml: chain.icon comes as an SVG string
-                dangerouslySetInnerHTML={{ __html: fixSvg(chain.icon) }}
-              />
-            </Avatar>
-            <div className="text-lg capitalize">{chain.name}</div>
-          </Link>
-        ))}
-      </div>
+    <section className="flex items-center justify-center h-full p-4">
+      <Card className="w-full max-w-md">
+        <CardHeader>
+          <CardTitle className="text-4xl font-bold text-center">
+            Allo Yeeter
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-center text-muted-foreground">
+            Yeet funds to multiple wallets easily and simply
+          </p>
+        </CardContent>
+        <CardFooter className="flex justify-center">
+          <Button asChild size="lg">
+            <Link href="/yeeter">Yeet!</Link>
+          </Button>
+        </CardFooter>
+      </Card>
     </section>
   );
-}
-
-function fixSvg(svg: string) {
-  return svg.replace(/(width|height)="[^"]*"/g, '$1="100%"');
 }

@@ -3,11 +3,9 @@ import { ConnectButton } from '@allo-team/kit';
 import Link from 'next/link';
 export function Header() {
   return (
-    <header className="h-16 max-w-screen-lg mx-auto flex items-center justify-between">
+    <header className="h-16 max-w-screen-lg mx-auto flex items-center justify-between w-full">
       <Link href="/">
-        <span className="font-semibold mr-2">Allo Starter Kit</span>
-
-        <span className="text-xs">yeeter</span>
+        <span className="font-semibold mr-2">Yeeter</span>
       </Link>
 
       <nav className="flex gap-8">
