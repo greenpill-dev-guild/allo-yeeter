@@ -1,6 +1,13 @@
 import React from 'react';
-import { UseFormReturn } from 'react-hook-form';
-import { YeetFormData } from './useLocalStorageForm';
+import { SlideProps } from './slideDefinitions';
+import { Button } from '@/components/ui/button';
+import {
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from '@/components/ui/form';
 import {
   Select,
   SelectContent,
@@ -9,34 +16,48 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { useNetwork, supportedChains } from '@allo-team/kit';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { supportedChains, useNetwork } from '@allo-team/kit';
-import {
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
 
-interface SettingsProps {
-  form: UseFormReturn<YeetFormData>;
-}
-
-const Settings: React.FC<SettingsProps> = ({ form }) => {
-  const { control, watch } = form;
+const Settings: React.FC<SlideProps> = ({
+  form,
+  swiper,
+  toast,
+  fieldsToValidate,
+  nextButtonText,
+}) => {
   const network = useNetwork();
-  const customToken = watch('customToken');
+  const handleNext = async () => {
+    const result = await form.trigger(fieldsToValidate);
+    console.log('Validation result:', result);
+
+    if (result) {
+      swiper?.slideNext();
+    } else {
+      const errors = form.formState.errors;
+      console.log('Validation errors:', errors);
+
+      const errorMessages = Object.entries(errors)
+        .map(([field, error]) => `${field}: ${error?.message}`)
+        .join('\n');
+
+      toast({
+        title: 'Validation Error',
+        description: errorMessages,
+        variant: 'destructive',
+      });
+    }
+  };
 
   return (
-    <div className="w-full max-w-sm space-y-4">
+    <div className="space-y-4">
       <FormField
-        control={control}
+        control={form.control}
         name="network"
         render={({ field }) => (
           <FormItem>
@@ -59,7 +80,7 @@ const Settings: React.FC<SettingsProps> = ({ form }) => {
       />
 
       <FormField
-        control={control}
+        control={form.control}
         name="token"
         render={({ field }) => (
           <FormItem>
@@ -87,7 +108,7 @@ const Settings: React.FC<SettingsProps> = ({ form }) => {
           <AccordionContent>
             <div className="space-y-2">
               <FormField
-                control={control}
+                control={form.control}
                 name="customToken.address"
                 render={({ field }) => (
                   <FormItem>
@@ -98,7 +119,7 @@ const Settings: React.FC<SettingsProps> = ({ form }) => {
                 )}
               />
               <FormField
-                control={control}
+                control={form.control}
                 name="customToken.symbol"
                 render={({ field }) => (
                   <FormItem>
@@ -109,7 +130,7 @@ const Settings: React.FC<SettingsProps> = ({ form }) => {
                 )}
               />
               <FormField
-                control={control}
+                control={form.control}
                 name="customToken.decimals"
                 render={({ field }) => (
                   <FormItem>
@@ -127,6 +148,7 @@ const Settings: React.FC<SettingsProps> = ({ form }) => {
           </AccordionContent>
         </AccordionItem>
       </Accordion>
+      <Button onClick={handleNext}>{nextButtonText}</Button>
     </div>
   );
 };

@@ -6,42 +6,25 @@ import type { API, Application, Round } from "../../api/types";
 
 type Allocation = {
   token: `0x${string}`;
-  recipientId: `0x${string}`[];
-  amount: bigint[];
+  recipientIds: `0x${string}`[];
+  amounts: bigint[];
 };
 
 export const call = (
   round: Round,
-  state: Record<string, number>,
+  state: Allocation,
   applications: Application[],
   api: API,
   signer: WalletClient,
 ) => {
-  const allocations: Allocation = 
-
-  const allocation = allocations.reduce(
-    (obj, a) => {
-      obj.amounts.push(a.amount);
-      obj.recipientIds.push(a.recipientId);
-      obj.token = a.token;
-      return obj;
-    },
-    {
-      recipientIds: [] as `0x${string}`[],
-      amounts: [] as bigint[],
-      token: "0x" as `0x${string}`,
-    },
-  );
-
   const tx = YeeterStrategy.prototype.getAllocateData.call(
     {
       poolId: BigInt(round.id),
       checkPoolId: Function,
       allo: { address: () => alloAddress({ id: round.chainId } as Chain) },
     },
-    allocation,
+    state,
   );
 
   return api.allo.sendTransaction(tx, signer);
 };
-

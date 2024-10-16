@@ -1,25 +1,48 @@
 import React from 'react';
-import { Input } from '@/components/ui/input';
-import { UseFormReturn } from 'react-hook-form';
-import { YeetFormData } from './useLocalStorageForm';
+import { SlideProps } from './slideDefinitions';
+import { Button } from '@/components/ui/button';
 import {
   FormField,
   FormItem,
   FormLabel,
+  FormControl,
   FormMessage,
 } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 
-interface AmountProps {
-  form: UseFormReturn<YeetFormData>;
-}
+const Amount: React.FC<SlideProps> = ({
+  form,
+  swiper,
+  toast,
+  fieldsToValidate,
+  nextButtonText,
+}) => {
+  const handleNext = async () => {
+    const result = await form.trigger(fieldsToValidate);
+    console.log('Validation result:', result);
 
-const Amount: React.FC<AmountProps> = ({ form }) => {
-  const { control } = form;
+    if (result) {
+      swiper?.slideNext();
+    } else {
+      const errors = form.formState.errors;
+      console.log('Validation errors:', errors);
+
+      const errorMessages = Object.entries(errors)
+        .map(([field, error]) => `${field}: ${error?.message}`)
+        .join('\n');
+
+      toast({
+        title: 'Validation Error',
+        description: errorMessages,
+        variant: 'destructive',
+      });
+    }
+  };
 
   return (
     <div className="w-full max-w-sm">
       <FormField
-        control={control}
+        control={form.control}
         name="amount"
         render={({ field }) => (
           <FormItem>
@@ -34,6 +57,8 @@ const Amount: React.FC<AmountProps> = ({ form }) => {
           </FormItem>
         )}
       />
+
+      <Button onClick={handleNext}>{nextButtonText}</Button>
     </div>
   );
 };

@@ -34,6 +34,9 @@ export type YeetFormData = z.infer<typeof yeetFormSchema>;
 
 const STORAGE_KEY = 'yeetFormData';
 
+// Add this constant at the top of the file
+const USE_LOCAL_STORAGE = false; // Set to false to disable localStorage
+
 export const useLocalStorageForm = (): UseFormReturn<YeetFormData> => {
   const form = useForm<YeetFormData>({
     resolver: zodResolver(yeetFormSchema),
@@ -47,22 +50,26 @@ export const useLocalStorageForm = (): UseFormReturn<YeetFormData> => {
   });
 
   useEffect(() => {
-    const storedData = localStorage.getItem(STORAGE_KEY);
-    if (storedData) {
-      try {
-        const parsedData = JSON.parse(storedData);
-        form.reset(parsedData);
-      } catch (error) {
-        console.error('Error parsing stored form data:', error);
+    if (USE_LOCAL_STORAGE) {
+      const storedData = localStorage.getItem(STORAGE_KEY);
+      if (storedData) {
+        try {
+          const parsedData = JSON.parse(storedData);
+          form.reset(parsedData);
+        } catch (error) {
+          console.error('Error parsing stored form data:', error);
+        }
       }
     }
   }, []);
 
   useEffect(() => {
-    const subscription = form.watch((value) => {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
-    });
-    return () => subscription.unsubscribe();
+    if (USE_LOCAL_STORAGE) {
+      const subscription = form.watch((value) => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+      });
+      return () => subscription.unsubscribe();
+    }
   }, [form.watch]);
 
   return form;

@@ -12,12 +12,19 @@ import {
   FormDescription,
 } from '@/components/ui/form';
 import { cn } from '@/lib/utils';
+import { SlideProps } from './slideDefinitions';
 
-interface AddressesProps {
+interface AddressesProps extends SlideProps {
   form: UseFormReturn<YeetFormData>;
 }
 
-const Addresses: React.FC<AddressesProps> = ({ form }) => {
+const Addresses: React.FC<AddressesProps> = ({
+  form,
+  swiper,
+  toast,
+  fieldsToValidate,
+  nextButtonText,
+}) => {
   const {
     control,
     formState: { errors },
@@ -26,6 +33,28 @@ const Addresses: React.FC<AddressesProps> = ({ form }) => {
     control,
     name: 'addresses',
   });
+
+  const handleNext = async () => {
+    const result = await form.trigger(fieldsToValidate);
+    console.log('Validation result:', result);
+
+    if (result) {
+      swiper?.slideNext();
+    } else {
+      const errors = form.formState.errors;
+      console.log('Validation errors:', errors);
+
+      const errorMessages = Object.entries(errors)
+        .map(([field, error]) => `${field}: ${error?.message}`)
+        .join('\n');
+
+      toast({
+        title: 'Validation Error',
+        description: errorMessages,
+        variant: 'destructive',
+      });
+    }
+  };
 
   return (
     <div className="w-full max-w-sm">
@@ -70,6 +99,9 @@ const Addresses: React.FC<AddressesProps> = ({ form }) => {
       {errors.addresses && (
         <FormMessage className="mt-2">{errors.addresses.message}</FormMessage>
       )}
+      <Button onClick={handleNext} className="mt-4">
+        {nextButtonText}
+      </Button>
     </div>
   );
 };

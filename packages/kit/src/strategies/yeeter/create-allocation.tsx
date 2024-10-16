@@ -43,25 +43,15 @@ export const createSchema: StrategyCreateSchemaFn = () =>
         parseAbiParameters("address[], uint256[], address"),
         [val.recipientIds, val.amounts, val.token],
       );
-      return YeeterStrategy.prototype.getInitializeData({ poolId, data });
+      return YeeterStrategy.prototype.getInitializeData({ data });
     });
 
 export function CreateAllocationForm() {
-  const { control } = useFormContext();
-  return (
-    <>
-      <RecipientAndAmountField />
-    </>
-  );
-}
-
-function RecipientAndAmountField() {
   const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
     name: "recipientIdsAndAmounts",
   });
-
   return (
     <FormItem className="flex flex-col">
       <FormLabel>Recipients and Amounts</FormLabel>
