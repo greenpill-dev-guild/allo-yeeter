@@ -11,6 +11,7 @@ import { useToast } from '@/hooks/use-toast';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { CreateProfileButton } from '@allo-team/kit';
 
 const YeeterPage: React.FC = () => {
   const form = useLocalStorageForm();
@@ -19,6 +20,7 @@ const YeeterPage: React.FC = () => {
 
   return (
     <FormProvider {...form}>
+      <CreateProfileButton />
       <div className="mt-32 flex flex-col items-center justify-center">
         <div className="w-full max-w-3xl flex-grow">
           <Swiper
