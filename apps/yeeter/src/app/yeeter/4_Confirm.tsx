@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Allo,
   StrategyFactory,
   YeeterStrategy,
-  createPoolWithCustomStrategy,
+  // createPoolWithCustomStrategy,
 } from '@allo-team/allo-v2-sdk';
 import {
   useAccount,
@@ -29,12 +29,18 @@ const Confirm: React.FC<SlideProps> = ({
     useSendTransaction();
   const { data: profileId } = useProfile();
   console.log({ profileId, chainId, address });
-  const allo = new Allo({ chain: parseInt(chainId) });
+  const allo = useMemo(() => {
+    if (!chainId) return null;
+    return new Allo({ chain: parseInt(chainId) });
+  }, [chainId]);
 
-  const strategyFactory = new StrategyFactory({
-    chain: parseInt(chainId),
-    factoryType: 'YTR',
-  });
+  const strategyFactory = useMemo(() => {
+    if (!chainId) return null;
+    return new StrategyFactory({
+      chain: parseInt(chainId),
+      factoryType: 'YTR',
+    });
+  }, [chainId]);
 
   // const { data: hash, writeContract } = useWriteContract();
   const { isLoading, isSuccess } = useWaitForTransactionReceipt({
