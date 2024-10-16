@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import {
   Allo,
+  CreatePoolArgs,
   StrategyFactory,
+  TransactionData,
   YeeterStrategy,
   // createPoolWithCustomStrategy,
 } from '@allo-team/allo-v2-sdk';
@@ -26,9 +28,15 @@ const Confirm: React.FC<SlideProps> = ({
   const { address } = useAccount();
   const { sendTransaction, data: hash } = useSendTransaction();
   const { sendTransaction: sendPoolTransaction, data: poolHash } =
-    useSendTransaction();
+    useSendTransaction({
+      mutation: {
+        onError: error => {
+          console.log('error', error);
+        },
+      },
+    });
   const { data: profileId } = useProfile();
-  console.log({ profileId, chainId, address });
+  console.log({ profileId, chainId, address, token });
   const allo = useMemo(() => {
     if (!chainId) return null;
     return new Allo({ chain: parseInt(chainId) });
@@ -65,25 +73,35 @@ const Confirm: React.FC<SlideProps> = ({
       token: data.token as `0x${string}`,
     };
 
-    const args = {
+    const args: CreatePoolArgs = {
       profileId: profileId as `0x${string}`, // TODO: better err handling
       strategy: '0x3B7AD76762a6d6D652664F35696c57552b7411dD',
       initStrategyData: '0x',
-      token: token as `0x${string}`,
+      token: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+      // token: token as `0x${string}`,
       amount: BigInt(10000),
       metadata: {
-        protocol: BigInt(0),
+        protocol: BigInt(1),
         pointer: 'Test',
       },
       managers: [address as `0x${string}`],
     };
     console.log('args', args);
 
-    const poolTx = allo.createPoolWithCustomStrategy(args);
+    if (!allo) return;
+
+    const poolTx: TransactionData = allo.createPoolWithCustomStrategy(args);
+    // const poolTx: TransactionData = allo.createPool(args);
     console.log('poolTx', { token, totalAmount, address }, poolTx);
 
-    const poolReceipt = await sendPoolTransaction(poolTx);
-    console.log('poolReceipt', poolReceipt);
+    const poolReceipt = await sendPoolTransaction({
+      data: poolTx.data,
+      to: poolTx.to,
+      value: BigInt(poolTx.value),
+      gas: BigInt(20_000_000),
+      gasPrice: BigInt(1_000_000_000),
+    });
+    console.log('poolReceipt', poolReceipt, poolHash);
     return;
 
     const tx = strategyFactory.getCreateStrategyData();
