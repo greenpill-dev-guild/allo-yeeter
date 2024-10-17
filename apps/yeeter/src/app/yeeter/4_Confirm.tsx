@@ -1,7 +1,8 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import {
   Allo,
   CreatePoolArgs,
+  Registry,
   StrategyFactory,
   TransactionData,
   YeeterStrategy,
@@ -12,12 +13,13 @@ import {
   useCall,
   useSendTransaction,
   useWaitForTransactionReceipt,
+  useWalletClient,
   useWriteContract,
 } from 'wagmi';
 import { parseEther } from 'viem';
 import { SlideProps } from './slideDefinitions';
 import { Button } from '@/components/ui/button';
-import { useProfile } from '@allo-team/kit';
+import { useAPI, useProfile } from '@allo-team/kit';
 
 const sendConfig = {
   mutation: {
@@ -39,35 +41,36 @@ const Confirm: React.FC<SlideProps> = ({
     amount: totalAmount,
     addresses,
   } = form.getValues();
+
   const { address } = useAccount();
-  const { sendTransaction: sendFactoryTransaction, data: hash } =
-    useSendTransaction(sendConfig);
-  const { sendTransaction: sendPoolTransaction, data: poolHash } =
-    useSendTransaction(sendConfig);
-  const { sendTransaction: sendYeet, data: yeetHash } =
-    useSendTransaction(sendConfig);
-  const { isLoading: isLoadingFactory, isSuccess: isSuccessFactory } =
-    useWaitForTransactionReceipt({
-      hash,
-    });
-  const { isLoading: isLoadingPool, isSuccess: isSuccessPool } =
-    useWaitForTransactionReceipt({
-      hash: poolHash,
-    });
-  const { isLoading: isLoadingYeet, isSuccess: isSuccessYeet } =
-    useWaitForTransactionReceipt({
-      hash: yeetHash,
-    });
-  const [error, setError] = useState<string | null>(null);
-  const [poolId, setPoolId] = useState<bigint>(BigInt(0));
   const { data: profileId } = useProfile();
-  console.log({ profileId, chainId, address, token });
+  const [error, setError] = useState<string | null>(null);
 
-  const allo = useMemo(() => {
-    if (!chainId) return null;
-    return new Allo({ chain: parseInt(chainId) });
-  }, [chainId]);
+  const [poolId, setPoolId] = useState<bigint>(BigInt(0));
+  const [strategyAddress, setStrategyAddress] = useState<`0x${string}` | null>(
+    null,
+  );
 
+  // #region create yeeter contract
+  const { sendTransaction: sendFactoryTransaction, data: factoryHash } =
+    useSendTransaction(sendConfig);
+  const {
+    isLoading: isLoadingFactory,
+    isSuccess: isSuccessFactory,
+    data: factoryData,
+  } = useWaitForTransactionReceipt({
+    hash: factoryHash,
+  });
+  useEffect(() => {
+    if (isSuccessFactory) {
+      let strategyAddress = factoryData?.logs?.[0]?.topics?.[2];
+      if (strategyAddress) {
+        strategyAddress = `0x${strategyAddress.slice(-40)}`;
+        console.log('Strategy address', strategyAddress);
+        setStrategyAddress(strategyAddress as `0x${string}`);
+      }
+    }
+  }, [isSuccessFactory, factoryData]);
   const strategyFactory = useMemo(() => {
     if (!chainId) return null;
     return new StrategyFactory({
@@ -75,19 +78,7 @@ const Confirm: React.FC<SlideProps> = ({
       factoryType: 'YTR',
     });
   }, [chainId]);
-
-  const yeeter = useMemo(() => {
-    if (!chainId || !poolId) return null;
-    return new YeeterStrategy({
-      chain: parseInt(chainId),
-      // rpc: data.rpc,
-      address: '0x3B7AD76762a6d6D652664F35696c57552b7411dD',
-      // address: data.address,
-      poolId,
-    });
-  }, [chainId, poolId]);
-
-  const createYeeter = useCallback(async () => {
+  const createYeeterContract = useCallback(async () => {
     if (!strategyFactory) return;
     const createYeeterTx = strategyFactory.getCreateStrategyData();
     await sendFactoryTransaction({
@@ -96,34 +87,110 @@ const Confirm: React.FC<SlideProps> = ({
       value: BigInt(createYeeterTx.value),
     });
   }, [strategyFactory, sendFactoryTransaction]);
+  // #endregion
 
+  // #region create pool
+  const allo = useMemo(() => {
+    if (!chainId) return null;
+    return new Allo({ chain: parseInt(chainId) });
+  }, [chainId]);
+  const { sendTransaction: sendPoolTransaction, data: poolHash } =
+    useSendTransaction(sendConfig);
   const createPool = useCallback(async () => {
     console.log('Creating pool');
-    if (!allo) return;
+    if (
+      !allo ||
+      !strategyAddress ||
+      !profileId ||
+      !address ||
+      !token ||
+      !totalAmount
+    ) {
+      console.log('Missing required values');
+      console.log({
+        allo,
+        strategyAddress,
+        profileId,
+        address,
+        token,
+        totalAmount,
+      });
+      return;
+    }
     const args: CreatePoolArgs = {
       profileId: profileId as `0x${string}`, // TODO: better err handling
-      strategy: '0x3B7AD76762a6d6D652664F35696c57552b7411dD',
+      // strategy: '0xB71E93404fDEF1044CBD79bBB4003F5Bf50402A9', // attempt 2
+      // strategy: '0x3B7AD76762a6d6D652664F35696c57552b7411dD', // lawal's strategy
+      // strategy: '0xCbe067eF97C062816F63E4fD26a440c4DE924410', // Julian's strategy pointing to allo proxy
+      // strategy: '0x2FF25eda8B636Ec14bEE2Bc9ef55C96E2e77be11', // Julian's strategy pointing to allo proxy
+      strategy: strategyAddress as `0x${string}`,
       initStrategyData: '0x',
       token: token as `0x${string}`,
-      amount: BigInt(10000),
+      amount: BigInt(totalAmount),
       metadata: {
         protocol: BigInt(1),
         pointer: 'Test',
       },
       managers: [address as `0x${string}`],
     };
+    console.log({ poolArgs: args });
     const poolTx: TransactionData = allo.createPoolWithCustomStrategy(args);
+    console.log({ poolTx });
     const poolReceipt = await sendPoolTransaction({
       data: poolTx.data,
       to: poolTx.to,
       value: BigInt(poolTx.value),
-      gas: BigInt(20_000_000),
-      gasPrice: BigInt(1_000_000_000),
+      // gas: BigInt(20_000_000),
+      // gasPrice: BigInt(1_000_000_000),
     });
     console.log('Pool created', poolTx, poolReceipt);
-  }, [allo, sendPoolTransaction, profileId, address, token]);
+  }, [
+    allo,
+    sendPoolTransaction,
+    profileId,
+    address,
+    token,
+    totalAmount,
+    strategyAddress,
+  ]);
+  const {
+    isLoading: isLoadingPool,
+    isSuccess: isSuccessPool,
+    data: poolData,
+  } = useWaitForTransactionReceipt({
+    hash: poolHash,
+  });
+  useEffect(() => {
+    if (isSuccessPool) {
+      const poolFunded = poolData?.logs?.[4];
+      const poolId = poolFunded?.topics?.[1];
+      if (poolId) {
+        console.log('Pool created successfully', poolId);
+        setPoolId(BigInt(poolId));
+      }
+    }
+  }, [isSuccessPool, poolData]);
+  // #endregion
 
+  // #region yeet
+  const yeeter = useMemo(() => {
+    // if (!chainId || !poolId) return null;
+    return new YeeterStrategy({
+      chain: parseInt(chainId),
+      // rpc: data.rpc,
+      address: strategyAddress as `0x${string}`,
+      // address: data.address,
+      poolId,
+    });
+  }, [chainId, poolId, strategyAddress]);
+  const { sendTransaction: sendYeet, data: yeetHash } =
+    useSendTransaction(sendConfig);
   const yeet = useCallback(async () => {
+    console.log('Yeeting');
+    if (!yeeter) {
+      console.log('No yeeter');
+      return;
+    }
     const amountPerAddress = Math.floor(
       parseInt(totalAmount) / addresses.length,
     );
@@ -135,8 +202,11 @@ const Confirm: React.FC<SlideProps> = ({
       amounts: addresses.map(() => BigInt(amountPerAddress)) as bigint[],
       token: token as `0x${string}`,
     };
-    if (!yeeter) return;
+
     const yeetTx = yeeter.getAllocateData(dataForContract);
+
+    console.log({ yeetTx, dataForContract });
+
     await sendYeet({
       data: yeetTx.data,
       to: yeetTx.to,
@@ -146,12 +216,36 @@ const Confirm: React.FC<SlideProps> = ({
     });
   }, [yeeter, sendYeet, addresses, totalAmount, token]);
 
+  const {
+    isLoading: isLoadingYeet,
+    isSuccess: isSuccessYeet,
+    data: yeetData,
+  } = useWaitForTransactionReceipt({
+    hash: yeetHash,
+  });
+  // #endregion
+
   React.useEffect(() => {
-    if (isSuccessFactory || isSuccessPool || isSuccessYeet) {
-      console.log('Transaction successful');
-      swiper?.slideNext();
+    if (isSuccessFactory) {
+      console.log('Yeeter contract created successfully', factoryHash);
       toast({
-        title: 'Transaction Successful',
+        title: 'Yeeter contract created successfully',
+        description: 'Your Yeet has been confirmed!',
+        variant: 'success',
+      });
+    }
+    if (isSuccessPool) {
+      console.log('Pool created successfully', poolHash);
+      toast({
+        title: 'Pool created successfully',
+        description: 'Your Yeet has been confirmed!',
+        variant: 'success',
+      });
+    }
+    if (isSuccessYeet) {
+      console.log('Yeet successful', yeetHash);
+      toast({
+        title: 'Yeet successful',
         description: 'Your Yeet has been confirmed!',
         variant: 'success',
       });
@@ -163,7 +257,7 @@ const Confirm: React.FC<SlideProps> = ({
       <h2>Confirm Your Yeet</h2>
       <pre>{JSON.stringify(form.getValues(), null, 2)}</pre>
       <div className="flex flex-row gap-2">
-        <Button onClick={createYeeter} disabled={isLoadingFactory}>
+        <Button onClick={createYeeterContract} disabled={isLoadingFactory}>
           {isLoadingFactory ? 'Processing...' : 'Create Yeeter'}
         </Button>
         <Button onClick={createPool} disabled={isLoadingPool}>

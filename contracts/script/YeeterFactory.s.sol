@@ -5,7 +5,8 @@ import {Script, console} from "forge-std/Script.sol";
 import {YeeterFactory} from "../src/YeeterFactory.sol";
 
 contract YeeterFactoryDeploy is Script {
-    address public constant ALLO = 0xB087535DB0df98fC4327136e897A5985E5Cfbd66;
+    // address public constant ALLO = 0xB087535DB0df98fC4327136e897A5985E5Cfbd66; // original address
+    address public constant ALLO = 0x1133eA7Af70876e64665ecD07C0A0476d09465a1; // pointing to proxy
 
     function run() external returns (YeeterFactory yeeterFactory) {
         vm.startBroadcast();
