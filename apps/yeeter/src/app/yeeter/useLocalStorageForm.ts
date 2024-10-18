@@ -42,9 +42,9 @@ export const useLocalStorageForm = (): UseFormReturn<YeetFormData> => {
     resolver: zodResolver(yeetFormSchema),
     defaultValues: {
       addresses: [{ address: '' as `0x${string}` }],
-      network: '' as `0x${string}`,
-      token: '' as `0x${string}`,
-      amount: '',
+      network: '11155111' as `0x${string}`,
+      token: '0x0000000000000000000000000000000000000000' as `0x${string}`,
+      amount: '0',
     },
     mode: 'onChange',
   });

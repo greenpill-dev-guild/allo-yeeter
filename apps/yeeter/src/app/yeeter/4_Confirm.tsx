@@ -126,7 +126,7 @@ const Confirm: React.FC<SlideProps> = ({
       strategy: strategyAddress as `0x${string}`,
       initStrategyData: '0x',
       token: token as `0x${string}`,
-      amount: BigInt(totalAmount),
+      amount: parseEther(totalAmount),
       metadata: {
         protocol: BigInt(1),
         pointer: 'Test',
@@ -143,7 +143,7 @@ const Confirm: React.FC<SlideProps> = ({
       // gas: BigInt(20_000_000),
       // gasPrice: BigInt(1_000_000_000),
     });
-    console.log('Pool created', poolTx, poolReceipt);
+    console.log('Creating pool', poolTx, poolReceipt);
   }, [
     allo,
     sendPoolTransaction,
@@ -174,12 +174,12 @@ const Confirm: React.FC<SlideProps> = ({
 
   // #region yeet
   const yeeter = useMemo(() => {
-    // if (!chainId || !poolId) return null;
+    if (!chainId || !poolId) return null;
     return new YeeterStrategy({
       chain: parseInt(chainId),
-      // rpc: data.rpc,
+      rpc: 'https://rpc.sepolia.org',
       address: strategyAddress as `0x${string}`,
-      // address: data.address,
+      // address: '0x9c427fcb2cbe5819a909dc8d1cbc15f913ff235c',
       poolId,
     });
   }, [chainId, poolId, strategyAddress]);
@@ -191,9 +191,10 @@ const Confirm: React.FC<SlideProps> = ({
       console.log('No yeeter');
       return;
     }
-    const amountPerAddress = Math.floor(
-      parseInt(totalAmount) / addresses.length,
-    );
+
+    const gwei = parseEther(totalAmount);
+    const onePercent = gwei / BigInt(100);
+    const amountPerAddress = (gwei - onePercent) / BigInt(addresses.length);
 
     const dataForContract = {
       recipientIds: addresses.map(
@@ -210,15 +211,18 @@ const Confirm: React.FC<SlideProps> = ({
     await sendYeet({
       data: yeetTx.data,
       to: yeetTx.to,
-      value: BigInt(yeetTx.value),
-      // gas: BigInt(20_000_000),
-      // gasPrice: BigInt(1_000_000_000),
+      // to: '0x1133eA7Af70876e64665ecD07C0A0476d09465a1',
+      // value: BigInt(900),
+      value: BigInt(0),
+      gas: BigInt(20_000_000),
+      gasPrice: BigInt(1_000_000_000),
     });
   }, [yeeter, sendYeet, addresses, totalAmount, token]);
 
   const {
     isLoading: isLoadingYeet,
     isSuccess: isSuccessYeet,
+    isError: isErrorYeet,
     data: yeetData,
   } = useWaitForTransactionReceipt({
     hash: yeetHash,
@@ -249,6 +253,14 @@ const Confirm: React.FC<SlideProps> = ({
         description: 'Your Yeet has been confirmed!',
         variant: 'success',
       });
+      if (isErrorYeet) {
+        console.log('Yeet failed', yeetHash);
+        toast({
+          title: 'Yeet failed',
+          description: 'Your Yeet has failed!',
+          variant: 'error',
+        });
+      }
     }
   }, [isSuccessFactory, isSuccessPool, isSuccessYeet, swiper, toast]);
 
@@ -263,7 +275,7 @@ const Confirm: React.FC<SlideProps> = ({
         <Button onClick={createPool} disabled={isLoadingPool}>
           {isLoadingPool ? 'Processing...' : 'Create Pool'}
         </Button>
-        <Button onClick={yeet} disabled={isLoadingYeet}>
+        <Button onClick={yeet} disabled={false}>
           {isLoadingYeet ? 'Processing...' : 'Yeet'}
         </Button>
       </div>
