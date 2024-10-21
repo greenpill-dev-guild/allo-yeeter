@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 import { Header } from './header';
 import { AlloKitProviders } from './providers';
+import Footer from './footer';
 
 export const metadata: Metadata = {
   title: 'Allo Starter Kit Yeeter App',
@@ -22,11 +23,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AlloKitProviders>
-          <div className="h-screen flex flex-col w-full">
+          <div className="grid gap-12 w-full bg-[url('/GridPatternBG.svg')] bg-cover h-screen bg-center">
             <Header />
-            <main className="max-w-screen-lg mx-auto flex-grow -mt-16">
+            <main className="max-w-screen-sm w-full mx-auto overflow-hidden">
               {children}
             </main>
+            <Footer />
           </div>
         </AlloKitProviders>
       </body>

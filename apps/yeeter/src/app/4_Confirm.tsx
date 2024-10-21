@@ -174,13 +174,17 @@ const Confirm: React.FC<SlideProps> = ({
 
   // #region yeet
   const yeeter = useMemo(() => {
+    console.log({ chainId, poolId, strategyAddress });
     if (!chainId || !poolId) return null;
+    // return;
     return new YeeterStrategy({
       chain: parseInt(chainId),
+      // chain: 11155111,
       rpc: 'https://rpc.sepolia.org',
       address: strategyAddress as `0x${string}`,
-      // address: '0x9c427fcb2cbe5819a909dc8d1cbc15f913ff235c',
+      // address: '0x03a3afa2a68ecda94cdcfb607b12c1c90d888745',
       poolId,
+      // poolId: BigInt(532),
     });
   }, [chainId, poolId, strategyAddress]);
   const { sendTransaction: sendYeet, data: yeetHash } =
@@ -196,12 +200,19 @@ const Confirm: React.FC<SlideProps> = ({
     const onePercent = gwei / BigInt(100);
     const amountPerAddress = (gwei - onePercent) / BigInt(addresses.length);
 
+    // const dataForContract = {
+    //   recipientIds: addresses.map(
+    //     address => address.address,
+    //   ) as `0x${string}`[],
+    //   amounts: addresses.map(() => BigInt(amountPerAddress)) as bigint[],
+    //   token: token as `0x${string}`,
+    // };
     const dataForContract = {
-      recipientIds: addresses.map(
-        address => address.address,
-      ) as `0x${string}`[],
-      amounts: addresses.map(() => BigInt(amountPerAddress)) as bigint[],
-      token: token as `0x${string}`,
+      recipientIds: [
+        '0x7849F6Ba978188Ce97bB02bDABa673Af65CBd269',
+      ] as `0x${string}`[],
+      amounts: [amountPerAddress] as bigint[],
+      token: '0x0000000000000000000000000000000000000000' as `0x${string}`,
     };
 
     const yeetTx = yeeter.getAllocateData(dataForContract);
@@ -214,8 +225,8 @@ const Confirm: React.FC<SlideProps> = ({
       // to: '0x1133eA7Af70876e64665ecD07C0A0476d09465a1',
       // value: BigInt(900),
       value: BigInt(0),
-      gas: BigInt(20_000_000),
-      gasPrice: BigInt(1_000_000_000),
+      // gas: BigInt(20_000_000),
+      // gasPrice: BigInt(1_000_000_000),
     });
   }, [yeeter, sendYeet, addresses, totalAmount, token]);
 
@@ -267,7 +278,18 @@ const Confirm: React.FC<SlideProps> = ({
   return (
     <div>
       <h2>Confirm Your Yeet</h2>
-      <pre>{JSON.stringify(form.getValues(), null, 2)}</pre>
+      <pre>
+        {JSON.stringify(
+          {
+            profileId,
+            poolId: Number(poolId),
+            strategyAddress,
+            ...form.getValues(),
+          },
+          null,
+          2,
+        )}
+      </pre>
       <div className="flex flex-row gap-2">
         <Button onClick={createYeeterContract} disabled={isLoadingFactory}>
           {isLoadingFactory ? 'Processing...' : 'Create Yeeter'}
