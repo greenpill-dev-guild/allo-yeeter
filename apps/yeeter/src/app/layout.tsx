@@ -23,9 +23,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AlloKitProviders>
-          <div className="grid gap-12 w-full bg-[url('/GridPatternBG.svg')] bg-cover h-screen bg-center">
+          <div className="flex flex-col gap-12 justify-between w-full bg-[url('/GridPatternBG.svg')] bg-cover h-screen bg-center">
             <Header />
-            <main className="max-w-screen-sm w-full mx-auto overflow-hidden">
+            <main className="max-w-screen-sm w-full mx-auto overflow-hidden flex-grow">
               {children}
             </main>
             <Footer />

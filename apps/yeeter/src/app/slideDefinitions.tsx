@@ -7,6 +7,8 @@ import Amount from './3_Amount';
 import Confirm from './4_Confirm';
 // import Success from './5_Success';
 import { Swiper } from 'swiper/react';
+import Image from 'next/image';
+import { RiCoinFill, RiFileListFill, RiGroupFill } from '@remixicon/react';
 
 export interface SlideProps {
   form: UseFormReturn<YeetFormData>;
@@ -23,6 +25,7 @@ export interface SlideDefinition {
   component: React.ComponentType<SlideProps>;
   nextButtonText: string;
   fieldsToValidate: (keyof YeetFormData)[];
+  icon: JSX.Element;
 }
 
 export const slideDefinitions: SlideDefinition[] = [
@@ -33,6 +36,7 @@ export const slideDefinitions: SlideDefinition[] = [
     component: Addresses,
     nextButtonText: 'Next',
     fieldsToValidate: ['addresses'],
+    icon: <RiGroupFill />,
   },
   {
     shortTitle: 'Token',
@@ -41,6 +45,7 @@ export const slideDefinitions: SlideDefinition[] = [
     component: Settings,
     nextButtonText: 'Next',
     fieldsToValidate: ['network', 'token', 'customToken'],
+    icon: <RiCoinFill />,
   },
   {
     shortTitle: 'Amount',
@@ -49,6 +54,7 @@ export const slideDefinitions: SlideDefinition[] = [
     component: Amount,
     nextButtonText: 'Next',
     fieldsToValidate: ['amount'],
+    icon: <RiCoinFill />,
   },
   {
     shortTitle: 'Summary',
@@ -57,6 +63,7 @@ export const slideDefinitions: SlideDefinition[] = [
     component: Confirm,
     nextButtonText: 'Confirm Yeet',
     fieldsToValidate: [],
+    icon: <RiFileListFill />,
   },
   // {
   //   title: 'Yeet Successful!',

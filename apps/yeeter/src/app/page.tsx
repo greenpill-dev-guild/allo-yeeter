@@ -7,12 +7,14 @@ import { useLocalStorageForm } from './useLocalStorageForm';
 import { slideDefinitions } from './slideDefinitions';
 import { FormProvider } from 'react-hook-form';
 import { useToast } from '@/hooks/use-toast';
+import { cn } from '@/lib/utils';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { CreateProfileButton } from '@allo-team/kit';
 import { Card } from '@/components/ui/card';
+import { Icon } from '@radix-ui/react-select';
 
 const YeeterPage: React.FC = () => {
   const form = useLocalStorageForm();
@@ -31,9 +33,26 @@ const YeeterPage: React.FC = () => {
             slidesPerView={1}
             onSwiper={setSwiper}
             allowTouchMove={false}
+            autoHeight
           >
             {slideDefinitions.map((slide, index) => (
               <SwiperSlide key={index}>
+                <div className="flex flex-col gap-4 items-center">
+                  <div
+                    className="inset-0 bg-gradient-to-b from-primary/20 to-secondary/20 rounded-full "
+                    style={{ padding: '1.5rem' }}
+                  >
+                    <div className="relative bg-background rounded-full p-4 border-1 border-foreground">
+                      {slide.icon}
+                    </div>
+                  </div>
+                  <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+                    {slide.title}
+                  </h3>
+                  <h5 className="scroll-m-20 text-xl font-semibold tracking-tight text-muted-foreground">
+                    {slide.subtitle}
+                  </h5>
+                </div>
                 <slide.component
                   form={form}
                   swiper={swiper}
