@@ -11,8 +11,8 @@ import {Ownable} from "openzeppelin-contracts/contracts/access/Ownable.sol";
 /// @dev Inherits from Ownable for access control
 contract YeeterFactory is Ownable {
     /// @notice Mapping of strategy deployer addresses to their deployed strategy addresses
-    /// @dev deployer address -> array of deployed strategy addresses
-    mapping(address => address[]) public s_deployedStrategies;
+    /// @dev deployer address -> deployed strategy address
+    mapping(address => address) public s_deployedStrategies;
 
     /// @notice Array of all deployed strategy addresses
     address[] public s_allStrategies;
@@ -49,9 +49,13 @@ contract YeeterFactory is Ownable {
     /// @param _name The name of the strategy
     /// @return The address of the newly deployed strategy
     function deployStrategy(string memory _name) external returns (address) {
+        if (s_deployedStrategies[msg.sender] != address(0)) {
+            return s_deployedStrategies[msg.sender];
+        }
+
         YeeterStrategy newStrategy = new YeeterStrategy(address(s_allo), _name);
 
-        s_deployedStrategies[msg.sender].push(address(newStrategy));
+        s_deployedStrategies[msg.sender] = address(newStrategy);
         s_allStrategies.push(address(newStrategy));
 
         emit StrategyDeployed(msg.sender, address(newStrategy));
@@ -71,8 +75,8 @@ contract YeeterFactory is Ownable {
 
     /// @notice Retrieves all strategies deployed by a specific address
     /// @param _strategyDeployer The address of the strategy deployer
-    /// @return An array of addresses of deployed strategies
-    function getDeployedStrategies(address _strategyDeployer) external view returns (address[] memory) {
+    /// @return The address of the deployed strategy
+    function getDeployedStrategies(address _strategyDeployer) external view returns (address) {
         return s_deployedStrategies[_strategyDeployer];
     }
 
