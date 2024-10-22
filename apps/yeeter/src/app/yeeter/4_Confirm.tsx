@@ -79,7 +79,7 @@ const Confirm: React.FC<SlideProps> = ({
       initStrategyData: '0x',
       token: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
       // token: token as `0x${string}`,
-      amount: BigInt(10000),
+      amount: BigInt(1),
       metadata: {
         protocol: BigInt(1),
         pointer: 'Test',
