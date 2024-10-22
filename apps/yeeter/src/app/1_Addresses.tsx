@@ -3,7 +3,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { UseFormReturn, useFieldArray } from 'react-hook-form';
 import { YeetFormData } from './useLocalStorageForm';
-import { Trash2 } from 'lucide-react';
+import { Trash2, Clipboard } from 'lucide-react';
 import {
   FormField,
   FormItem,
@@ -56,6 +56,20 @@ const Addresses: React.FC<AddressesProps> = ({
     }
   };
 
+  const handlePaste = async (index: number) => {
+    try {
+      const text = await navigator.clipboard.readText();
+      form.setValue(`addresses.${index}.address`, text);
+    } catch (err) {
+      console.error('Failed to read clipboard contents: ', err);
+      toast({
+        title: 'Paste Error',
+        description: 'Unable to paste from clipboard. Please try manually.',
+        variant: 'destructive',
+      });
+    }
+  };
+
   return (
     <div className="w-full max-w-sm">
       {fields.map((field, index) => (
@@ -66,17 +80,27 @@ const Addresses: React.FC<AddressesProps> = ({
           render={({ field: { onChange, onBlur, value, ref } }) => (
             <FormItem className="flex items-center mb-2">
               <FormLabel className="sr-only">Wallet Address</FormLabel>
-              <Input
-                onChange={onChange}
-                onBlur={onBlur}
-                value={value}
-                ref={ref}
-                placeholder="Enter wallet address"
-                className={cn(
-                  'flex-grow mr-2',
-                  errors.addresses?.[index]?.address && 'border-red-500',
-                )}
-              />
+              <div className="flex-grow mr-2 relative">
+                <Input
+                  onChange={onChange}
+                  onBlur={onBlur}
+                  value={value}
+                  ref={ref}
+                  placeholder="Enter wallet address"
+                  className={cn(
+                    'pr-10',
+                    errors.addresses?.[index]?.address && 'border-red-500',
+                  )}
+                />
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="absolute right-0 top-0 h-full px-3"
+                  onClick={() => handlePaste(index)}
+                >
+                  <Clipboard className="h-4 w-4" />
+                </Button>
+              </div>
               <Button
                 type="button"
                 variant="ghost"

@@ -7,6 +7,8 @@ solc_version = "0.8.21"
 # auto_detect_solc = true
 optimizer = true
 optimizer_runs = 1_000
+PRIVATE_KEY="${PRIVATE_KEY}"
+RPC_URL="${RPC_URL}"
 
 [rpc_endpoints]
 sepolia = "${RPC_URL}"

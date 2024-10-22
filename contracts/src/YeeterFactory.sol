@@ -46,14 +46,12 @@ contract YeeterFactory is Ownable {
 
     /// @notice Deploys a new YeeterStrategy
     /// @dev Creates a new YeeterStrategy instance and records its deployment
-    /// @param _name The name of the strategy
     /// @return The address of the newly deployed strategy
-    function deployStrategy(string memory _name) external returns (address) {
+    function createStrategy() external returns (address) {
         if (s_deployedStrategies[msg.sender] != address(0)) {
             return s_deployedStrategies[msg.sender];
         }
-
-        YeeterStrategy newStrategy = new YeeterStrategy(address(s_allo), _name);
+        YeeterStrategy newStrategy = new YeeterStrategy(address(s_allo), "YeeterFactory");
 
         s_deployedStrategies[msg.sender] = address(newStrategy);
         s_allStrategies.push(address(newStrategy));

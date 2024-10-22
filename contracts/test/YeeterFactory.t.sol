@@ -49,7 +49,7 @@ contract YeeterFactoryTest is Test, AlloSetup, RegistrySetupFull {
 
     function testDeployStrategy() public {
         vm.prank(user);
-        address newStrategy = factory.deployStrategy("Test");
+        address newStrategy = factory.createStrategy();
 
         assertNotEq(newStrategy, address(0));
         assertEq(factory.getStrategyCount(), 1);
@@ -60,7 +60,7 @@ contract YeeterFactoryTest is Test, AlloSetup, RegistrySetupFull {
     function testGetDeployedStrategies() public {
         // Deploy a strategy
         vm.prank(user);
-        address newStrategy = factory.deployStrategy("Test");
+        address newStrategy = factory.createStrategy();
 
         // Check if the deployed strategy is correctly recorded
         address[] memory deployedStrategies = factory.getDeployedStrategies(user);
@@ -71,9 +71,9 @@ contract YeeterFactoryTest is Test, AlloSetup, RegistrySetupFull {
     function testGetAllStrategies() public {
         // Deploy two strategies
         vm.prank(user);
-        address strategy1 = factory.deployStrategy("Test1");
+        address strategy1 = factory.createStrategy();
         vm.prank(address(0x3));
-        address strategy2 = factory.deployStrategy("Test2");
+        address strategy2 = factory.createStrategy();
 
         // Check if all strategies are correctly recorded
         address[] memory allStrategies = factory.getAllStrategies();
@@ -86,17 +86,17 @@ contract YeeterFactoryTest is Test, AlloSetup, RegistrySetupFull {
         assertEq(factory.getStrategyCount(), 0);
 
         vm.prank(user);
-        factory.deployStrategy("Test1");
+        factory.createStrategy();
         assertEq(factory.getStrategyCount(), 1);
 
         vm.prank(address(0x3));
-        factory.deployStrategy("Test2");
+        factory.createStrategy();
         assertEq(factory.getStrategyCount(), 2);
     }
 
     function testDeployer_CanAllocateFunds() public {
         vm.prank(deployer);
-        address newStrategy = factory.deployStrategy("Test1");
+        address newStrategy = factory.createStrategy();
 
         address[] memory poolManagers = new address[](3);
         poolManagers[0] = deployer;

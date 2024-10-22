@@ -1,34 +1,72 @@
 'use client';
-import Link from 'next/link';
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 
-export default function Home() {
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import { useLocalStorageForm } from './useLocalStorageForm';
+import { slideDefinitions } from './slideDefinitions';
+import { FormProvider } from 'react-hook-form';
+import { useToast } from '@/hooks/use-toast';
+import { cn } from '@/lib/utils';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { CreateProfileButton } from '@allo-team/kit';
+import { Card } from '@/components/ui/card';
+import { Icon } from '@radix-ui/react-select';
+
+const YeeterPage: React.FC = () => {
+  const form = useLocalStorageForm();
+  const [swiper, setSwiper] = useState<typeof Swiper | null>(null);
+  const { toast } = useToast();
+
   return (
-    <section className="flex items-center justify-center h-full p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-4xl font-bold text-center">
-            Allo Yeeter
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-center text-muted-foreground">
-            Yeet funds to multiple wallets easily and simply
-          </p>
-        </CardContent>
-        <CardFooter className="flex justify-center">
-          <Button asChild size="lg">
-            <Link href="/yeeter">Yeet!</Link>
-          </Button>
-        </CardFooter>
-      </Card>
-    </section>
+    <Card className="h-full w-full flex flex-col max-w-screen-sm mx-auto overflow-y-scroll px-12 py-8">
+      <FormProvider {...form}>
+        <CreateProfileButton />
+        <div className="w-full max-w-3xl">
+          <Swiper
+            modules={[Pagination]}
+            pagination={{ clickable: true }}
+            spaceBetween={50}
+            slidesPerView={1}
+            onSwiper={setSwiper}
+            allowTouchMove={false}
+            autoHeight
+          >
+            {slideDefinitions.map((slide, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex flex-col gap-4 items-center">
+                  <div
+                    className="inset-0 bg-gradient-to-b from-primary/20 to-secondary/20 rounded-full "
+                    style={{ padding: '1.5rem' }}
+                  >
+                    <div className="relative bg-background rounded-full p-4 border-1 border-foreground">
+                      {slide.icon}
+                    </div>
+                  </div>
+                  <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+                    {slide.title}
+                  </h3>
+                  <h5 className="scroll-m-20 text-xl font-semibold tracking-tight text-muted-foreground">
+                    {slide.subtitle}
+                  </h5>
+                </div>
+                <slide.component
+                  form={form}
+                  swiper={swiper}
+                  toast={toast}
+                  fieldsToValidate={slide.fieldsToValidate}
+                  nextButtonText={slide.nextButtonText}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </FormProvider>
+    </Card>
   );
-}
+};
+
+export default YeeterPage;

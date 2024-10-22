@@ -167,3 +167,4 @@ const Confirm: React.FC<SlideProps> = ({
 };
 
 export default Confirm;
+
