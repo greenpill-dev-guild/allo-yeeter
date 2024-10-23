@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import {
   Allo,
@@ -17,9 +19,21 @@ import {
   useWriteContract,
 } from 'wagmi';
 import { parseEther } from 'viem';
-import { SlideProps } from './slideDefinitions';
 import { Button } from '@/components/ui/button';
 import { useAPI, useProfile } from '@allo-team/kit';
+import { useYeetForm } from '@/hooks/useYeetForm';
+import { useToast } from '@/hooks/use-toast';
+import { slideDefinitions } from '@/app/slideDefinitions';
+import StepWrapper from '@/components/step/StepWrapper';
+import StepHeader from '@/components/step/StepHeader';
+import { Separator } from '@/components/ui/separator';
+import {
+  RiHandCoinFill,
+  RiLoader4Line,
+  RiMoneyCnyBoxFill,
+  RiRocket2Fill,
+  RiUploadCloud2Fill,
+} from '@remixicon/react';
 
 const sendConfig = {
   mutation: {
@@ -29,12 +43,9 @@ const sendConfig = {
   },
 };
 
-const Confirm: React.FC<SlideProps> = ({
-  form,
-  swiper,
-  toast,
-  nextButtonText,
-}) => {
+const Confirm = () => {
+  const form = useYeetForm();
+  const { toast } = useToast();
   const {
     network: chainId,
     token,
@@ -162,8 +173,11 @@ const Confirm: React.FC<SlideProps> = ({
   });
   useEffect(() => {
     if (isSuccessPool) {
-      const poolFunded = poolData?.logs?.[4];
+      // get last log
+      const poolFunded = poolData?.logs?.[poolData.logs.length - 1];
+      // get pool id from log topic
       const poolId = poolFunded?.topics?.[1];
+      console.log({ token, poolData });
       if (poolId) {
         console.log('Pool created successfully', poolId);
         setPoolId(BigInt(poolId));
@@ -200,20 +214,20 @@ const Confirm: React.FC<SlideProps> = ({
     const onePercent = gwei / BigInt(100);
     const amountPerAddress = (gwei - onePercent) / BigInt(addresses.length);
 
-    // const dataForContract = {
-    //   recipientIds: addresses.map(
-    //     address => address.address,
-    //   ) as `0x${string}`[],
-    //   amounts: addresses.map(() => BigInt(amountPerAddress)) as bigint[],
-    //   token: token as `0x${string}`,
-    // };
     const dataForContract = {
-      recipientIds: [
-        '0x7849F6Ba978188Ce97bB02bDABa673Af65CBd269',
-      ] as `0x${string}`[],
-      amounts: [amountPerAddress] as bigint[],
-      token: '0x0000000000000000000000000000000000000000' as `0x${string}`,
+      recipientIds: addresses.map(
+        address => address.address,
+      ) as `0x${string}`[],
+      amounts: addresses.map(() => BigInt(amountPerAddress)) as bigint[],
+      token: token as `0x${string}`,
     };
+    // const dataForContract = {
+    //   recipientIds: [
+    //     '0x7849F6Ba978188Ce97bB02bDABa673Af65CBd269',
+    //   ] as `0x${string}`[],
+    //   amounts: [amountPerAddress] as bigint[],
+    //   token: '0x0000000000000000000000000000000000000000' as `0x${string}`,
+    // };
 
     const yeetTx = yeeter.getAllocateData(dataForContract);
 
@@ -223,8 +237,9 @@ const Confirm: React.FC<SlideProps> = ({
       data: yeetTx.data,
       to: yeetTx.to,
       // to: '0x1133eA7Af70876e64665ecD07C0A0476d09465a1',
+      value: BigInt(yeetTx.value),
       // value: BigInt(900),
-      value: BigInt(0),
+      // value: BigInt(0),
       // gas: BigInt(20_000_000),
       // gasPrice: BigInt(1_000_000_000),
     });
@@ -242,7 +257,7 @@ const Confirm: React.FC<SlideProps> = ({
 
   React.useEffect(() => {
     if (isSuccessFactory) {
-      console.log('Yeeter contract created successfully', factoryHash);
+      console.log('Yeeter strategy hash', factoryHash);
       toast({
         title: 'Yeeter contract created successfully',
         description: 'Your Yeet has been confirmed!',
@@ -250,7 +265,7 @@ const Confirm: React.FC<SlideProps> = ({
       });
     }
     if (isSuccessPool) {
-      console.log('Pool created successfully', poolHash);
+      console.log('Pool hash', poolHash);
       toast({
         title: 'Pool created successfully',
         description: 'Your Yeet has been confirmed!',
@@ -258,56 +273,75 @@ const Confirm: React.FC<SlideProps> = ({
       });
     }
     if (isSuccessYeet) {
-      console.log('Yeet successful', yeetHash);
+      console.log('Yeet hash', yeetHash);
       toast({
         title: 'Yeet successful',
         description: 'Your Yeet has been confirmed!',
         variant: 'success',
       });
-      if (isErrorYeet) {
-        console.log('Yeet failed', yeetHash);
-        toast({
-          title: 'Yeet failed',
-          description: 'Your Yeet has failed!',
-          variant: 'error',
-        });
-      }
     }
-  }, [isSuccessFactory, isSuccessPool, isSuccessYeet, swiper, toast]);
+    if (isErrorYeet) {
+      console.log('Yeet failed', yeetHash);
+      toast({
+        title: 'Yeet failed',
+        description: 'Your Yeet has failed!',
+        variant: 'error',
+      });
+    }
+  }, [isSuccessFactory, isSuccessPool, isSuccessYeet, toast]);
 
   return (
-    <div>
-      <h2>Confirm Your Yeet</h2>
-      <pre>
-        {JSON.stringify(
-          {
-            profileId,
-            poolId: Number(poolId),
-            strategyAddress,
-            ...form.getValues(),
-          },
-          null,
-          2,
-        )}
-      </pre>
+    <div className="flex gap-4 h-full flex-col items-stretch">
+      <StepWrapper>
+        <StepHeader slide={slideDefinitions[3]} />
+        <Separator className="my-4" label="SUBTOTAL" />
+        <h2>Confirm Your Yeet</h2>
+        <pre className="text-sm overflow-x-hidden">
+          {JSON.stringify(
+            {
+              profileId,
+              poolId: Number(poolId),
+              strategyAddress,
+              ...form.getValues(),
+            },
+            null,
+            2,
+          )}
+        </pre>
+        {/* <Button onClick={handleConfirm} disabled={isLoading}>
+        {isLoading ? 'Processing...' : nextButtonText}
+        </Button> */}
+        {isLoadingFactory && <p>Transaction is being processed...</p>}
+        {isLoadingPool && <p>Transaction is being processed...</p>}
+        {isLoadingYeet && <p>Transaction is being processed...</p>}
+        {error && <p className="text-red-500">{error}</p>}
+      </StepWrapper>
       <div className="flex flex-row gap-2">
         <Button onClick={createYeeterContract} disabled={isLoadingFactory}>
-          {isLoadingFactory ? 'Processing...' : 'Create Yeeter'}
+          {isLoadingFactory ? (
+            <RiLoader4Line className="h-4 w-4 mr-2 animate-spin" />
+          ) : (
+            <RiUploadCloud2Fill className="h-4 w-4 mr-2" />
+          )}
+          {isLoadingFactory ? 'Processing...' : 'Deploy Yeeter'}
         </Button>
         <Button onClick={createPool} disabled={isLoadingPool}>
+          {isLoadingPool ? (
+            <RiLoader4Line className="h-4 w-4 mr-2 animate-spin" />
+          ) : (
+            <RiHandCoinFill className="h-4 w-4 mr-2" />
+          )}
           {isLoadingPool ? 'Processing...' : 'Create Pool'}
         </Button>
         <Button onClick={yeet} disabled={false}>
+          {isLoadingYeet ? (
+            <RiLoader4Line className="h-4 w-4 mr-2 animate-spin" />
+          ) : (
+            <RiRocket2Fill className="h-4 w-4 mr-2" />
+          )}
           {isLoadingYeet ? 'Processing...' : 'Yeet'}
         </Button>
       </div>
-      {/* <Button onClick={handleConfirm} disabled={isLoading}>
-        {isLoading ? 'Processing...' : nextButtonText}
-      </Button> */}
-      {isLoadingFactory && <p>Transaction is being processed...</p>}
-      {isLoadingPool && <p>Transaction is being processed...</p>}
-      {isLoadingYeet && <p>Transaction is being processed...</p>}
-      {error && <p className="text-red-500">{error}</p>}
     </div>
   );
 };
