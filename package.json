@@ -2,7 +2,7 @@
   "name": "allo",
   "private": true,
   "scripts": {
-    "build": "turbo build",
+    "build": "bun run submodules && turbo build",
     "build:kit": "cd packages/kit && bun run build",
     "dev": "turbo dev",
     "lint": "turbo lint",
@@ -10,7 +10,8 @@
     "prelink": "bun run build:kit",
     "link": "cd packages/kit && bun link",
     "predev:yeeter": "bun run build:kit",
-    "dev:yeeter": "cd apps/yeeter && bun run dev"
+    "dev:yeeter": "cd apps/yeeter && bun run dev",
+    "submodules": "git submodule update --init --recursive"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.21"
