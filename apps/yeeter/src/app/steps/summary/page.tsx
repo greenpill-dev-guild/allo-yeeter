@@ -308,12 +308,6 @@ const Confirm = () => {
             2,
           )}
         </pre>
-        {/* <Button onClick={handleConfirm} disabled={isLoading}>
-        {isLoading ? 'Processing...' : nextButtonText}
-        </Button> */}
-        {isLoadingFactory && <p>Transaction is being processed...</p>}
-        {isLoadingPool && <p>Transaction is being processed...</p>}
-        {isLoadingYeet && <p>Transaction is being processed...</p>}
         {error && <p className="text-red-500">{error}</p>}
       </StepWrapper>
       <div className="flex flex-row gap-2">
