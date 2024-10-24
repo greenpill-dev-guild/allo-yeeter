@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2018",
+    "target": "ES2020",
     "module": "ESNext",
     "lib": ["dom", "esnext"],
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "allowJs": true,
@@ -13,10 +13,13 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "outDir": "dist",
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationDir": "./dist",
     "rootDir": "./src",
     "types": [],
-    "typeRoots": ["./src"]
+    "typeRoots": ["./src"],
+    "isolatedModules": true
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
   "exclude": [

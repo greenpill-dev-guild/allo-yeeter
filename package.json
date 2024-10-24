@@ -2,7 +2,7 @@
   "name": "allo",
   "private": true,
   "scripts": {
-    "build": "bun run submodules && turbo build",
+    "build": "turbo build",
     "build:kit": "cd packages/kit && bun run build",
     "dev": "turbo dev",
     "lint": "turbo lint",

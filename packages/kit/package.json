@@ -2,9 +2,9 @@
   "name": "@allo-team/kit",
   "version": "0.1.12",
   "private": false,
-  "main": "./dist/index.mjs",
+  "main": "./dist/index.js",
   "readme": "../../README.md",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
@@ -16,10 +16,9 @@
   ],
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.mjs"
-      }
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
     "./styles.css": "./dist/styles.css",
     "./button": "./src/ui/button.tsx",
@@ -31,11 +30,10 @@
     "./connect-button": "./src/connect-button.tsx"
   },
   "scripts": {
-    "build-old": "tsup && tsc --emitDeclarationOnly --declaration --jsx react-jsx && node fix-mjs-imports.js",
-    "build": "tsc --emitDeclarationOnly --declaration --jsx react-jsx && node fix-mjs-imports.js",
+    "build": "tsc && cp src/styles.css dist/styles.css",
+    "dev": "tsc --watch",
     "lint": "eslint src/",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "dev": "tsup --watch",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
@@ -117,5 +115,6 @@
     "vaul": "^0.9.1",
     "viem": "^2.13.1",
     "zod": "^3.23.8"
-  }
+  },
+  "type": "module"
 }
