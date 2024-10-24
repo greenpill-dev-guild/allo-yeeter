@@ -85,7 +85,7 @@ const Confirm = () => {
   const strategyFactory = useMemo(() => {
     if (!chainId) return null;
     return new StrategyFactory({
-      chain: parseInt(chainId),
+      chain: chainId,
       factoryType: 'YTR',
     });
   }, [chainId]);
@@ -103,7 +103,7 @@ const Confirm = () => {
   // #region create pool
   const allo = useMemo(() => {
     if (!chainId) return null;
-    return new Allo({ chain: parseInt(chainId) });
+    return new Allo({ chain: chainId });
   }, [chainId]);
   const { sendTransaction: sendPoolTransaction, data: poolHash } =
     useSendTransaction(sendConfig);
@@ -137,7 +137,7 @@ const Confirm = () => {
       strategy: strategyAddress as `0x${string}`,
       initStrategyData: '0x',
       token: token as `0x${string}`,
-      amount: parseEther(totalAmount),
+      amount: parseEther(totalAmount.toString()),
       metadata: {
         protocol: BigInt(1),
         pointer: 'Test',
@@ -192,7 +192,7 @@ const Confirm = () => {
     if (!chainId || !poolId) return null;
     // return;
     return new YeeterStrategy({
-      chain: parseInt(chainId),
+      chain: chainId,
       // chain: 11155111,
       rpc: 'https://rpc.sepolia.org',
       address: strategyAddress as `0x${string}`,
@@ -210,7 +210,7 @@ const Confirm = () => {
       return;
     }
 
-    const gwei = parseEther(totalAmount);
+    const gwei = parseEther(totalAmount.toString());
     const onePercent = gwei / BigInt(100);
     const amountPerAddress = (gwei - onePercent) / BigInt(addresses.length);
 
@@ -261,7 +261,7 @@ const Confirm = () => {
       toast({
         title: 'Yeeter contract created successfully',
         description: 'Your Yeet has been confirmed!',
-        variant: 'success',
+        variant: 'default',
       });
     }
     if (isSuccessPool) {
@@ -269,7 +269,7 @@ const Confirm = () => {
       toast({
         title: 'Pool created successfully',
         description: 'Your Yeet has been confirmed!',
-        variant: 'success',
+        variant: 'default',
       });
     }
     if (isSuccessYeet) {
@@ -277,7 +277,7 @@ const Confirm = () => {
       toast({
         title: 'Yeet successful',
         description: 'Your Yeet has been confirmed!',
-        variant: 'success',
+        variant: 'default',
       });
     }
     if (isErrorYeet) {
@@ -285,7 +285,7 @@ const Confirm = () => {
       toast({
         title: 'Yeet failed',
         description: 'Your Yeet has failed!',
-        variant: 'error',
+        variant: 'destructive',
       });
     }
   }, [isSuccessFactory, isSuccessPool, isSuccessYeet, toast]);

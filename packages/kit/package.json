@@ -31,8 +31,8 @@
     "./connect-button": "./src/connect-button.tsx"
   },
   "scripts": {
-    "build": "tsup && tsc --emitDeclarationOnly --declaration --jsx react-jsx && node fix-mjs-imports.js",
-    "b": "tsup ./src",
+    "build-old": "tsup && tsc --emitDeclarationOnly --declaration --jsx react-jsx && node fix-mjs-imports.js",
+    "build": "tsc --emitDeclarationOnly --declaration --jsx react-jsx && node fix-mjs-imports.js",
     "lint": "eslint src/",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "dev": "tsup --watch",
@@ -65,7 +65,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-test-renderer": "^18.3.1",
-    "tsup": "^8.3.0",
+    "tsup": "^8.2.4",
     "typescript": "^5.5.4",
     "vitest": "^2.0.5",
     "wagmi": "^2.12.2"

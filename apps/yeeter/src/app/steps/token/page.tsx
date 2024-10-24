@@ -116,16 +116,13 @@ const Token = () => {
                       <SelectValue placeholder="Select token" />
                     </SelectTrigger>
                     <SelectContent>
-                      {(
-                        [
-                          ...(network?.tokens ?? []),
-                          {
-                            address:
-                              '0xC27eFb147aDfB5273C4AB9201229c80352Ce820d',
-                            code: 'CFCE USDC',
-                          },
-                        ] ?? []
-                      ).map(token => (
+                      {[
+                        ...(network?.tokens || []),
+                        {
+                          address: '0xC27eFb147aDfB5273C4AB9201229c80352Ce820d',
+                          code: 'CFCE USDC',
+                        },
+                      ].map(token => (
                         <SelectItem key={token.address} value={token.address}>
                           <div className="flex items-center gap-2">
                             {/* {token.icon && (
