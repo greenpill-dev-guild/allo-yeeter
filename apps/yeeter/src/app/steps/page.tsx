@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 
 const YeeterHome = () => {
-  redirect('/step/recipients');
+  redirect('/steps/recipients');
   return null;
 };
 
