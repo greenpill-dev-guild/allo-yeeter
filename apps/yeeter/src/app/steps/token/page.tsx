@@ -26,7 +26,17 @@ import {
 import { useYeetForm } from '@/hooks/useYeetForm';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
-import { RiArrowLeftLine, RiArrowRightLine } from '@remixicon/react';
+import {
+  RiArrowLeftLine,
+  RiArrowRightLine,
+  RiCoinFill,
+  RiCoinsLine,
+  RiGlobalLine,
+  RiSpace,
+  RiWallet2Line,
+  RiWallet3Line,
+  RiWalletLine,
+} from '@remixicon/react';
 import { Button } from '@/components/ui/button';
 import { useFormStore } from '@/store/form';
 import StepWrapper from '@/components/step/StepWrapper';
@@ -41,7 +51,7 @@ const Token = () => {
   const formState = useFormStore(state => state);
 
   const handleNext = useCallback(async () => {
-    const result = await form.trigger(['network', 'token']);
+    const result = await form.trigger(['network', 'token', 'customToken']);
     console.log('Validation result:', result);
 
     const errors = form.formState.errors;
@@ -61,8 +71,14 @@ const Token = () => {
 
     const { network, token, customToken } = form.getValues();
     formState.setNetwork(network);
-    formState.setToken(token as `0x${string}`);
-    // formState.setCustomToken(customToken);
+    if (token) formState.setToken(token as `0x${string}`);
+    if (customToken?.address) {
+      formState.setCustomToken({
+        address: customToken.address as `0x${string}`,
+        symbol: customToken.symbol,
+        decimals: Number(customToken.decimals),
+      });
+    }
 
     router.push('/steps/amount');
   }, [form, formState, router, toast]);
@@ -71,7 +87,7 @@ const Token = () => {
     <>
       <StepWrapper>
         <StepHeader slide={slideDefinitions[1]} />
-        <Separator className="my-4" />
+        <Separator className="my-6" />
         <div className="space-y-4">
           <div className="flex gap-4">
             <FormField
@@ -85,7 +101,10 @@ const Token = () => {
                     defaultValue={`${field.value}`}
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Select network" />
+                      <div className="flex items-center gap-2">
+                        <RiCoinFill className="w-4 h-4" />
+                        <SelectValue placeholder="Select network" />
+                      </div>
                     </SelectTrigger>
                     <SelectContent>
                       {supportedChains?.map(network => (
@@ -113,7 +132,10 @@ const Token = () => {
                     defaultValue={field.value}
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder="Select token" />
+                      <div className="flex items-center gap-2">
+                        <RiGlobalLine className="w-4 h-4" />
+                        <SelectValue placeholder="Select token" />
+                      </div>
                     </SelectTrigger>
                     <SelectContent>
                       {[
@@ -143,52 +165,57 @@ const Token = () => {
             />
           </div>
 
-          <Accordion type="single" collapsible>
-            <AccordionItem value="custom-token">
-              <AccordionTrigger>Or choose a custom token</AccordionTrigger>
-              <AccordionContent>
-                <div className="space-y-2">
-                  <FormField
-                    control={form.control}
-                    name="customToken.address"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Token Address</FormLabel>
-                        <Input {...field} placeholder="Enter token address" />
-                        <FormMessage />
-                      </FormItem>
-                    )}
+          <Separator className="!my-6" label="OR ADD TOKEN" />
+          <div className="space-y-2">
+            <FormField
+              control={form.control}
+              name="customToken.address"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Token Address</FormLabel>
+                  <Input
+                    {...field}
+                    startIcon={RiWalletLine}
+                    placeholder="Enter token address"
+                    disabled={!!formState.token}
                   />
-                  <FormField
-                    control={form.control}
-                    name="customToken.symbol"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Token Symbol</FormLabel>
-                        <Input {...field} placeholder="Enter token symbol" />
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="customToken.symbol"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Token Symbol</FormLabel>
+                  <Input
+                    {...field}
+                    startIcon={RiCoinsLine}
+                    placeholder="Enter token symbol"
+                    disabled={!!formState.token}
                   />
-                  <FormField
-                    control={form.control}
-                    name="customToken.decimals"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Token Decimals</FormLabel>
-                        <Input
-                          {...field}
-                          type="number"
-                          placeholder="Enter token decimals"
-                        />
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="customToken.decimals"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Token Decimals</FormLabel>
+                  <Input
+                    {...field}
+                    startIcon={RiSpace}
+                    type="number"
+                    placeholder="Enter token decimals"
                   />
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
         </div>
       </StepWrapper>
       <div className="inline-flex gap-4">

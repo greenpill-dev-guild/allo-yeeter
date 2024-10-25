@@ -162,7 +162,7 @@ const Addresses = ({}) => {
     <>
       <StepWrapper className="relative">
         <StepHeader slide={slideDefinitions[0]} />
-        <Separator className="my-4" />
+        <Separator className="my-6" />
         <div {...getRootProps()} className="h-full">
           <input {...getInputProps()} />
           {isDragActive && (

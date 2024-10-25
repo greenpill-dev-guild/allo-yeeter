@@ -33,6 +33,13 @@ const Step = ({
     // amount
     formState.amount > 0,
   ];
+  console.log(
+    (formState.token || formState.customToken.address) && formState.network > 0,
+    formState.token,
+    formState.customToken.address,
+    formState.network,
+  );
+
   return (
     <BreadcrumbItem>
       <Link href={url} className="inline-flex items-center gap-2">
