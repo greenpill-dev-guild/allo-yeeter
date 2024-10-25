@@ -10,7 +10,7 @@ const initialState = {
   strategyAddress: '0x' as `0x${string}`,
   addresses: ['0x', '0x'] as `0x${string}`[],
   network: 111_55_111,
-  token: '0x0000000000000000000000000000000000000000' as `0x${string}`,
+  token: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE' as `0x${string}`,
 };
 
 type FormState = typeof initialState & {
