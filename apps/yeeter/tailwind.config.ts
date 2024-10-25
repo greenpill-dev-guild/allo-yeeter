@@ -51,7 +51,12 @@ const config: Config = {
           '3': 'hsl(var(--chart-3))',
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))'
-        }
+        },
+        // button: 'var(--primary)'
+      },
+      backgroundImage: {
+        'avatar-ring': 'var(--avatar-ring)',
+        button: 'var(--button)'
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -79,6 +84,9 @@ const config: Config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out'
+      },
+      boxShadow: {
+        button: 'var(--primary-button-border)'
       }
     }
   },

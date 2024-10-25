@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -22,17 +23,27 @@
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
+    --radius: 10rem
+    --avatar-ring: linear-gradient(
+      180deg,
+      rgba(113, 119, 132, 0.10) 0%,
+      rgba(113, 119, 132, 0.00) 100%
+    );
+    --button: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.00) 100%
+    )
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 10rem
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
+    --background: 110 29% 8%;
+    --foreground: 0 0% 100%;
+    --card: 115 32% 8%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
@@ -46,22 +57,37 @@
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
+    --border: 221 16% 20%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+    --radius: 24px;
+    --avatar-ring: linear-gradient(
+      180deg,
+      rgba(113, 119, 132, 0.10) 0%,
+      rgba(113, 119, 132, 0.00) 100%
+    );
+    --button: linear-gradient(
+    180deg,
+    color-mix(in srgb, hsl(var(--primary)) 84%, rgba(255, 255, 255, 1)) 0%,
+    hsl(var(--primary)) 100%
+  );
+    --primary-button-border: 0px 1px 2px 0px rgba(14, 18, 27, 0.24), 0px 0px 0px 1px var(--primary)
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
   }
 }
-

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import '@allo-team/kit/styles.css';
 import React, { PropsWithChildren } from 'react';
 import CreateProfileButton from '@/components/create-profile-button';
 

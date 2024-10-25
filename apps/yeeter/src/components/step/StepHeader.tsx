@@ -8,8 +8,8 @@ interface StepHeaderProps {
 const StepHeader = ({ slide }: StepHeaderProps) => {
   return (
     <div className="flex flex-col gap-4 items-center">
-      <div className="inset-0 bg-gradient-to-b from-white/20 to-secondary/20 rounded-full p-6">
-        <div className="relative bg-background rounded-full p-7 border">
+      <div className="inset-0 bg-avatar-ring rounded-full p-4">
+        <div className="relative bg-background rounded-full p-4 border">
           {slide.icon}
         </div>
       </div>

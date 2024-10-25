@@ -25,11 +25,11 @@ const Step = ({
       <div
         className={cn(
           'rounded-full text-center aspect-square h-7 items-center justify-center flex',
-          active ? 'bg-green-700' : 'bg-gray-500',
+          active ? 'bg-primary' : 'bg-gray-500',
           'text-foreground',
         )}
       >
-        <div className="text-sm">{number}</div>
+        <div className="text-sm text-white">{number}</div>
       </div>
       <div className="text-sm">{text}</div>
     </Link>
