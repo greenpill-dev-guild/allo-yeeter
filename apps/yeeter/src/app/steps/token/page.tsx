@@ -68,7 +68,7 @@ const Token = () => {
   }, [form, formState, router, toast]);
 
   return (
-    <div className="flex gap-4 h-full flex-col items-stretch">
+    <>
       <StepWrapper>
         <StepHeader slide={slideDefinitions[1]} />
         <Separator className="my-4" />
@@ -192,15 +192,15 @@ const Token = () => {
         </div>
       </StepWrapper>
       <div className="inline-flex gap-4">
-        <Button onClick={() => router.back()} className="gap-2">
+        <Button onClick={() => router.back()} className="gap-2" variant="ghost">
           <RiArrowLeftLine className="w-4 h-4" />
           Back
         </Button>
-        <Button onClick={handleNext} className="gap-2">
+        <Button onClick={handleNext} className="gap-2 flex-1">
           Next <RiArrowRightLine className="w-4 h-4" />
         </Button>
       </div>
-    </div>
+    </>
   );
 };
 

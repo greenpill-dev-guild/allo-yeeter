@@ -65,7 +65,7 @@ const Amount = () => {
   }, [form, formState, router, toast]);
 
   return (
-    <div className="flex gap-4 h-full flex-col items-stretch">
+    <>
       <StepWrapper>
         <StepHeader slide={slideDefinitions[2]} />
         <Separator className="my-4" />
@@ -123,7 +123,7 @@ const Amount = () => {
           Next <RiArrowRightLine className="w-4 h-4" />
         </Button>
       </div>
-    </div>
+    </>
   );
 };
 

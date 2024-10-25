@@ -38,7 +38,7 @@ export const slideDefinitions: SlideDefinition[] = [
     title: 'Select your token',
     subtitle: 'Choose or add the token you want to yeet',
     fieldsToValidate: ['network', 'token', 'customToken'],
-    icon: <RiCoinFill size={ICON_SIZE} />,
+    icon: <RiCoinFill size={ICON_SIZE} className="text-primary" />,
   },
   {
     url: '/steps/amount',
@@ -46,7 +46,7 @@ export const slideDefinitions: SlideDefinition[] = [
     title: 'Define the amount',
     subtitle: 'Choose how much you want to send to your recipients',
     fieldsToValidate: ['amount'],
-    icon: <RiCoinFill size={ICON_SIZE} />,
+    icon: <RiCoinFill size={ICON_SIZE} className="text-primary" />,
   },
   {
     url: '/steps/summary',

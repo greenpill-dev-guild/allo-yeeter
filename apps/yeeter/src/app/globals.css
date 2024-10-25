@@ -49,16 +49,16 @@
     --popover-foreground: 0 0% 98%;
     --primary: 148 72% 40%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 14.9%;
+    --secondary: 226 21% 12%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
+    --muted: 226 21% 12%;
+    --muted-foreground: 220 11% 64%;
+    --accent: 226 21% 12%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 221 16% 20%;
-    --input: 0 0% 14.9%;
+    --input: 221 16% 20%;
     --ring: 0 0% 83.1%;
     --radius: 24px;
     --avatar-ring: linear-gradient(

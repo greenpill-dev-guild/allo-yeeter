@@ -1,26 +1,46 @@
 'use client';
 
-import { number } from 'zod';
 import { createStore, useStore } from 'zustand';
 import { ReactNode, createContext, useRef, useContext } from 'react';
 
 const initialState = {
   poolId: BigInt(0),
   amount: 0,
-  strategyAddress: '0x' as `0x${string}`,
-  addresses: ['0x', '0x'] as `0x${string}`[],
+  strategyAddress: '',
+  addresses: ['', ''],
   network: 111_55_111,
-  token: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE' as `0x${string}`,
+  token: '',
+  customToken: {
+    address: '',
+    symbol: '',
+    decimals: 0,
+  },
 };
 
-type FormState = typeof initialState & {
+interface FormState {
+  poolId: bigint;
+  amount: number;
+  strategyAddress: string;
+  addresses: string[];
+  network: number;
+  token: string;
+  customToken: {
+    address: string;
+    symbol: string;
+    decimals: number;
+  };
   setAddresses: (addresses: `0x${string}`[]) => void;
   setAmount: (amount: number) => void;
   setStrategyAddress: (strategyAddress: `0x${string}`) => void;
   setNetwork: (network: number) => void;
   setToken: (token: `0x${string}`) => void;
+  setCustomToken: (customToken: {
+    address: `0x${string}`;
+    symbol: string;
+    decimals: number;
+  }) => void;
   setPoolId: (poolId: bigint) => void;
-};
+}
 
 const createFormStore = (init = initialState) =>
   createStore<FormState>(set => ({
@@ -42,6 +62,13 @@ const createFormStore = (init = initialState) =>
     },
     setPoolId: (poolId: bigint) => {
       set({ poolId });
+    },
+    setCustomToken: (customToken: {
+      address: `0x${string}`;
+      symbol: string;
+      decimals: number;
+    }) => {
+      set({ customToken });
     },
   }));
 

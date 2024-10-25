@@ -29,7 +29,7 @@ export default function RootLayout({
         <AlloKitProviders>
           <FormStoreProvider>
             <YeetFormProvider>
-              <div className="flex flex-col gap-12 justify-between w-full bg-[url('/GridPatternBG.svg')] h-screen bg-center bg-no-repeat bg-contain">
+              <div className="flex flex-col gap-12 justify-between w-full bg-[url('/GridPatternBG.svg')] h-screen bg-center bg-no-repeat bg-contain px-4">
                 <Header />
                 <main className="max-w-screen-sm w-full mx-auto overflow-hidden flex-grow items-center justify-center flex flex-col">
                   {children}

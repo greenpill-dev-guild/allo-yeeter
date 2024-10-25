@@ -13,7 +13,7 @@ const StepHeader = ({ slide }: StepHeaderProps) => {
           {slide.icon}
         </div>
       </div>
-      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+      <h3 className="scroll-m-20 text-3xl font-semibold tracking-tight">
         {slide.title}
       </h3>
       <span className="text-muted-foreground">{slide.subtitle}</span>

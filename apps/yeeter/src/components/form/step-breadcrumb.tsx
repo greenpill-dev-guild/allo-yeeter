@@ -1,3 +1,5 @@
+'use client';
+
 import { slideDefinitions } from '@/app/slideDefinitions';
 import {
   Breadcrumb,
@@ -6,6 +8,8 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { cn } from '@/lib/utils';
+import { useFormStore } from '@/store/form';
+import { RiCheckLine } from '@remixicon/react';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
@@ -19,22 +23,39 @@ const Step = ({
   text: string;
   url: string;
   active?: boolean;
-}) => (
-  <BreadcrumbItem>
-    <Link href={url} className="inline-flex items-center gap-2">
-      <div
-        className={cn(
-          'rounded-full text-center aspect-square h-7 items-center justify-center flex',
-          active ? 'bg-primary' : 'bg-gray-500',
-          'text-foreground',
-        )}
-      >
-        <div className="text-sm text-white">{number}</div>
-      </div>
-      <div className="text-sm">{text}</div>
-    </Link>
-  </BreadcrumbItem>
-);
+}) => {
+  const formState = useFormStore(state => state);
+  const completionStatus = [
+    // recipients
+    formState.addresses.length > 0 && formState.addresses[0],
+    // token
+    (formState.token || formState.customToken.address) && formState.network > 0,
+    // amount
+    formState.amount > 0,
+  ];
+  return (
+    <BreadcrumbItem>
+      <Link href={url} className="inline-flex items-center gap-2">
+        <div
+          className={cn(
+            'rounded-full text-center aspect-square h-7 items-center justify-center flex',
+            active || completionStatus[number - 1]
+              ? 'bg-primary'
+              : 'bg-gray-500',
+            'text-foreground',
+          )}
+        >
+          {completionStatus[number - 1] ? (
+            <RiCheckLine className="w-4 h-4" />
+          ) : (
+            <div className="text-sm text-white">{number}</div>
+          )}
+        </div>
+        <div className="text-sm">{text}</div>
+      </Link>
+    </BreadcrumbItem>
+  );
+};
 const StepBreadcrumb = ({ currentUrl }: { currentUrl: string }) => {
   return (
     <Breadcrumb>

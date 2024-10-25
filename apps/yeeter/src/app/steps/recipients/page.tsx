@@ -23,7 +23,9 @@ import {
   RiArrowRightLine,
   RiClipboardLine,
   RiDeleteBin5Line,
+  RiUploadCloud2Line,
   RiUploadCloudFill,
+  RiUploadCloudLine,
   RiWalletLine,
 } from '@remixicon/react';
 import StepWrapper from '@/components/step/StepWrapper';
@@ -157,7 +159,7 @@ const Addresses = ({}) => {
   });
 
   return (
-    <div className="flex gap-4 h-full flex-col items-stretch">
+    <>
       <StepWrapper className="relative">
         <StepHeader slide={slideDefinitions[0]} />
         <Separator className="my-4" />
@@ -222,14 +224,16 @@ const Addresses = ({}) => {
                 onClick={() => document.getElementById('csvUpload')?.click()}
                 className="gap-2"
                 disabled={isUploading}
+                variant={'outline'}
               >
-                <RiUploadCloudFill className="w-4 h-4" />
+                <RiUploadCloud2Line className="w-4 h-4" />
                 {isUploading ? 'Uploading...' : 'Upload CSV'}
               </Button>
               <Button
                 type="button"
                 onClick={() => append({ address: '' })}
                 className="gap-2"
+                variant={'outline'}
               >
                 <RiAddFill className="w-4 h-4" />
                 Add Wallet
@@ -239,11 +243,11 @@ const Addresses = ({}) => {
         </div>
       </StepWrapper>
       <div className="inline-flex gap-4">
-        <Button onClick={handleNext} className="gap-2">
+        <Button onClick={handleNext} className="gap-2 flex-1">
           Next <RiArrowRightLine className="w-4 h-4" />
         </Button>
       </div>
-    </div>
+    </>
   );
 };
 

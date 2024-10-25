@@ -291,7 +291,7 @@ const Confirm = () => {
   }, [isSuccessFactory, isSuccessPool, isSuccessYeet, toast]);
 
   return (
-    <div className="flex gap-4 h-full flex-col items-stretch">
+    <>
       <StepWrapper>
         <StepHeader slide={slideDefinitions[3]} />
         <Separator className="my-4" label="SUBTOTAL" />
@@ -336,7 +336,7 @@ const Confirm = () => {
           {isLoadingYeet ? 'Processing...' : 'Yeet'}
         </Button>
       </div>
-    </div>
+    </>
   );
 };
 
