@@ -164,7 +164,7 @@ const Addresses = ({}) => {
         <StepHeader slide={slideDefinitions[0]} />
         <Separator className="my-6" />
         <div {...getRootProps()} className="h-full">
-          <input {...getInputProps()} />
+          <input {...getInputProps()} id="csvUpload" />
           {isDragActive && (
             <div className="absolute inset-0 bg-primary/20 border-2 border-dashed border-foreground flex items-center justify-center z-10">
               <p className="text-foreground font-semibold">
@@ -200,7 +200,8 @@ const Addresses = ({}) => {
                           />
                           <Button
                             type="button"
-                            variant="ghost"
+                            variant="outline"
+                            className="h-14 !mt-0 ml-2"
                             onClick={() => remove(index)}
                           >
                             <RiDeleteBin5Line className="h-4 w-4" />

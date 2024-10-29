@@ -17,7 +17,7 @@ const addressSchema = z
 
 const customTokenSchema = z.object({
   address: addressSchema,
-  symbol: z.string().min(1, 'Symbol is required'),
+  code: z.string().min(1, 'Symbol is required'),
   decimals: z.string().regex(/^\d+$/, 'Decimals must be a number'),
 });
 
@@ -41,7 +41,9 @@ export const yeetFormSchema = z
 export type YeetFormData = z.infer<typeof yeetFormSchema>;
 
 export const useYeetForm = (): UseFormReturn<YeetFormData> => {
-  const { addresses, amount, network, token } = useFormStore(state => state);
+  const { addresses, amount, network, token, customToken } = useFormStore(
+    state => state,
+  );
   const form = useForm<YeetFormData>({
     resolver: zodResolver(yeetFormSchema),
     defaultValues: {
@@ -49,6 +51,15 @@ export const useYeetForm = (): UseFormReturn<YeetFormData> => {
       network,
       token,
       amount,
+      ...(customToken?.address
+        ? {
+            customToken: {
+              address: customToken?.address,
+              code: customToken?.code,
+              decimals: customToken?.decimals?.toString?.(),
+            },
+          }
+        : {}),
     },
     mode: 'all',
   });

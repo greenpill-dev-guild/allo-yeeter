@@ -31,7 +31,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const EndIcon = endIcon;
 
     return (
-      <div className="w-full relative">
+      <div className="w-full relative rounded-full overflow-hidden">
         {StartIcon && (
           <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
             <StartIcon
@@ -53,9 +53,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {endContent && (
-          <div className="absolute right-0 top-0 bottom-0 flex items-center justify-center">
-            {endContent}
-          </div>
+          <div className="absolute right-0 top-0 bottom-0">{endContent}</div>
         )}
         {EndIcon && (
           <div className="absolute right-5 top-1/2 transform -translate-y-1/2">

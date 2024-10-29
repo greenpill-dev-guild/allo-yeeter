@@ -2,6 +2,12 @@
 import type { PropsWithChildren } from "react";
 import { Button } from "./ui/button";
 import { ConnectButton as RainbowConnectButton } from "@rainbow-me/rainbowkit";
+import {
+  RiWallet2Fill,
+  RiWallet2Line,
+  RiWallet3Fill,
+  RiWalletFill,
+} from "@remixicon/react";
 
 export function ConnectButton({ children }: PropsWithChildren) {
   return (
@@ -30,7 +36,9 @@ export function ConnectButton({ children }: PropsWithChildren) {
             {(() => {
               if (!connected) {
                 return (
-                  <Button onClick={openConnectModal}>Connect Wallet</Button>
+                  <Button iconLeft={RiWalletFill} onClick={openConnectModal}>
+                    Connect Wallet
+                  </Button>
                 );
               }
 

@@ -17,12 +17,6 @@ import {
 } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { useNetwork, supportedChains } from '@allo-team/kit';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 import { useYeetForm } from '@/hooks/useYeetForm';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
@@ -42,6 +36,7 @@ import { useFormStore } from '@/store/form';
 import StepWrapper from '@/components/step/StepWrapper';
 import StepHeader from '@/components/step/StepHeader';
 import { Separator } from '@/components/ui/separator';
+import { TokenIcon } from '@/components/ui/token-icon';
 
 const Token = () => {
   const network = useNetwork();
@@ -49,6 +44,9 @@ const Token = () => {
   const { toast } = useToast();
   const router = useRouter();
   const formState = useFormStore(state => state);
+  const selectedToken = form.watch('token');
+  const selectedNetwork = form.watch('network');
+  console.log(formState);
 
   const handleNext = useCallback(async () => {
     const result = await form.trigger(['network', 'token', 'customToken']);
@@ -56,11 +54,26 @@ const Token = () => {
 
     const errors = form.formState.errors;
     console.log('Validation errors:', errors);
-    const errorMessages = Object.entries(errors)
-      .map(([field, error]) => `${field}: ${error?.message}`)
-      .join('\n');
+    const createErrorMessages = (errors: Record<string, any>): string => {
+      // if error is object, recursively call createErrorMessages
+      if (typeof errors === 'object' && errors !== null) {
+        return Object.entries(errors)
+          .map(([field, error]) => {
+            if (error?.message) {
+              return `${field}: ${error.message}\n`;
+            }
+            return `${field}:\n ${createErrorMessages(error)}`;
+          })
+          .join('\n');
+      }
+      // If it's not an object, return the error message
+      return String(errors);
+    };
+    const errorMessages = createErrorMessages(errors);
+    const hasOnlyCustomTokenError =
+      errorMessages.includes('customToken') && Object.keys(errors).length === 1;
 
-    if (errorMessages.length) {
+    if (errorMessages.length && !hasOnlyCustomTokenError) {
       toast({
         title: 'Validation Error',
         description: errorMessages,
@@ -75,8 +88,8 @@ const Token = () => {
     if (customToken?.address) {
       formState.setCustomToken({
         address: customToken.address as `0x${string}`,
-        symbol: customToken.symbol,
-        decimals: Number(customToken.decimals),
+        code: customToken.code,
+        decimals: customToken.decimals,
       });
     }
 
@@ -97,12 +110,17 @@ const Token = () => {
                 <FormItem className="flex-1">
                   <FormLabel>Network</FormLabel>
                   <Select
-                    onValueChange={field.onChange}
+                    onValueChange={value => {
+                      formState.setNetwork(Number(value));
+                      field.onChange(Number(value));
+                    }}
                     defaultValue={`${field.value}`}
                   >
                     <SelectTrigger>
                       <div className="flex items-center gap-2">
-                        <RiCoinFill className="w-4 h-4" />
+                        {!selectedNetwork && (
+                          <TokenIcon icon={selectedNetwork.icon} />
+                        )}
                         <SelectValue placeholder="Select network" />
                       </div>
                     </SelectTrigger>
@@ -110,6 +128,7 @@ const Token = () => {
                       {supportedChains?.map(network => (
                         <SelectItem key={network.id} value={String(network.id)}>
                           <div className="flex items-center gap-2">
+                            <TokenIcon icon={network.icon} />
                             {network.name}
                           </div>
                         </SelectItem>
@@ -128,31 +147,29 @@ const Token = () => {
                 <FormItem className="flex-1">
                   <FormLabel>Token</FormLabel>
                   <Select
-                    onValueChange={field.onChange}
+                    onValueChange={value => {
+                      formState.setToken(value as `0x${string}`);
+                      field.onChange(value as `0x${string}`);
+                    }}
                     defaultValue={field.value}
                   >
                     <SelectTrigger>
                       <div className="flex items-center gap-2">
-                        <RiGlobalLine className="w-4 h-4" />
+                        {!selectedToken && <RiGlobalLine className="w-4 h-4" />}
                         <SelectValue placeholder="Select token" />
                       </div>
                     </SelectTrigger>
                     <SelectContent>
                       {[
                         ...(network?.tokens || []),
-                        {
-                          address: '0xC27eFb147aDfB5273C4AB9201229c80352Ce820d',
-                          code: 'CFCE USDC',
-                        },
+                        // {
+                        //   address: '0xC27eFb147aDfB5273C4AB9201229c80352Ce820d',
+                        //   code: 'CFCE USDC',
+                        // },
                       ].map(token => (
                         <SelectItem key={token.address} value={token.address}>
                           <div className="flex items-center gap-2">
-                            {/* {token.icon && (
-                          <div
-                            className="w-4 h-4"
-                            dangerouslySetInnerHTML={{ __html: token.icon }}
-                          />
-                        )} */}
+                            <TokenIcon icon={token.icon} />
                             {token.code}
                           </div>
                         </SelectItem>
@@ -177,7 +194,7 @@ const Token = () => {
                     {...field}
                     startIcon={RiWalletLine}
                     placeholder="Enter token address"
-                    disabled={!!formState.token}
+                    // disabled={!!formState.token}
                   />
                   <FormMessage />
                 </FormItem>
@@ -185,7 +202,7 @@ const Token = () => {
             />
             <FormField
               control={form.control}
-              name="customToken.symbol"
+              name="customToken.code"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Token Symbol</FormLabel>
@@ -193,7 +210,7 @@ const Token = () => {
                     {...field}
                     startIcon={RiCoinsLine}
                     placeholder="Enter token symbol"
-                    disabled={!!formState.token}
+                    // disabled={!!formState.token}
                   />
                   <FormMessage />
                 </FormItem>
@@ -208,7 +225,7 @@ const Token = () => {
                   <Input
                     {...field}
                     startIcon={RiSpace}
-                    type="number"
+                    inputMode="numeric"
                     placeholder="Enter token decimals"
                   />
                   <FormMessage />

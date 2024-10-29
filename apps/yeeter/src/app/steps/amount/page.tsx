@@ -15,26 +15,29 @@ import { useToast } from '@/hooks/use-toast';
 import { slideDefinitions } from '@/app/slideDefinitions';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { RiArrowLeftLine, RiArrowRightLine } from '@remixicon/react';
+import {
+  RiArrowLeftLine,
+  RiArrowRightLine,
+  RiUser2Fill,
+  RiUserFill,
+} from '@remixicon/react';
 import { useRouter } from 'next/navigation';
 import { useFormStore } from '@/store/form';
 import StepWrapper from '@/components/step/StepWrapper';
 import StepHeader from '@/components/step/StepHeader';
+import { useSelectedToken } from '@/hooks/useSelectedToken';
+import RecipientsList from '@/components/recipients/RecipientsList';
+import { formatEther } from 'viem';
+import SummaryDetails from '@/components/summary/SummaryDetails';
 
 const Amount = () => {
   const form = useYeetForm();
-  const { token: tokenAddress, addresses } = form.getValues();
+  const { token: tokenAddress, addresses, customToken } = form.getValues();
   const amount = form.watch('amount');
   const router = useRouter();
   const { toast } = useToast();
-  const network = useNetwork();
-  const token = network?.tokens?.find(t => t.address === tokenAddress);
-  // construct list of addresses with allocated amounts
-  const allocatedAmount = Number(amount) / addresses.length;
-  const allocatedAmounts = addresses.map(({ address }) => ({
-    address,
-    amount: allocatedAmount,
-  }));
+  // Replace token selection logic with the hook
+  const token = useSelectedToken();
 
   // Add this line to get access to the form store
   const formState = useFormStore(state => state);
@@ -77,15 +80,23 @@ const Amount = () => {
               <FormItem>
                 <FormLabel>Amount to Yeet</FormLabel>
                 <Input
-                  className="text-right pr-16"
+                  className="text-right pr-24"
                   inputMode="numeric"
                   step="0.000000000000000001"
                   {...field}
+                  value={field.value || ''}
+                  onChange={e => {
+                    const value = e.target.value;
+                    field.onChange(value);
+                    formState.setAmount(Number(value));
+                  }}
                   placeholder="Enter amount"
                   endContent={
-                    <div className="text-muted-foreground pr-5">
+                    <div className="h-full pr-5 flex items-center gap-2">
                       <Separator orientation="vertical" />
-                      {token?.code}
+                      <span className="text-muted-foreground">
+                        {token?.code}
+                      </span>
                     </div>
                   }
                 />
@@ -94,32 +105,22 @@ const Amount = () => {
             )}
           />
         </div>
+        <SummaryDetails />
         <Separator className="my-4" />
         <div className="w-full">
-          <div className="flex flex-col gap-2">
-            {allocatedAmounts.map((amount, index) => (
-              <div
-                key={amount.address}
-                className="inline-flex items-center justify-between"
-              >
-                <div className="flex flex-col gap-2 max-w-32">
-                  {`Recipient: ${index + 1}`}
-                  <div className="text-muted-foreground text-sm truncate">
-                    {amount.address} {token?.code}
-                  </div>
-                </div>
-                <div>{amount.amount}</div>
-              </div>
-            ))}
-          </div>
+          <RecipientsList />
         </div>
       </StepWrapper>
       <div className="inline-flex gap-4">
-        <Button onClick={() => router.back()} className="gap-2">
+        <Button
+          onClick={() => router.back()}
+          className="gap-2"
+          variant={'ghost'}
+        >
           <RiArrowLeftLine className="w-4 h-4" />
           Back
         </Button>
-        <Button onClick={handleNext} className="gap-2">
+        <Button onClick={handleNext} className="gap-2 flex-1">
           Next <RiArrowRightLine className="w-4 h-4" />
         </Button>
       </div>

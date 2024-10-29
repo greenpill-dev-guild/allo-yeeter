@@ -1,33 +1,31 @@
 'use client';
 
 import { createStore, useStore } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { ReactNode, createContext, useRef, useContext } from 'react';
 
 const initialState = {
-  poolId: BigInt(0),
+  poolId: '',
   amount: 0,
   strategyAddress: '',
   addresses: ['', ''],
   network: 111_55_111,
   token: '',
-  customToken: {
-    address: '',
-    symbol: '',
-    decimals: 0,
-  },
+  customToken: undefined,
 };
 
 interface FormState {
-  poolId: bigint;
+  poolId: string;
   amount: number;
   strategyAddress: string;
   addresses: string[];
   network: number;
   token: string;
-  customToken: {
+  customToken?: {
     address: string;
-    symbol: string;
+    code: string;
     decimals: number;
+    canVote?: boolean;
   };
   setAddresses: (addresses: `0x${string}`[]) => void;
   setAmount: (amount: number) => void;
@@ -36,41 +34,50 @@ interface FormState {
   setToken: (token: `0x${string}`) => void;
   setCustomToken: (customToken: {
     address: `0x${string}`;
-    symbol: string;
-    decimals: number;
+    code: string;
+    decimals: string;
   }) => void;
   setPoolId: (poolId: bigint) => void;
 }
 
 const createFormStore = (init = initialState) =>
-  createStore<FormState>(set => ({
-    ...init,
-    setAddresses: (addresses: `0x${string}`[]) => {
-      set({ addresses });
-    },
-    setAmount: (amount: number) => {
-      set({ amount });
-    },
-    setStrategyAddress: (strategyAddress: `0x${string}`) => {
-      set({ strategyAddress });
-    },
-    setNetwork: (network: number) => {
-      set({ network });
-    },
-    setToken: (token: `0x${string}`) => {
-      set({ token });
-    },
-    setPoolId: (poolId: bigint) => {
-      set({ poolId });
-    },
-    setCustomToken: (customToken: {
-      address: `0x${string}`;
-      symbol: string;
-      decimals: number;
-    }) => {
-      set({ customToken });
-    },
-  }));
+  createStore<FormState>()(
+    persist(
+      set => ({
+        ...init,
+        setAddresses: (addresses: `0x${string}`[]) => {
+          set({ addresses });
+        },
+        setAmount: (amount: number) => {
+          set({ amount });
+        },
+        setStrategyAddress: (strategyAddress: `0x${string}`) => {
+          set({ strategyAddress });
+        },
+        setNetwork: (network: number) => {
+          set({ network });
+        },
+        setToken: (token: `0x${string}`) => {
+          set({ token });
+        },
+        setPoolId: (poolId: bigint) => {
+          set({ poolId: poolId.toString() });
+        },
+        setCustomToken: customToken => {
+          set({
+            customToken: {
+              ...customToken,
+              decimals: parseInt(customToken.decimals),
+              canVote: false,
+            },
+          });
+        },
+      }),
+      {
+        name: 'yeeter-form',
+      },
+    ),
+  );
 
 type FormStoreApi = ReturnType<typeof createFormStore>;
 

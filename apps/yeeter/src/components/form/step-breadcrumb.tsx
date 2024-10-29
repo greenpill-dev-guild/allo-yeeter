@@ -7,6 +7,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { useSelectedToken } from '@/hooks/useSelectedToken';
 import { cn } from '@/lib/utils';
 import { useFormStore } from '@/store/form';
 import { RiCheckLine } from '@remixicon/react';
@@ -25,18 +26,19 @@ const Step = ({
   active?: boolean;
 }) => {
   const formState = useFormStore(state => state);
+  const token = useSelectedToken();
   const completionStatus = [
     // recipients
     formState.addresses.length > 0 && formState.addresses[0],
     // token
-    (formState.token || formState.customToken.address) && formState.network > 0,
+    token?.address && formState.network > 0,
     // amount
     formState.amount > 0,
   ];
   console.log(
-    (formState.token || formState.customToken.address) && formState.network > 0,
+    token,
+    token?.address && formState.network > 0,
     formState.token,
-    formState.customToken.address,
     formState.network,
   );
 
@@ -66,7 +68,7 @@ const Step = ({
 const StepBreadcrumb = ({ currentUrl }: { currentUrl: string }) => {
   return (
     <Breadcrumb>
-      <BreadcrumbList className="gap-4">
+      <BreadcrumbList className="gap-4 justify-center">
         {slideDefinitions.map((slide, index) => {
           return (
             <Fragment key={slide.title}>

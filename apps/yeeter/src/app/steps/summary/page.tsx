@@ -4,36 +4,38 @@ import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import {
   Allo,
   CreatePoolArgs,
-  Registry,
   StrategyFactory,
   TransactionData,
   YeeterStrategy,
-  // createPoolWithCustomStrategy,
 } from '@allo-team/allo-v2-sdk';
 import {
   useAccount,
-  useCall,
   useSendTransaction,
   useWaitForTransactionReceipt,
-  useWalletClient,
-  useWriteContract,
 } from 'wagmi';
 import { parseEther } from 'viem';
-import { Button } from '@/components/ui/button';
-import { useAPI, useProfile } from '@allo-team/kit';
+import { useProfile } from '@allo-team/kit';
 import { useYeetForm } from '@/hooks/useYeetForm';
 import { useToast } from '@/hooks/use-toast';
-import { slideDefinitions } from '@/app/slideDefinitions';
+import { useFormStore } from '@/store/form';
 import StepWrapper from '@/components/step/StepWrapper';
 import StepHeader from '@/components/step/StepHeader';
 import { Separator } from '@/components/ui/separator';
+import { slideDefinitions } from '@/app/slideDefinitions';
+import { Button } from '@/components/ui/button';
 import {
+  RiArrowLeftLine,
   RiHandCoinFill,
   RiLoader4Line,
-  RiMoneyCnyBoxFill,
   RiRocket2Fill,
   RiUploadCloud2Fill,
 } from '@remixicon/react';
+import { useSelectedToken } from '@/hooks/useSelectedToken';
+import RecipientsList from '@/components/recipients/RecipientsList';
+import { TokenIcon } from '@/components/ui/token-icon';
+import SummaryDetails from '@/components/summary/SummaryDetails';
+import { useRouter } from 'next/navigation';
+import { LoadingOverlay } from '@/components/ui/loading-overlay';
 
 const sendConfig = {
   mutation: {
@@ -43,30 +45,34 @@ const sendConfig = {
   },
 };
 
-const Confirm = () => {
+const Summary = () => {
   const form = useYeetForm();
+  const { poolId, setPoolId, strategyAddress, setStrategyAddress } =
+    useFormStore(s => s);
+  const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
-  const {
-    network: chainId,
-    token,
-    amount: totalAmount,
-    addresses,
-  } = form.getValues();
+  const { network: chainId, amount: totalAmount, addresses } = form.getValues();
+  const router = useRouter();
+
+  const token = useSelectedToken();
 
   const { address } = useAccount();
   const { data: profileId } = useProfile();
-  const [error, setError] = useState<string | null>(null);
 
-  const [poolId, setPoolId] = useState<bigint>(BigInt(0));
-  const [strategyAddress, setStrategyAddress] = useState<`0x${string}` | null>(
-    null,
-  );
+  const [overlayStatus, setOverlayStatus] = useState<
+    'loading' | 'success' | 'error'
+  >('loading');
+  const [overlayMessage, setOverlayMessage] = useState('');
+
+  // Add overlayOpen state back
+  const [overlayOpen, setOverlayOpen] = useState(false);
 
   // #region create yeeter contract
   const { sendTransaction: sendFactoryTransaction, data: factoryHash } =
     useSendTransaction(sendConfig);
   const {
     isLoading: isLoadingFactory,
+    isFetching: isFetchingFactory,
     isSuccess: isSuccessFactory,
     data: factoryData,
   } = useWaitForTransactionReceipt({
@@ -91,12 +97,20 @@ const Confirm = () => {
   }, [chainId]);
   const createYeeterContract = useCallback(async () => {
     if (!strategyFactory) return;
-    const createYeeterTx = strategyFactory.getCreateStrategyData();
-    await sendFactoryTransaction({
-      data: createYeeterTx.data,
-      to: createYeeterTx.to,
-      value: BigInt(createYeeterTx.value),
-    });
+    setOverlayOpen(true);
+    setOverlayStatus('loading');
+    setOverlayMessage('Deploying Yeeter contract...');
+    try {
+      const createYeeterTx = strategyFactory.getCreateStrategyData();
+      await sendFactoryTransaction({
+        data: createYeeterTx.data,
+        to: createYeeterTx.to,
+        value: BigInt(createYeeterTx.value),
+      });
+    } catch (error) {
+      setOverlayStatus('error');
+      setOverlayMessage('Failed to deploy Yeeter contract');
+    }
   }, [strategyFactory, sendFactoryTransaction]);
   // #endregion
 
@@ -128,33 +142,36 @@ const Confirm = () => {
       });
       return;
     }
-    const args: CreatePoolArgs = {
-      profileId: profileId as `0x${string}`, // TODO: better err handling
-      // strategy: '0xB71E93404fDEF1044CBD79bBB4003F5Bf50402A9', // attempt 2
-      // strategy: '0x3B7AD76762a6d6D652664F35696c57552b7411dD', // lawal's strategy
-      // strategy: '0xCbe067eF97C062816F63E4fD26a440c4DE924410', // Julian's strategy pointing to allo proxy
-      // strategy: '0x2FF25eda8B636Ec14bEE2Bc9ef55C96E2e77be11', // Julian's strategy pointing to allo proxy
-      strategy: strategyAddress as `0x${string}`,
-      initStrategyData: '0x',
-      token: token as `0x${string}`,
-      amount: parseEther(totalAmount.toString()),
-      metadata: {
-        protocol: BigInt(1),
-        pointer: 'Test',
-      },
-      managers: [address as `0x${string}`],
-    };
-    console.log({ poolArgs: args });
-    const poolTx: TransactionData = allo.createPoolWithCustomStrategy(args);
-    console.log({ poolTx });
-    const poolReceipt = await sendPoolTransaction({
-      data: poolTx.data,
-      to: poolTx.to,
-      value: BigInt(poolTx.value),
-      // gas: BigInt(20_000_000),
-      // gasPrice: BigInt(1_000_000_000),
-    });
-    console.log('Creating pool', poolTx, poolReceipt);
+
+    setOverlayOpen(true);
+    setOverlayStatus('loading');
+    setOverlayMessage('Creating pool...');
+
+    try {
+      const args: CreatePoolArgs = {
+        profileId: profileId as `0x${string}`,
+        strategy: strategyAddress as `0x${string}`,
+        initStrategyData: '0x',
+        token: token.address as `0x${string}`,
+        amount: parseEther(totalAmount.toString()),
+        metadata: {
+          protocol: BigInt(1),
+          pointer: 'Test',
+        },
+        managers: [address as `0x${string}`],
+      };
+      console.log({ poolArgs: args });
+      const poolTx: TransactionData = allo.createPoolWithCustomStrategy(args);
+      console.log({ poolTx });
+      await sendPoolTransaction({
+        data: poolTx.data,
+        to: poolTx.to,
+        value: BigInt(poolTx.value),
+      });
+    } catch (error) {
+      setOverlayStatus('error');
+      setOverlayMessage('Failed to create pool');
+    }
   }, [
     allo,
     sendPoolTransaction,
@@ -166,18 +183,19 @@ const Confirm = () => {
   ]);
   const {
     isLoading: isLoadingPool,
+    isFetching: isFetchingPool,
     isSuccess: isSuccessPool,
     data: poolData,
   } = useWaitForTransactionReceipt({
     hash: poolHash,
   });
+  console.log({ isFetchingPool, isSuccessPool });
   useEffect(() => {
     if (isSuccessPool) {
       // get last log
       const poolFunded = poolData?.logs?.[poolData.logs.length - 1];
       // get pool id from log topic
       const poolId = poolFunded?.topics?.[1];
-      console.log({ token, poolData });
       if (poolId) {
         console.log('Pool created successfully', poolId);
         setPoolId(BigInt(poolId));
@@ -190,63 +208,53 @@ const Confirm = () => {
   const yeeter = useMemo(() => {
     console.log({ chainId, poolId, strategyAddress });
     if (!chainId || !poolId) return null;
-    // return;
     return new YeeterStrategy({
       chain: chainId,
-      // chain: 11155111,
       rpc: 'https://rpc.sepolia.org',
       address: strategyAddress as `0x${string}`,
-      // address: '0x03a3afa2a68ecda94cdcfb607b12c1c90d888745',
-      poolId,
-      // poolId: BigInt(532),
+      poolId: BigInt(poolId),
     });
   }, [chainId, poolId, strategyAddress]);
   const { sendTransaction: sendYeet, data: yeetHash } =
     useSendTransaction(sendConfig);
   const yeet = useCallback(async () => {
-    console.log('Yeeting');
     if (!yeeter) {
-      console.log('No yeeter');
-      return;
+      throw new Error('No yeeter initialized');
     }
 
-    const gwei = parseEther(totalAmount.toString());
-    const onePercent = gwei / BigInt(100);
-    const amountPerAddress = (gwei - onePercent) / BigInt(addresses.length);
+    setOverlayOpen(true);
+    setOverlayStatus('loading');
+    setOverlayMessage('Yeeting funds...');
 
-    const dataForContract = {
-      recipientIds: addresses.map(
-        address => address.address,
-      ) as `0x${string}`[],
-      amounts: addresses.map(() => BigInt(amountPerAddress)) as bigint[],
-      token: token as `0x${string}`,
-    };
-    // const dataForContract = {
-    //   recipientIds: [
-    //     '0x7849F6Ba978188Ce97bB02bDABa673Af65CBd269',
-    //   ] as `0x${string}`[],
-    //   amounts: [amountPerAddress] as bigint[],
-    //   token: '0x0000000000000000000000000000000000000000' as `0x${string}`,
-    // };
+    try {
+      const gwei = parseEther(totalAmount.toString());
+      const onePercent = gwei / BigInt(100);
+      const amountPerAddress = (gwei - onePercent) / BigInt(addresses.length);
 
-    const yeetTx = yeeter.getAllocateData(dataForContract);
+      const dataForContract = {
+        recipientIds: addresses.map(
+          address => address.address,
+        ) as `0x${string}`[],
+        amounts: addresses.map(() => BigInt(amountPerAddress)) as bigint[],
+        token: token?.address as `0x${string}`,
+      };
 
-    console.log({ yeetTx, dataForContract });
+      const yeetTx = yeeter.getAllocateData(dataForContract);
 
-    await sendYeet({
-      data: yeetTx.data,
-      to: yeetTx.to,
-      // to: '0x1133eA7Af70876e64665ecD07C0A0476d09465a1',
-      value: BigInt(yeetTx.value),
-      // value: BigInt(900),
-      // value: BigInt(0),
-      // gas: BigInt(20_000_000),
-      // gasPrice: BigInt(1_000_000_000),
-    });
+      await sendYeet({
+        data: yeetTx.data,
+        to: yeetTx.to,
+        value: BigInt(yeetTx.value),
+      });
+    } catch (error) {
+      setOverlayStatus('error');
+      setOverlayMessage('Failed to yeet funds');
+    }
   }, [yeeter, sendYeet, addresses, totalAmount, token]);
 
   const {
     isLoading: isLoadingYeet,
+    isFetching: isFetchingYeet,
     isSuccess: isSuccessYeet,
     isError: isErrorYeet,
     data: yeetData,
@@ -255,62 +263,78 @@ const Confirm = () => {
   });
   // #endregion
 
-  React.useEffect(() => {
-    if (isSuccessFactory) {
-      console.log('Yeeter strategy hash', factoryHash);
-      toast({
-        title: 'Yeeter contract created successfully',
-        description: 'Your Yeet has been confirmed!',
-        variant: 'default',
-      });
+  // Update status and message based on transaction states
+  useEffect(() => {
+    if (isFetchingFactory) {
+      setOverlayStatus('loading');
+      setOverlayMessage('Deploying Yeeter contract...');
+    } else if (isFetchingPool) {
+      setOverlayStatus('loading');
+      setOverlayMessage('Creating pool...');
+    } else if (isFetchingYeet) {
+      setOverlayStatus('loading');
+      setOverlayMessage('Yeeting funds...');
+    } else if (isSuccessFactory) {
+      setOverlayStatus('success');
+      setOverlayMessage('Yeeter contract deployed successfully!');
+    } else if (isSuccessPool) {
+      setOverlayStatus('success');
+      setOverlayMessage('Pool created successfully!');
+    } else if (isSuccessYeet) {
+      setOverlayStatus('success');
+      setOverlayMessage('Yeet completed successfully!');
+    } else if (isErrorYeet) {
+      setOverlayStatus('error');
+      setOverlayMessage('Yeet failed!');
     }
-    if (isSuccessPool) {
-      console.log('Pool hash', poolHash);
-      toast({
-        title: 'Pool created successfully',
-        description: 'Your Yeet has been confirmed!',
-        variant: 'default',
-      });
-    }
-    if (isSuccessYeet) {
-      console.log('Yeet hash', yeetHash);
-      toast({
-        title: 'Yeet successful',
-        description: 'Your Yeet has been confirmed!',
-        variant: 'default',
-      });
-    }
-    if (isErrorYeet) {
-      console.log('Yeet failed', yeetHash);
-      toast({
-        title: 'Yeet failed',
-        description: 'Your Yeet has failed!',
-        variant: 'destructive',
-      });
-    }
-  }, [isSuccessFactory, isSuccessPool, isSuccessYeet, toast]);
+  }, [
+    isFetchingFactory,
+    isFetchingPool,
+    isFetchingYeet,
+    isSuccessFactory,
+    isSuccessPool,
+    isSuccessYeet,
+    isErrorYeet,
+  ]);
 
   return (
     <>
       <StepWrapper>
         <StepHeader slide={slideDefinitions[3]} />
-        <Separator className="my-4" label="SUBTOTAL" />
-        <h2>Confirm Your Yeet</h2>
-        <pre className="text-sm overflow-x-hidden">
-          {JSON.stringify(
-            {
-              profileId,
-              poolId: Number(poolId),
-              strategyAddress,
-              ...form.getValues(),
-            },
-            null,
-            2,
-          )}
-        </pre>
+        <Separator className="my-8" label="SUBTOTAL" />
+        <div className="flex justify-between items-center">
+          <h2 className="text-4xl font-semibold">
+            {`${Number(totalAmount).toLocaleString()} ${token?.code}`}
+          </h2>
+          {/* @ts-ignore yes I know it might be undefined */}
+          <TokenIcon icon={token?.icon} className="w-14 h-14" />
+        </div>
+        <SummaryDetails />
+        <Separator label="RECIPIENTS" className="my-8" />
+        <div className="w-full">
+          <RecipientsList />
+        </div>
         {error && <p className="text-red-500">{error}</p>}
       </StepWrapper>
+      <LoadingOverlay
+        isOpen={overlayOpen}
+        onClose={() => {
+          setOverlayOpen(false);
+          setOverlayStatus('loading');
+          setOverlayMessage('');
+        }}
+        status={overlayStatus}
+        message={overlayMessage}
+      />
       <div className="flex flex-row gap-2">
+        <Button
+          onClick={() => router.back()}
+          className="gap-2"
+          variant={'ghost'}
+        >
+          <RiArrowLeftLine className="w-4 h-4" />
+          Back
+        </Button>
         <Button onClick={createYeeterContract} disabled={isLoadingFactory}>
           {isLoadingFactory ? (
             <RiLoader4Line className="h-4 w-4 mr-2 animate-spin" />
@@ -340,4 +364,4 @@ const Confirm = () => {
   );
 };
 
-export default Confirm;
+export default Summary;

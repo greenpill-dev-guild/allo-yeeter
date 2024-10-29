@@ -3,19 +3,17 @@
 import { ConnectButton } from '@allo-team/kit';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Fragment } from 'react';
-import { slideDefinitions } from './slideDefinitions';
 
 import StepBreadcrumb from '@/components/form/step-breadcrumb';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 export function Header() {
   const pathname = usePathname();
 
   return (
     <header className="max-w-screen-lg mx-auto w-full">
-      <div className="flex flex-col sm:flex-row items-center">
-        <div className="w-full flex justify-between items-center sm:w-auto">
+      <div className="flex flex-col min-[940px]:flex-row items-center">
+        <div className="w-full flex justify-between items-center min-[940px]:w-auto">
           <Link href="/" className="h-16 block w-60 relative">
             <Image
               src="/YeeterLogo.svg"
@@ -25,14 +23,14 @@ export function Header() {
               priority
             />
           </Link>
-          <div className="sm:hidden">
+          <div className="min-[940px]:hidden">
             <ConnectButton />
           </div>
         </div>
-        <div className="w-full sm:flex-1 my-4 sm:my-0 sm:mx-4">
+        <div className="w-full min-[940px]:flex-1 my-4 min-[940px]:my-0 min-[940px]:mx-4">
           <StepBreadcrumb currentUrl={pathname} />
         </div>
-        <div className="hidden sm:block">
+        <div className="hidden min-[940px]:block">
           <ConnectButton />
         </div>
       </div>
