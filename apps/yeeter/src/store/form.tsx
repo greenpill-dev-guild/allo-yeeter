@@ -8,10 +8,12 @@ const initialState = {
   poolId: '',
   amount: 0,
   strategyAddress: '',
+  yeetTx: '',
   addresses: ['', ''],
   network: 111_55_111,
   token: '',
   customToken: undefined,
+  yeetStatus: 'pending' as 'pending' | 'completed',
 };
 
 interface FormState {
@@ -27,6 +29,10 @@ interface FormState {
     decimals: number;
     canVote?: boolean;
   };
+  yeetTx: string;
+  yeetStatus: 'pending' | 'completed';
+  setYeetStatus: (yeetStatus: 'pending' | 'completed') => void;
+  setYeetTx: (yeetTx: string) => void;
   setAddresses: (addresses: `0x${string}`[]) => void;
   setAmount: (amount: number) => void;
   setStrategyAddress: (strategyAddress: `0x${string}`) => void;
@@ -38,6 +44,7 @@ interface FormState {
     decimals: string;
   }) => void;
   setPoolId: (poolId: bigint) => void;
+  resetYeetForm: () => void;
 }
 
 const createFormStore = (init = initialState) =>
@@ -45,6 +52,15 @@ const createFormStore = (init = initialState) =>
     persist(
       set => ({
         ...init,
+        setYeetStatus: (yeetStatus: 'pending' | 'completed') => {
+          set({ yeetStatus });
+        },
+        setYeetTx: (yeetTx: string) => {
+          set({ yeetTx });
+        },
+        resetYeetForm: () => {
+          set(initialState);
+        },
         setAddresses: (addresses: `0x${string}`[]) => {
           set({ addresses });
         },

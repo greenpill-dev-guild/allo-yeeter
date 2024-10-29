@@ -23,12 +23,9 @@ import { useRouter } from 'next/navigation';
 import {
   RiArrowLeftLine,
   RiArrowRightLine,
-  RiCoinFill,
   RiCoinsLine,
   RiGlobalLine,
   RiSpace,
-  RiWallet2Line,
-  RiWallet3Line,
   RiWalletLine,
 } from '@remixicon/react';
 import { Button } from '@/components/ui/button';
@@ -45,7 +42,10 @@ const Token = () => {
   const router = useRouter();
   const formState = useFormStore(state => state);
   const selectedToken = form.watch('token');
-  const selectedNetwork = form.watch('network');
+  const selectedNetworkId = form.watch('network');
+  const selectedNetwork = supportedChains.find(
+    n => n.id === Number(selectedNetworkId),
+  );
 
   const handleNext = useCallback(async () => {
     const result = await form.trigger(['network', 'token', 'customToken']);
@@ -116,7 +116,7 @@ const Token = () => {
                     <SelectTrigger>
                       <div className="flex items-center gap-2">
                         {!selectedNetwork && (
-                          <TokenIcon icon={selectedNetwork.icon} />
+                          <RiGlobalLine className="w-4 h-4" />
                         )}
                         <SelectValue placeholder="Select network" />
                       </div>
@@ -152,18 +152,12 @@ const Token = () => {
                   >
                     <SelectTrigger>
                       <div className="flex items-center gap-2">
-                        {!selectedToken && <RiGlobalLine className="w-4 h-4" />}
+                        {!selectedToken && <RiCoinsLine className="w-4 h-4" />}
                         <SelectValue placeholder="Select token" />
                       </div>
                     </SelectTrigger>
                     <SelectContent>
-                      {[
-                        ...(network?.tokens || []),
-                        // {
-                        //   address: '0xC27eFb147aDfB5273C4AB9201229c80352Ce820d',
-                        //   code: 'CFCE USDC',
-                        // },
-                      ].map(token => (
+                      {network?.tokens?.map(token => (
                         <SelectItem key={token.address} value={token.address}>
                           <div className="flex items-center gap-2">
                             <TokenIcon icon={token.icon} />
@@ -191,7 +185,6 @@ const Token = () => {
                     {...field}
                     startIcon={RiWalletLine}
                     placeholder="Enter token address"
-                    // disabled={!!formState.token}
                   />
                   <FormMessage />
                 </FormItem>
@@ -207,7 +200,6 @@ const Token = () => {
                     {...field}
                     startIcon={RiCoinsLine}
                     placeholder="Enter token symbol"
-                    // disabled={!!formState.token}
                   />
                   <FormMessage />
                 </FormItem>

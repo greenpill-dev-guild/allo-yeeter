@@ -34,6 +34,8 @@ const Step = ({
     token?.address && formState.network > 0,
     // amount
     formState.amount > 0,
+    // yeetTx
+    formState.yeetTx,
   ];
 
   return (

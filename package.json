@@ -17,9 +17,9 @@
     "@tanstack/react-query": "^5.51.21"
   },
   "devDependencies": {
-    "@allo-team/eslint-config": "*",
-    "@allo-team/typescript-config": "*",
-    "prettier": "^3.2.5",
+    "@allo-team/eslint-config": "0.0.0",
+    "@allo-team/typescript-config": "0.0.0",
+    "prettier": "^3.3.3",
     "turbo": "latest"
   },
   "engines": {
