@@ -35,12 +35,6 @@ const Step = ({
     // amount
     formState.amount > 0,
   ];
-  console.log(
-    token,
-    token?.address && formState.network > 0,
-    formState.token,
-    formState.network,
-  );
 
   return (
     <BreadcrumbItem>

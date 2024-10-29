@@ -51,16 +51,11 @@ const Addresses = ({}) => {
     name: 'addresses',
   });
 
-  console.log('form addresses', addresses);
-
   const [isUploading, setIsUploading] = useState(false);
 
   const handleNext = useCallback(async () => {
     const result = await form.trigger(['addresses']);
-    console.log('Validation result:', result);
-
     const errors = form.formState.errors;
-    console.log('Validation errors:', errors);
     const errorMessages = Object.entries(errors)
       .map(([field, error]) => `${field}: ${error?.message}`)
       .join('\n');
@@ -73,10 +68,6 @@ const Addresses = ({}) => {
       });
       return;
     }
-    console.log(
-      'addresses',
-      addressValues.map(a => a.address),
-    );
     formState.setAddresses(addressValues.map(a => a.address as `0x${string}`));
     router.push('/steps/token');
   }, [form, formState, addresses, router, addressValues, toast]);

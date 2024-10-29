@@ -1,4 +1,4 @@
-import { RiCoinFill } from '@remixicon/react';
+import { RiCoinLine } from '@remixicon/react';
 
 interface TokenIconProps {
   icon?: string;
@@ -24,7 +24,7 @@ function svgToDataUrl(svg: string): string {
 }
 
 export function TokenIcon({ icon, className = 'w-4 h-4' }: TokenIconProps) {
-  if (!icon) return <RiCoinFill className={className} />;
+  if (!icon) return <RiCoinLine className={className} />;
 
   return (
     <img

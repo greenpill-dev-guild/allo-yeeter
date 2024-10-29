@@ -44,10 +44,8 @@ const Amount = () => {
 
   const handleNext = useCallback(async () => {
     const result = await form.trigger(['amount']);
-    console.log('Validation result:', result);
 
     const errors = form.formState.errors;
-    console.log('Validation errors:', errors);
     const errorMessages = Object.entries(errors)
       .map(([field, error]) => `${field}: ${error?.message}`)
       .join('\n');

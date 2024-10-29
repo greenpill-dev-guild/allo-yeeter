@@ -46,14 +46,11 @@ const Token = () => {
   const formState = useFormStore(state => state);
   const selectedToken = form.watch('token');
   const selectedNetwork = form.watch('network');
-  console.log(formState);
 
   const handleNext = useCallback(async () => {
     const result = await form.trigger(['network', 'token', 'customToken']);
-    console.log('Validation result:', result);
 
     const errors = form.formState.errors;
-    console.log('Validation errors:', errors);
     const createErrorMessages = (errors: Record<string, any>): string => {
       // if error is object, recursively call createErrorMessages
       if (typeof errors === 'object' && errors !== null) {

@@ -83,7 +83,6 @@ const Summary = () => {
       let strategyAddress = factoryData?.logs?.[0]?.topics?.[2];
       if (strategyAddress) {
         strategyAddress = `0x${strategyAddress.slice(-40)}`;
-        console.log('Strategy address', strategyAddress);
         setStrategyAddress(strategyAddress as `0x${string}`);
       }
     }
@@ -122,7 +121,6 @@ const Summary = () => {
   const { sendTransaction: sendPoolTransaction, data: poolHash } =
     useSendTransaction(sendConfig);
   const createPool = useCallback(async () => {
-    console.log('Creating pool');
     if (
       !allo ||
       !strategyAddress ||
@@ -131,7 +129,6 @@ const Summary = () => {
       !token ||
       !totalAmount
     ) {
-      console.log('Missing required values');
       console.log({
         allo,
         strategyAddress,
@@ -160,9 +157,7 @@ const Summary = () => {
         },
         managers: [address as `0x${string}`],
       };
-      console.log({ poolArgs: args });
       const poolTx: TransactionData = allo.createPoolWithCustomStrategy(args);
-      console.log({ poolTx });
       await sendPoolTransaction({
         data: poolTx.data,
         to: poolTx.to,
@@ -189,7 +184,6 @@ const Summary = () => {
   } = useWaitForTransactionReceipt({
     hash: poolHash,
   });
-  console.log({ isFetchingPool, isSuccessPool });
   useEffect(() => {
     if (isSuccessPool) {
       // get last log
@@ -197,7 +191,6 @@ const Summary = () => {
       // get pool id from log topic
       const poolId = poolFunded?.topics?.[1];
       if (poolId) {
-        console.log('Pool created successfully', poolId);
         setPoolId(BigInt(poolId));
       }
     }
@@ -206,7 +199,6 @@ const Summary = () => {
 
   // #region yeet
   const yeeter = useMemo(() => {
-    console.log({ chainId, poolId, strategyAddress });
     if (!chainId || !poolId) return null;
     return new YeeterStrategy({
       chain: chainId,
