@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import { useFormStore } from '@/store/form';
 import { RiCheckLine } from '@remixicon/react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Fragment } from 'react';
 
 const Step = ({
@@ -61,7 +62,9 @@ const Step = ({
     </BreadcrumbItem>
   );
 };
-const StepBreadcrumb = ({ currentUrl }: { currentUrl: string }) => {
+const StepBreadcrumb = () => {
+  const pathname = usePathname();
+
   return (
     <Breadcrumb>
       <BreadcrumbList className="gap-4 justify-center">
@@ -72,7 +75,7 @@ const StepBreadcrumb = ({ currentUrl }: { currentUrl: string }) => {
                 number={index + 1}
                 text={slide.shortTitle}
                 url={slide.url}
-                active={currentUrl === slide.url}
+                active={pathname === slide.url}
               />
               {index !== slideDefinitions.length - 1 && <BreadcrumbSeparator />}
             </Fragment>

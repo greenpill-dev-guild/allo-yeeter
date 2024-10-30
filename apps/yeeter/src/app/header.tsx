@@ -1,15 +1,10 @@
-'use client';
-
-import { ConnectButton } from '@allo-team/kit';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import StepBreadcrumb from '@/components/form/step-breadcrumb';
-import { usePathname } from 'next/navigation';
+import { ConnectButton } from '@/components/connect-button';
 
 export function Header() {
-  const pathname = usePathname();
-
   return (
     <header className="max-w-screen-lg mx-auto w-full">
       <div className="flex flex-col min-[940px]:flex-row items-center">
@@ -28,7 +23,7 @@ export function Header() {
           </div>
         </div>
         <div className="w-full min-[940px]:flex-1 my-4 min-[940px]:my-0 min-[940px]:mx-4">
-          <StepBreadcrumb currentUrl={pathname} />
+          <StepBreadcrumb />
         </div>
         <div className="hidden min-[940px]:block">
           <ConnectButton />
