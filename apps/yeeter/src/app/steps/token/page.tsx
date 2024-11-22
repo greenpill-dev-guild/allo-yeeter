@@ -29,7 +29,7 @@ import {
   RiWalletLine,
 } from '@remixicon/react';
 import { Button } from '@/components/ui/button';
-import { useFormStore } from '@/store/form';
+import { RedirectToSummaryIfCompleted, useFormStore } from '@/store/form';
 import StepWrapper from '@/components/step/StepWrapper';
 import StepHeader from '@/components/step/StepHeader';
 import { Separator } from '@/components/ui/separator';
@@ -155,6 +155,7 @@ const Token = () => {
   return (
     <>
       <StepWrapper>
+        <RedirectToSummaryIfCompleted />
         <StepHeader slide={slideDefinitions[1]} />
         <Separator className="my-6" />
         <div className="space-y-4">

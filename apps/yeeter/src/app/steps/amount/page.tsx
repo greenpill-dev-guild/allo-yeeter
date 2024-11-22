@@ -10,7 +10,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { useYeetForm } from '@/hooks/useYeetForm';
+import { useFormContext } from 'react-hook-form';
 import { useToast } from '@/hooks/use-toast';
 import { slideDefinitions } from '@/app/slideDefinitions';
 import { Separator } from '@/components/ui/separator';
@@ -22,7 +22,7 @@ import {
   RiUserFill,
 } from '@remixicon/react';
 import { useRouter } from 'next/navigation';
-import { useFormStore } from '@/store/form';
+import { RedirectToSummaryIfCompleted, useFormStore } from '@/store/form';
 import StepWrapper from '@/components/step/StepWrapper';
 import StepHeader from '@/components/step/StepHeader';
 import { useSelectedToken } from '@/hooks/useSelectedToken';
@@ -31,7 +31,7 @@ import { formatEther } from 'viem';
 import SummaryDetails from '@/components/summary/SummaryDetails';
 
 const Amount = () => {
-  const form = useYeetForm();
+  const form = useFormContext();
   const { token: tokenAddress, addresses, customToken } = form.getValues();
   const amount = form.watch('amount');
   const router = useRouter();
@@ -68,6 +68,7 @@ const Amount = () => {
   return (
     <>
       <StepWrapper>
+        <RedirectToSummaryIfCompleted />
         <StepHeader slide={slideDefinitions[2]} />
         <Separator className="my-4" />
         <div className="w-full">
@@ -82,7 +83,7 @@ const Amount = () => {
                   inputMode="numeric"
                   step="0.000000000000000001"
                   {...field}
-                  value={field.value || ''}
+                  value={field.value}
                   onChange={e => {
                     const value = e.target.value;
                     field.onChange(value);

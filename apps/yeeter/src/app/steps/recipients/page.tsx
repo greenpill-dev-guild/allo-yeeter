@@ -17,7 +17,7 @@ import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { slideDefinitions } from '@/app/slideDefinitions';
-import { useFormStore } from '@/store/form';
+import { RedirectToSummaryIfCompleted, useFormStore } from '@/store/form';
 import clipboardy from 'clipboardy';
 import {
   RiAddFill,
@@ -151,6 +151,7 @@ const Addresses = ({}) => {
   return (
     <>
       <StepWrapper className="relative">
+        <RedirectToSummaryIfCompleted />
         <StepHeader slide={slideDefinitions[0]} />
         <Separator className="my-6" />
         <div {...getRootProps()} className="h-full">

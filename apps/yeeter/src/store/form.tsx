@@ -3,6 +3,7 @@
 import { createStore, useStore } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { ReactNode, createContext, useRef, useContext } from 'react';
+import { useRouter } from 'next/navigation';
 
 const initialState = {
   poolId: '',
@@ -14,6 +15,15 @@ const initialState = {
   token: undefined,
   customToken: undefined,
   yeetStatus: 'pending' as 'pending' | 'completed',
+};
+
+export const RedirectToSummaryIfCompleted = () => {
+  const formState = useFormStore(state => state);
+  const router = useRouter();
+  if (formState.yeetStatus === 'completed') {
+    router.push('/steps/summary');
+  }
+  return null;
 };
 
 interface FormState {

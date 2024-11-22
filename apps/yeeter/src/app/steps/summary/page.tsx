@@ -22,9 +22,10 @@ import YeetDialog from './YeetDialog';
 import { useFormStore } from '@/store/form';
 import Link from 'next/link';
 import { useChains } from 'wagmi';
+import { useFormContext } from 'react-hook-form';
 
 const Summary = () => {
-  const form = useYeetForm();
+  const form = useFormContext();
   const router = useRouter();
   const token = useSelectedToken();
   const yeetTx = useFormStore(state => state.yeetTx);
@@ -71,7 +72,7 @@ const Summary = () => {
           <>
             <Button
               variant={'outline'}
-              onProgress={() => {
+              onClick={() => {
                 resetForm();
                 router.push('/');
               }}
