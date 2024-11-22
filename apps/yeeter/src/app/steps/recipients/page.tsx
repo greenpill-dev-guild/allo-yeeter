@@ -4,13 +4,14 @@ import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { useFieldArray, useWatch } from 'react-hook-form';
+import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
 import { useYeetForm } from '@/hooks/useYeetForm';
 import {
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
+  FormControl,
 } from '@/components/ui/form';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
@@ -24,8 +25,6 @@ import {
   RiClipboardLine,
   RiDeleteBin5Line,
   RiUploadCloud2Line,
-  RiUploadCloudFill,
-  RiUploadCloudLine,
   RiWalletLine,
 } from '@remixicon/react';
 import StepWrapper from '@/components/step/StepWrapper';
@@ -54,13 +53,13 @@ const Addresses = ({}) => {
   const [isUploading, setIsUploading] = useState(false);
 
   const handleNext = useCallback(async () => {
-    const result = await form.trigger(['addresses']);
-    const errors = form.formState.errors;
-    const errorMessages = Object.entries(errors)
-      .map(([field, error]) => `${field}: ${error?.message}`)
-      .join('\n');
+    const isValid = await form.trigger('addresses');
 
-    if (errorMessages.length) {
+    if (!isValid) {
+      const errorMessages = Object.entries(form.formState.errors)
+        .map(([field, error]) => `${field}: ${error?.message}`)
+        .join('\n');
+
       toast({
         title: 'Validation Error',
         description: errorMessages,
@@ -70,7 +69,7 @@ const Addresses = ({}) => {
     }
     formState.setAddresses(addressValues.map(a => a.address as `0x${string}`));
     router.push('/steps/token');
-  }, [form, formState, addresses, router, addressValues, toast]);
+  }, [form, formState, addressValues, router, toast]);
 
   const handlePaste = async (index: number) => {
     try {
@@ -170,45 +169,59 @@ const Addresses = ({}) => {
                   key={field.id}
                   control={control}
                   name={`addresses.${index}.address`}
-                  render={({ field: { onChange, onBlur, value, ref } }) => (
-                    <div className="flex flex-col gap-4">
-                      <div className="flex flex-col gap-2">
+                  render={({
+                    field: { onChange, onBlur, value, ref },
+                    fieldState: { error },
+                    formState,
+                  }) => {
+                    // Get both individual and array errors
+                    const individualError = error?.message;
+                    const arrayErrors = formState.errors.addresses;
+
+                    // Construct error message
+                    let errorMessage = individualError;
+
+                    // Add array-level error if it exists and this is the first field
+                    if (
+                      index === 0 &&
+                      !Array.isArray(arrayErrors) &&
+                      arrayErrors?.message
+                    ) {
+                      errorMessage = arrayErrors.message;
+                    }
+
+                    return (
+                      <FormItem className="flex flex-col gap-2">
                         <FormLabel>{`Recipient ${index + 1}`}</FormLabel>
-                        <FormItem className="flex items-center mb-2">
-                          <Input
-                            startIcon={RiWalletLine}
-                            endIcon={RiClipboardLine}
-                            onEndIconClick={() => handlePaste(index)}
-                            onChange={onChange}
-                            onBlur={onBlur}
-                            value={value}
-                            ref={ref}
-                            placeholder="Enter wallet address"
-                            className={cn(
-                              errors.addresses?.[index]?.address &&
-                                'border-red-500',
-                            )}
-                          />
+                        <div className="flex items-center gap-2">
+                          <FormControl>
+                            <Input
+                              startIcon={RiWalletLine}
+                              endIcon={RiClipboardLine}
+                              onEndIconClick={() => handlePaste(index)}
+                              onChange={onChange}
+                              onBlur={onBlur}
+                              value={value}
+                              ref={ref}
+                              placeholder="Enter wallet address"
+                              className={cn(error && 'border-red-500')}
+                            />
+                          </FormControl>
                           <Button
                             type="button"
                             variant="outline"
-                            className="h-14 !mt-0 ml-2"
+                            className="h-14 !mt-0"
                             onClick={() => remove(index)}
                           >
                             <RiDeleteBin5Line className="h-4 w-4" />
                           </Button>
-                          <FormMessage />
-                        </FormItem>
-                      </div>
-                    </div>
-                  )}
+                        </div>
+                        <FormMessage>{errorMessage}</FormMessage>
+                      </FormItem>
+                    );
+                  }}
                 />
               ))}
-              {errors.addresses && (
-                <FormMessage className="mt-2">
-                  {errors.addresses.message}
-                </FormMessage>
-              )}
             </div>
             <div className="inline-flex gap-2 mx-auto">
               <Button

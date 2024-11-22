@@ -36,7 +36,8 @@ export function ConnectButton({ children }: PropsWithChildren) {
             {(() => {
               if (!connected) {
                 return (
-                  <Button iconLeft={RiWalletFill} onClick={openConnectModal}>
+                  <Button onClick={openConnectModal}>
+                    <RiWalletFill className="mr-2 h-4 w-4" />
                     Connect Wallet
                   </Button>
                 );

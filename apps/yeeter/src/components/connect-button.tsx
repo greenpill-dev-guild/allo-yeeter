@@ -22,7 +22,6 @@ export function ConnectButton({ children }: PropsWithChildren) {
         authenticationStatus,
       }) => {
         const connected = mounted && account && chain;
-        console.log({ authenticationStatus });
 
         return (
           <div
@@ -38,7 +37,8 @@ export function ConnectButton({ children }: PropsWithChildren) {
             {(() => {
               if (!connected) {
                 return (
-                  <Button iconLeft={RiWalletFill} onClick={openConnectModal}>
+                  <Button onClick={openConnectModal}>
+                    <RiWalletFill className="w-4 h-4 mr-2" />
                     Connect Wallet
                   </Button>
                 );

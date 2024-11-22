@@ -11,7 +11,7 @@ const initialState = {
   yeetTx: '',
   addresses: ['', ''],
   network: 111_55_111,
-  token: '',
+  token: undefined,
   customToken: undefined,
   yeetStatus: 'pending' as 'pending' | 'completed',
 };
@@ -22,7 +22,7 @@ interface FormState {
   strategyAddress: string;
   addresses: string[];
   network: number;
-  token: string;
+  token: `0x${string}` | undefined;
   customToken?: {
     address: string;
     code: string;
@@ -38,7 +38,7 @@ interface FormState {
   setStrategyAddress: (strategyAddress: `0x${string}`) => void;
   setNetwork: (network: number) => void;
   setToken: (token: `0x${string}`) => void;
-  setCustomToken: (customToken: {
+  setCustomToken: (customToken?: {
     address: `0x${string}`;
     code: string;
     decimals: string;
@@ -81,11 +81,13 @@ const createFormStore = (init = initialState) =>
         },
         setCustomToken: customToken => {
           set({
-            customToken: {
-              ...customToken,
-              decimals: parseInt(customToken.decimals),
-              canVote: false,
-            },
+            customToken: customToken
+              ? {
+                  ...customToken,
+                  decimals: parseInt(customToken.decimals),
+                  canVote: false,
+                }
+              : undefined,
           });
         },
       }),

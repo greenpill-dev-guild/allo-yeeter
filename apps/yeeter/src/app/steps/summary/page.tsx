@@ -21,13 +21,18 @@ import { useRouter } from 'next/navigation';
 import YeetDialog from './YeetDialog';
 import { useFormStore } from '@/store/form';
 import Link from 'next/link';
+import { useChains } from 'wagmi';
 
 const Summary = () => {
   const form = useYeetForm();
   const router = useRouter();
   const token = useSelectedToken();
   const yeetTx = useFormStore(state => state.yeetTx);
+  const chainId = useFormStore(state => state.network);
   const resetForm = useFormStore(state => state.resetYeetForm);
+  const chains = useChains();
+  const scannerUrl = chains.find(c => c.id === chainId)?.blockExplorers?.default
+    .apiUrl;
   const { amount: totalAmount } = form.getValues();
 
   return (
@@ -81,7 +86,7 @@ const Summary = () => {
             <Button variant={'outline'} className="flex-1">
               <Link
                 // TODO: handle dynamically
-                href={`https://sepolia.etherscan.io/tx/${yeetTx}`}
+                href={`${scannerUrl}/tx/${yeetTx}`}
                 target="_blank"
               >
                 <div className="inline-flex items-center">

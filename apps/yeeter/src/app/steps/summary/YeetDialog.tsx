@@ -140,7 +140,7 @@ const YeetDialog = () => {
     if (!chainId || !poolId) return null;
     return new YeeterStrategy({
       chain: chainId,
-      rpc: 'https://rpc.sepolia.org',
+      rpc: process.env.SEPOLIA_RPC_URL,
       address: strategyAddress as `0x${string}`,
       poolId: BigInt(poolId),
     });
@@ -229,8 +229,8 @@ const YeetDialog = () => {
 
     try {
       const gwei = parseEther(totalAmount.toString());
-      const onePercent = gwei / BigInt(100);
-      const amountPerAddress = (gwei - onePercent) / BigInt(addresses.length);
+      // TODO: calculate fee if implemented
+      const amountPerAddress = gwei / BigInt(addresses.length);
 
       const dataForContract = {
         recipientIds: addresses.map(

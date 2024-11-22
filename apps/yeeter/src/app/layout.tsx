@@ -10,9 +10,10 @@ import { Header } from './header';
 import { AlloKitProviders } from './providers';
 import Footer from './footer';
 import { FormStoreProvider } from '@/store/form';
-import { YeetFormProvider } from '@/hooks/useYeetForm';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
+import { Form } from '@/components/ui/form';
+import { YeetFormProvider } from '@/hooks/useYeetForm';
 
 export const metadata: Metadata = {
   title: 'Allo Starter Kit Yeeter App',

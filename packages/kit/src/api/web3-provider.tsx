@@ -21,6 +21,13 @@ const defaultConfig = getDefaultConfig({
   chains,
   ssr: true,
 });
+console.log(
+  "defaultConfig",
+  defaultConfig.chains.find((c) => c.id === 11155111),
+  defaultConfig.chains.find((c) => c.id === 11155111)?.rpcUrls,
+  defaultConfig.chains.find((c) => c.id === 11155111)?.blockExplorers,
+  defaultConfig.state,
+);
 
 /*
 Our default Web3Provider is RainbowKit + Wagmi + Gitcoin supported chains.

@@ -1,9 +1,10 @@
 'use client';
 
-import { useForm, UseFormReturn, FormProvider } from 'react-hook-form';
+import { useForm, UseFormReturn } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useFormStore } from '@/store/form';
+import { Form } from '@/components/ui/form';
 
 const addressSchema = z
   .string()
@@ -18,7 +19,8 @@ const addressSchema = z
 const customTokenSchema = z.object({
   address: addressSchema,
   code: z.string().min(1, 'Symbol is required'),
-  decimals: z.string().regex(/^\d+$/, 'Decimals must be a number'),
+  // We don't use decimals, are they needed for some reason?
+  // decimals: z.string().regex(/^\d+$/, 'Decimals must be a number'),
 });
 
 export const yeetFormSchema = z
@@ -56,12 +58,13 @@ export const useYeetForm = (): UseFormReturn<YeetFormData> => {
             customToken: {
               address: customToken?.address,
               code: customToken?.code,
-              decimals: customToken?.decimals?.toString?.(),
+              // decimals: customToken?.decimals?.toString?.(),
             },
           }
         : {}),
     },
-    mode: 'all',
+    mode: 'onChange',
+    reValidateMode: 'onChange',
   });
 
   return form;
@@ -73,5 +76,5 @@ export const YeetFormProvider = ({
   children: React.ReactNode;
 }) => {
   const form = useYeetForm();
-  return <FormProvider {...form}> {children} </FormProvider>;
+  return <Form {...form}>{children}</Form>;
 };
