@@ -83,7 +83,7 @@ const Amount = () => {
                   inputMode="numeric"
                   step="0.000000000000000001"
                   {...field}
-                  value={field.value}
+                  value={field.value || ''}
                   onChange={e => {
                     const value = e.target.value;
                     field.onChange(value);

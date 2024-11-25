@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { useYeetForm } from '@/hooks/useYeetForm';
 import StepWrapper from '@/components/step/StepWrapper';
 import StepHeader from '@/components/step/StepHeader';
 import { Separator } from '@/components/ui/separator';
@@ -21,20 +20,20 @@ import { useRouter } from 'next/navigation';
 import YeetDialog from './YeetDialog';
 import { useFormStore } from '@/store/form';
 import Link from 'next/link';
-import { useChains } from 'wagmi';
-import { useFormContext } from 'react-hook-form';
+import { useChains, useConfig } from 'wagmi';
 
 const Summary = () => {
-  const form = useFormContext();
   const router = useRouter();
   const token = useSelectedToken();
   const yeetTx = useFormStore(state => state.yeetTx);
   const chainId = useFormStore(state => state.network);
   const resetForm = useFormStore(state => state.resetYeetForm);
   const chains = useChains();
+  const config = useConfig();
+  console.log('config', config);
   const scannerUrl = chains.find(c => c.id === chainId)?.blockExplorers?.default
     .apiUrl;
-  const { amount: totalAmount } = form.getValues();
+  const totalAmount = useFormStore(state => state.amount);
 
   return (
     <>

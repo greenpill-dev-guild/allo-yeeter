@@ -13,6 +13,7 @@ import {
   useSendTransaction,
   useWaitForTransactionReceipt,
 } from 'wagmi';
+import { waitForTransactionReceipt } from 'wagmi/actions';
 import { parseEther } from 'viem';
 import { useProfile } from '@allo-team/kit';
 import { useYeetForm } from '@/hooks/useYeetForm';
@@ -61,6 +62,7 @@ const YeetDialog = () => {
     setYeetStatus,
     setYeetTx,
   } = useFormStore(s => s);
+  console.log({ strategyAddress });
   const { network: chainId, amount: totalAmount, addresses } = form.getValues();
   const token = useSelectedToken();
   const { address } = useAccount();
@@ -85,19 +87,34 @@ const YeetDialog = () => {
     }
   }, [open]);
 
-  // Strategy Factory Logic
+  // #region Strategy Factory Logic
   const { sendTransaction: sendFactoryTransaction, data: factoryHash } =
     useSendTransaction(sendConfig);
+  console.log('factoryHash', factoryHash);
   const {
     isLoading: isLoadingFactory,
     isFetching: isFetchingFactory,
     isSuccess: isSuccessFactory,
     data: factoryData,
+    refetch: refetchFactory,
   } = useWaitForTransactionReceipt({
+    // confirmations: 2,
     hash: factoryHash,
   });
+  // useEffect(() => {
+  //   waitForTransactionReceipt({
+  //     hash: factoryHash,
+  //   });
+  // }, [factoryHash]);
+  console.log('factoryData', {
+    factoryData,
+    isLoadingFactory,
+    isFetchingFactory,
+    isSuccessFactory,
+  });
+  // #endregion
 
-  // Pool Creation Logic
+  // #region Pool Creation Logic
   const { sendTransaction: sendPoolTransaction, data: poolHash } =
     useSendTransaction(sendConfig);
   const {
@@ -108,8 +125,9 @@ const YeetDialog = () => {
   } = useWaitForTransactionReceipt({
     hash: poolHash,
   });
+  // #endregion
 
-  // Yeet Logic
+  // #region Yeet Logic
   const { sendTransaction: sendYeet, data: yeetHash } =
     useSendTransaction(sendConfig);
   const {
@@ -121,10 +139,12 @@ const YeetDialog = () => {
   } = useWaitForTransactionReceipt({
     hash: yeetHash,
   });
+  // #endregion
 
-  // Initialize contracts
+  // #region Initialize contracts
   const strategyFactory = useMemo(() => {
     if (!chainId) return null;
+    console.log('chainId', chainId);
     return new StrategyFactory({
       chain: chainId,
       factoryType: 'YTR',
@@ -145,8 +165,9 @@ const YeetDialog = () => {
       poolId: BigInt(poolId),
     });
   }, [chainId, poolId, strategyAddress]);
+  // #endregion
 
-  // Transaction functions
+  // #region Transaction functions
   const createYeeterContract = useCallback(async () => {
     if (!strategyFactory) return;
     setTransactionStatus({
@@ -155,6 +176,7 @@ const YeetDialog = () => {
     });
     try {
       const createYeeterTx = strategyFactory.getCreateStrategyData();
+      console.log('createYeeterTx', createYeeterTx);
       await sendFactoryTransaction({
         data: createYeeterTx.data,
         to: createYeeterTx.to,
@@ -254,11 +276,14 @@ const YeetDialog = () => {
       });
     }
   }, [yeeter, sendYeet, addresses, totalAmount, token]);
+  // #endregion
 
-  // Effects for handling transaction states
+  // #region TX state effects
   useEffect(() => {
     if (isSuccessFactory) {
+      console.log('factoryData', factoryData);
       let strategyAddress = factoryData?.logs?.[0]?.topics?.[2];
+      console.log('strategyAddress', strategyAddress);
       if (strategyAddress) {
         strategyAddress = `0x${strategyAddress.slice(-40)}`;
         setStrategyAddress(strategyAddress as `0x${string}`);
@@ -312,6 +337,7 @@ const YeetDialog = () => {
       }, 1000);
     }
   }, [isSuccessYeet]);
+  // #endregion
 
   const steps = [
     {
@@ -340,13 +366,17 @@ const YeetDialog = () => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTitle className="hidden">Sign Yeet Transactions</DialogTitle>
       <DialogTrigger asChild>
         <Button className="flex-1">
           Sign Yeet Transactions
           <RiSendPlaneFill className="h-4 w-4 ml-2" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] transition-all">
+      <DialogContent
+        className="sm:max-w-[425px] transition-all"
+        aria-describedby="yeet-transactions"
+      >
         {transactionStatus.status === 'idle' ? (
           <Swiper
             className="w-full"

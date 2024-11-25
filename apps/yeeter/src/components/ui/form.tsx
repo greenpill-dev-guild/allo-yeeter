@@ -59,12 +59,6 @@ const useFormField = () => {
     formContext.formState,
   );
 
-  console.log('useFormField', {
-    name: fieldContext.name,
-    fieldState,
-    formErrors: formContext.formState.errors,
-  });
-
   const { id } = itemContext;
 
   return {
@@ -179,13 +173,6 @@ const FormMessage = React.forwardRef<
 
   const errorMessage = error?.message || getNestedError(name);
   const body = errorMessage || children;
-
-  console.log('FormMessage', {
-    name,
-    error,
-    errorMessage,
-    fullErrors: formContext.formState.errors,
-  });
 
   if (!body) {
     return null;

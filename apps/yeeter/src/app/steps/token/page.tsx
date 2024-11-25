@@ -297,7 +297,7 @@ const Token = () => {
                 </FormItem>
               )}
             />
-            {/* <FormField
+            <FormField
               control={form.control}
               name="customToken.decimals"
               render={({ field }) => (
@@ -321,7 +321,7 @@ const Token = () => {
                   <FormMessage />
                 </FormItem>
               )}
-            /> */}
+            />
           </div>
         </div>
       </StepWrapper>

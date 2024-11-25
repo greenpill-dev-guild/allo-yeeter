@@ -19,8 +19,8 @@ const addressSchema = z
 const customTokenSchema = z.object({
   address: addressSchema,
   code: z.string().min(1, 'Symbol is required'),
-  // We don't use decimals, are they needed for some reason?
-  // decimals: z.string().regex(/^\d+$/, 'Decimals must be a number'),
+  // What are decimals used for?
+  decimals: z.string().regex(/^\d+$/, 'Decimals must be a number'),
 });
 
 export const yeetFormSchema = z
@@ -58,7 +58,7 @@ export const useYeetForm = (): UseFormReturn<YeetFormData> => {
             customToken: {
               address: customToken?.address,
               code: customToken?.code,
-              // decimals: customToken?.decimals?.toString?.(),
+              decimals: customToken?.decimals?.toString?.(),
             },
           }
         : {}),
