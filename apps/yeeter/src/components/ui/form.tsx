@@ -172,7 +172,7 @@ const FormMessage = React.forwardRef<
   };
 
   const errorMessage = error?.message || getNestedError(name);
-  const body = errorMessage || children;
+  const body = `${errorMessage}` || children;
 
   if (!body) {
     return null;
