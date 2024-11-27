@@ -32,7 +32,7 @@ const Summary = () => {
   const config = useConfig();
   console.log('config', config);
   const scannerUrl = chains.find(c => c.id === chainId)?.blockExplorers?.default
-    .apiUrl;
+    .url;
   const totalAmount = useFormStore(state => state.amount);
 
   return (

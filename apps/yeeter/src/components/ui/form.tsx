@@ -45,6 +45,7 @@ const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext);
   const itemContext = React.useContext(FormItemContext);
   const formContext = useFormContext();
+  console.log({ formContext, itemContext, fieldContext });
 
   if (!fieldContext) {
     throw new Error('useFormField should be used within <FormField>');
@@ -157,23 +158,13 @@ const FormMessage = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, children, ...props }, ref) => {
-  const { error, formMessageId, name } = useFormField();
-  const formContext = useFormContext();
+  const { error, formMessageId, name, ...rest } = useFormField();
+  const { formState } = useFormContext();
 
-  // Get the full error path for nested fields
-  const getNestedError = (name: string) => {
-    const parts = name.split('.');
-    let current = formContext.formState.errors;
-    for (const part of parts) {
-      if (!current[part]) return undefined;
-      current = current[part] as any;
-    }
-    return current?.message;
-  };
+  const errorMessage = error?.message;
+  const body = errorMessage ? String(error?.message) : children;
 
-  const errorMessage = error?.message || getNestedError(name);
-  const body = `${errorMessage}` || children;
-
+  console.log({ body, errorMessage, error, name, rest, formState });
   if (!body) {
     return null;
   }

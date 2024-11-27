@@ -32,8 +32,11 @@ import StepHeader from '@/components/step/StepHeader';
 import { Separator } from '@/components/ui/separator';
 
 const Addresses = ({}) => {
-  const form = useYeetForm();
-  const addressValues = useWatch({ control: form.control, name: 'addresses' });
+  const form = useFormContext();
+  const addressValues: { address: `0x${string}` }[] = useWatch({
+    control: form.control,
+    name: 'addresses',
+  });
   const formState = useFormStore(state => state);
   const { toast } = useToast();
   const router = useRouter();
@@ -75,6 +78,7 @@ const Addresses = ({}) => {
     try {
       const text = await clipboardy.read();
       form.setValue(`addresses.${index}.address`, text);
+      form.trigger(`addresses.${index}.address`);
       toast({
         title: 'Pasted',
         description: 'Address pasted successfully.',
@@ -113,6 +117,7 @@ const Addresses = ({}) => {
           description: `${addresses.length} addresses imported successfully.`,
           variant: 'default',
         });
+        form.trigger('addresses');
       };
 
       reader.onerror = () => {
@@ -164,7 +169,7 @@ const Addresses = ({}) => {
             </div>
           )}
           <div className="flex flex-col justify-between h-full">
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 mb-2">
               {addresses.map((field, index) => (
                 <FormField
                   key={field.id}
@@ -173,24 +178,9 @@ const Addresses = ({}) => {
                   render={({
                     field: { onChange, onBlur, value, ref },
                     fieldState: { error },
-                    formState,
                   }) => {
                     // Get both individual and array errors
-                    const individualError = error?.message;
-                    const arrayErrors = formState.errors.addresses;
-
-                    // Construct error message
-                    let errorMessage = individualError;
-
-                    // Add array-level error if it exists and this is the first field
-                    if (
-                      index === 0 &&
-                      !Array.isArray(arrayErrors) &&
-                      arrayErrors?.message
-                    ) {
-                      errorMessage = arrayErrors.message;
-                    }
-
+                    console.log({ error });
                     return (
                       <FormItem className="flex flex-col gap-2">
                         <FormLabel>{`Recipient ${index + 1}`}</FormLabel>
@@ -217,7 +207,7 @@ const Addresses = ({}) => {
                             <RiDeleteBin5Line className="h-4 w-4" />
                           </Button>
                         </div>
-                        <FormMessage>{errorMessage}</FormMessage>
+                        <FormMessage />
                       </FormItem>
                     );
                   }}

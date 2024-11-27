@@ -1,5 +1,5 @@
 'use client';
-import type { PropsWithChildren } from 'react';
+import { useEffect, type PropsWithChildren } from 'react';
 import { Button } from './ui/button';
 import { ConnectButton as RainbowConnectButton } from '@rainbow-me/rainbowkit';
 import {
@@ -8,6 +8,8 @@ import {
   RiWallet3Fill,
   RiWalletFill,
 } from '@remixicon/react';
+import { useFormStore } from '@/store/form';
+import { useRouter } from 'next/navigation';
 
 export function ConnectButton({ children }: PropsWithChildren) {
   return (
@@ -29,6 +31,15 @@ export function ConnectButton({ children }: PropsWithChildren) {
           mounted,
           authenticationStatus,
         });
+        const resetYeetForm = useFormStore(state => state.resetYeetForm);
+        const router = useRouter();
+        // clear state on disconnect
+        useEffect(() => {
+          if (!account) {
+            resetYeetForm();
+            router.push('/');
+          }
+        }, [mounted, account, chain]);
 
         return (
           <div
