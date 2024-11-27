@@ -1,3 +1,4 @@
+"use client";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAPI } from "../api/provider";
 import { Button } from "../ui/button";
@@ -14,6 +15,7 @@ This is temporary until Allo Protocol removes the requirement of a Profile to cr
 export function useProfile() {
   const api = useAPI();
   const { data: client } = useWalletClient();
+  console.log("client", client);
   return useQuery({
     queryKey: ["profile"],
     queryFn: async () => api.allo.getProfile(client!),
@@ -21,10 +23,16 @@ export function useProfile() {
   });
 }
 export function CreateProfileButton({ children }: PropsWithChildren) {
+  console.log("CreateProfileButton");
   const api = useAPI();
   const { data: client } = useWalletClient();
   const queryClient = useQueryClient();
   const profile = useProfile();
+  console.log("profile", profile, client);
+  api.allo
+    .getProfile(client!)
+    .then((data) => console.log("profile data", data))
+    .catch((error) => console.error("profile error", error));
 
   const create = useMutation({
     mutationFn: async () => {
@@ -36,6 +44,9 @@ export function CreateProfileButton({ children }: PropsWithChildren) {
       );
     },
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["profile"] }),
+    onError: (error) => {
+      console.error("Error creating profile", error);
+    },
   });
 
   if (profile.data) return <>{children}</>;

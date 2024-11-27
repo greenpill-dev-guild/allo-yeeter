@@ -22,6 +22,13 @@ export function ConnectButton({ children }: PropsWithChildren) {
         authenticationStatus,
       }) => {
         const connected = mounted && account && chain;
+        console.log('connected', {
+          connected,
+          account,
+          chain,
+          mounted,
+          authenticationStatus,
+        });
 
         return (
           <div

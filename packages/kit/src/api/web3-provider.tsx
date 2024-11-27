@@ -11,22 +11,13 @@ import { getChains } from "@gitcoin/gitcoin-chain-data";
 
 export const supportedChains = getChains();
 
-export const chains = Object.values(wagmiChains)
-  .filter((chain) => supportedChains.map((c) => c.id).includes(chain.id))
-  .map((chain) => {
-    switch (chain.id) {
-      case 11155111:
-        return {
-          ...chain,
-          rpcUrls: {
-            ...chain.rpcUrls,
-            default: "https://ethereum-sepolia-rpc.publicnode.com",
-          },
-        };
-      default:
-        return chain;
-    }
-  }) as unknown as [Chain, ...Chain[]];
+export const chains = Object.values(wagmiChains).filter((chain) =>
+  supportedChains.map((c) => c.id).includes(chain.id),
+) as unknown as [Chain, ...Chain[]];
+const sepoliaIndex = chains.findIndex((c) => c.id === 11155111);
+chains[sepoliaIndex].rpcUrls.default.http = [
+  "https://ethereum-sepolia-rpc.publicnode.com/",
+];
 
 const defaultConfig = getDefaultConfig({
   appName: "Allo Kit",

@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@allo-team/kit": "0.1.12",
+    "@allo-team/kit": "workspace:*",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-alert-dialog": "^1.1.2",

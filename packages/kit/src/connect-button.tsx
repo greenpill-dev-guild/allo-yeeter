@@ -21,6 +21,7 @@ export function ConnectButton({ children }: PropsWithChildren) {
         mounted,
       }) => {
         const connected = mounted && account && chain;
+        console.log("kit connected", { connected, account, chain, mounted });
 
         return (
           <div
