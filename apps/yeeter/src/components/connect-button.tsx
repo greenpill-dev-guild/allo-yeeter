@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, type PropsWithChildren } from 'react';
+import { useContext, useEffect, useRef, type PropsWithChildren } from 'react';
 import { Button } from './ui/button';
 import { ConnectButton as RainbowConnectButton } from '@rainbow-me/rainbowkit';
 import {
@@ -8,10 +8,12 @@ import {
   RiWallet3Fill,
   RiWalletFill,
 } from '@remixicon/react';
-import { useFormStore } from '@/store/form';
+import { FormStoreContext, useFormStore } from '@/store/form';
 import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
 
 export function ConnectButton({ children }: PropsWithChildren) {
+  const lastAccountIsActive = useRef(false);
   return (
     <RainbowConnectButton.Custom>
       {({
@@ -32,13 +34,20 @@ export function ConnectButton({ children }: PropsWithChildren) {
           authenticationStatus,
         });
         const resetYeetForm = useFormStore(state => state.resetYeetForm);
+        const store = useContext(FormStoreContext);
         const router = useRouter();
+        const { reset: resetForm } = useForm();
         // clear state on disconnect
+        console.log({ account });
         useEffect(() => {
-          if (!account) {
+          if (!account && lastAccountIsActive.current) {
+            resetForm();
             resetYeetForm();
+            store?.persist?.clearStorage?.();
             router.push('/');
+            lastAccountIsActive.current = false;
           }
+          lastAccountIsActive.current = !!account;
         }, [mounted, account, chain]);
 
         return (

@@ -57,6 +57,8 @@ interface FormState {
   resetYeetForm: () => void;
 }
 
+let store: FormStoreApi | undefined;
+
 const createFormStore = (init = initialState) =>
   createStore<FormState>()(
     persist(
@@ -109,20 +111,21 @@ const createFormStore = (init = initialState) =>
 
 type FormStoreApi = ReturnType<typeof createFormStore>;
 
-const FormStoreContext = createContext<FormStoreApi | undefined>(undefined);
+export const FormStoreContext = createContext<FormStoreApi | undefined>(
+  undefined,
+);
 
 export interface FormStoreProviderProps {
   children: ReactNode;
 }
 
 export const FormStoreProvider = ({ children }: FormStoreProviderProps) => {
-  const storeRef = useRef<FormStoreApi>();
-  if (!storeRef.current) {
-    storeRef.current = createFormStore();
+  if (!store) {
+    store = createFormStore();
   }
 
   return (
-    <FormStoreContext.Provider value={storeRef.current}>
+    <FormStoreContext.Provider value={store}>
       {children}
     </FormStoreContext.Provider>
   );

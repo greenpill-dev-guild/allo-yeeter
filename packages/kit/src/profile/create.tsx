@@ -2,7 +2,8 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAPI } from "../api/provider";
 import { Button } from "../ui/button";
-import { Skeleton } from "../ui/skeleton";
+import { Alert, AlertDescription } from "../ui/alert";
+import { WalletIcon } from "lucide-react";
 import { useWalletClient } from "wagmi";
 import { PropsWithChildren } from "react";
 
@@ -32,18 +33,6 @@ export function CreateProfileButton({ children }: PropsWithChildren) {
   const profile = useProfile();
   console.log("profile", profile, client);
 
-  if (!client)
-    return (
-      <div className="flex items-center gap-2">
-        <Skeleton className="h-9 w-[200px]" />
-      </div>
-    );
-
-  api.allo
-    .getProfile(client)
-    .then((data) => console.log("profile data", data))
-    .catch((error) => console.error("profile error", error));
-
   const create = useMutation({
     mutationFn: async () => {
       const name = "allo-kit-profile";
@@ -59,7 +48,22 @@ export function CreateProfileButton({ children }: PropsWithChildren) {
     },
   });
 
-  if (profile.data) return <>{children}</>;
+  if (!client) {
+    return (
+      <Alert
+        variant="default"
+        className="flex max-w-md items-center justify-center gap-2"
+      >
+        <WalletIcon className="h-4 w-4" />
+        <AlertDescription>
+          Please connect your wallet to continue
+        </AlertDescription>
+      </Alert>
+    );
+  }
+  if (profile.data) {
+    return <>{children}</>;
+  }
   return (
     <div className="flex items-center gap-2">
       <div className="text-sm">You need to create a profile first</div>
