@@ -18,6 +18,7 @@ const sepoliaIndex = chains.findIndex((c) => c.id === 11155111);
 chains[sepoliaIndex].rpcUrls.default.http = [
   "https://ethereum-sepolia-rpc.publicnode.com/",
 ];
+supportedChains.filter((c) => [11155111, 42161].includes(c.id));
 
 const defaultConfig = getDefaultConfig({
   appName: "Allo Kit",
@@ -25,13 +26,6 @@ const defaultConfig = getDefaultConfig({
   chains,
   ssr: true,
 });
-console.log(
-  "defaultConfig",
-  defaultConfig.chains.find((c) => c.id === 11155111),
-  defaultConfig.chains.find((c) => c.id === 11155111)?.rpcUrls,
-  defaultConfig.chains.find((c) => c.id === 11155111)?.blockExplorers,
-  defaultConfig.state,
-);
 
 /*
 Our default Web3Provider is RainbowKit + Wagmi + Gitcoin supported chains.

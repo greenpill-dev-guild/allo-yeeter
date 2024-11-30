@@ -10,6 +10,7 @@ import {
 } from '@allo-team/allo-v2-sdk';
 import {
   useAccount,
+  useChains,
   useSendTransaction,
   useWaitForTransactionReceipt,
 } from 'wagmi';
@@ -64,6 +65,10 @@ const YeetDialog = () => {
   } = useFormStore(s => s);
   console.log({ strategyAddress });
   const { network: chainId, amount: totalAmount, addresses } = form.getValues();
+  const chains = useChains();
+  const chain = chains.find(c => c.id === chainId);
+  // console.log('chain', chain);
+  const rpcUrl = chain?.rpcUrls.default.http[0];
   const token = useSelectedToken();
   const { address } = useAccount();
   const { data: profileId } = useProfile();
@@ -160,7 +165,7 @@ const YeetDialog = () => {
     if (!chainId || !poolId) return null;
     return new YeeterStrategy({
       chain: chainId,
-      rpc: process.env.SEPOLIA_RPC_URL,
+      rpc: rpcUrl,
       address: strategyAddress as `0x${string}`,
       poolId: BigInt(poolId),
     });

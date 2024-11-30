@@ -43,14 +43,14 @@ export function ConnectButton({ children }: PropsWithChildren) {
 
         return (
           <div
-            {...(!mounted && {
-              'aria-hidden': true,
-              style: {
-                opacity: 0,
-                pointerEvents: 'none',
-                userSelect: 'none',
-              },
-            })}
+          // {...(!mounted && {
+          //   'aria-hidden': true,
+          //   style: {
+          //     opacity: 0,
+          //     pointerEvents: 'none',
+          //     userSelect: 'none',
+          //   },
+          // })}
           >
             {(() => {
               if (!connected) {

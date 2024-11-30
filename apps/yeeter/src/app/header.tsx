@@ -18,14 +18,11 @@ export function Header() {
               priority
             />
           </Link>
-          <div className="min-[940px]:hidden">
-            <ConnectButton />
-          </div>
         </div>
         <div className="w-full min-[940px]:flex-1 my-4 min-[940px]:my-0 min-[940px]:mx-4">
           <StepBreadcrumb />
         </div>
-        <div className="hidden min-[940px]:block">
+        <div className="max-[940px]:absolute max-[940px]:right-4 max-[940px]:top-14">
           <ConnectButton />
         </div>
       </div>

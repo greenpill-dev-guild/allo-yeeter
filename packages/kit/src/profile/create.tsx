@@ -2,6 +2,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAPI } from "../api/provider";
 import { Button } from "../ui/button";
+import { Skeleton } from "../ui/skeleton";
 import { useWalletClient } from "wagmi";
 import { PropsWithChildren } from "react";
 
@@ -22,6 +23,7 @@ export function useProfile() {
     enabled: Boolean(client),
   });
 }
+
 export function CreateProfileButton({ children }: PropsWithChildren) {
   console.log("CreateProfileButton");
   const api = useAPI();
@@ -29,8 +31,16 @@ export function CreateProfileButton({ children }: PropsWithChildren) {
   const queryClient = useQueryClient();
   const profile = useProfile();
   console.log("profile", profile, client);
+
+  if (!client)
+    return (
+      <div className="flex items-center gap-2">
+        <Skeleton className="h-9 w-[200px]" />
+      </div>
+    );
+
   api.allo
-    .getProfile(client!)
+    .getProfile(client)
     .then((data) => console.log("profile data", data))
     .catch((error) => console.error("profile error", error));
 
