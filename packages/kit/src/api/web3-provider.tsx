@@ -18,6 +18,8 @@ const sepoliaIndex = chains.findIndex((c) => c.id === 11155111);
 chains[sepoliaIndex].rpcUrls.default.http = [
   "https://ethereum-sepolia-rpc.publicnode.com/",
 ];
+const arbitrumIndex = chains.findIndex((c) => c.id === 42161);
+chains[arbitrumIndex].rpcUrls.default.http = ["https://arb1.arbitrum.io/rpc"];
 supportedChains.filter((c) => [11155111, 42161].includes(c.id));
 
 const defaultConfig = getDefaultConfig({

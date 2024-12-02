@@ -1,0 +1,7 @@
+{
+  "transactions": [
+    {
+      "rpc": "https://arb1.arbitrum.io/rpc"
+    }
+  ]
+}

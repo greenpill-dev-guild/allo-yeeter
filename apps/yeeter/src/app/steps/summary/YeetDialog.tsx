@@ -41,6 +41,7 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { cn } from '@/lib/utils';
+import { useTokenPermissions } from '@/lib/useTokenPermissions';
 
 const sendConfig = {
   mutation: {
@@ -161,6 +162,13 @@ const YeetDialog = () => {
     return new Allo({ chain: chainId });
   }, [chainId]);
 
+  const permissions = useTokenPermissions({
+    tokenAddress: token?.address as `0x${string}`,
+    ownerAddress: address as `0x${string}`,
+    spenderAddress: allo?.address() ?? '0x',
+    amount: parseEther(totalAmount.toString()),
+  });
+
   const yeeter = useMemo(() => {
     if (!chainId || !poolId) return null;
     return new YeeterStrategy({
@@ -225,6 +233,7 @@ const YeetDialog = () => {
         managers: [address as `0x${string}`],
       };
       const poolTx: TransactionData = allo.createPoolWithCustomStrategy(args);
+      console.log('poolTx', poolTx, args);
       await sendPoolTransaction({
         data: poolTx.data,
         to: poolTx.to,
@@ -281,6 +290,27 @@ const YeetDialog = () => {
       });
     }
   }, [yeeter, sendYeet, addresses, totalAmount, token]);
+
+  const approveToken = useCallback(async () => {
+    setTransactionStatus({
+      status: 'loading',
+      message: 'Approving token...',
+    });
+
+    try {
+      await permissions.requestApproval();
+      setTransactionStatus({
+        status: 'success',
+        message: 'Token approved',
+      });
+      setActiveStep(prev => prev + 1);
+    } catch (error) {
+      setTransactionStatus({
+        status: 'error',
+        message: 'Failed to approve token',
+      });
+    }
+  }, [permissions]);
   // #endregion
 
   // #region TX state effects
@@ -344,7 +374,7 @@ const YeetDialog = () => {
   }, [isSuccessYeet]);
   // #endregion
 
-  const steps = [
+  const baseSteps = [
     {
       title: 'Deploy Yeeter Contract',
       description:
@@ -368,6 +398,23 @@ const YeetDialog = () => {
       isLoading: isLoadingYeet,
     },
   ];
+
+  const steps = useMemo(() => {
+    console.log('permissions', permissions);
+    if (permissions.needsApproval) {
+      return [
+        {
+          title: 'Approve Token',
+          description: 'Approve token spending for the Yeeter contract',
+          Icon: RiHandCoinFill,
+          action: approveToken,
+          isLoading: false,
+        },
+        ...baseSteps,
+      ];
+    }
+    return baseSteps;
+  }, [permissions.needsApproval, baseSteps, approveToken]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
