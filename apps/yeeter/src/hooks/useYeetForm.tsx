@@ -17,10 +17,10 @@ const addressSchema = z
   );
 
 const customTokenSchema = z.object({
-  address: addressSchema,
-  code: z.string().min(1, 'Symbol is required'),
+  address: addressSchema.optional(),
+  code: z.string().min(1, 'Symbol is required').optional(),
   // What are decimals used for?
-  decimals: z.string().regex(/^\d+$/, 'Decimals must be a number'),
+  decimals: z.string().regex(/^\d+$/, 'Decimals must be a number').optional(),
 });
 
 export const yeetFormSchema = z

@@ -34,9 +34,9 @@ interface FormState {
   network: number;
   token: `0x${string}` | undefined;
   customToken?: {
-    address: string;
-    code: string;
-    decimals: number;
+    address?: string;
+    code?: string;
+    decimals?: number;
     canVote?: boolean;
   };
   yeetTx: string;

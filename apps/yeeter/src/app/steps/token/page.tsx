@@ -50,7 +50,8 @@ const Token = () => {
 
   useEffect(() => {
     const subscription = form.watch((value, { name }) => {
-      if (name?.startsWith('customToken.')) {
+      if (name?.startsWith('customToken.') && value) {
+        console.log('customToken changed', value);
         form.trigger([
           'customToken.address',
           'customToken.code',
@@ -58,21 +59,6 @@ const Token = () => {
         ]);
       }
     });
-    return () => subscription.unsubscribe();
-  }, [form]);
-
-  useEffect(() => {
-    const subscription = form.watch(() => {
-      const errors = form.formState.errors;
-      const values = form.getValues();
-      console.log('Form state:', {
-        errors,
-        values,
-        isDirty: form.formState.isDirty,
-        isValid: form.formState.isValid,
-      });
-    });
-
     return () => subscription.unsubscribe();
   }, [form]);
 
@@ -94,17 +80,6 @@ const Token = () => {
   }, [form]);
 
   const handleNext = useCallback(async () => {
-    const result = await form.trigger([
-      'network',
-      'token',
-      'customToken.address',
-      'customToken.code',
-      'customToken.decimals',
-    ]);
-
-    const errors = form.formState.errors;
-    console.log({ result, errors });
-
     const createErrorMessages = (errors: Record<string, any>): string => {
       if (typeof errors === 'object' && errors !== null) {
         return Object.entries(errors)
@@ -119,15 +94,25 @@ const Token = () => {
       return String(errors);
     };
 
-    const errorMessages = createErrorMessages(errors);
-    const hasOnlyCustomTokenError =
-      errorMessages.includes('customToken') && Object.keys(errors).length === 1;
+    await form.trigger([
+      'network',
+      'token',
+      'customToken.address',
+      'customToken.code',
+      'customToken.decimals',
+    ]);
 
-    if (errorMessages.length && !hasOnlyCustomTokenError) {
+    const errors = form.formState.errors;
+
+    const errorMessages = createErrorMessages(errors);
+
+    if (errorMessages) {
+      console.log('errorMessages', errorMessages);
       toast({
         title: 'Validation Error',
         description: errorMessages,
         variant: 'destructive',
+        className: 'whitespace-pre-wrap',
       });
       return;
     }
@@ -135,6 +120,24 @@ const Token = () => {
     const { network, token, customToken } = form.getValues();
     formState.setNetwork(network);
     if (token) formState.setToken(token as `0x${string}`);
+
+    if (!token && !customToken?.address) {
+      toast({
+        title: 'Validation Error',
+        description: 'Token is required',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (customToken?.address && (!customToken.code || !customToken.decimals)) {
+      toast({
+        title: 'Validation Error',
+        description: 'Token symbol and decimals are required',
+        variant: 'destructive',
+      });
+      return;
+    }
 
     if (
       customToken &&
@@ -264,6 +267,10 @@ const Token = () => {
                   <Input
                     {...field}
                     onChange={e => {
+                      console.log(
+                        'customToken.address onChange',
+                        e.target.value,
+                      );
                       field.onChange(e.target.value);
                       if (e.target.value) {
                         resetToken();

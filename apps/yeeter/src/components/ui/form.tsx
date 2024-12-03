@@ -45,7 +45,6 @@ const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext);
   const itemContext = React.useContext(FormItemContext);
   const formContext = useFormContext();
-  console.log({ formContext, itemContext, fieldContext });
 
   if (!fieldContext) {
     throw new Error('useFormField should be used within <FormField>');
@@ -164,7 +163,6 @@ const FormMessage = React.forwardRef<
   const errorMessage = error?.message;
   const body = errorMessage ? String(error?.message) : children;
 
-  console.log({ body, errorMessage, error, name, rest, formState });
   if (!body) {
     return null;
   }

@@ -51,6 +51,8 @@ const sendConfig = {
   },
 };
 
+const MESSAGE_DELAY = 1000;
+
 const YeetDialog = () => {
   const [open, setOpen] = useState(false);
   // reset form when it's closed
@@ -89,7 +91,7 @@ const YeetDialog = () => {
           status: 'idle',
           message: '',
         });
-      }, 1000);
+      }, MESSAGE_DELAY);
     }
   }, [open]);
 
@@ -162,10 +164,14 @@ const YeetDialog = () => {
     return new Allo({ chain: chainId });
   }, [chainId]);
 
-  const permissions = useTokenPermissions({
+  const {
+    requestApproval: requestTokenApproval,
+    isLoading: isLoadingTokenApproval,
+    isSuccess: isSuccessTokenApproval,
+  } = useTokenPermissions({
     tokenAddress: token?.address as `0x${string}`,
     ownerAddress: address as `0x${string}`,
-    spenderAddress: allo?.address() ?? '0x',
+    spender: allo?.address() ?? '0x',
     amount: parseEther(totalAmount.toString()),
   });
 
@@ -291,26 +297,28 @@ const YeetDialog = () => {
     }
   }, [yeeter, sendYeet, addresses, totalAmount, token]);
 
-  const approveToken = useCallback(async () => {
-    setTransactionStatus({
-      status: 'loading',
-      message: 'Approving token...',
-    });
-
-    try {
-      await permissions.requestApproval();
+  useEffect(() => {
+    if (activeStep > 0) return;
+    if (isLoadingTokenApproval) {
+      setTransactionStatus({
+        status: 'loading',
+        message: 'Approving token...',
+      });
+    }
+    if (isSuccessTokenApproval) {
       setTransactionStatus({
         status: 'success',
         message: 'Token approved',
       });
-      setActiveStep(prev => prev + 1);
-    } catch (error) {
-      setTransactionStatus({
-        status: 'error',
-        message: 'Failed to approve token',
-      });
+      setActiveStep(1);
+      setTimeout(() => {
+        setTransactionStatus({
+          status: 'idle',
+          message: 'Waiting...',
+        });
+      }, MESSAGE_DELAY);
     }
-  }, [permissions]);
+  }, [isLoadingTokenApproval, isSuccessTokenApproval]);
   // #endregion
 
   // #region TX state effects
@@ -322,7 +330,7 @@ const YeetDialog = () => {
       if (strategyAddress) {
         strategyAddress = `0x${strategyAddress.slice(-40)}`;
         setStrategyAddress(strategyAddress as `0x${string}`);
-        setActiveStep(1);
+        setActiveStep(2);
         setTransactionStatus({
           status: 'success',
           message: 'Yeeter contract deployed',
@@ -332,7 +340,7 @@ const YeetDialog = () => {
             status: 'idle',
             message: 'Waiting...',
           });
-        }, 1000);
+        }, MESSAGE_DELAY);
       }
     }
   }, [isSuccessFactory, factoryData]);
@@ -343,7 +351,7 @@ const YeetDialog = () => {
       const poolId = poolFunded?.topics?.[1];
       if (poolId) {
         setPoolId(BigInt(poolId));
-        setActiveStep(2);
+        setActiveStep(3);
         setTransactionStatus({
           status: 'success',
           message: 'Pool created',
@@ -353,7 +361,7 @@ const YeetDialog = () => {
             status: 'idle',
             message: 'Waiting...',
           });
-        }, 1000);
+        }, MESSAGE_DELAY);
       }
     }
   }, [isSuccessPool, poolData]);
@@ -369,12 +377,19 @@ const YeetDialog = () => {
       });
       setTimeout(() => {
         setOpen(false);
-      }, 1000);
+      }, MESSAGE_DELAY);
     }
   }, [isSuccessYeet]);
   // #endregion
 
-  const baseSteps = [
+  const steps = [
+    {
+      title: 'Approve Token',
+      description: 'Approve token spending for the Yeeter contract',
+      Icon: RiHandCoinFill,
+      action: requestTokenApproval,
+      isLoading: false,
+    },
     {
       title: 'Deploy Yeeter Contract',
       description:
@@ -398,23 +413,6 @@ const YeetDialog = () => {
       isLoading: isLoadingYeet,
     },
   ];
-
-  const steps = useMemo(() => {
-    console.log('permissions', permissions);
-    if (permissions.needsApproval) {
-      return [
-        {
-          title: 'Approve Token',
-          description: 'Approve token spending for the Yeeter contract',
-          Icon: RiHandCoinFill,
-          action: approveToken,
-          isLoading: false,
-        },
-        ...baseSteps,
-      ];
-    }
-    return baseSteps;
-  }, [permissions.needsApproval, baseSteps, approveToken]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

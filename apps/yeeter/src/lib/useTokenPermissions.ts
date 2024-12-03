@@ -4,53 +4,62 @@ import { useReadContract, useSimulateContract, useWriteContract } from 'wagmi';
 
 type UseTokenPermissionsResult = {
   allowance: BigInt | undefined;
-  needsApproval: boolean;
   requestApproval: () => void;
+  isLoading: boolean;
+  isSuccess: boolean;
 };
 
 export function useTokenPermissions({
   tokenAddress,
   ownerAddress,
-  spenderAddress,
+  spender,
   amount,
 }: {
   tokenAddress: `0x${string}`;
   ownerAddress: `0x${string}`;
-  spenderAddress: `0x${string}`;
+  spender: `0x${string}`;
   amount: bigint;
 }): UseTokenPermissionsResult {
   const [allowance, setAllowance] = useState<BigInt | undefined>();
   const [needsApproval, setNeedsApproval] = useState(true);
+  console.log('useTokenPermissions', { tokenAddress, ownerAddress, spender, amount });
 
   // Read current allowance
-  const { data: readAllowance } = useReadContract({
+  const { data: readAllowance, isFetching, refetch: refetchAllowance } = useReadContract({
     address: tokenAddress,
     abi: erc20Abi,
     functionName: 'allowance',
-    args: [ownerAddress, spenderAddress],
+    args: [ownerAddress, spender],
   });
+
 
   // Prepare the approval transaction
   const { data } = useSimulateContract({
     address: tokenAddress,
     abi: erc20Abi,
     functionName: 'approve',
-    args: [spenderAddress, amount],
+    args: [spender, amount],
   });
 
-  const { writeContract: requestApproval } = useWriteContract();
+  const { writeContract: requestApproval, isPending, data: approvalData, status } = useWriteContract();
+  console.log('readAllowance', { readAllowance, ownerAddress, spender });
+  console.log('approvalData', approvalData, status);
 
   // Update state when the allowance changes
   useEffect(() => {
+    if (needsApproval && status === 'success') {
+      refetchAllowance();
+    }
     if (readAllowance) {
       setAllowance(readAllowance);
-      setNeedsApproval(BigInt(readAllowance.toString()) < amount);
+      setNeedsApproval(readAllowance < amount);
     }
-  }, [readAllowance, amount]);
+  }, [readAllowance, amount, approvalData, status]);
 
   return {
     allowance,
-    needsApproval,
+    isLoading: isPending || isFetching,
+    isSuccess: status === 'success' || !needsApproval,
     requestApproval: () => requestApproval(data!.request),
   };
 }
