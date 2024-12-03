@@ -10,8 +10,20 @@ export const useSelectedToken = ():
   const customToken = useFormStore(state => state.customToken);
   const network = useNetwork();
 
-  if (customToken?.address) {
-    return customToken;
+  if (customToken) {
+    const { address, code, decimals } = customToken;
+    if (
+      typeof address === 'string' &&
+      typeof code === 'string' &&
+      typeof decimals === 'number'
+    ) {
+      return {
+        address,
+        code,
+        decimals,
+        canVote: customToken.canVote,
+      };
+    }
   }
 
   const token = network?.tokens?.find(t => t.address === tokenAddress);
