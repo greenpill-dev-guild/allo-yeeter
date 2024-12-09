@@ -46,6 +46,7 @@ export const useYeetForm = (): UseFormReturn<YeetFormData> => {
   const { addresses, amount, network, token, customToken } = useFormStore(
     state => state,
   );
+  console.log('addresses', addresses);
   const form = useForm<YeetFormData>({
     resolver: zodResolver(yeetFormSchema),
     defaultValues: {

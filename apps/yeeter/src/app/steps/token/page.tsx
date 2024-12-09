@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { slideDefinitions } from '../../slideDefinitions';
 import {
   FormField,
@@ -35,6 +35,8 @@ import StepHeader from '@/components/step/StepHeader';
 import { Separator } from '@/components/ui/separator';
 import { TokenIcon } from '@/components/ui/token-icon';
 
+const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
+
 const Token = () => {
   const network = useNetwork();
   const form = useFormContext();
@@ -42,11 +44,19 @@ const Token = () => {
   const { toast } = useToast();
   const router = useRouter();
   const formState = useFormStore(state => state);
-  const selectedToken = form.watch('token');
+  // const selectedToken = form.watch('token');
   const selectedNetworkId = form.watch('network');
   const selectedNetwork = supportedChains.find(
     n => n.id === Number(selectedNetworkId),
   );
+
+  const tokens = useMemo(() => {
+    if (network?.tokens) {
+      console.log('network.tokens', network.tokens);
+      return network.tokens.filter(t => t.address !== ZERO_ADDRESS);
+    }
+    return [];
+  }, [network]);
 
   useEffect(() => {
     const subscription = form.watch((value, { name }) => {
@@ -218,21 +228,17 @@ const Token = () => {
                         {!field.value && <RiCoinsLine className="w-4 h-4" />}
                         <SelectValue placeholder="Select token">
                           {field.value &&
-                            network?.tokens?.find(
-                              t => t.address === field.value,
-                            ) && (
+                            tokens?.find(t => t.address === field.value) && (
                               <div className="flex items-center gap-2">
                                 <TokenIcon
                                   icon={
-                                    network.tokens.find(
-                                      t => t.address === field.value,
-                                    )?.icon
+                                    tokens.find(t => t.address === field.value)
+                                      ?.icon
                                   }
                                 />
                                 {
-                                  network.tokens.find(
-                                    t => t.address === field.value,
-                                  )?.code
+                                  tokens.find(t => t.address === field.value)
+                                    ?.code
                                 }
                               </div>
                             )}
@@ -240,7 +246,7 @@ const Token = () => {
                       </div>
                     </SelectTrigger>
                     <SelectContent>
-                      {network?.tokens?.map(token => (
+                      {tokens?.map(token => (
                         <SelectItem key={token.address} value={token.address}>
                           <div className="flex items-center gap-2">
                             <TokenIcon icon={token.icon} />

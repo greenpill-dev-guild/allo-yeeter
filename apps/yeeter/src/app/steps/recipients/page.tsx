@@ -53,6 +53,7 @@ const Addresses = ({}) => {
     name: 'addresses',
   });
 
+  console.log('addresses', addresses);
   const [isUploading, setIsUploading] = useState(false);
 
   const handleNext = useCallback(async () => {

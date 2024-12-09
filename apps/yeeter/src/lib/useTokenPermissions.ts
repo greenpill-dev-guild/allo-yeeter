@@ -9,6 +9,8 @@ type UseTokenPermissionsResult = {
   isSuccess: boolean;
 };
 
+const DEFAULT_NATIVE_TOKEN_ADDRESS = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
+
 export function useTokenPermissions({
   tokenAddress,
   ownerAddress,
@@ -42,8 +44,8 @@ export function useTokenPermissions({
   });
 
   const { writeContract: requestApproval, isPending, data: approvalData, status } = useWriteContract();
-  console.log('readAllowance', { readAllowance, ownerAddress, spender });
-  console.log('approvalData', approvalData, status);
+  // console.log('readAllowance', { readAllowance, ownerAddress, spender });
+  // console.log('approvalData', approvalData, status);
 
   // Update state when the allowance changes
   useEffect(() => {
@@ -55,6 +57,16 @@ export function useTokenPermissions({
       setNeedsApproval(readAllowance < amount);
     }
   }, [readAllowance, amount, approvalData, status]);
+
+  // native tokens don't need approval
+  if (tokenAddress?.toLowerCase() === DEFAULT_NATIVE_TOKEN_ADDRESS.toLowerCase()) {
+    return {
+      allowance: undefined,
+      isLoading: false,
+      isSuccess: true,
+      requestApproval: () => { },
+    };
+  }
 
   return {
     allowance,

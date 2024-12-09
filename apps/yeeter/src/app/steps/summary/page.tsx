@@ -21,6 +21,9 @@ import YeetDialog from './YeetDialog';
 import { useFormStore } from '@/store/form';
 import Link from 'next/link';
 import { useChains, useConfig } from 'wagmi';
+import { useForm } from 'react-hook-form';
+import { revalidatePath } from 'next/cache';
+import { useYeetForm } from '@/hooks/useYeetForm';
 
 const Summary = () => {
   const router = useRouter();
@@ -28,6 +31,8 @@ const Summary = () => {
   const yeetTx = useFormStore(state => state.yeetTx);
   const chainId = useFormStore(state => state.network);
   const resetForm = useFormStore(state => state.resetYeetForm);
+  const { reset: resetHookForm } = useForm();
+  const { reset: resetYeetForm } = useYeetForm();
   const chains = useChains();
   const config = useConfig();
   console.log('config', config);
@@ -73,6 +78,8 @@ const Summary = () => {
               variant={'outline'}
               onClick={() => {
                 resetForm();
+                resetHookForm();
+                resetYeetForm();
                 router.push('/');
               }}
               className="flex-1"
