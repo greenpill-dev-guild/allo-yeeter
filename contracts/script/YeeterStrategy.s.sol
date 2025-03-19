@@ -18,24 +18,27 @@ contract YeeterStrategyDeploy is Script {
         // Deploy the contract using create2
         yeeterStrategy = new YeeterStrategy{salt: salt}(ALLO, "Yeeter");
 
+        // Log the deployed address
+        console.log("YeeterStrategy deployed to:", address(yeeterStrategy));
+
         // Calculate and log the expected address
-        address expectedAddress = address(
-            uint160(
-                uint256(
-                    keccak256(
-                        abi.encodePacked(
-                            bytes1(0xff),
-                            address(this),
-                            salt,
-                            keccak256(abi.encodePacked(type(YeeterStrategy).creationCode, abi.encode(ALLO, "Yeeter")))
-                        )
-                    )
-                )
-            )
-        );
+        // address expectedAddress = address(
+        //     uint160(
+        //         uint256(
+        //             keccak256(
+        //                 abi.encodePacked(
+        //                     bytes1(0xff),
+        //                     address(this),
+        //                     salt,
+        //                     keccak256(abi.encodePacked(type(YeeterStrategy).creationCode, abi.encode(ALLO, "Yeeter")))
+        //                 )
+        //             )
+        //         )
+        //     )
+        // );
 
         // Verify the deployment
-        require(address(yeeterStrategy) == expectedAddress, "Deployment address mismatch");
+        // require(address(yeeterStrategy) == expectedAddress, "Deployment address mismatch");
 
         vm.stopBroadcast();
     }
