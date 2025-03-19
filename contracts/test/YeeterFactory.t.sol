@@ -54,7 +54,7 @@ contract YeeterFactoryTest is Test, AlloSetup, RegistrySetupFull {
         assertNotEq(newStrategy, address(0));
         assertEq(factory.getStrategyCount(), 1);
         assertEq(factory.getAllStrategies()[0], newStrategy);
-        assertEq(factory.getDeployedStrategies(user), newStrategy);
+        assertEq(factory.getDeployedStrategies(user)[0], newStrategy);
     }
 
     function testDeployerMappedAddressReturned() public {
@@ -73,7 +73,7 @@ contract YeeterFactoryTest is Test, AlloSetup, RegistrySetupFull {
         address newStrategy = factory.createStrategy();
 
         // Check if the deployed strategy is correctly recorded
-        address deployedStrategies = factory.getDeployedStrategies(user);
+        address deployedStrategies = factory.getDeployedStrategies(user)[0];
         assertEq(deployedStrategies, newStrategy);
     }
 
