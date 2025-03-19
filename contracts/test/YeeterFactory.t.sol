@@ -64,7 +64,7 @@ contract YeeterFactoryTest is Test, AlloSetup, RegistrySetupFull {
         assertNotEq(newStrategy, address(0));
 
         address anotherStrategy = factory.createStrategy();
-        assertEq(anotherStrategy, newStrategy);
+        assertNotEq(anotherStrategy, newStrategy);
     }
 
     function testGetDeployedStrategies() public {
