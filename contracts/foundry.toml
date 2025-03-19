@@ -7,6 +7,9 @@ solc_version = "0.8.21"
 # auto_detect_solc = true
 optimizer = true
 optimizer_runs = 1_000
+bytecode_hash = "none"
+cbor_metadata = false
+# evm_version = "istanbul"
 PRIVATE_KEY="${DEPLOYER_PRIVATE_KEY}"
 RPC_URL="${HOLESKY_RPC_URL}"
 
