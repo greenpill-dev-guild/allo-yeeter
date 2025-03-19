@@ -7,7 +7,8 @@ import {YeeterStrategy} from "../src/YeeterStrategy.sol";
 
 /// @notice A very simple deployment script
 contract YeeterStrategyDeploy is Script {
-    address public constant ALLO = 0xB087535DB0df98fC4327136e897A5985E5Cfbd66;
+    // address public constant ALLO = 0xB087535DB0df98fC4327136e897A5985E5Cfbd66; // original address
+    address public constant ALLO = 0x1133eA7Af70876e64665ecD07C0A0476d09465a1; // pointing to proxy
 
     function run() external returns (YeeterStrategy yeeterStrategy) {
         vm.startBroadcast();
