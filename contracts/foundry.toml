@@ -8,12 +8,14 @@ solc_version = "0.8.21"
 optimizer = true
 optimizer_runs = 1_000
 PRIVATE_KEY="${DEPLOYER_PRIVATE_KEY}"
-RPC_URL="${SEPOLIA_RPC_URL}"
+RPC_URL="${HOLESKY_RPC_URL}"
 
 [rpc_endpoints]
 sepolia = "${SEPOLIA_RPC_URL}"
+holesky = "${HOLESKY_RPC_URL}"
 celo = "${CELO_RPC_URL}"
 
 [etherscan]
 celo = { key = "${CELOSCAN_API_KEY}" }
 sepolia = { key = "${ETHERSCAN_API_KEY}" }
+holesky = { key = "${ETHERSCAN_API_KEY}" }
