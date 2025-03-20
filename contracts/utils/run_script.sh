@@ -13,14 +13,25 @@ source .env
 # read -ra args
 
 # Run the script
-echo Running Script: $DEPLOYER_SCRIPT...
+echo Running Script: $DEPLOYER_SCRIPT_FACTORY...
 
 # Run the script with interactive inputs
-forge script script/$DEPLOYER_SCRIPT \
-    --chain sepolia \
-    --rpc-url $SEPOLIA_RPC_URL \
+forge script script/$DEPLOYER_SCRIPT_FACTORY \
+    --chain celo-alfajores \
+    --rpc-url $ALFAJORES_RPC_URL \
     --broadcast \
     --verify \
     -vvvv \
     --private-key $DEPLOYER_PRIVATE_KEY
-# $args
+
+# Run the script
+echo Running Script: $DEPLOYER_SCRIPT_STRATEGY...
+
+# Run the script with interactive inputs
+forge script script/$DEPLOYER_SCRIPT_STRATEGY \
+    --chain celo-alfajores \
+    --rpc-url $ALFAJORES_RPC_URL \
+    --broadcast \
+    --verify \
+    -vvvv \
+    --private-key $DEPLOYER_PRIVATE_KEY

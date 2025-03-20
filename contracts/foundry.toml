@@ -11,12 +11,14 @@ bytecode_hash = "none"
 cbor_metadata = false
 # evm_version = "istanbul"
 PRIVATE_KEY="${DEPLOYER_PRIVATE_KEY}"
-RPC_URL="${SEPOLIA_RPC_URL}"
+RPC_URL="${ALFAJORES_RPC_URL}"
 
 [rpc_endpoints]
+celo-alfajores = "${ALFAJORES_RPC_URL}"
 sepolia = "${SEPOLIA_RPC_URL}"
 celo = "${CELO_RPC_URL}"
 
 [etherscan]
+celo-alfajores = { key = "blockscout", url = "https://celo-alfajores.blockscout.com/api" }
 celo = { key = "${CELOSCAN_API_KEY}" }
 sepolia = { key = "${ETHERSCAN_API_KEY}" }
