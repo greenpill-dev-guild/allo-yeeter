@@ -18,7 +18,7 @@ echo Running Script: $DEPLOYER_SCRIPT_FACTORY...
 # Run the script with interactive inputs
 forge script script/$DEPLOYER_SCRIPT_FACTORY \
     --chain $DEPLOYER_CHAIN_NAME \
-    --rpc-url $ALFAJORES_RPC_URL \
+    --rpc-url $RPC_URL \
     --broadcast \
     --verify \
     -vvvv \

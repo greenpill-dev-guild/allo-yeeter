@@ -10,8 +10,8 @@ optimizer_runs = 1_000
 bytecode_hash = "none"
 cbor_metadata = false
 # evm_version = "istanbul"
-PRIVATE_KEY="${DEPLOYER_PRIVATE_KEY}"
-RPC_URL="${ALFAJORES_RPC_URL}"
+PRIVATE_KEY = "${DEPLOYER_PRIVATE_KEY}"
+RPC_URL = "${RPC_URL}"
 
 [rpc_endpoints]
 celo-alfajores = "${ALFAJORES_RPC_URL}"
