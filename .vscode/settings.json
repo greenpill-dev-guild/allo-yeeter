@@ -1,4 +1,7 @@
 {
-  "editor.defaultFormatter": "vscode.typescript-language-features",
-  "biome.enabled": false
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "biome.enabled": false,
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  }
 }
