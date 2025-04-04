@@ -1,4 +1,13 @@
 {
   "editor.defaultFormatter": "vscode.typescript-language-features",
-  "biome.enabled": false
+  "biome.enabled": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
