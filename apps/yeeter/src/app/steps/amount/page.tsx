@@ -77,7 +77,7 @@ const Amount = () => {
             name="amount"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Amount to Yeet</FormLabel>
+                <FormLabel>Total amount to yeet</FormLabel>
                 <Input
                   className="text-right pr-24"
                   inputMode="numeric"
