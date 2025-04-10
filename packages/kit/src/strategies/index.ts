@@ -2,7 +2,7 @@ import { type FunctionComponent, useMemo } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useWalletClient } from "wagmi";
 import type { Address } from "viem";
-import type { TContracts } from "@gitcoin/gitcoin-chain-data";
+import type { TContracts } from "../utils/index";
 import { supportedChains } from "../api/web3-provider";
 import type { API, Round } from "../api/types";
 import { useAPI, useStrategies } from "..";
@@ -39,7 +39,7 @@ export type StrategyExtensions = Record<StrategyType, StrategyExtension>;
 
 const strategyMap = {
   "allov2.DirectGrantsLiteStrategy": "directGrants",
-  "allov2.YeeterStrategy": "yeeter"
+  "allov2.YeeterStrategy": "yeeter",
 } as const;
 
 function getStrategyTypeFromName(strategyName: string, chainId: number) {

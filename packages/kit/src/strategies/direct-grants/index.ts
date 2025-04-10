@@ -10,7 +10,7 @@ import { call as reviewRecipientsCall } from "./review-recipients";
 import { call as allocateCall } from "./allocate";
 import type { StrategyExtension } from "..";
 
-import { getChains } from "@gitcoin/gitcoin-chain-data";
+import { getChains } from "../../utils/index";
 
 export const directGrants: StrategyExtension = {
   name: "Direct Grants Lite",

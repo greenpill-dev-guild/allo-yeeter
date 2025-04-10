@@ -1,0 +1,72 @@
+import { TChain } from "../../../types";
+
+// TODO: replace chainName with the actual chain name
+export const chainName: TChain = {
+  id: 0, // chain id
+  name: "chain-name", // chain name
+  prettyName; "Ethereum", // pretty network name
+  type: "mainnet", // chain type: "mainnet" or "testnet"
+  blockExplorer: "https://<url>/",
+  coingeckoId" "<coingecko-id>",
+  icon: svgIcon, // imported svg icon
+  rpc: "https://<rpc-url>", // public rpc url
+  contracts: {
+    multiRoundCheckout: "0x..",
+    quadraticFunding: "0x..",
+    directGrants: "0x..",
+    directAllocationPoolId: 0,
+    directAllocationStrategyAddress:
+      "0x..",
+  },  pricesFromTimestamp: 0, // timestamp to get prices from
+  tokens: [
+    {
+      code: "ETH", // native token symbol
+      icon: svgIcon, // imported svg icon
+      address: "0x0000000000000000000000000000000000000000",
+      decimals: 18,
+      canVote: true, // true for native currency and stable coins, protocol and other are false
+      priceSource: {
+        chainId: 1, // chain id
+        address: "0x0000000000000000000000000000000000000000",
+      },
+      // see: https://github.com/redstone-finance/redstone-node/blob/main/src/config/tokens.json
+      redstoneTokenId: "ETH", // redstone token id
+    },
+    {
+      code: "ETH", // native token symbol
+      icon: svgIcon, // imported svg icon
+      address: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+      decimals: 18,
+      canVote: true,
+      priceSource: {
+        chainId: 1, // chain id
+        address: "0x0000000000000000000000000000000000000000",
+      },
+      redstoneTokenId: "ETH", // redstone token id
+    },
+    {
+      code: "WETH", // ERC-20 token symbol
+      icon: svgIcon, // imported svg icon
+      address: "0x1234567890123456789012345678901234567890", // token address
+      decimals: 18,
+      canVote: true,
+      priceSource: {
+        chainId: 1, // chain id
+        address: "0x1234567890123456789012345678901234567890", // token address
+      },
+      redstoneTokenId: "ETH",
+    },
+  ],
+  subscriptions: [
+    {
+      contractName: "AlloV2/Registry/V1",
+      address: "0x4aacca72145e1df2aec137e1f3c5e3d75db8b5f3", // contract address of Registry
+      fromBlock: 0, // block number
+    },
+    {
+      contractName: "AlloV2/Allo/V1",
+      address: "0x1133eA7Af70876e64665ecD07C0A0476d09465a1", // contract address of Allo
+      fromBlock: 0, // block number
+    },
+  ],
+};
