@@ -10,7 +10,7 @@ import { supportedChains } from "../api/web3-provider";
 import { formatUnits, getAddress, parseUnits, zeroAddress } from "viem";
 import { Button } from "../ui/button";
 import { ExternalLink } from "lucide-react";
-import { TToken } from "@gitcoin/gitcoin-chain-data";
+import { TToken } from "../utils/index";
 
 type Props = {
   query?: DonationsQuery;

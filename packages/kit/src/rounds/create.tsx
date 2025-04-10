@@ -43,7 +43,7 @@ import {
   useStrategies,
 } from "..";
 import { useNetwork } from "../hooks/useNetwork";
-import { type TContracts } from "@gitcoin/gitcoin-chain-data";
+import { type TContracts } from "../utils/index";
 
 const baseRoundSchema = z.object({
   name: z.string().min(2, {

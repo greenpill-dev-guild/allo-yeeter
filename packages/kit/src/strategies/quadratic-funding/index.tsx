@@ -1,7 +1,7 @@
 import z from "zod";
 
 import type { StrategyExtension } from "..";
-import { getChains } from "@gitcoin/gitcoin-chain-data";
+import { getChains } from "../../utils/index";
 
 export const quadraticFunding: StrategyExtension = {
   name: "Quadratic Funding",

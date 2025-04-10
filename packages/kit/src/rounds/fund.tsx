@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { useAccount } from "wagmi";
 import { type Address, formatUnits, parseUnits } from "viem";
-import type { TToken } from "@gitcoin/gitcoin-chain-data";
+import type { TToken } from "../utils/index";
 import type { QueryOpts, Round } from "../api/types";
 import { useRoundById } from "../hooks/useRounds";
 import {
