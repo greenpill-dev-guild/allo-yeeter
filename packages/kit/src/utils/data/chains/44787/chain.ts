@@ -1,5 +1,5 @@
 import { TChain } from "../../../types";
-import { celoIcon } from "../../icons";
+import { celoIcon, ceurIcon } from "../../icons";
 
 export const celoTestnet: TChain = {
   id: 44787,
@@ -40,6 +40,18 @@ export const celoTestnet: TChain = {
         address: "0x0000000000000000000000000000000000000000",
       },
       redstoneTokenId: "CELO",
+    },
+    {
+      code: "CEUR",
+      icon: ceurIcon,
+      address: "0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F",
+      decimals: 18,
+      canVote: true,
+      priceSource: {
+        chainId: 42220,
+        address: "0x10c892A6EC43a53E45D0B916B4b7D383B1b78C0F",
+      },
+      redstoneTokenId: "CEUR",
     },
   ],
   subscriptions: [

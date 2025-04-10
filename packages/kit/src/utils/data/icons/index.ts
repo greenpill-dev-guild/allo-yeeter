@@ -19,6 +19,7 @@ import seiIcon from "./sei";
 import arbitrumIcon from "./arbitrum";
 import celoIcon from "./celo";
 import cusdIcon from "./cusd";
+import ceurIcon from "./ceur";
 import avalancheIcon from "./avalanche";
 import scrollIcon from "./scroll";
 import baseIcon from "./base";
@@ -46,6 +47,7 @@ export {
   arbitrumIcon,
   celoIcon,
   cusdIcon,
+  ceurIcon,
   avalancheIcon,
   scrollIcon,
   baseIcon,
