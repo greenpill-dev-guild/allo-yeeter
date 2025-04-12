@@ -1,19 +1,21 @@
-'use client';
+"use client";
 
-import { slideDefinitions } from '@/app/slideDefinitions';
+import Link from "next/link";
+import { Fragment } from "react";
+import { usePathname } from "next/navigation";
+import { RiCheckLine } from "@remixicon/react";
+
+import { cn } from "@/lib/utils";
+import { useFormStore } from "@/store/form";
+import { slideDefinitions } from "@/app/slideDefinitions";
+import { useSelectedToken } from "@/hooks/useSelectedToken";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
   BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
-import { useSelectedToken } from '@/hooks/useSelectedToken';
-import { cn } from '@/lib/utils';
-import { useFormStore } from '@/store/form';
-import { RiCheckLine } from '@remixicon/react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Fragment } from 'react';
+} from "@/components/ui/breadcrumb";
 
 const Step = ({
   number,
@@ -26,7 +28,7 @@ const Step = ({
   url: string;
   active?: boolean;
 }) => {
-  const formState = useFormStore(state => state);
+  const formState = useFormStore((state) => state);
   const token = useSelectedToken();
   const completionStatus = [
     // recipients
@@ -44,18 +46,16 @@ const Step = ({
       <Link href={url} className="inline-flex items-center gap-2">
         <div
           className={cn(
-            'rounded-full text-center aspect-square h-7 items-center justify-center flex',
-            active || completionStatus[number - 1]
-              ? 'bg-primary'
-              : 'bg-gray-500',
-            'text-foreground',
+            "rounded-full text-center aspect-square h-7 items-center justify-center flex",
+            active || completionStatus[number - 1] ?
+              "bg-primary"
+            : "bg-gray-500",
+            "text-foreground"
           )}
         >
-          {completionStatus[number - 1] ? (
+          {completionStatus[number - 1] ?
             <RiCheckLine className="w-4 h-4" />
-          ) : (
-            <div className="text-sm text-white">{number}</div>
-          )}
+          : <div className="text-sm text-white">{number}</div>}
         </div>
         <div className="text-sm">{text}</div>
       </Link>

@@ -1,13 +1,14 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { cn } from '@/lib/utils';
-import { LucideIcon } from 'lucide-react';
-import { RemixiconComponentType } from '@remixicon/react';
+import { cn } from "@/lib/utils";
+import { LucideIcon } from "lucide-react";
+import { RemixiconComponentType } from "@remixicon/react";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   startIcon?: RemixiconComponentType;
   endIcon?: RemixiconComponentType;
+  wrapperClassName?: string;
   onEndIconClick?: () => void;
   onStartIconClick?: () => void;
   endContent?: React.ReactNode;
@@ -20,18 +21,24 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       type,
       startIcon,
       endIcon,
+      wrapperClassName,
       onEndIconClick,
       onStartIconClick,
       endContent,
       ...props
     },
-    ref,
+    ref
   ) => {
     const StartIcon = startIcon;
     const EndIcon = endIcon;
 
     return (
-      <div className="w-full relative rounded-full overflow-hidden">
+      <div
+        className={cn(
+          wrapperClassName,
+          "w-full relative rounded-full overflow-hidden"
+        )}
+      >
         {StartIcon && (
           <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
             <StartIcon
@@ -44,10 +51,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           type={type}
           className={cn(
-            'flex h-14 w-full rounded-full border border-input bg-background py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50',
-            startIcon ? 'pl-12' : 'pl-4',
-            endIcon ? 'pr-14' : 'pr-4',
-            className,
+            "flex h-14 w-full rounded-full border border-input bg-background py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50",
+            startIcon ? "pl-12" : "pl-4",
+            endIcon ? "pr-14" : "pr-4",
+            className
           )}
           ref={ref}
           {...props}
@@ -66,8 +73,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
       </div>
     );
-  },
+  }
 );
-Input.displayName = 'Input';
+Input.displayName = "Input";
 
 export { Input };

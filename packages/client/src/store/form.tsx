@@ -1,36 +1,21 @@
-'use client';
+"use client";
 
-import { createStore, useStore } from 'zustand';
-import { persist } from 'zustand/middleware';
-import { ReactNode, createContext, useRef, useContext } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
+import { persist } from "zustand/middleware";
+import { createStore, useStore } from "zustand";
+import { ReactNode, createContext, useContext } from "react";
 
-const initialState = {
-  poolId: '',
-  amount: 0,
-  strategyAddress: '',
-  yeetTx: '',
-  addresses: ['', ''],
-  network: 111_55_111,
-  token: undefined,
-  customToken: undefined,
-  yeetStatus: 'pending' as 'pending' | 'completed',
-};
-
-export const RedirectToSummaryIfCompleted = () => {
-  const formState = useFormStore(state => state);
-  const router = useRouter();
-  if (formState.yeetStatus === 'completed') {
-    router.push('/steps/summary');
-  }
-  return null;
-};
+interface Recipient {
+  address: string;
+  amount: number;
+}
 
 interface FormState {
   poolId: string;
   amount: number;
   strategyAddress: string;
   addresses: string[];
+  recipients: Recipient[];
   network: number;
   token: `0x${string}` | undefined;
   customToken?: {
@@ -40,8 +25,8 @@ interface FormState {
     canVote?: boolean;
   };
   yeetTx: string;
-  yeetStatus: 'pending' | 'completed';
-  setYeetStatus: (yeetStatus: 'pending' | 'completed') => void;
+  yeetStatus: "pending" | "completed";
+  setYeetStatus: (yeetStatus: "pending" | "completed") => void;
   setYeetTx: (yeetTx: string) => void;
   setAddresses: (addresses: `0x${string}`[]) => void;
   setAmount: (amount: number) => void;
@@ -57,14 +42,41 @@ interface FormState {
   resetYeetForm: () => void;
 }
 
+const initialState = {
+  poolId: "",
+  amount: 0,
+  strategyAddress: "",
+  yeetTx: "",
+  addresses: ["", ""],
+  recipients: [
+    {
+      address: "",
+      amount: 0,
+    },
+    { address: "", amount: 0 },
+  ],
+  network: 111_55_111,
+  token: undefined,
+  customToken: undefined,
+  yeetStatus: "pending" as "pending" | "completed",
+};
+
+export const RedirectToSummaryIfCompleted = () => {
+  const formState = useFormStore((state) => state);
+  const router = useRouter();
+  if (formState.yeetStatus === "completed") {
+    router.push("/steps/summary");
+  }
+  return null;
+};
 let store: FormStoreApi | undefined;
 
 const createFormStore = (init = initialState) =>
   createStore<FormState>()(
     persist(
-      set => ({
+      (set) => ({
         ...init,
-        setYeetStatus: (yeetStatus: 'pending' | 'completed') => {
+        setYeetStatus: (yeetStatus: "pending" | "completed") => {
           set({ yeetStatus });
         },
         setYeetTx: (yeetTx: string) => {
@@ -79,6 +91,9 @@ const createFormStore = (init = initialState) =>
         setAmount: (amount: number) => {
           set({ amount });
         },
+        setRecipients: (recipients: Recipient[]) => {
+          set({ recipients });
+        },
         setStrategyAddress: (strategyAddress: `0x${string}`) => {
           set({ strategyAddress });
         },
@@ -91,10 +106,11 @@ const createFormStore = (init = initialState) =>
         setPoolId: (poolId: bigint) => {
           set({ poolId: poolId.toString() });
         },
-        setCustomToken: customToken => {
+        setCustomToken: (customToken) => {
           set({
-            customToken: customToken
-              ? {
+            customToken:
+              customToken ?
+                {
                   ...customToken,
                   decimals: parseInt(customToken.decimals),
                   canVote: false,
@@ -104,15 +120,15 @@ const createFormStore = (init = initialState) =>
         },
       }),
       {
-        name: 'yeeter-form',
-      },
-    ),
+        name: "yeeter-form",
+      }
+    )
   );
 
 type FormStoreApi = ReturnType<typeof createFormStore>;
 
 export const FormStoreContext = createContext<FormStoreApi | undefined>(
-  undefined,
+  undefined
 );
 
 export interface FormStoreProviderProps {

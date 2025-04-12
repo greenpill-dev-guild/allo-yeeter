@@ -1,32 +1,14 @@
-'use client';
+"use client";
+import "swiper/css";
+import "swiper/css/pagination";
 
-import React, { useState, useMemo, useCallback, useEffect } from 'react';
-import {
-  Allo,
-  CreatePoolArgs,
-  StrategyFactory,
-  TransactionData,
-  YeeterStrategy,
-} from '@allo-team/allo-v2-sdk';
 import {
   useAccount,
   useChains,
+  useConfig,
   useSendTransaction,
   useWaitForTransactionReceipt,
-} from 'wagmi';
-import { waitForTransactionReceipt } from 'wagmi/actions';
-import { parseEther } from 'viem';
-import { useProfile } from '@allo-team/kit';
-import { useYeetForm } from '@/hooks/useYeetForm';
-import { useFormStore } from '@/store/form';
-import { Button } from '@/components/ui/button';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
+} from "wagmi";
 import {
   RiLoader4Line,
   RiCheckLine,
@@ -34,19 +16,38 @@ import {
   RiSendPlaneFill,
   RiFileCheckFill,
   RiHandCoinFill,
-} from '@remixicon/react';
-import { useSelectedToken } from '@/hooks/useSelectedToken';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { cn } from '@/lib/utils';
-import { useTokenPermissions } from '@/lib/useTokenPermissions';
+} from "@remixicon/react";
+import {
+  Allo,
+  CreatePoolArgs,
+  StrategyFactory,
+  TransactionData,
+  YeeterStrategy,
+} from "@allo-team/allo-v2-sdk";
+import { parseEther } from "viem";
+import { useRouter } from "next/router";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useState, useMemo, useCallback, useEffect } from "react";
+
+import { useProfile } from "@allo-team/kit";
+import { useYeetForm } from "@/hooks/useYeetForm";
+import { useFormStore } from "@/store/form";
+
+import { useSelectedToken } from "@/hooks/useSelectedToken";
+import { useTokenPermissions } from "@/hooks/useTokenPermissions";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 const sendConfig = {
   mutation: {
     onError: (error: Error) => {
-      console.log('error', error);
+      console.log("error", error);
     },
   },
 };
@@ -54,42 +55,51 @@ const sendConfig = {
 const MESSAGE_DELAY = 1000;
 
 const YeetDialog = () => {
-  const [open, setOpen] = useState(false);
-  // reset form when it's closed
-  const [activeStep, setActiveStep] = useState(0);
-  const form = useYeetForm();
+  const router = useRouter();
+  const config = useConfig();
+  const chains = useChains();
+  const { address } = useAccount();
+
   const {
+    yeetTx,
     poolId,
     setPoolId,
     strategyAddress,
     setStrategyAddress,
     setYeetStatus,
     setYeetTx,
-  } = useFormStore(s => s);
-  console.log({ strategyAddress });
-  const { network: chainId, amount: totalAmount, addresses } = form.getValues();
-  const chains = useChains();
-  const chain = chains.find(c => c.id === chainId);
-  // console.log('chain', chain);
-  const rpcUrl = chain?.rpcUrls.default.http[0];
-  const token = useSelectedToken();
-  const { address } = useAccount();
+    resetYeetForm,
+  } = useFormStore((s) => s);
   const { data: profileId } = useProfile();
+  const form = useYeetForm();
+  const token = useSelectedToken();
+
+  // reset form when it's closed
+
+  const { network: chainId, amount: totalAmount, addresses } = form.getValues();
+  const chain = chains.find((c) => c.id === chainId);
+  const rpcUrl = chain?.rpcUrls.default.http[0];
+  const scannerUrl = chains.find((c) => c.id === chainId)?.blockExplorers
+    ?.default.url;
+  // const totalAmount = useFormStore((state) => state.amount);
+
+  const [open, setOpen] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
 
   const [transactionStatus, setTransactionStatus] = useState<{
-    status: 'idle' | 'loading' | 'success' | 'error';
+    status: "idle" | "loading" | "success" | "error";
     message: string;
   }>({
-    status: 'idle',
-    message: '',
+    status: "idle",
+    message: "",
   });
 
   useEffect(() => {
     if (!open) {
       setTimeout(() => {
         setTransactionStatus({
-          status: 'idle',
-          message: '',
+          status: "idle",
+          message: "",
         });
       }, MESSAGE_DELAY);
     }
@@ -98,7 +108,7 @@ const YeetDialog = () => {
   // #region Strategy Factory Logic
   const { sendTransaction: sendFactoryTransaction, data: factoryHash } =
     useSendTransaction(sendConfig);
-  console.log('factoryHash', factoryHash);
+  console.log("factoryHash", factoryHash);
   const {
     isLoading: isLoadingFactory,
     isFetching: isFetchingFactory,
@@ -109,18 +119,6 @@ const YeetDialog = () => {
     // confirmations: 2,
     hash: factoryHash,
   });
-  // useEffect(() => {
-  //   waitForTransactionReceipt({
-  //     hash: factoryHash,
-  //   });
-  // }, [factoryHash]);
-  console.log('factoryData', {
-    factoryData,
-    isLoadingFactory,
-    isFetchingFactory,
-    isSuccessFactory,
-  });
-  // #endregion
 
   // #region Pool Creation Logic
   const { sendTransaction: sendPoolTransaction, data: poolHash } =
@@ -152,10 +150,10 @@ const YeetDialog = () => {
   // #region Initialize contracts
   const strategyFactory = useMemo(() => {
     if (!chainId) return null;
-    console.log('chainId', chainId);
+    console.log("chainId", chainId);
     return new StrategyFactory({
       chain: chainId,
-      factoryType: 'YTR',
+      factoryType: "YTR",
     });
   }, [chainId]);
 
@@ -171,7 +169,7 @@ const YeetDialog = () => {
   } = useTokenPermissions({
     tokenAddress: token?.address as `0x${string}`,
     ownerAddress: address as `0x${string}`,
-    spender: allo?.address() ?? '0x',
+    spender: allo?.address() ?? "0x",
     amount: parseEther(totalAmount.toString()),
   });
 
@@ -190,12 +188,12 @@ const YeetDialog = () => {
   const createYeeterContract = useCallback(async () => {
     if (!strategyFactory) return;
     setTransactionStatus({
-      status: 'loading',
-      message: 'Deploying Yeeter contract...',
+      status: "loading",
+      message: "Deploying Yeeter contract...",
     });
     try {
       const createYeeterTx = strategyFactory.getCreateStrategyData();
-      console.log('createYeeterTx', createYeeterTx);
+      console.log("createYeeterTx", createYeeterTx);
       await sendFactoryTransaction({
         data: createYeeterTx.data,
         to: createYeeterTx.to,
@@ -203,8 +201,8 @@ const YeetDialog = () => {
       });
     } catch (error) {
       setTransactionStatus({
-        status: 'error',
-        message: 'Failed to deploy Yeeter contract',
+        status: "error",
+        message: "Failed to deploy Yeeter contract",
       });
     }
   }, [strategyFactory, sendFactoryTransaction]);
@@ -221,25 +219,25 @@ const YeetDialog = () => {
       return;
 
     setTransactionStatus({
-      status: 'loading',
-      message: 'Creating pool...',
+      status: "loading",
+      message: "Creating pool...",
     });
 
     try {
       const args: CreatePoolArgs = {
         profileId: profileId as `0x${string}`,
         strategy: strategyAddress as `0x${string}`,
-        initStrategyData: '0x',
+        initStrategyData: "0x",
         token: token.address as `0x${string}`,
         amount: parseEther(totalAmount.toString()),
         metadata: {
           protocol: BigInt(1),
-          pointer: 'Test',
+          pointer: "Test",
         },
         managers: [address as `0x${string}`],
       };
       const poolTx: TransactionData = allo.createPoolWithCustomStrategy(args);
-      console.log('poolTx', poolTx, args);
+      console.log("poolTx", poolTx, args);
       await sendPoolTransaction({
         data: poolTx.data,
         to: poolTx.to,
@@ -247,8 +245,8 @@ const YeetDialog = () => {
       });
     } catch (error) {
       setTransactionStatus({
-        status: 'error',
-        message: 'Failed to create pool',
+        status: "error",
+        message: "Failed to create pool",
       });
     }
   }, [
@@ -265,8 +263,8 @@ const YeetDialog = () => {
     if (!yeeter) return;
 
     setTransactionStatus({
-      status: 'loading',
-      message: 'Yeeting funds...',
+      status: "loading",
+      message: "Yeeting funds...",
     });
 
     try {
@@ -276,7 +274,7 @@ const YeetDialog = () => {
 
       const dataForContract = {
         recipientIds: addresses.map(
-          address => address.address,
+          (address) => address.address
         ) as `0x${string}`[],
         amounts: addresses.map(() => BigInt(amountPerAddress)) as bigint[],
         token: token?.address as `0x${string}`,
@@ -291,8 +289,8 @@ const YeetDialog = () => {
       });
     } catch (error) {
       setTransactionStatus({
-        status: 'error',
-        message: 'Failed to yeet funds',
+        status: "error",
+        message: "Failed to yeet funds",
       });
     }
   }, [yeeter, sendYeet, addresses, totalAmount, token]);
@@ -301,20 +299,20 @@ const YeetDialog = () => {
     if (activeStep > 0) return;
     if (isLoadingTokenApproval) {
       setTransactionStatus({
-        status: 'loading',
-        message: 'Approving token...',
+        status: "loading",
+        message: "Approving token...",
       });
     }
     if (isSuccessTokenApproval) {
       setTransactionStatus({
-        status: 'success',
-        message: 'Token approved',
+        status: "success",
+        message: "Token approved",
       });
       setActiveStep(1);
       setTimeout(() => {
         setTransactionStatus({
-          status: 'idle',
-          message: 'Waiting...',
+          status: "idle",
+          message: "Waiting...",
         });
       }, MESSAGE_DELAY);
     }
@@ -324,21 +322,21 @@ const YeetDialog = () => {
   // #region TX state effects
   useEffect(() => {
     if (isSuccessFactory) {
-      console.log('factoryData', factoryData);
+      console.log("factoryData", factoryData);
       let strategyAddress = factoryData?.logs?.[0]?.topics?.[2];
-      console.log('strategyAddress', strategyAddress);
+      console.log("strategyAddress", strategyAddress);
       if (strategyAddress) {
         strategyAddress = `0x${strategyAddress.slice(-40)}`;
         setStrategyAddress(strategyAddress as `0x${string}`);
         setActiveStep(2);
         setTransactionStatus({
-          status: 'success',
-          message: 'Yeeter contract deployed',
+          status: "success",
+          message: "Yeeter contract deployed",
         });
         setTimeout(() => {
           setTransactionStatus({
-            status: 'idle',
-            message: 'Waiting...',
+            status: "idle",
+            message: "Waiting...",
           });
         }, MESSAGE_DELAY);
       }
@@ -353,13 +351,13 @@ const YeetDialog = () => {
         setPoolId(BigInt(poolId));
         setActiveStep(3);
         setTransactionStatus({
-          status: 'success',
-          message: 'Pool created',
+          status: "success",
+          message: "Pool created",
         });
         setTimeout(() => {
           setTransactionStatus({
-            status: 'idle',
-            message: 'Waiting...',
+            status: "idle",
+            message: "Waiting...",
           });
         }, MESSAGE_DELAY);
       }
@@ -368,12 +366,12 @@ const YeetDialog = () => {
 
   useEffect(() => {
     if (isSuccessYeet) {
-      console.log('yeetData', yeetData);
-      setYeetStatus('completed');
+      console.log("yeetData", yeetData);
+      setYeetStatus("completed");
       setYeetTx(yeetData?.transactionHash);
       setTransactionStatus({
-        status: 'success',
-        message: 'Funds yeeted!',
+        status: "success",
+        message: "Funds yeeted!",
       });
       setTimeout(() => {
         setOpen(false);
@@ -384,30 +382,30 @@ const YeetDialog = () => {
 
   const steps = [
     {
-      title: 'Approve Token',
-      description: 'Approve token spending for the Yeeter contract',
+      title: "Approve Token",
+      description: "Approve token spending for the Yeeter contract",
       Icon: RiHandCoinFill,
       action: requestTokenApproval,
       isLoading: false,
     },
     {
-      title: 'Deploy Yeeter Contract',
+      title: "Deploy Yeeter Contract",
       description:
-        'Deploy the smart contract that will handle the distribution',
+        "Deploy the smart contract that will handle the distribution",
       Icon: RiFileCheckFill,
       action: createYeeterContract,
       isLoading: isLoadingFactory,
     },
     {
-      title: 'Create Pool',
-      description: 'Create a pool to manage the funds',
+      title: "Create Pool",
+      description: "Create a pool to manage the funds",
       Icon: RiHandCoinFill,
       action: createPool,
       isLoading: isLoadingPool,
     },
     {
-      title: 'Yeet Funds',
-      description: 'Distribute funds to all recipients',
+      title: "Yeet Funds",
+      description: "Distribute funds to all recipients",
       Icon: RiSendPlaneFill,
       action: yeet,
       isLoading: isLoadingYeet,
@@ -427,7 +425,7 @@ const YeetDialog = () => {
         className="sm:max-w-[425px] transition-all"
         aria-describedby="yeet-transactions"
       >
-        {transactionStatus.status === 'idle' ? (
+        {transactionStatus.status === "idle" ?
           <Swiper
             className="w-full"
             slidesPerView={1}
@@ -436,7 +434,7 @@ const YeetDialog = () => {
             modules={[Pagination]}
             pagination={{
               clickable: false,
-              bulletClass: 'swiper-pagination-bullet !bg-primary',
+              bulletClass: "swiper-pagination-bullet !bg-primary",
             }}
             // autoHeight
           >
@@ -444,11 +442,9 @@ const YeetDialog = () => {
               <SwiperSlide key={index} className="pb-4">
                 <div className="flex flex-col gap-4 p-4">
                   <div className="rounded-full bg-secondary p-6 self-center">
-                    {step.isLoading ? (
+                    {step.isLoading ?
                       <RiLoader4Line className="h-4 w-4 mr-2 animate-spin" />
-                    ) : (
-                      <step.Icon className="h-6 w-6 text-primary" />
-                    )}
+                    : <step.Icon className="h-6 w-6 text-primary" />}
                   </div>
                   <h3 className="text-lg font-semibold text-center">
                     {step.title}
@@ -460,47 +456,63 @@ const YeetDialog = () => {
                     onClick={step.action}
                     disabled={step.isLoading || index !== activeStep}
                   >
-                    {step.isLoading ? 'Processing...' : step.title}
+                    {step.isLoading ? "Processing..." : step.title}
                     <step.Icon className="h-4 w-4 ml-2" />
                   </Button>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
-        ) : (
-          <div className="flex flex-col items-center justify-center p-8 text-center">
-            {transactionStatus.status === 'loading' && (
+        : <div className="flex flex-col items-center justify-center p-8 text-center">
+            {transactionStatus.status === "loading" && (
               <>
                 <RiLoader4Line className="h-12 w-12 animate-spin text-primary mb-4" />
                 <h3 className="font-semibold mb-2">Processing Transaction</h3>
               </>
             )}
-            {transactionStatus.status === 'success' && (
+            {transactionStatus.status === "success" && (
               <>
                 <RiCheckLine className="h-12 w-12 text-green-500 mb-4" />
                 <h3 className="font-semibold mb-2">Success!</h3>
               </>
             )}
-            {transactionStatus.status === 'error' && (
+            {transactionStatus.status === "error" && (
               <>
                 <RiCloseLine className="h-12 w-12 text-red-500 mb-4" />
                 <h3 className="font-semibold mb-2">Error</h3>
               </>
             )}
             <p className="text-sm text-gray-500">{transactionStatus.message}</p>
-            {transactionStatus.status === 'error' && (
+            {transactionStatus.status === "error" && (
               <Button
                 variant="ghost"
                 className="mt-4"
                 onClick={() =>
-                  setTransactionStatus({ status: 'idle', message: '' })
+                  setTransactionStatus({ status: "idle", message: "" })
                 }
               >
                 Try Again
               </Button>
             )}
           </div>
-        )}
+        }
+        {/* <StepWrapper>
+        <StepHeader slide={slideDefinitions[3]} />
+        <Separator className="my-8" label="SUBTOTAL" />
+        <div className="flex justify-between items-center">
+          <h2 className="text-4xl font-semibold">
+            {`${Number(totalAmount).toLocaleString()} ${token?.code}`}
+          </h2>
+          {token && "icon" in token && (
+            <TokenIcon icon={token?.icon} className="w-14 h-14" />
+          )}
+        </div>
+        <SummaryDetails />
+        <Separator label="RECIPIENTS" className="my-8" />
+        <div className="w-full">
+          <RecipientsList />
+        </div>
+      </StepWrapper> */}
       </DialogContent>
     </Dialog>
   );

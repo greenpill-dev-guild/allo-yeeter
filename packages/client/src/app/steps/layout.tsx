@@ -1,5 +1,5 @@
-import React, { PropsWithChildren } from 'react';
-import CreateProfileButton from '@/components/create-profile-button';
+import React, { PropsWithChildren } from "react";
+import CreateProfileButton from "@/components/create-profile-button";
 
 export default function StepsLayout({ children }: PropsWithChildren) {
   return (

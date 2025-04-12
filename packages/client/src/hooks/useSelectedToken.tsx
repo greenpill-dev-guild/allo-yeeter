@@ -1,6 +1,7 @@
 import { useNetwork } from "@allo-team/kit";
 import { useFormStore } from "@/store/form";
-import { TToken } from "../../../../packages/kit/src/utils/index";
+
+import { TToken } from "../../../kit/src/utils/index";
 
 export const useSelectedToken = ():
   | TToken
