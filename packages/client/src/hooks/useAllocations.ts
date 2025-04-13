@@ -1,12 +1,18 @@
-import { useFormStore } from "@/store/form";
+import { useYeetStore } from "@/store/yeet";
 
 const useAllocations = () => {
-  const { amount, addresses } = useFormStore(state => state);
-  // TODO: in case allo fee is implemented
-  // fee = getFeeSomehow
-  // const remainingAmount = amount - fee;
-  const amountPerAddress = amount / addresses.length;
-  return addresses.map(address => ({ address, amount: amountPerAddress }));
+  const { amount, recipients, amountSplitType } = useYeetStore(
+    (state) => state
+  );
+
+  const amountPerAddress = amount / recipients.length;
+
+  return amountSplitType === "equal" ?
+      recipients.map(({ address }) => ({
+        address,
+        amount: amountPerAddress,
+      }))
+    : recipients;
 };
 
 export default useAllocations;

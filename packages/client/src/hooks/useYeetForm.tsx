@@ -4,7 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, UseFormReturn } from "react-hook-form";
 
-import { useFormStore } from "@/store/form";
+import { useYeetStore } from "@/store/yeet";
 import { Form } from "@/components/ui/form";
 
 const addressSchema = z
@@ -17,52 +17,44 @@ const addressSchema = z
     "Address must be 42 characters long when filled"
   );
 
-const customTokenSchema = z.object({
-  address: addressSchema.optional(),
-  code: z.string().min(1, "Symbol is required").optional(),
-  // What are decimals used for?
-  decimals: z.string().regex(/^\d+$/, "Decimals must be a number").optional(),
+const recipient = z.object({
+  address: addressSchema,
+  amount: z.coerce
+    .number()
+    .refine((val) => val > 0, "Amount must be greater than 0"),
 });
 
 export const yeetFormSchema = z
   .object({
-    addresses: z
-      .array(z.object({ address: addressSchema }))
-      .min(1, "At least one address is required"),
-    network: z.number().min(1, "Network selection is required"),
     token: addressSchema.optional(),
-    customToken: customTokenSchema.optional(),
     amount: z.coerce
       .number()
       .refine((val) => val > 0, "Amount must be greater than 0"),
+    recipients: z.array(recipient).min(1, "At least one recipient is required"),
   })
-  .refine((data) => data.token || data.customToken, {
-    message: "Either token or custom token must be provided",
+  .refine((data) => data.token, {
+    message: "Token must be provided",
     path: ["token"],
-  });
+  })
+  .refine(
+    (data) =>
+      data.amount === data.recipients.reduce((acc, rec) => acc + rec.amount, 0),
+    {
+      message: "Total amount must match the sum of recipient amounts",
+      path: ["amount"],
+    }
+  );
 
 export type YeetFormData = z.infer<typeof yeetFormSchema>;
 
 export const useYeetForm = (): UseFormReturn<YeetFormData> => {
-  const { addresses, amount, network, token, customToken } = useFormStore(
-    (state) => state
-  );
+  const { recipients, amount, token } = useYeetStore((state) => state);
   const form = useForm<YeetFormData>({
     resolver: zodResolver(yeetFormSchema),
     defaultValues: {
-      addresses: addresses.map((a) => ({ address: a })),
-      network,
+      recipients,
       token,
       amount,
-      ...(customToken?.address ?
-        {
-          customToken: {
-            address: customToken?.address,
-            code: customToken?.code,
-            decimals: customToken?.decimals?.toString?.(),
-          },
-        }
-      : {}),
     },
     mode: "onChange",
     reValidateMode: "onChange",
@@ -77,5 +69,6 @@ export const YeetFormProvider = ({
   children: React.ReactNode;
 }) => {
   const form = useYeetForm();
+
   return <Form {...form}>{children}</Form>;
 };
