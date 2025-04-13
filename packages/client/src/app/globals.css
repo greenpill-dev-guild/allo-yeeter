@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 148 72% 40%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 10rem --avatar-ring:
+      linear-gradient(
+        180deg,
+        rgba(113, 119, 132, 0.1) 0%,
+        rgba(113, 119, 132, 0) 100%
+      );
+    --button: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.16) 0%,
+        rgba(255, 255, 255, 0) 100%
+      )
+      --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+  .dark {
+    --background: 110 29% 8%;
+    --foreground: 0 0% 100%;
+    --card: 115 32% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 148 72% 40%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 226 21% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 226 21% 12%;
+    --muted-foreground: 220 11% 64%;
+    /* --accent: 226 21% 12%;
+    --accent-foreground: 0 0% 98%; */
+    --accent: 148 72% 86%;
+    --accent-foreground: 148 64% 24%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 221 16% 20%;
+    --input: 221 16% 20%;
+    --ring: 0 0% 83.1%;
+    --radius: 24px;
+    --avatar-ring: linear-gradient(
+      180deg,
+      rgba(113, 119, 132, 0.1) 0%,
+      rgba(113, 119, 132, 0) 100%
+    );
+    --button: linear-gradient(
+      180deg,
+      color-mix(in srgb, hsl(var(--primary)) 84%, rgba(255, 255, 255, 1)) 0%,
+      hsl(var(--primary)) 100%
+    );
+    --primary-button-border: 0px 1px 2px 0px rgba(14, 18, 27, 0.24),
+      0px 0px 0px 1px var(--primary) --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+ul::-webkit-scrollbar {
+  display: none;
+}
+
+div::-webkit-scrollbar {
+  display: none;
+}
