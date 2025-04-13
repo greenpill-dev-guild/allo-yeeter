@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { ConnectButton } from "@/components/ConnectButton";
-import StepBreadcrumb from "@/components/form/StepBreadcrumb";
+import StepBreadcrumb from "@/components/step/StepBreadcrumb";
 
 export function Header() {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import { UseFormReturn } from "react-hook-form";
 import { RiFileListFill, RiGroupFill } from "@remixicon/react";
 
-import { YeetFormData } from "../hooks/useYeetForm";
+import { YeetFormData } from "../../hooks/useYeetForm";
 
 const ICON_SIZE = 32;
 
@@ -27,7 +27,7 @@ export const slideDefinitions: SlideDefinition[] = [
     shortTitle: "Load",
     title: "Add Recipients & Amounts",
     subtitle: "Upload a CSV or use ENS to prep your payout list.",
-    fieldsToValidate: ["network", "token", "amount", "recipients"],
+    fieldsToValidate: ["token", "amount", "recipients"],
     icon: <RiGroupFill size={ICON_SIZE} className="text-primary" />,
   },
   {

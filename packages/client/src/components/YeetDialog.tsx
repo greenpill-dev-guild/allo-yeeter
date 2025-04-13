@@ -1,11 +1,11 @@
 "use client";
+
 import "swiper/css";
 import "swiper/css/pagination";
 
 import {
   useAccount,
   useChains,
-  useConfig,
   useSendTransaction,
   useWaitForTransactionReceipt,
 } from "wagmi";
@@ -25,24 +25,28 @@ import {
   YeeterStrategy,
 } from "@allo-team/allo-v2-sdk";
 import { parseEther } from "viem";
-import { useRouter } from "next/router";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import React, { useState, useMemo, useCallback, useEffect } from "react";
 
-import { useProfile } from "@allo-team/kit";
+import { useNetwork, useProfile } from "@allo-team/kit";
+
+import { useYeetStore } from "@/store/yeet";
 import { useYeetForm } from "@/hooks/useYeetForm";
-import { useFormStore } from "@/store/form";
 
 import { useSelectedToken } from "@/hooks/useSelectedToken";
 import { useTokenPermissions } from "@/hooks/useTokenPermissions";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+
+interface YeetDialogProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  onYeet: () => void;
+  onYeetSuccess: () => void;
+  onYeetError: () => void;
+  children?: React.ReactNode;
+}
 
 const sendConfig = {
   mutation: {
@@ -54,38 +58,40 @@ const sendConfig = {
 
 const MESSAGE_DELAY = 1000;
 
-const YeetDialog = () => {
-  const router = useRouter();
-  const config = useConfig();
+const YeetDialog: React.FC<YeetDialogProps> = ({
+  open,
+  onOpenChange,
+  onYeet,
+  onYeetSuccess,
+  onYeetError,
+}) => {
   const chains = useChains();
+  const network = useNetwork();
   const { address } = useAccount();
 
   const {
-    yeetTx,
     poolId,
     setPoolId,
     strategyAddress,
     setStrategyAddress,
     setYeetStatus,
     setYeetTx,
-    resetYeetForm,
-  } = useFormStore((s) => s);
+  } = useYeetStore((s) => s);
   const { data: profileId } = useProfile();
   const form = useYeetForm();
   const token = useSelectedToken();
 
   // reset form when it's closed
 
-  const { network: chainId, amount: totalAmount, addresses } = form.getValues();
+  const { amount: totalAmount, recipients } = form.getValues();
+  const chainId = network?.id;
   const chain = chains.find((c) => c.id === chainId);
   const rpcUrl = chain?.rpcUrls.default.http[0];
   const scannerUrl = chains.find((c) => c.id === chainId)?.blockExplorers
     ?.default.url;
-  // const totalAmount = useFormStore((state) => state.amount);
+  // const totalAmount = useYeetStore((state) => state.amount);
 
-  const [open, setOpen] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
-
   const [transactionStatus, setTransactionStatus] = useState<{
     status: "idle" | "loading" | "success" | "error";
     message: string;
@@ -94,27 +100,16 @@ const YeetDialog = () => {
     message: "",
   });
 
-  useEffect(() => {
-    if (!open) {
-      setTimeout(() => {
-        setTransactionStatus({
-          status: "idle",
-          message: "",
-        });
-      }, MESSAGE_DELAY);
-    }
-  }, [open]);
-
   // #region Strategy Factory Logic
   const { sendTransaction: sendFactoryTransaction, data: factoryHash } =
     useSendTransaction(sendConfig);
   console.log("factoryHash", factoryHash);
   const {
     isLoading: isLoadingFactory,
-    isFetching: isFetchingFactory,
+    // isFetching: isFetchingFactory,
     isSuccess: isSuccessFactory,
     data: factoryData,
-    refetch: refetchFactory,
+    // refetch: refetchFactory,
   } = useWaitForTransactionReceipt({
     // confirmations: 2,
     hash: factoryHash,
@@ -125,7 +120,7 @@ const YeetDialog = () => {
     useSendTransaction(sendConfig);
   const {
     isLoading: isLoadingPool,
-    isFetching: isFetchingPool,
+    // isFetching: isFetchingPool,
     isSuccess: isSuccessPool,
     data: poolData,
   } = useWaitForTransactionReceipt({
@@ -268,21 +263,19 @@ const YeetDialog = () => {
     });
 
     try {
-      const gwei = parseEther(totalAmount.toString());
-      // TODO: calculate fee if implemented
-      const amountPerAddress = gwei / BigInt(addresses.length);
-
       const dataForContract = {
-        recipientIds: addresses.map(
-          (address) => address.address
+        recipientIds: recipients.map(
+          (recipient) => recipient.address
         ) as `0x${string}`[],
-        amounts: addresses.map(() => BigInt(amountPerAddress)) as bigint[],
+        amounts: recipients.map((recipient) =>
+          BigInt(recipient.amount)
+        ) as bigint[],
         token: token?.address as `0x${string}`,
       };
 
       const yeetTx = yeeter.getAllocateData(dataForContract);
 
-      await sendYeet({
+      sendYeet({
         data: yeetTx.data,
         to: yeetTx.to,
         value: BigInt(yeetTx.value),
@@ -293,7 +286,18 @@ const YeetDialog = () => {
         message: "Failed to yeet funds",
       });
     }
-  }, [yeeter, sendYeet, addresses, totalAmount, token]);
+  }, [yeeter, sendYeet, recipients, totalAmount, token]);
+
+  useEffect(() => {
+    if (!open) {
+      setTimeout(() => {
+        setTransactionStatus({
+          status: "idle",
+          message: "",
+        });
+      }, MESSAGE_DELAY);
+    }
+  }, [open]);
 
   useEffect(() => {
     if (activeStep > 0) return;
@@ -413,14 +417,14 @@ const YeetDialog = () => {
   ];
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTitle className="hidden">Sign Yeet Transactions</DialogTitle>
-      <DialogTrigger asChild>
+      {/* <DialogTrigger asChild>
         <Button className="flex-1">
           Sign Yeet Transactions
           <RiSendPlaneFill className="h-4 w-4 ml-2" />
         </Button>
-      </DialogTrigger>
+      </DialogTrigger> */}
       <DialogContent
         className="sm:max-w-[425px] transition-all"
         aria-describedby="yeet-transactions"
