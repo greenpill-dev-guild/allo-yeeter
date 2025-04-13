@@ -8,11 +8,10 @@ import { cn } from "@/lib/utils";
 import { YeetStoreProvider } from "@/store/yeet";
 import { YeetFormProvider } from "@/hooks/useYeetForm";
 
+import Footer from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
-
-import { AlloKitProviders } from "./providers";
-import Footer from "./footer";
-import { Header } from "./header";
+import { Header } from "@/components/layout/header";
+import { AlloKitProviders } from "@/components/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
