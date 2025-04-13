@@ -38,13 +38,12 @@ import { useSelectedToken } from "@/hooks/useSelectedToken";
 import { useTokenPermissions } from "@/hooks/useTokenPermissions";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/router";
 
 interface YeetDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  onYeet: () => void;
-  onYeetSuccess: () => void;
-  onYeetError: () => void;
+  setOpen: (open: boolean) => void;
   children?: React.ReactNode;
 }
 
@@ -61,10 +60,9 @@ const MESSAGE_DELAY = 1000;
 const YeetDialog: React.FC<YeetDialogProps> = ({
   open,
   onOpenChange,
-  onYeet,
-  onYeetSuccess,
-  onYeetError,
+  setOpen,
 }) => {
+  const router = useRouter();
   const chains = useChains();
   const network = useNetwork();
   const { address } = useAccount();
@@ -189,7 +187,7 @@ const YeetDialog: React.FC<YeetDialogProps> = ({
     try {
       const createYeeterTx = strategyFactory.getCreateStrategyData();
       console.log("createYeeterTx", createYeeterTx);
-      await sendFactoryTransaction({
+      sendFactoryTransaction({
         data: createYeeterTx.data,
         to: createYeeterTx.to,
         value: BigInt(createYeeterTx.value),
@@ -378,6 +376,7 @@ const YeetDialog: React.FC<YeetDialogProps> = ({
         message: "Funds yeeted!",
       });
       setTimeout(() => {
+        router.push(`yeet/send`);
         setOpen(false);
       }, MESSAGE_DELAY);
     }
@@ -419,14 +418,8 @@ const YeetDialog: React.FC<YeetDialogProps> = ({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTitle className="hidden">Sign Yeet Transactions</DialogTitle>
-      {/* <DialogTrigger asChild>
-        <Button className="flex-1">
-          Sign Yeet Transactions
-          <RiSendPlaneFill className="h-4 w-4 ml-2" />
-        </Button>
-      </DialogTrigger> */}
       <DialogContent
-        className="sm:max-w-[425px] transition-all"
+        className="sm:max-w-md transition-all"
         aria-describedby="yeet-transactions"
       >
         {transactionStatus.status === "idle" ?
@@ -500,23 +493,6 @@ const YeetDialog: React.FC<YeetDialogProps> = ({
             )}
           </div>
         }
-        {/* <StepWrapper>
-        <StepHeader slide={slideDefinitions[3]} />
-        <Separator className="my-8" label="SUBTOTAL" />
-        <div className="flex justify-between items-center">
-          <h2 className="text-4xl font-semibold">
-            {`${Number(totalAmount).toLocaleString()} ${token?.code}`}
-          </h2>
-          {token && "icon" in token && (
-            <TokenIcon icon={token?.icon} className="w-14 h-14" />
-          )}
-        </div>
-        <SummaryDetails />
-        <Separator label="RECIPIENTS" className="my-8" />
-        <div className="w-full">
-          <RecipientsList />
-        </div>
-      </StepWrapper> */}
       </DialogContent>
     </Dialog>
   );

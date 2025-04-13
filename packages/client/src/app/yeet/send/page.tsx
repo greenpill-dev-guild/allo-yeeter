@@ -1,41 +1,43 @@
 "use client";
 
-import React from "react";
-import StepWrapper from "@/components/step/StepWrapper";
-import StepHeader from "@/components/step/StepHeader";
-import { Separator } from "@/components/ui/separator";
-import { slideDefinitions } from "@/app/slideDefinitions";
-import { Button } from "@/components/ui/button";
 import {
   RiAddCircleFill,
   RiArrowLeftLine,
   RiArrowRightUpFill,
 } from "@remixicon/react";
-import { useSelectedToken } from "@/hooks/useSelectedToken";
-import RecipientsList from "@/components/recipients/RecipientsList";
-import { TokenIcon } from "@/components/ui/token-icon";
-import SummaryDetails from "@/components/summary/SummaryDetails";
-import { useRouter } from "next/navigation";
-import YeetDialog from "./YeetDialog";
-import { useFormStore } from "@/store/form";
+import React from "react";
 import Link from "next/link";
-import { useChains, useConfig } from "wagmi";
-import { useForm } from "react-hook-form";
-import { useYeetForm } from "@/hooks/useYeetForm";
+import { useChains } from "wagmi";
+import { useRouter } from "next/navigation";
 
-const Summary = () => {
+import { slideDefinitions } from "@/components/step/slideDefinitions";
+
+import { useYeetStore } from "@/store/yeet";
+import { useYeetForm } from "@/hooks/useYeetForm";
+import { useSelectedToken } from "@/hooks/useSelectedToken";
+
+import { Button } from "@/components/ui/button";
+import { TokenIcon } from "@/components/ui/token-icon";
+import { Separator } from "@/components/ui/separator";
+import StepHeader from "@/components/step/StepHeader";
+import StepWrapper from "@/components/step/StepWrapper";
+import SummaryDetails from "@/components/summary/SummaryDetails";
+import RecipientsList from "@/components/recipients/RecipientsList";
+
+const YeetSend = () => {
   const router = useRouter();
-  const token = useSelectedToken();
-  const yeetTx = useFormStore((state) => state.yeetTx);
-  const chainId = useFormStore((state) => state.network);
-  const resetForm = useFormStore((state) => state.resetYeetForm);
-  const { reset: resetHookForm } = useForm();
-  const { reset: resetYeetForm } = useYeetForm();
+
   const chains = useChains();
-  const config = useConfig();
+  const token = useSelectedToken();
+
+  const { reset: resetYeetForm } = useYeetForm();
+  const yeetTx = useYeetStore((state) => state.yeetTx);
+  const chainId = useYeetStore((state) => state.network);
+  const resetForm = useYeetStore((state) => state.resetYeetForm);
+
   const scannerUrl = chains.find((c) => c.id === chainId)?.blockExplorers
     ?.default.url;
-  const totalAmount = useFormStore((state) => state.amount);
+  const totalAmount = useYeetStore((state) => state.amount);
 
   return (
     <>
@@ -67,14 +69,12 @@ const Summary = () => {
               <RiArrowLeftLine className="w-4 h-4" />
               Back
             </Button>
-            <YeetDialog />
           </>
         : <>
             <Button
               variant={"outline"}
               onClick={() => {
                 resetForm();
-                resetHookForm();
                 resetYeetForm();
                 router.push("/");
               }}
@@ -105,4 +105,4 @@ const Summary = () => {
   );
 };
 
-export default Summary;
+export default YeetSend;
