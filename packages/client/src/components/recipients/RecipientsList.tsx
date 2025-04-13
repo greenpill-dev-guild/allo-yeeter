@@ -1,6 +1,5 @@
 import { RiUserFill } from "@remixicon/react";
 
-import useAllocations from "@/hooks/useAllocations";
 import { useSelectedToken } from "@/hooks/useSelectedToken";
 
 import {
@@ -9,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useYeetStore } from "@/store/yeet";
 
 const RecipientItem = ({
   allocation,
@@ -39,12 +39,12 @@ const RecipientItem = ({
 
 const RecipientsList = () => {
   const token = useSelectedToken();
-  const allocations = useAllocations();
+  const recipients = useYeetStore((state) => state.recipients);
 
-  if (allocations.length <= 5) {
+  if (recipients.length <= 5) {
     return (
       <div className="flex flex-col gap-6">
-        {allocations.map((allocation, index) => (
+        {recipients.map((allocation, index) => (
           <RecipientItem
             key={allocation.address}
             allocation={allocation}
@@ -58,7 +58,7 @@ const RecipientsList = () => {
 
   return (
     <div className="flex flex-col gap-6">
-      {allocations.slice(0, 3).map((allocation, index) => (
+      {recipients.slice(0, 3).map((allocation, index) => (
         <RecipientItem
           key={allocation.address}
           allocation={allocation}
@@ -70,11 +70,11 @@ const RecipientsList = () => {
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="remaining-recipients">
           <AccordionTrigger className="text-sm">
-            Show {allocations.length - 3} more recipients
+            Show {recipients.length - 3} more recipients
           </AccordionTrigger>
           <AccordionContent>
             <div className="flex flex-col gap-6 pt-6">
-              {allocations.slice(3).map((allocation, index) => (
+              {recipients.slice(3).map((allocation, index) => (
                 <RecipientItem
                   key={allocation.address}
                   allocation={allocation}
