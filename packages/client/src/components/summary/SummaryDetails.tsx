@@ -1,12 +1,14 @@
-import React from 'react';
-import { Separator } from '@/components/ui/separator';
-import { useFormStore } from '@/store/form';
-import { useNetwork } from '@allo-team/kit';
+import React from "react";
+import { Separator } from "@/components/ui/separator";
+import { useYeetStore } from "@/store/yeet";
+import { useNetwork } from "@allo-team/kit";
 
 const SummaryDetails = () => {
-  const totalAmount = useFormStore(state => state.amount);
-  const addresses = useFormStore(state => state.addresses);
   const network = useNetwork();
+
+  const totalAmount = useYeetStore((state) => state.amount);
+  const addresses = useYeetStore((state) => state.recipients);
+
   // const alloFee = get allo fee somehow
   const subtotal = totalAmount;
   const amountPerRecipient = subtotal / addresses.length;
@@ -19,11 +21,11 @@ const SummaryDetails = () => {
           <Separator className="w-auto flex-1 mx-4" dashed />
           <div>{subtotal.toLocaleString()}</div>
         </div>
-        <div className="flex justify-between text-muted-foreground text-sm items-center">
+        {/* <div className="flex justify-between text-muted-foreground text-sm items-center">
           <div>Amount per recipient</div>
           <Separator className="w-auto flex-1 mx-4" dashed />
           <div>{amountPerRecipient.toLocaleString()}</div>
-        </div>
+        </div> */}
         <div className="flex justify-between text-muted-foreground text-sm items-center">
           <div>Network</div>
           <Separator className="w-auto flex-1 mx-4" dashed />

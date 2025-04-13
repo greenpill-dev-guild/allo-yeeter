@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { RiCheckLine } from "@remixicon/react";
 
 import { cn } from "@/lib/utils";
-import { slideDefinitions } from "@/app/slideDefinitions";
+import { slideDefinitions } from "@/components/step/slideDefinitions";
 
 import { useYeetStore } from "@/store/yeet";
 

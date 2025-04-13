@@ -1,4 +1,4 @@
-import { SlideDefinition } from "@/app/slideDefinitions";
+import { SlideDefinition } from "@/components/step/slideDefinitions";
 import { Separator } from "@/components/ui/separator";
 
 interface StepHeaderProps {
