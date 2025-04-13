@@ -1,19 +1,20 @@
-'use client';
-import { useContext, useEffect, useRef, type PropsWithChildren } from 'react';
-import { Button } from './ui/button';
-import { ConnectButton as RainbowConnectButton } from '@rainbow-me/rainbowkit';
-import {
-  RiWallet2Fill,
-  RiWallet2Line,
-  RiWallet3Fill,
-  RiWalletFill,
-} from '@remixicon/react';
-import { FormStoreContext, useFormStore } from '@/store/form';
-import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
+"use client";
+
+// import { useChainId } from "wagmi";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { RiWalletFill } from "@remixicon/react";
+import { useContext, useEffect, useRef, type PropsWithChildren } from "react";
+import { ConnectButton as RainbowConnectButton } from "@rainbow-me/rainbowkit";
+
+import { YeetStoreContext, useYeetStore } from "@/store/yeet";
+
+import { Button } from "./ui/button";
 
 export function ConnectButton({ children }: PropsWithChildren) {
+  // const chain = useChainId;
   const lastAccountIsActive = useRef(false);
+
   return (
     <RainbowConnectButton.Custom>
       {({
@@ -26,15 +27,15 @@ export function ConnectButton({ children }: PropsWithChildren) {
         authenticationStatus,
       }) => {
         const connected = mounted && account && chain;
-        console.log('connected', {
+        console.log("connected", {
           connected,
           account,
           chain,
           mounted,
           authenticationStatus,
         });
-        const resetYeetForm = useFormStore(state => state.resetYeetForm);
-        const store = useContext(FormStoreContext);
+        const resetYeetForm = useYeetStore((state) => state.resetYeetForm);
+        const store = useContext(YeetStoreContext);
         const router = useRouter();
         const { reset: resetForm } = useForm();
         // clear state on disconnect
@@ -44,7 +45,7 @@ export function ConnectButton({ children }: PropsWithChildren) {
             resetForm();
             resetYeetForm();
             store?.persist?.clearStorage?.();
-            router.push('/');
+            router.push("/");
             lastAccountIsActive.current = false;
           }
           lastAccountIsActive.current = !!account;
@@ -77,12 +78,15 @@ export function ConnectButton({ children }: PropsWithChildren) {
 
               return (
                 children || (
-                  <Button onClick={openAccountModal}>
-                    {account.displayName}
-                    {account.displayBalance
-                      ? ` (${account.displayBalance})`
-                      : ''}
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button onClick={openAccountModal}>
+                      {account.displayName}
+                      {/* {account.displayBalance ?
+                        ` (${account.displayBalance})`
+                      : ""} */}
+                    </Button>
+                    <Button onClick={openChainModal}>Change Network</Button>
+                  </div>
                 )
               );
             })()}

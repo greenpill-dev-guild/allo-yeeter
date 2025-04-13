@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 import { RiCheckLine } from "@remixicon/react";
 
 import { cn } from "@/lib/utils";
-import { useFormStore } from "@/store/form";
 import { slideDefinitions } from "@/app/slideDefinitions";
-import { useSelectedToken } from "@/hooks/useSelectedToken";
+
+import { useYeetStore } from "@/store/yeet";
 
 import {
   Breadcrumb,
@@ -28,15 +28,10 @@ const Step = ({
   url: string;
   active?: boolean;
 }) => {
-  const formState = useFormStore((state) => state);
-  const token = useSelectedToken();
+  const formState = useYeetStore((state) => state);
   const completionStatus = [
     // recipients
-    formState.addresses.length > 0 && formState.addresses[0],
-    // token
-    token?.address && formState.network > 0,
-    // amount
-    formState.amount > 0,
+    formState.yeetTx,
     // yeetTx
     formState.yeetTx,
   ];
