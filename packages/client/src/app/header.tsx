@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
-import { ConnectButton } from "@/components/connect-button";
-import StepBreadcrumb from "@/components/form/step-breadcrumb";
+import { ConnectButton } from "@/components/ConnectButton";
+import StepBreadcrumb from "@/components/form/StepBreadcrumb";
 
 export function Header() {
   return (
@@ -23,40 +23,6 @@ export function Header() {
           <StepBreadcrumb />
         </div>
         <div className="max-[940px]:absolute max-[940px]:right-4 max-[940px]:top-14">
-        {/* <FormField
-            control={form.control}
-            name="network"
-            render={({ field }) => (
-              <FormItem className="flex-1">
-                <FormLabel>Network</FormLabel>
-                <Select
-                  onValueChange={(value) => {
-                    formState.setNetwork(Number(value));
-                    field.onChange(Number(value));
-                  }}
-                  defaultValue={`${field.value}`}
-                >
-                  <SelectTrigger>
-                    <div className="flex items-center gap-2">
-                      {!selectedNetwork && <RiGlobalLine className="w-4 h-4" />}
-                      <SelectValue placeholder="Select network" />
-                    </div>
-                  </SelectTrigger>
-                  <SelectContent>
-                    {supportedChains?.map((network) => (
-                      <SelectItem key={network.id} value={String(network.id)}>
-                        <div className="flex items-center gap-2">
-                          <TokenIcon icon={network.icon} />
-                          {network.name}
-                        </div>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          /> */}
           <ConnectButton />
         </div>
       </div>

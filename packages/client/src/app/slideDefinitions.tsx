@@ -1,9 +1,8 @@
 import React from "react";
 import { UseFormReturn } from "react-hook-form";
-import { RiCoinFill, RiFileListFill, RiGroupFill } from "@remixicon/react";
+import { RiFileListFill, RiGroupFill } from "@remixicon/react";
 
 import { YeetFormData } from "../hooks/useYeetForm";
-// import Success from './5_Success';
 
 const ICON_SIZE = 32;
 
@@ -24,34 +23,18 @@ export interface SlideDefinition {
 
 export const slideDefinitions: SlideDefinition[] = [
   {
-    url: "/steps/recipients",
-    shortTitle: "Yeet",
-    title: "Prepare To Yeet",
-    subtitle: "Enter the addresses and amount to yeet!",
-    fieldsToValidate: ["addresses"],
+    url: "/yeet/load",
+    shortTitle: "Load",
+    title: "Add Recipients & Amounts",
+    subtitle: "Upload a CSV or use ENS to prep your payout list.",
+    fieldsToValidate: ["network", "token", "amount", "recipients"],
     icon: <RiGroupFill size={ICON_SIZE} className="text-primary" />,
   },
   {
-    url: "/steps/token",
-    shortTitle: "Token",
-    title: "Select your token",
-    subtitle: "Choose or add the token you want to yeet",
-    fieldsToValidate: ["network", "token", "customToken"],
-    icon: <RiCoinFill size={ICON_SIZE} className="text-primary" />,
-  },
-  {
-    url: "/steps/amount",
-    shortTitle: "Amount",
-    title: "Define the amount",
-    subtitle: "Choose how much you want to send to your recipients",
-    fieldsToValidate: ["amount"],
-    icon: <RiCoinFill size={ICON_SIZE} className="text-primary" />,
-  },
-  {
-    url: "/steps/summary",
-    shortTitle: "Summary",
-    title: "Yeet Summary",
-    subtitle: "Confirm yeet amount and recipients",
+    url: "/yeet/send",
+    shortTitle: "Yeet",
+    title: "Funds Sent!",
+    subtitle: "Succesfully yeeted funds to recipients.",
     fieldsToValidate: [],
     icon: <RiFileListFill size={ICON_SIZE} className="text-primary" />,
   },

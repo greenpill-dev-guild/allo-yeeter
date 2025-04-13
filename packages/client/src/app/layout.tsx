@@ -5,19 +5,20 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { cn } from "@/lib/utils";
-import { FormStoreProvider } from "@/store/form";
+import { YeetStoreProvider } from "@/store/yeet";
 import { YeetFormProvider } from "@/hooks/useYeetForm";
+
 import { Toaster } from "@/components/ui/toaster";
 
-import { Header } from "./header";
-import Footer from "./footer";
 import { AlloKitProviders } from "./providers";
+import Footer from "./footer";
+import { Header } from "./header";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Allo Yeeter",
-  description: "",
+  description: "Create pools of fund you can quickly send.",
 };
 
 export default function RootLayout({
@@ -27,9 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={cn(inter.className)}>
+      <body className={cn(inter.className, "overflow-hidden")}>
         <AlloKitProviders>
-          <FormStoreProvider>
+          <YeetStoreProvider>
             <YeetFormProvider>
               <div className="flex flex-col gap-6 justify-between w-full bg-[url('/GridPatternBG.svg')] h-screen bg-center bg-no-repeat bg-contain px-4">
                 <Toaster />
@@ -40,7 +41,7 @@ export default function RootLayout({
                 <Footer />
               </div>
             </YeetFormProvider>
-          </FormStoreProvider>
+          </YeetStoreProvider>
         </AlloKitProviders>
       </body>
     </html>
