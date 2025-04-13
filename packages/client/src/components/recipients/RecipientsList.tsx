@@ -1,13 +1,14 @@
+import { RiUserFill } from "@remixicon/react";
+
+import useAllocations from "@/hooks/useAllocations";
+import { useSelectedToken } from "@/hooks/useSelectedToken";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { RiUserFill } from "@remixicon/react";
-
-import useAllocations from "@/hooks/useAllocations";
-import { useSelectedToken } from "@/hooks/useSelectedToken";
 
 const RecipientItem = ({
   allocation,
