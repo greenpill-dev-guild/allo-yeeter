@@ -62,7 +62,7 @@ const YeetDialog: React.FC<YeetDialogProps> = ({
   onOpenChange,
   setOpen,
 }) => {
-  const router = useRouter();
+  // const router = useRouter();
   const chains = useChains();
   const network = useNetwork();
   const { address } = useAccount();
@@ -376,7 +376,7 @@ const YeetDialog: React.FC<YeetDialogProps> = ({
         message: "Funds yeeted!",
       });
       setTimeout(() => {
-        router.push(`yeet/send`);
+        // router.push(`yeet/send`);
         setOpen(false);
       }, MESSAGE_DELAY);
     }
