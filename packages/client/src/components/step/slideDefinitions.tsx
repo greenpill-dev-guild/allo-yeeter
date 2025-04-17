@@ -4,7 +4,7 @@ import { RiFileListFill, RiGroupFill } from "@remixicon/react";
 
 import { YeetFormData } from "../../hooks/useYeetForm";
 
-const ICON_SIZE = 32;
+const ICON_SIZE = 20;
 
 export interface SlideProps {
   form: UseFormReturn<YeetFormData>;

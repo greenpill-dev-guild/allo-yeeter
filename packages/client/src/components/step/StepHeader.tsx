@@ -1,5 +1,4 @@
 import { SlideDefinition } from "@/components/step/slideDefinitions";
-import { Separator } from "@/components/ui/separator";
 
 interface StepHeaderProps {
   slide: SlideDefinition;
@@ -13,8 +12,8 @@ const StepHeader = ({ slide }: StepHeaderProps) => {
           {slide.icon}
         </div>
       </div>
-      <h3 className="text-3xl font-semibold tracking-tight">{slide.title}</h3>
-      {/* <span className="text-muted-foreground">{slide.subtitle}</span> */}
+      <h3 className="text-xl font-semibold tracking-tight">{slide.title}</h3>
+      <span className="text-muted-foreground text-sm">{slide.subtitle}</span>
     </div>
   );
 };

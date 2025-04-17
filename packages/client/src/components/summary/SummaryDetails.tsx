@@ -1,17 +1,17 @@
 import React from "react";
-import { Separator } from "@/components/ui/separator";
-import { useYeetStore } from "@/store/yeet";
 import { useNetwork } from "@allo-team/kit";
+
+import { useYeetStore } from "@/store/yeet";
+
+import { Separator } from "@/components/ui/separator";
 
 const SummaryDetails = () => {
   const network = useNetwork();
 
   const totalAmount = useYeetStore((state) => state.amount);
-  const addresses = useYeetStore((state) => state.recipients);
 
-  // const alloFee = get allo fee somehow
-  const subtotal = totalAmount;
-  const amountPerRecipient = subtotal / addresses.length;
+  const alloFee = 0; // Placeholder for allo fee calculation
+  const subtotal = totalAmount - alloFee; // Adjust subtotal to account for allo fee
 
   return (
     <div className="w-full">

@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { ConnectButton } from "@/components/ConnectButton";
-import StepBreadcrumb from "@/components/step/StepBreadcrumb";
 
 export function Header() {
   return (
@@ -19,9 +18,7 @@ export function Header() {
             />
           </Link>
         </div>
-        <div className="w-full min-[940px]:flex-1 my-4 min-[940px]:my-0 min-[940px]:mx-4">
-          <StepBreadcrumb />
-        </div>
+        <div className="w-full min-[940px]:flex-1 my-4 min-[940px]:my-0 min-[940px]:mx-4"></div>
         <div className="max-[940px]:absolute max-[940px]:right-4 max-[940px]:top-14">
           <ConnectButton />
         </div>
